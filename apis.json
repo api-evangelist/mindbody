@@ -1,0 +1,98 @@
+{
+    "name": "MINDBODY",
+    "description": "See how MINDBODY business management software serves gyms, spas and salons worldwide, and helps people find and book with them.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/850-mindbody.jpg",
+    "tags": [
+        "affiliate",
+        "api crap",
+        "bookings",
+        "have api",
+        "new",
+        "point of sale",
+        "schedules",
+        "webhook implementations"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/mindbody\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "MINDBODY",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/850-mindbody.jpg",
+            "humanURL": "http:\/\/developers.mindbodyonline.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/mindbody-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/mindbody-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Blog",
+            "url": "http:\/\/mindbodyonline.com\/blog"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/mindbody"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/mindbody"
+        },
+        {
+            "type": "Developers",
+            "url": "http:\/\/www.mindbodyonline.com\/api"
+        },
+        {
+            "type": "Email",
+            "url": "privacy@mindbodyonline.com"
+        },
+        {
+            "type": "Email",
+            "url": "support@mindbodyonline.com"
+        },
+        {
+            "type": "Email",
+            "url": "unsubscribe@mindbodyonline.com"
+        },
+        {
+            "type": "Email",
+            "url": "legal@mindbodyonline.com"
+        },
+        {
+            "type": "Email",
+            "url": "ClientCare@mindbodyonline.com"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/mindbody"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/mindbodyonline"
+        },
+        {
+            "type": "Webhooks",
+            "url": "https:\/\/developers.mindbodyonline.com\/WebhooksDocumentation"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/developers.mindbodyonline.com"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/www.mindbodyonline.com"
+        }
+    ]
+}
