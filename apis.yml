@@ -1,0 +1,81 @@
+aid: mindbody
+name: Mindbody
+description: >-
+  Mindbody is a business management and consumer marketplace platform for the
+  fitness, beauty, and wellness industries, providing scheduling, point of
+  sale, client management, marketing, and reporting tools for studios, gyms,
+  salons, and spas. The Mindbody Public API (v6) provides REST endpoints for
+  appointments, classes, clients, sales, sites, staff, and resources, and is
+  paired with a webhooks platform that allows partners to react to changes
+  in real time using API key and OAuth-based authentication.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Fitness
+  - Wellness
+  - Beauty
+  - Scheduling
+  - Booking
+  - Point of Sale
+  - Studios
+  - Salons
+  - Spas
+url: https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: mindbody:public-api-v6
+    name: Mindbody Public API v6
+    description: >-
+      REST API for Mindbody business data including appointments, classes,
+      clients, enrollments, sales, sites, staff, and resources. Authentication
+      combines a Mindbody-issued API key and source credentials with optional
+      OAuth 2.0 bearer tokens for staff and client-scoped operations.
+    humanURL: https://developers.mindbodyonline.com/PublicDocumentation/V6
+    baseURL: https://api.mindbodyonline.com/public/v6
+    tags:
+      - REST
+      - OAuth 2.0
+      - API Key
+      - Appointments
+      - Classes
+      - Clients
+      - Sales
+    properties:
+      - type: Documentation
+        url: https://developers.mindbodyonline.com/PublicDocumentation/V6
+      - type: Developer Portal
+        url: https://developers.mindbodyonline.com/
+      - type: API Reference
+        url: https://developers.mindbodyonline.com/ui/documentation/public-api
+  - aid: mindbody:webhooks-api
+    name: Mindbody Webhooks API
+    description: >-
+      Subscription and delivery platform that pushes near real-time event
+      notifications for appointments, classes, clients, sales, and staff so
+      partner systems can react without polling the Public API.
+    humanURL: https://developers.mindbodyonline.com/WebhooksDocumentation
+    baseURL: https://mb-api.mindbodyonline.com/push/api/v1
+    tags:
+      - Webhooks
+      - Events
+      - Subscriptions
+      - Real-Time
+    properties:
+      - type: Documentation
+        url: https://developers.mindbodyonline.com/WebhooksDocumentation
+common:
+  - type: Website
+    url: https://www.mindbodyonline.com/
+  - type: Documentation
+    url: https://developers.mindbodyonline.com/
+  - type: Developer Portal
+    url: https://developers.mindbodyonline.com/
+  - type: Pricing
+    url: https://www.mindbodyonline.com/business/pricing
+  - type: Sign Up
+    url: https://developers.mindbodyonline.com/Signup
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
