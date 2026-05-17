@@ -47,7 +47,7 @@ apis:
         url: https://developers.mindbodyonline.com/PublicDocumentation/V6
       - type: Developer Portal
         url: https://developers.mindbodyonline.com/
-      - type: API Reference
+      - type: APIReference
         url: https://developers.mindbodyonline.com/ui/documentation/public-api
   - aid: mindbody:webhooks-api
     name: Mindbody Webhooks API
@@ -74,7 +74,7 @@ common:
     url: https://developers.mindbodyonline.com/
   - type: Pricing
     url: https://www.mindbodyonline.com/business/pricing
-  - type: Sign Up
+  - type: SignUp
     url: https://developers.mindbodyonline.com/Signup
 maintainers:
   - FN: Kin Lane
