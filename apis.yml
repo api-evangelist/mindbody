@@ -66,6 +66,10 @@ apis:
       - type: Documentation
         url: https://developers.mindbodyonline.com/WebhooksDocumentation
 common:
+  - type: GitHubOrganization
+    url: https://github.com/mindbody
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/mindbody
   - type: Website
     url: https://www.mindbodyonline.com/
   - type: Documentation
