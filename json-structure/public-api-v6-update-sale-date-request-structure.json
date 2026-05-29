@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-update-sale-date-request-structure.json",
+  "name": "UpdateSaleDateRequest",
+  "description": "Implementation of the 'UpdateSaleDateRequest' model. Update Sales Date Request Model",
+  "type": "object",
+  "properties": {
+    "SaleID": {
+      "type": "int32",
+      "description": "The Sale ID for which saleDate needs to be updated. This is the `Sale[].Id` returned from GET Sales.",
+      "example": 1
+    },
+    "SaleDate": {
+      "type": "datetime",
+      "description": "The sale date which needs to be modified.",
+      "example": "2026-05-28T14:30:00Z"
+    }
+  }
+}

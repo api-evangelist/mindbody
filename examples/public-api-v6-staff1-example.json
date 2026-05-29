@@ -1,0 +1,60 @@
+{
+  "Id": 123456,
+  "FirstName": "Alex",
+  "LastName": "Lane",
+  "DisplayName": "example-value",
+  "Email": "kinlane@example.com",
+  "Bio": "example-value",
+  "Address": "123 Market St",
+  "Address2": "123 Market St",
+  "City": "San Francisco",
+  "State": "CA",
+  "PostalCode": "94110",
+  "ForeignZip": "example-value",
+  "Country": "US",
+  "WorkPhone": "+15551234567",
+  "HomePhone": "+15551234567",
+  "CellPhone": "+15551234567",
+  "Active": true,
+  "IsSystem": true,
+  "SmodeId": 123456,
+  "AppointmentTrn": true,
+  "AlwaysAllowDoubleBooking": true,
+  "IndependentContractor": true,
+  "ImageUrl": "https://example.mindbodyonline.com/resource/abc123",
+  "IsMale": true,
+  "ReservationTrn": true,
+  "SortOrder": 1,
+  "MultiLocationPermission": true,
+  "Name": "Sunset Yoga Studio",
+  "ProviderIDs": [
+    "example-value"
+  ],
+  "StaffSettings": {
+    "UseStaffNicknames": true,
+    "ShowStaffLastNamesOnSchedules": true
+  },
+  "Rep": true,
+  "Rep2": true,
+  "Rep3": true,
+  "Rep4": true,
+  "Rep5": true,
+  "Rep6": true,
+  "Assistant": true,
+  "Assistant2": true,
+  "EmploymentStart": "2026-05-28T14:30:00Z",
+  "EmploymentEnd": "2026-05-28T14:30:00Z",
+  "EmpID": "example-value",
+  "Appointments": [
+    {}
+  ],
+  "Unavailabilities": [
+    {}
+  ],
+  "Availabilities": [
+    {}
+  ],
+  "LoginLocations": [
+    {}
+  ]
+}

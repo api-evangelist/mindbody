@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-transaction-response-schema.json",
+  "title": "TransactionResponse",
+  "description": "Implementation of the 'TransactionResponse' model.",
+  "type": "object",
+  "properties": {
+    "TransactionId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The Transaction ID.",
+      "example": 123456
+    },
+    "AuthenticationUrl": {
+      "type": "string",
+      "description": "The optional valid URL provided by the bank.",
+      "example": "https://example.mindbodyonline.com/resource/abc123"
+    }
+  }
+}

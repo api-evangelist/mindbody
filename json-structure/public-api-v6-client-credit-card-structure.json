@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-client-credit-card-structure.json",
+  "name": "ClientCreditCard",
+  "description": "Implementation of the 'ClientCreditCard' model. A client credit card.",
+  "type": "object",
+  "properties": {
+    "Address": {
+      "type": "string",
+      "description": "The billing address for the credit card.",
+      "example": "123 Market St"
+    },
+    "CardHolder": {
+      "type": "string",
+      "description": "The name of the card holder.",
+      "example": "example-value"
+    },
+    "CardNumber": {
+      "type": "string",
+      "description": "The credit card number.",
+      "example": "example-value"
+    },
+    "CardType": {
+      "type": "string",
+      "description": "The type of credit card, for example Visa or MasterCard.",
+      "example": "example-value"
+    },
+    "City": {
+      "type": "string",
+      "description": "The city in which the billing address is located.",
+      "example": "San Francisco"
+    },
+    "ExpMonth": {
+      "type": "string",
+      "description": "The month in which the credit card expires.",
+      "example": "example-value"
+    },
+    "ExpYear": {
+      "type": "string",
+      "description": "The year in which the credit card expires.",
+      "example": "example-value"
+    },
+    "LastFour": {
+      "type": "string",
+      "description": "The last four digits of the credit card number.",
+      "example": "example-value"
+    },
+    "PostalCode": {
+      "type": "string",
+      "description": "The postal code where the billing address is located.",
+      "example": "94110"
+    },
+    "State": {
+      "type": "string",
+      "description": "The state that the billing address is located in.",
+      "example": "CA"
+    }
+  }
+}

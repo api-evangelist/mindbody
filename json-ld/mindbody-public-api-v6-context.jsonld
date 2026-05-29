@@ -1,0 +1,3634 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "mb": "https://api.mindbodyonline.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AddAppointmentAddOnRequest": "mb:AddAppointmentAddOnRequest",
+    "AddAppointmentAddOnResponse": "mb:AddAppointmentAddOnResponse",
+    "AddAppointmentOutcome": "mb:AddAppointmentOutcome",
+    "AddAppointmentRequest": "mb:AddAppointmentRequest",
+    "AddAppointmentResponse": "mb:AddAppointmentResponse",
+    "AddArrivalRequest": "mb:AddArrivalRequest",
+    "AddArrivalResponse": "mb:AddArrivalResponse",
+    "AddAvailabilitiesRequest": "mb:AddAvailabilitiesRequest",
+    "AddAvailabilitiesResponse": "mb:AddAvailabilitiesResponse",
+    "AddClassEnrollmentScheduleRequest": "mb:AddClassEnrollmentScheduleRequest",
+    "AddClientDirectDebitInfoRequest": "mb:AddClientDirectDebitInfoRequest",
+    "AddClientDirectDebitInfoResponse": "mb:AddClientDirectDebitInfoResponse",
+    "AddClientRequest": "mb:AddClientRequest",
+    "AddClientResponse": "mb:AddClientResponse",
+    "AddClientToClassRequest": "mb:AddClientToClassRequest",
+    "AddClientToClassResponse": "mb:AddClientToClassResponse",
+    "AddClientToClassVisit": "mb:AddClientToClassVisit",
+    "AddClientToEnrollmentRequest": "mb:AddClientToEnrollmentRequest",
+    "AddContactLogRequest": "mb:AddContactLogRequest",
+    "AddContactLogType": "mb:AddContactLogType",
+    "AddFormulaNoteRequest": "mb:AddFormulaNoteRequest",
+    "AddMultipleAppointmentsRequest": "mb:AddMultipleAppointmentsRequest",
+    "AddMultipleAppointmentsResponse": "mb:AddMultipleAppointmentsResponse",
+    "AddOnSmall": "mb:AddOnSmall",
+    "AddOnSmall1": "mb:AddOnSmall1",
+    "AddPromoCodeRequest": "mb:AddPromoCodeRequest",
+    "AddPromoCodeResponse": "mb:AddPromoCodeResponse",
+    "AddSiteClientIndexRequest": "mb:AddSiteClientIndexRequest",
+    "AddSiteClientIndexResponse": "mb:AddSiteClientIndexResponse",
+    "AddStaffAvailabilityRequest": "mb:AddStaffAvailabilityRequest",
+    "AddStaffRequest": "mb:AddStaffRequest",
+    "AddStaffResponse": "mb:AddStaffResponse",
+    "AlternativePaymentMethod": "mb:AlternativePaymentMethod",
+    "Amenity": "mb:Amenity",
+    "Amenity1": "mb:Amenity1",
+    "ApiError1": "mb:ApiError1",
+    "ApplicableItem": "mb:ApplicableItem",
+    "Appointment": "mb:Appointment",
+    "Appointment1": "mb:Appointment1",
+    "AppointmentAddOn": "mb:AppointmentAddOn",
+    "AppointmentOption": "mb:AppointmentOption",
+    "AppointmentStaff": "mb:AppointmentStaff",
+    "AssignStaffSessionTypeRequest": "mb:AssignStaffSessionTypeRequest",
+    "AssignStaffSessionTypeResponse": "mb:AssignStaffSessionTypeResponse",
+    "AssignedClientIndex": "mb:AssignedClientIndex",
+    "AutopaySchedule": "mb:AutopaySchedule",
+    "Availability": "mb:Availability",
+    "Availability1": "mb:Availability1",
+    "BookingWindow": "mb:BookingWindow",
+    "CancelSingleClassRequest": "mb:CancelSingleClassRequest",
+    "CancelSingleClassResponse": "mb:CancelSingleClassResponse",
+    "CartItem": "mb:CartItem",
+    "Category": "mb:Category",
+    "CheckoutAlternativePaymentInfo": "mb:CheckoutAlternativePaymentInfo",
+    "CheckoutAppointmentBookingRequest": "mb:CheckoutAppointmentBookingRequest",
+    "CheckoutItem": "mb:CheckoutItem",
+    "CheckoutItemWrapper": "mb:CheckoutItemWrapper",
+    "CheckoutPaymentInfo": "mb:CheckoutPaymentInfo",
+    "CheckoutShoppingCartRequest": "mb:CheckoutShoppingCartRequest",
+    "CheckoutShoppingCartResponse": "mb:CheckoutShoppingCartResponse",
+    "Class": "mb:Class",
+    "ClassClientDetail": "mb:ClassClientDetail",
+    "ClassDescription": "mb:ClassDescription",
+    "ClassSchedule": "mb:ClassSchedule",
+    "Client": "mb:Client",
+    "ClientArrival": "mb:ClientArrival",
+    "ClientContract": "mb:ClientContract",
+    "ClientCreditCard": "mb:ClientCreditCard",
+    "ClientDocument": "mb:ClientDocument",
+    "ClientDuplicate": "mb:ClientDuplicate",
+    "ClientIndex": "mb:ClientIndex",
+    "ClientIndexValue": "mb:ClientIndexValue",
+    "ClientMembership": "mb:ClientMembership",
+    "ClientMemberships": "mb:ClientMemberships",
+    "ClientPurchaseRecord": "mb:ClientPurchaseRecord",
+    "ClientRelationship": "mb:ClientRelationship",
+    "ClientRewardTransaction": "mb:ClientRewardTransaction",
+    "ClientService": "mb:ClientService",
+    "ClientServiceWithActivationType": "mb:ClientServiceWithActivationType",
+    "ClientSuspensionInfo": "mb:ClientSuspensionInfo",
+    "ClientType": "mb:ClientType",
+    "ClientWithSuspensionInfo": "mb:ClientWithSuspensionInfo",
+    "Color": "mb:Color",
+    "CommissionDetail": "mb:CommissionDetail",
+    "CommissionPayrollPurchaseEvent": "mb:CommissionPayrollPurchaseEvent",
+    "CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest": "mb:CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest",
+    "ContactLog": "mb:ContactLog",
+    "ContactLogComment": "mb:ContactLogComment",
+    "ContactLogSubType": "mb:ContactLogSubType",
+    "ContactLogType": "mb:ContactLogType",
+    "Contract": "mb:Contract",
+    "ContractItem": "mb:ContractItem",
+    "CopyCreditCardRequest": "mb:CopyCreditCardRequest",
+    "CopyCreditCardResponse": "mb:CopyCreditCardResponse",
+    "CopyCreditCardResponseClient": "mb:CopyCreditCardResponseClient",
+    "Course": "mb:Course",
+    "CreateReservationResponse": "mb:CreateReservationResponse",
+    "CreditCardInfo": "mb:CreditCardInfo",
+    "CrossRegionalClientAssociation": "mb:CrossRegionalClientAssociation",
+    "CustomClientField": "mb:CustomClientField",
+    "CustomClientFieldValue": "mb:CustomClientFieldValue",
+    "CustomPaymentMethod": "mb:CustomPaymentMethod",
+    "DeactivatePromoCodeRequest": "mb:DeactivatePromoCodeRequest",
+    "DirectDebitInfo": "mb:DirectDebitInfo",
+    "Discount": "mb:Discount",
+    "FormulaNoteResponse": "mb:FormulaNoteResponse",
+    "GenderOption": "mb:GenderOption",
+    "GetActivationCodeResponse": "mb:GetActivationCodeResponse",
+    "GetActiveClientMembershipsResponse": "mb:GetActiveClientMembershipsResponse",
+    "GetActiveClientsMembershipsResponse": "mb:GetActiveClientsMembershipsResponse",
+    "GetActiveSessionTimesResponse": "mb:GetActiveSessionTimesResponse",
+    "GetAddOnsResponse": "mb:GetAddOnsResponse",
+    "GetAlternativePaymentMethodsResponse": "mb:GetAlternativePaymentMethodsResponse",
+    "GetAppointmentOptionsResponse": "mb:GetAppointmentOptionsResponse",
+    "GetAvailableDatesResponse": "mb:GetAvailableDatesResponse",
+    "GetBookableItemsResponse": "mb:GetBookableItemsResponse",
+    "GetCategoriesResponse": "mb:GetCategoriesResponse",
+    "GetClassDescriptionsResponse": "mb:GetClassDescriptionsResponse",
+    "GetClassSchedulesResponse": "mb:GetClassSchedulesResponse",
+    "GetClassVisitsResponse": "mb:GetClassVisitsResponse",
+    "GetClassesResponse": "mb:GetClassesResponse",
+    "GetClientAccountBalancesResponse": "mb:GetClientAccountBalancesResponse",
+    "GetClientCompleteInfoResponse": "mb:GetClientCompleteInfoResponse",
+    "GetClientContractsResponse": "mb:GetClientContractsResponse",
+    "GetClientDuplicatesResponse": "mb:GetClientDuplicatesResponse",
+    "GetClientFormulaNotesResponse": "mb:GetClientFormulaNotesResponse",
+    "GetClientIndexesResponse": "mb:GetClientIndexesResponse",
+    "GetClientPurchasesResponse": "mb:GetClientPurchasesResponse",
+    "GetClientReferralTypesResponse": "mb:GetClientReferralTypesResponse",
+    "GetClientRewardsResponse": "mb:GetClientRewardsResponse",
+    "GetClientScheduleResponse": "mb:GetClientScheduleResponse",
+    "GetClientServicesResponse": "mb:GetClientServicesResponse",
+    "GetClientVisitsResponse": "mb:GetClientVisitsResponse",
+    "GetClientsResponse": "mb:GetClientsResponse",
+    "GetCommissionsResponse": "mb:GetCommissionsResponse",
+    "GetContactLogTypesResponse": "mb:GetContactLogTypesResponse",
+    "GetContactLogsResponse": "mb:GetContactLogsResponse",
+    "GetContractsResponse": "mb:GetContractsResponse",
+    "GetCoursesReponse": "mb:GetCoursesReponse",
+    "GetCrossRegionalClientAssociationsResponse": "mb:GetCrossRegionalClientAssociationsResponse",
+    "GetCustomClientFieldsResponse": "mb:GetCustomClientFieldsResponse",
+    "GetCustomPaymentMethodsResponse": "mb:GetCustomPaymentMethodsResponse",
+    "GetEnrollmentsResponse": "mb:GetEnrollmentsResponse",
+    "GetGendersResponse": "mb:GetGendersResponse",
+    "GetGiftCardBalanceResponse": "mb:GetGiftCardBalanceResponse",
+    "GetGiftCardResponse": "mb:GetGiftCardResponse",
+    "GetLiabilityWaiverResponse": "mb:GetLiabilityWaiverResponse",
+    "GetLocationsResponse": "mb:GetLocationsResponse",
+    "GetMembershipsResponse": "mb:GetMembershipsResponse",
+    "GetMobileProvidersResponse": "mb:GetMobileProvidersResponse",
+    "GetPackagesResponse": "mb:GetPackagesResponse",
+    "GetPaymentTypesResponse": "mb:GetPaymentTypesResponse",
+    "GetPickASpotClassResponse": "mb:GetPickASpotClassResponse",
+    "GetProductsInventoryResponse": "mb:GetProductsInventoryResponse",
+    "GetProductsResponse": "mb:GetProductsResponse",
+    "GetProgramsResponse": "mb:GetProgramsResponse",
+    "GetPromoCodesResponse": "mb:GetPromoCodesResponse",
+    "GetProspectStagesResponse": "mb:GetProspectStagesResponse",
+    "GetRelationshipsResponse": "mb:GetRelationshipsResponse",
+    "GetRequiredClientFieldsResponse": "mb:GetRequiredClientFieldsResponse",
+    "GetReservationResponse": "mb:GetReservationResponse",
+    "GetResourceAvailabilitiesResponse": "mb:GetResourceAvailabilitiesResponse",
+    "GetSalesRepsResponse": "mb:GetSalesRepsResponse",
+    "GetSalesResponse": "mb:GetSalesResponse",
+    "GetScheduleItemsResponse": "mb:GetScheduleItemsResponse",
+    "GetScheduledServiceEarningsResponse": "mb:GetScheduledServiceEarningsResponse",
+    "GetSemestersResponse": "mb:GetSemestersResponse",
+    "GetServicesResponse": "mb:GetServicesResponse",
+    "GetSessionTypesResponse": "mb:GetSessionTypesResponse",
+    "GetSitesResponse": "mb:GetSitesResponse",
+    "GetStaffAppointmentsResponse": "mb:GetStaffAppointmentsResponse",
+    "GetStaffImageURLResponse": "mb:GetStaffImageURLResponse",
+    "GetStaffPermissionsResponse": "mb:GetStaffPermissionsResponse",
+    "GetStaffResponse": "mb:GetStaffResponse",
+    "GetStaffSessionTypesResponse": "mb:GetStaffSessionTypesResponse",
+    "GetTimeCardsResponse": "mb:GetTimeCardsResponse",
+    "GetTipsResponse": "mb:GetTipsResponse",
+    "GetTransactionsResponse": "mb:GetTransactionsResponse",
+    "GetUnavailabilitiesResponse": "mb:GetUnavailabilitiesResponse",
+    "GetWaitlistEntriesResponse": "mb:GetWaitlistEntriesResponse",
+    "GiftCard": "mb:GiftCard",
+    "GiftCardLayout": "mb:GiftCardLayout",
+    "HttpContent": "mb:HttpContent",
+    "InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest": "mb:InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest",
+    "InitiatePurchaseContractRequest": "mb:InitiatePurchaseContractRequest",
+    "IssueRequest": "mb:IssueRequest",
+    "IssueResponse": "mb:IssueResponse",
+    "LeadChannel": "mb:LeadChannel",
+    "Level": "mb:Level",
+    "Liability": "mb:Liability",
+    "Location": "mb:Location",
+    "Location1": "mb:Location1",
+    "M0CultureNeutralPublicKeyTokenB77a5c561934e089": "mb:M0CultureNeutralPublicKeyTokenB77a5c561934e089",
+    "Membership": "mb:Membership",
+    "MembershipTypeRestriction": "mb:MembershipTypeRestriction",
+    "MergeClientsRequest": "mb:MergeClientsRequest",
+    "MobileProvider": "mb:MobileProvider",
+    "Package": "mb:Package",
+    "Pagination": "mb:Pagination",
+    "PaginationResponse": "mb:PaginationResponse",
+    "PaymentProcessingFailure": "mb:PaymentProcessingFailure",
+    "PaymentType": "mb:PaymentType",
+    "PickASpotClass": "mb:PickASpotClass",
+    "PricingRelationships": "mb:PricingRelationships",
+    "Product": "mb:Product",
+    "ProductsInventory": "mb:ProductsInventory",
+    "Program": "mb:Program",
+    "Program1": "mb:Program1",
+    "ProgramMembership": "mb:ProgramMembership",
+    "PromoCode": "mb:PromoCode",
+    "ProspectStage": "mb:ProspectStage",
+    "PurchaseAccountCreditRequest": "mb:PurchaseAccountCreditRequest",
+    "PurchaseAccountCreditResponse": "mb:PurchaseAccountCreditResponse",
+    "PurchaseContractRequest": "mb:PurchaseContractRequest",
+    "PurchaseContractResponse": "mb:PurchaseContractResponse",
+    "PurchaseContractResponseTotals": "mb:PurchaseContractResponseTotals",
+    "PurchaseGiftCardRequest": "mb:PurchaseGiftCardRequest",
+    "PurchaseGiftCardResponse": "mb:PurchaseGiftCardResponse",
+    "PurchasedItem": "mb:PurchasedItem",
+    "Relationship": "mb:Relationship",
+    "RemoveClientFromClassRequest": "mb:RemoveClientFromClassRequest",
+    "RemoveClientFromClassResponse": "mb:RemoveClientFromClassResponse",
+    "RemoveClientsFromClassesRequest": "mb:RemoveClientsFromClassesRequest",
+    "RemoveClientsFromClassesResponse": "mb:RemoveClientsFromClassesResponse",
+    "Reservation": "mb:Reservation",
+    "Resource": "mb:Resource",
+    "ResourceAvailability": "mb:ResourceAvailability",
+    "ResourceAvailability1": "mb:ResourceAvailability1",
+    "ResourceSlim": "mb:ResourceSlim",
+    "ResponseDetails": "mb:ResponseDetails",
+    "ReturnSaleRequest": "mb:ReturnSaleRequest",
+    "ReturnSaleResponse": "mb:ReturnSaleResponse",
+    "Sale": "mb:Sale",
+    "SalePayment": "mb:SalePayment",
+    "SalesRep": "mb:SalesRep",
+    "SalesRepResponse": "mb:SalesRepResponse",
+    "ScheduledServiceEarningsEvent": "mb:ScheduledServiceEarningsEvent",
+    "Semester": "mb:Semester",
+    "SendAutoEmailRequest": "mb:SendAutoEmailRequest",
+    "SendPasswordResetEmailRequest": "mb:SendPasswordResetEmailRequest",
+    "Service": "mb:Service",
+    "ServiceTag": "mb:ServiceTag",
+    "SessionType": "mb:SessionType",
+    "SessionType1": "mb:SessionType1",
+    "ShoppingCart": "mb:ShoppingCart",
+    "Site": "mb:Site",
+    "Size": "mb:Size",
+    "Spot": "mb:Spot",
+    "Staff": "mb:Staff",
+    "Staff1": "mb:Staff1",
+    "StaffPermissionGroup": "mb:StaffPermissionGroup",
+    "StaffSessionType": "mb:StaffSessionType",
+    "StaffSetting": "mb:StaffSetting",
+    "StoredCardInfo": "mb:StoredCardInfo",
+    "SubCategory": "mb:SubCategory",
+    "SubstituteClassTeacherRequest": "mb:SubstituteClassTeacherRequest",
+    "SubstituteClassTeacherResponse": "mb:SubstituteClassTeacherResponse",
+    "SubstituteTeacherClass": "mb:SubstituteTeacherClass",
+    "SuspendContractRequest": "mb:SuspendContractRequest",
+    "SuspendContractResponse": "mb:SuspendContractResponse",
+    "TerminateContractRequest": "mb:TerminateContractRequest",
+    "TerminateContractResponse": "mb:TerminateContractResponse",
+    "TimeCardEvent": "mb:TimeCardEvent",
+    "Tip": "mb:Tip",
+    "Transaction": "mb:Transaction",
+    "TransactionResponse": "mb:TransactionResponse",
+    "Unavailability": "mb:Unavailability",
+    "Unavailability1": "mb:Unavailability1",
+    "UnavailabilityPlain": "mb:UnavailabilityPlain",
+    "UpcomingAutopayEvent": "mb:UpcomingAutopayEvent",
+    "UpdateAppointmentRequest": "mb:UpdateAppointmentRequest",
+    "UpdateAppointmentResponse": "mb:UpdateAppointmentResponse",
+    "UpdateAvailabilityRequest": "mb:UpdateAvailabilityRequest",
+    "UpdateAvailabilityResponse": "mb:UpdateAvailabilityResponse",
+    "UpdateClassEnrollmentScheduleRequest": "mb:UpdateClassEnrollmentScheduleRequest",
+    "UpdateClassScheduleNotesRequest": "mb:UpdateClassScheduleNotesRequest",
+    "UpdateClientContractAutopaysRequest": "mb:UpdateClientContractAutopaysRequest",
+    "UpdateClientRequest": "mb:UpdateClientRequest",
+    "UpdateClientResponse": "mb:UpdateClientResponse",
+    "UpdateClientRewardsRequest": "mb:UpdateClientRewardsRequest",
+    "UpdateClientServiceRequest": "mb:UpdateClientServiceRequest",
+    "UpdateClientServiceResponse": "mb:UpdateClientServiceResponse",
+    "UpdateClientVisitRequest": "mb:UpdateClientVisitRequest",
+    "UpdateClientVisitResponse": "mb:UpdateClientVisitResponse",
+    "UpdateContactLogComment": "mb:UpdateContactLogComment",
+    "UpdateContactLogRequest": "mb:UpdateContactLogRequest",
+    "UpdateContactLogType": "mb:UpdateContactLogType",
+    "UpdateProductPriceRequest": "mb:UpdateProductPriceRequest",
+    "UpdateProductPriceResponse": "mb:UpdateProductPriceResponse",
+    "UpdateReservationResponse": "mb:UpdateReservationResponse",
+    "UpdateSaleDateRequest": "mb:UpdateSaleDateRequest",
+    "UpdateSaleDateResponse": "mb:UpdateSaleDateResponse",
+    "UpdateServiceResponse": "mb:UpdateServiceResponse",
+    "UpdateSiteClientIndexRequest": "mb:UpdateSiteClientIndexRequest",
+    "UpdateSiteClientIndexResponse": "mb:UpdateSiteClientIndexResponse",
+    "UpdateStaffPermissionsRequest": "mb:UpdateStaffPermissionsRequest",
+    "UpdateStaffPermissionsResponse": "mb:UpdateStaffPermissionsResponse",
+    "UpdateStaffRequest": "mb:UpdateStaffRequest",
+    "UpdateStaffResponse": "mb:UpdateStaffResponse",
+    "UploadClientDocumentRequest": "mb:UploadClientDocumentRequest",
+    "UploadClientDocumentResponse": "mb:UploadClientDocumentResponse",
+    "UploadClientPhotoRequest": "mb:UploadClientPhotoRequest",
+    "UploadClientPhotoResponse": "mb:UploadClientPhotoResponse",
+    "User": "mb:User",
+    "Visit": "mb:Visit",
+    "VisitWaitlistInfo": "mb:VisitWaitlistInfo",
+    "VisitWithWaitlistInfo": "mb:VisitWithWaitlistInfo",
+    "WaitlistEntry": "mb:WaitlistEntry",
+    "WrittenClassSchedulesInfo": "mb:WrittenClassSchedulesInfo",
+    "ApplyPayment": {
+      "@id": "mb:ApplyPayment",
+      "@type": "xsd:boolean"
+    },
+    "AppointmentId": {
+      "@id": "mb:AppointmentId",
+      "@type": "xsd:integer"
+    },
+    "SessionTypeId": {
+      "@id": "mb:SessionTypeId",
+      "@type": "xsd:integer"
+    },
+    "StaffId": {
+      "@id": "mb:StaffId",
+      "@type": "xsd:integer"
+    },
+    "Test": {
+      "@id": "mb:Test",
+      "@type": "xsd:boolean"
+    },
+    "AddOnAppointmentId": {
+      "@id": "mb:AddOnAppointmentId",
+      "@type": "xsd:integer"
+    },
+    "GenderPreference": {
+      "@id": "mb:GenderPreference",
+      "@type": "@id"
+    },
+    "Duration": {
+      "@id": "mb:Duration",
+      "@type": "xsd:integer"
+    },
+    "ProviderId": {
+      "@id": "mb:ProviderId",
+      "@type": "xsd:string"
+    },
+    "Id": {
+      "@id": "dcterms:identifier",
+      "@type": "xsd:integer"
+    },
+    "Status": {
+      "@id": "mb:Status",
+      "@type": "@id"
+    },
+    "StartDateTime": {
+      "@id": "mb:StartDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "EndDateTime": {
+      "@id": "mb:EndDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "Notes": {
+      "@id": "mb:Notes",
+      "@type": "xsd:string"
+    },
+    "PartnerExternalId": {
+      "@id": "mb:PartnerExternalId",
+      "@type": "xsd:string"
+    },
+    "StaffRequested": {
+      "@id": "mb:StaffRequested",
+      "@type": "xsd:boolean"
+    },
+    "ProgramId": {
+      "@id": "mb:ProgramId",
+      "@type": "xsd:integer"
+    },
+    "LocationId": {
+      "@id": "mb:LocationId",
+      "@type": "xsd:integer"
+    },
+    "FirstName": {
+      "@id": "schema:givenName",
+      "@type": "xsd:string"
+    },
+    "LastName": {
+      "@id": "schema:familyName",
+      "@type": "xsd:string"
+    },
+    "DisplayName": {
+      "@id": "mb:DisplayName",
+      "@type": "xsd:string"
+    },
+    "ClientId": {
+      "@id": "mb:ClientId",
+      "@type": "xsd:string"
+    },
+    "FirstAppointment": {
+      "@id": "mb:FirstAppointment",
+      "@type": "xsd:boolean"
+    },
+    "IsWaitlist": {
+      "@id": "mb:IsWaitlist",
+      "@type": "xsd:boolean"
+    },
+    "WaitlistEntryId": {
+      "@id": "mb:WaitlistEntryId",
+      "@type": "xsd:integer"
+    },
+    "ClientServiceId": {
+      "@id": "mb:ClientServiceId",
+      "@type": "xsd:integer"
+    },
+    "Resources": {
+      "@id": "mb:Resources",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "AddOns": {
+      "@id": "mb:AddOns",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "TypeId": {
+      "@id": "mb:TypeId",
+      "@type": "xsd:integer"
+    },
+    "OnlineDescription": {
+      "@id": "mb:OnlineDescription",
+      "@type": "xsd:string"
+    },
+    "Error": {
+      "@id": "mb:Error",
+      "@type": "@id"
+    },
+    "Message": {
+      "@id": "mb:Message",
+      "@type": "xsd:string"
+    },
+    "Code": {
+      "@id": "mb:Code",
+      "@type": "xsd:string"
+    },
+    "Request": {
+      "@id": "mb:Request",
+      "@type": "@id"
+    },
+    "ResourceIds": {
+      "@id": "mb:ResourceIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "SendEmail": {
+      "@id": "mb:SendEmail",
+      "@type": "xsd:boolean"
+    },
+    "IsRequest": {
+      "@id": "mb:IsRequest",
+      "@type": "xsd:boolean"
+    },
+    "AddAppointmentRequestId": {
+      "@id": "mb:AddAppointmentRequestId",
+      "@type": "xsd:integer"
+    },
+    "ArrivalTypeId": {
+      "@id": "mb:ArrivalTypeId",
+      "@type": "xsd:integer"
+    },
+    "LeadChannelId": {
+      "@id": "mb:LeadChannelId",
+      "@type": "xsd:integer"
+    },
+    "ArrivalAdded": {
+      "@id": "mb:ArrivalAdded",
+      "@type": "xsd:boolean"
+    },
+    "ActiveDate": {
+      "@id": "mb:ActiveDate",
+      "@type": "xsd:dateTime"
+    },
+    "Count": {
+      "@id": "mb:Count",
+      "@type": "xsd:integer"
+    },
+    "Current": {
+      "@id": "mb:Current",
+      "@type": "xsd:boolean"
+    },
+    "ExpirationDate": {
+      "@id": "mb:ExpirationDate",
+      "@type": "xsd:dateTime"
+    },
+    "ProductId": {
+      "@id": "mb:ProductId",
+      "@type": "xsd:integer"
+    },
+    "PaymentDate": {
+      "@id": "mb:PaymentDate",
+      "@type": "xsd:dateTime"
+    },
+    "ScheduleType": {
+      "@id": "mb:ScheduleType",
+      "@type": "@id"
+    },
+    "CancelOffset": {
+      "@id": "mb:CancelOffset",
+      "@type": "xsd:integer"
+    },
+    "ContentFormats": {
+      "@id": "mb:ContentFormats",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "PaysFor": {
+      "@id": "mb:PaysFor",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "PaidBy": {
+      "@id": "mb:PaidBy",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "Remaining": {
+      "@id": "mb:Remaining",
+      "@type": "xsd:integer"
+    },
+    "SiteId": {
+      "@id": "mb:SiteId",
+      "@type": "xsd:integer"
+    },
+    "Action": {
+      "@id": "mb:Action",
+      "@type": "@id"
+    },
+    "ClientID": {
+      "@id": "mb:ClientID",
+      "@type": "xsd:string"
+    },
+    "Returned": {
+      "@id": "mb:Returned",
+      "@type": "xsd:boolean"
+    },
+    "LocationID": {
+      "@id": "mb:LocationID",
+      "@type": "xsd:integer"
+    },
+    "StaffIDs": {
+      "@id": "mb:StaffIDs",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "ProgramIDs": {
+      "@id": "mb:ProgramIDs",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "DaysOfWeek": {
+      "@id": "mb:DaysOfWeek",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "UnavailableDescription": {
+      "@id": "mb:UnavailableDescription",
+      "@type": "xsd:string"
+    },
+    "IsUnavailable": {
+      "@id": "mb:IsUnavailable",
+      "@type": "xsd:boolean"
+    },
+    "PublicDisplay": {
+      "@id": "mb:PublicDisplay",
+      "@type": "@id"
+    },
+    "StaffMembers": {
+      "@id": "mb:StaffMembers",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Email": {
+      "@id": "schema:email",
+      "@type": "xsd:string"
+    },
+    "Bio": {
+      "@id": "mb:Bio",
+      "@type": "xsd:string"
+    },
+    "Address": {
+      "@id": "schema:address",
+      "@type": "xsd:string"
+    },
+    "Address2": {
+      "@id": "mb:Address2",
+      "@type": "xsd:string"
+    },
+    "City": {
+      "@id": "schema:addressLocality",
+      "@type": "xsd:string"
+    },
+    "State": {
+      "@id": "schema:addressRegion",
+      "@type": "xsd:string"
+    },
+    "PostalCode": {
+      "@id": "schema:postalCode",
+      "@type": "xsd:string"
+    },
+    "ForeignZip": {
+      "@id": "mb:ForeignZip",
+      "@type": "xsd:string"
+    },
+    "Country": {
+      "@id": "schema:addressCountry",
+      "@type": "xsd:string"
+    },
+    "WorkPhone": {
+      "@id": "mb:WorkPhone",
+      "@type": "xsd:string"
+    },
+    "HomePhone": {
+      "@id": "mb:HomePhone",
+      "@type": "xsd:string"
+    },
+    "CellPhone": {
+      "@id": "mb:CellPhone",
+      "@type": "xsd:string"
+    },
+    "Active": {
+      "@id": "mb:Active",
+      "@type": "xsd:boolean"
+    },
+    "IsSystem": {
+      "@id": "mb:IsSystem",
+      "@type": "xsd:boolean"
+    },
+    "SmodeId": {
+      "@id": "mb:SmodeId",
+      "@type": "xsd:integer"
+    },
+    "AppointmentTrn": {
+      "@id": "mb:AppointmentTrn",
+      "@type": "xsd:boolean"
+    },
+    "AlwaysAllowDoubleBooking": {
+      "@id": "mb:AlwaysAllowDoubleBooking",
+      "@type": "xsd:boolean"
+    },
+    "IndependentContractor": {
+      "@id": "mb:IndependentContractor",
+      "@type": "xsd:boolean"
+    },
+    "ImageUrl": {
+      "@id": "mb:ImageUrl",
+      "@type": "xsd:string"
+    },
+    "IsMale": {
+      "@id": "mb:IsMale",
+      "@type": "xsd:boolean"
+    },
+    "ReservationTrn": {
+      "@id": "mb:ReservationTrn",
+      "@type": "xsd:boolean"
+    },
+    "SortOrder": {
+      "@id": "mb:SortOrder",
+      "@type": "xsd:integer"
+    },
+    "MultiLocationPermission": {
+      "@id": "mb:MultiLocationPermission",
+      "@type": "xsd:boolean"
+    },
+    "ProviderIDs": {
+      "@id": "mb:ProviderIDs",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "StaffSettings": {
+      "@id": "mb:StaffSettings",
+      "@type": "@id"
+    },
+    "UseStaffNicknames": {
+      "@id": "mb:UseStaffNicknames",
+      "@type": "xsd:boolean"
+    },
+    "ShowStaffLastNamesOnSchedules": {
+      "@id": "mb:ShowStaffLastNamesOnSchedules",
+      "@type": "xsd:boolean"
+    },
+    "Rep": {
+      "@id": "mb:Rep",
+      "@type": "xsd:boolean"
+    },
+    "Rep2": {
+      "@id": "mb:Rep2",
+      "@type": "xsd:boolean"
+    },
+    "Rep3": {
+      "@id": "mb:Rep3",
+      "@type": "xsd:boolean"
+    },
+    "Rep4": {
+      "@id": "mb:Rep4",
+      "@type": "xsd:boolean"
+    },
+    "Rep5": {
+      "@id": "mb:Rep5",
+      "@type": "xsd:boolean"
+    },
+    "Rep6": {
+      "@id": "mb:Rep6",
+      "@type": "xsd:boolean"
+    },
+    "Assistant": {
+      "@id": "mb:Assistant",
+      "@type": "xsd:boolean"
+    },
+    "Assistant2": {
+      "@id": "mb:Assistant2",
+      "@type": "xsd:boolean"
+    },
+    "EmploymentStart": {
+      "@id": "mb:EmploymentStart",
+      "@type": "xsd:dateTime"
+    },
+    "EmploymentEnd": {
+      "@id": "mb:EmploymentEnd",
+      "@type": "xsd:dateTime"
+    },
+    "EmpID": {
+      "@id": "mb:EmpID",
+      "@type": "xsd:string"
+    },
+    "Appointments": {
+      "@id": "mb:Appointments",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Unavailabilities": {
+      "@id": "mb:Unavailabilities",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Description": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "Availabilities": {
+      "@id": "mb:Availabilities",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Type": {
+      "@id": "mb:Type",
+      "@type": "@id"
+    },
+    "DefaultTimeLength": {
+      "@id": "mb:DefaultTimeLength",
+      "@type": "xsd:integer"
+    },
+    "StaffTimeLength": {
+      "@id": "mb:StaffTimeLength",
+      "@type": "xsd:integer"
+    },
+    "NumDeducted": {
+      "@id": "mb:NumDeducted",
+      "@type": "xsd:integer"
+    },
+    "Capacity": {
+      "@id": "mb:Capacity",
+      "@type": "xsd:integer"
+    },
+    "ResourceRequired": {
+      "@id": "mb:ResourceRequired",
+      "@type": "xsd:boolean"
+    },
+    "Subcategory": {
+      "@id": "mb:Subcategory",
+      "@type": "@id"
+    },
+    "AvailableForAddOn": {
+      "@id": "mb:AvailableForAddOn",
+      "@type": "xsd:boolean"
+    },
+    "Programs": {
+      "@id": "mb:Programs",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ContentFormat": {
+      "@id": "mb:ContentFormat",
+      "@type": "@id"
+    },
+    "OnlineBookingDisabled": {
+      "@id": "mb:OnlineBookingDisabled",
+      "@type": "xsd:boolean"
+    },
+    "ScheduleOffset": {
+      "@id": "mb:ScheduleOffset",
+      "@type": "xsd:integer"
+    },
+    "ScheduleOffsetEnd": {
+      "@id": "mb:ScheduleOffsetEnd",
+      "@type": "xsd:integer"
+    },
+    "BookableEndDateTime": {
+      "@id": "mb:BookableEndDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "BusinessId": {
+      "@id": "mb:BusinessId",
+      "@type": "xsd:integer"
+    },
+    "BusinessDescription": {
+      "@id": "mb:BusinessDescription",
+      "@type": "xsd:string"
+    },
+    "AdditionalImageURLs": {
+      "@id": "mb:AdditionalImageURLs",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "FacilitySquareFeet": {
+      "@id": "mb:FacilitySquareFeet",
+      "@type": "xsd:integer"
+    },
+    "ProSpaFinderSite": {
+      "@id": "mb:ProSpaFinderSite",
+      "@type": "xsd:boolean"
+    },
+    "HasClasses": {
+      "@id": "mb:HasClasses",
+      "@type": "xsd:boolean"
+    },
+    "PhoneExtension": {
+      "@id": "mb:PhoneExtension",
+      "@type": "xsd:string"
+    },
+    "Tax1": {
+      "@id": "mb:Tax1",
+      "@type": "xsd:double"
+    },
+    "Tax2": {
+      "@id": "mb:Tax2",
+      "@type": "xsd:double"
+    },
+    "Tax3": {
+      "@id": "mb:Tax3",
+      "@type": "xsd:double"
+    },
+    "Tax4": {
+      "@id": "mb:Tax4",
+      "@type": "xsd:double"
+    },
+    "Tax5": {
+      "@id": "mb:Tax5",
+      "@type": "xsd:double"
+    },
+    "Phone": {
+      "@id": "schema:telephone",
+      "@type": "xsd:string"
+    },
+    "StateProvCode": {
+      "@id": "mb:StateProvCode",
+      "@type": "xsd:string"
+    },
+    "Latitude": {
+      "@id": "mb:Latitude",
+      "@type": "xsd:double"
+    },
+    "Longitude": {
+      "@id": "mb:Longitude",
+      "@type": "xsd:double"
+    },
+    "DistanceInMiles": {
+      "@id": "mb:DistanceInMiles",
+      "@type": "xsd:double"
+    },
+    "ImageURL": {
+      "@id": "mb:ImageURL",
+      "@type": "xsd:string"
+    },
+    "HasSite": {
+      "@id": "mb:HasSite",
+      "@type": "xsd:boolean"
+    },
+    "CanBook": {
+      "@id": "mb:CanBook",
+      "@type": "xsd:boolean"
+    },
+    "NumberTreatmentRooms": {
+      "@id": "mb:NumberTreatmentRooms",
+      "@type": "xsd:integer"
+    },
+    "InvActive": {
+      "@id": "mb:InvActive",
+      "@type": "xsd:boolean"
+    },
+    "WsShow": {
+      "@id": "mb:WsShow",
+      "@type": "xsd:boolean"
+    },
+    "ContactName": {
+      "@id": "mb:ContactName",
+      "@type": "xsd:string"
+    },
+    "ShipAddress": {
+      "@id": "mb:ShipAddress",
+      "@type": "xsd:string"
+    },
+    "ShipState": {
+      "@id": "mb:ShipState",
+      "@type": "xsd:string"
+    },
+    "ShipPostal": {
+      "@id": "mb:ShipPostal",
+      "@type": "xsd:string"
+    },
+    "ShipPhone": {
+      "@id": "mb:ShipPhone",
+      "@type": "xsd:string"
+    },
+    "ShipPOC": {
+      "@id": "mb:ShipPOC",
+      "@type": "xsd:string"
+    },
+    "TaxGrouping": {
+      "@id": "mb:TaxGrouping",
+      "@type": "xsd:boolean"
+    },
+    "LabelTax1": {
+      "@id": "mb:LabelTax1",
+      "@type": "xsd:string"
+    },
+    "LabelTax2": {
+      "@id": "mb:LabelTax2",
+      "@type": "xsd:string"
+    },
+    "LabelTax3": {
+      "@id": "mb:LabelTax3",
+      "@type": "xsd:string"
+    },
+    "LabelTax4": {
+      "@id": "mb:LabelTax4",
+      "@type": "xsd:string"
+    },
+    "LabelTax5": {
+      "@id": "mb:LabelTax5",
+      "@type": "xsd:string"
+    },
+    "WAC": {
+      "@id": "mb:WAC",
+      "@type": "xsd:boolean"
+    },
+    "ShipAddress2": {
+      "@id": "mb:ShipAddress2",
+      "@type": "xsd:string"
+    },
+    "MasterLocId": {
+      "@id": "mb:MasterLocId",
+      "@type": "xsd:integer"
+    },
+    "StreetAddress": {
+      "@id": "mb:StreetAddress",
+      "@type": "xsd:string"
+    },
+    "Ext": {
+      "@id": "mb:Ext",
+      "@type": "xsd:string"
+    },
+    "Amenities": {
+      "@id": "mb:Amenities",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "TotalNumberOfDeals": {
+      "@id": "mb:TotalNumberOfDeals",
+      "@type": "xsd:integer"
+    },
+    "TotalNumberOfRatings": {
+      "@id": "mb:TotalNumberOfRatings",
+      "@type": "xsd:integer"
+    },
+    "AverageRating": {
+      "@id": "mb:AverageRating",
+      "@type": "xsd:double"
+    },
+    "PrepTime": {
+      "@id": "mb:PrepTime",
+      "@type": "xsd:integer"
+    },
+    "FinishTime": {
+      "@id": "mb:FinishTime",
+      "@type": "xsd:integer"
+    },
+    "IsMasked": {
+      "@id": "mb:IsMasked",
+      "@type": "xsd:boolean"
+    },
+    "ShowPublic": {
+      "@id": "mb:ShowPublic",
+      "@type": "xsd:boolean"
+    },
+    "ResourceAvailabilities": {
+      "@id": "mb:ResourceAvailabilities",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ResourceId": {
+      "@id": "mb:ResourceId",
+      "@type": "xsd:integer"
+    },
+    "SessionTypeIds": {
+      "@id": "mb:SessionTypeIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "ProgramIds": {
+      "@id": "mb:ProgramIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "LoginLocations": {
+      "@id": "mb:LoginLocations",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Errors": {
+      "@id": "mb:Errors",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ClassDescriptionId": {
+      "@id": "mb:ClassDescriptionId",
+      "@type": "xsd:integer"
+    },
+    "StartDate": {
+      "@id": "mb:StartDate",
+      "@type": "xsd:dateTime"
+    },
+    "EndDate": {
+      "@id": "mb:EndDate",
+      "@type": "xsd:dateTime"
+    },
+    "StartTime": {
+      "@id": "mb:StartTime",
+      "@type": "xsd:dateTime"
+    },
+    "EndTime": {
+      "@id": "mb:EndTime",
+      "@type": "xsd:dateTime"
+    },
+    "DaySunday": {
+      "@id": "mb:DaySunday",
+      "@type": "xsd:boolean"
+    },
+    "DayMonday": {
+      "@id": "mb:DayMonday",
+      "@type": "xsd:boolean"
+    },
+    "DayTuesday": {
+      "@id": "mb:DayTuesday",
+      "@type": "xsd:boolean"
+    },
+    "DayWednesday": {
+      "@id": "mb:DayWednesday",
+      "@type": "xsd:boolean"
+    },
+    "DayThursday": {
+      "@id": "mb:DayThursday",
+      "@type": "xsd:boolean"
+    },
+    "DayFriday": {
+      "@id": "mb:DayFriday",
+      "@type": "xsd:boolean"
+    },
+    "DaySaturday": {
+      "@id": "mb:DaySaturday",
+      "@type": "xsd:boolean"
+    },
+    "StaffPayRate": {
+      "@id": "mb:StaffPayRate",
+      "@type": "xsd:integer"
+    },
+    "MaxCapacity": {
+      "@id": "mb:MaxCapacity",
+      "@type": "xsd:integer"
+    },
+    "WebCapacity": {
+      "@id": "mb:WebCapacity",
+      "@type": "xsd:integer"
+    },
+    "WaitlistCapacity": {
+      "@id": "mb:WaitlistCapacity",
+      "@type": "xsd:integer"
+    },
+    "BookingStatus": {
+      "@id": "mb:BookingStatus",
+      "@type": "xsd:string"
+    },
+    "AllowOpenEnrollment": {
+      "@id": "mb:AllowOpenEnrollment",
+      "@type": "xsd:boolean"
+    },
+    "AllowDateForwardEnrollment": {
+      "@id": "mb:AllowDateForwardEnrollment",
+      "@type": "xsd:boolean"
+    },
+    "PricingOptionsProductIds": {
+      "@id": "mb:PricingOptionsProductIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "ShowToPublic": {
+      "@id": "mb:ShowToPublic",
+      "@type": "xsd:boolean"
+    },
+    "NameOnAccount": {
+      "@id": "mb:NameOnAccount",
+      "@type": "xsd:string"
+    },
+    "RoutingNumber": {
+      "@id": "mb:RoutingNumber",
+      "@type": "xsd:string"
+    },
+    "AccountNumber": {
+      "@id": "mb:AccountNumber",
+      "@type": "xsd:string"
+    },
+    "AccountType": {
+      "@id": "mb:AccountType",
+      "@type": "xsd:string"
+    },
+    "AccountBalance": {
+      "@id": "mb:AccountBalance",
+      "@type": "xsd:double"
+    },
+    "AddressLine1": {
+      "@id": "mb:AddressLine1",
+      "@type": "xsd:string"
+    },
+    "AddressLine2": {
+      "@id": "mb:AddressLine2",
+      "@type": "xsd:string"
+    },
+    "ApptGenderPrefMale": {
+      "@id": "mb:ApptGenderPrefMale",
+      "@type": "xsd:boolean"
+    },
+    "BirthDate": {
+      "@id": "mb:BirthDate",
+      "@type": "xsd:dateTime"
+    },
+    "CardHolder": {
+      "@id": "mb:CardHolder",
+      "@type": "xsd:string"
+    },
+    "CardNumber": {
+      "@id": "mb:CardNumber",
+      "@type": "xsd:string"
+    },
+    "CardType": {
+      "@id": "mb:CardType",
+      "@type": "xsd:string"
+    },
+    "ExpMonth": {
+      "@id": "mb:ExpMonth",
+      "@type": "xsd:string"
+    },
+    "ExpYear": {
+      "@id": "mb:ExpYear",
+      "@type": "xsd:string"
+    },
+    "LastFour": {
+      "@id": "mb:LastFour",
+      "@type": "xsd:string"
+    },
+    "ClientIndexes": {
+      "@id": "mb:ClientIndexes",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ValueId": {
+      "@id": "mb:ValueId",
+      "@type": "xsd:integer"
+    },
+    "ClientRelationships": {
+      "@id": "mb:ClientRelationships",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "RelatedClientId": {
+      "@id": "mb:RelatedClientId",
+      "@type": "xsd:string"
+    },
+    "RelatedUniqueId": {
+      "@id": "mb:RelatedUniqueId",
+      "@type": "xsd:integer"
+    },
+    "RelationshipName1": {
+      "@id": "mb:RelationshipName1",
+      "@type": "xsd:string"
+    },
+    "RelationshipName2": {
+      "@id": "mb:RelationshipName2",
+      "@type": "xsd:string"
+    },
+    "RelationshipName": {
+      "@id": "mb:RelationshipName",
+      "@type": "xsd:string"
+    },
+    "Delete": {
+      "@id": "mb:Delete",
+      "@type": "xsd:boolean"
+    },
+    "CreationDate": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "CustomClientFields": {
+      "@id": "mb:CustomClientFields",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Value": {
+      "@id": "mb:Value",
+      "@type": "xsd:string"
+    },
+    "DataType": {
+      "@id": "mb:DataType",
+      "@type": "xsd:string"
+    },
+    "EmergencyContactInfoEmail": {
+      "@id": "mb:EmergencyContactInfoEmail",
+      "@type": "xsd:string"
+    },
+    "EmergencyContactInfoName": {
+      "@id": "mb:EmergencyContactInfoName",
+      "@type": "xsd:string"
+    },
+    "EmergencyContactInfoPhone": {
+      "@id": "mb:EmergencyContactInfoPhone",
+      "@type": "xsd:string"
+    },
+    "EmergencyContactInfoRelationship": {
+      "@id": "mb:EmergencyContactInfoRelationship",
+      "@type": "xsd:string"
+    },
+    "FirstAppointmentDate": {
+      "@id": "mb:FirstAppointmentDate",
+      "@type": "xsd:dateTime"
+    },
+    "Gender": {
+      "@id": "mb:Gender",
+      "@type": "xsd:string"
+    },
+    "HomeLocation": {
+      "@id": "mb:HomeLocation",
+      "@type": "@id"
+    },
+    "SiteID": {
+      "@id": "mb:SiteID",
+      "@type": "xsd:integer"
+    },
+    "IsCompany": {
+      "@id": "mb:IsCompany",
+      "@type": "xsd:boolean"
+    },
+    "IsProspect": {
+      "@id": "mb:IsProspect",
+      "@type": "xsd:boolean"
+    },
+    "LastFormulaNotes": {
+      "@id": "mb:LastFormulaNotes",
+      "@type": "xsd:string"
+    },
+    "LastModifiedDateTime": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "AgreementDate": {
+      "@id": "mb:AgreementDate",
+      "@type": "xsd:dateTime"
+    },
+    "IsReleased": {
+      "@id": "mb:IsReleased",
+      "@type": "xsd:boolean"
+    },
+    "ReleasedBy": {
+      "@id": "mb:ReleasedBy",
+      "@type": "xsd:integer"
+    },
+    "LiabilityRelease": {
+      "@id": "mb:LiabilityRelease",
+      "@type": "xsd:boolean"
+    },
+    "MembershipIcon": {
+      "@id": "mb:MembershipIcon",
+      "@type": "xsd:integer"
+    },
+    "MiddleName": {
+      "@id": "mb:MiddleName",
+      "@type": "xsd:string"
+    },
+    "MobilePhone": {
+      "@id": "schema:telephone",
+      "@type": "xsd:string"
+    },
+    "NewId": {
+      "@id": "mb:NewId",
+      "@type": "xsd:string"
+    },
+    "PhotoUrl": {
+      "@id": "mb:PhotoUrl",
+      "@type": "xsd:string"
+    },
+    "RedAlert": {
+      "@id": "mb:RedAlert",
+      "@type": "xsd:string"
+    },
+    "ReferredBy": {
+      "@id": "mb:ReferredBy",
+      "@type": "xsd:string"
+    },
+    "SalesReps": {
+      "@id": "mb:SalesReps",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "SalesRepNumber": {
+      "@id": "mb:SalesRepNumber",
+      "@type": "xsd:integer"
+    },
+    "SalesRepNumbers": {
+      "@id": "mb:SalesRepNumbers",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "UniqueId": {
+      "@id": "mb:UniqueId",
+      "@type": "xsd:integer"
+    },
+    "WorkExtension": {
+      "@id": "mb:WorkExtension",
+      "@type": "xsd:string"
+    },
+    "YellowAlert": {
+      "@id": "mb:YellowAlert",
+      "@type": "xsd:string"
+    },
+    "SendScheduleEmails": {
+      "@id": "mb:SendScheduleEmails",
+      "@type": "xsd:boolean"
+    },
+    "SendAccountEmails": {
+      "@id": "mb:SendAccountEmails",
+      "@type": "xsd:boolean"
+    },
+    "SendPromotionalEmails": {
+      "@id": "mb:SendPromotionalEmails",
+      "@type": "xsd:boolean"
+    },
+    "SendScheduleTexts": {
+      "@id": "mb:SendScheduleTexts",
+      "@type": "xsd:boolean"
+    },
+    "SendAccountTexts": {
+      "@id": "mb:SendAccountTexts",
+      "@type": "xsd:boolean"
+    },
+    "SendPromotionalTexts": {
+      "@id": "mb:SendPromotionalTexts",
+      "@type": "xsd:boolean"
+    },
+    "LockerNumber": {
+      "@id": "mb:LockerNumber",
+      "@type": "xsd:string"
+    },
+    "ReactivateInactiveClient": {
+      "@id": "mb:ReactivateInactiveClient",
+      "@type": "xsd:boolean"
+    },
+    "AppointmentGenderPreference": {
+      "@id": "mb:AppointmentGenderPreference",
+      "@type": "@id"
+    },
+    "FirstClassDate": {
+      "@id": "mb:FirstClassDate",
+      "@type": "xsd:dateTime"
+    },
+    "ClassId": {
+      "@id": "mb:ClassId",
+      "@type": "xsd:integer"
+    },
+    "RequirePayment": {
+      "@id": "mb:RequirePayment",
+      "@type": "xsd:boolean"
+    },
+    "Waitlist": {
+      "@id": "mb:Waitlist",
+      "@type": "xsd:boolean"
+    },
+    "CrossRegionalBooking": {
+      "@id": "mb:CrossRegionalBooking",
+      "@type": "xsd:boolean"
+    },
+    "CrossRegionalBookingClientServiceSiteId": {
+      "@id": "mb:CrossRegionalBookingClientServiceSiteId",
+      "@type": "xsd:integer"
+    },
+    "AppointmentStatus": {
+      "@id": "mb:AppointmentStatus",
+      "@type": "@id"
+    },
+    "LateCancelled": {
+      "@id": "mb:LateCancelled",
+      "@type": "xsd:boolean"
+    },
+    "MakeUp": {
+      "@id": "mb:MakeUp",
+      "@type": "xsd:boolean"
+    },
+    "ServiceId": {
+      "@id": "mb:ServiceId",
+      "@type": "xsd:integer"
+    },
+    "ServiceName": {
+      "@id": "mb:ServiceName",
+      "@type": "xsd:string"
+    },
+    "SignedIn": {
+      "@id": "mb:SignedIn",
+      "@type": "xsd:boolean"
+    },
+    "WebSignup": {
+      "@id": "mb:WebSignup",
+      "@type": "xsd:boolean"
+    },
+    "CrossRegionalBookingPerformed": {
+      "@id": "mb:CrossRegionalBookingPerformed",
+      "@type": "xsd:boolean"
+    },
+    "ClassScheduleId": {
+      "@id": "mb:ClassScheduleId",
+      "@type": "xsd:integer"
+    },
+    "EnrollDateForward": {
+      "@id": "mb:EnrollDateForward",
+      "@type": "xsd:dateTime"
+    },
+    "EnrollOpen": {
+      "@id": "mb:EnrollOpen",
+      "@container": "@set",
+      "@type": "xsd:dateTime"
+    },
+    "ContactMethod": {
+      "@id": "mb:ContactMethod",
+      "@type": "xsd:string"
+    },
+    "AssignedToStaffId": {
+      "@id": "mb:AssignedToStaffId",
+      "@type": "xsd:integer"
+    },
+    "Text": {
+      "@id": "mb:Text",
+      "@type": "xsd:string"
+    },
+    "FollowupByDate": {
+      "@id": "mb:FollowupByDate",
+      "@type": "xsd:dateTime"
+    },
+    "IsComplete": {
+      "@id": "mb:IsComplete",
+      "@type": "xsd:boolean"
+    },
+    "Comments": {
+      "@id": "mb:Comments",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "Types": {
+      "@id": "mb:Types",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "SubTypes": {
+      "@id": "mb:SubTypes",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "Note": {
+      "@id": "mb:Note",
+      "@type": "xsd:string"
+    },
+    "AddAppointmentRequests": {
+      "@id": "mb:AddAppointmentRequests",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "AddAppointmentOutcomes": {
+      "@id": "mb:AddAppointmentOutcomes",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Amount": {
+      "@id": "mb:Amount",
+      "@type": "xsd:double"
+    },
+    "ActivationDate": {
+      "@id": "mb:ActivationDate",
+      "@type": "xsd:dateTime"
+    },
+    "MaxUses": {
+      "@id": "mb:MaxUses",
+      "@type": "xsd:integer"
+    },
+    "DaysAfterCloseDate": {
+      "@id": "mb:DaysAfterCloseDate",
+      "@type": "xsd:integer"
+    },
+    "AllowOnline": {
+      "@id": "mb:AllowOnline",
+      "@type": "xsd:boolean"
+    },
+    "DaysValid": {
+      "@id": "mb:DaysValid",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "ApplicableItems": {
+      "@id": "mb:ApplicableItems",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "PromotionID": {
+      "@id": "mb:PromotionID",
+      "@type": "xsd:integer"
+    },
+    "NumberOfAutopays": {
+      "@id": "mb:NumberOfAutopays",
+      "@type": "xsd:integer"
+    },
+    "ClientIndexName": {
+      "@id": "mb:ClientIndexName",
+      "@type": "xsd:string"
+    },
+    "ShowOnNewClient": {
+      "@id": "mb:ShowOnNewClient",
+      "@type": "xsd:boolean"
+    },
+    "ShowOnEnrollmentRoster": {
+      "@id": "mb:ShowOnEnrollmentRoster",
+      "@type": "xsd:boolean"
+    },
+    "EditOnEnrollmentRoster": {
+      "@id": "mb:EditOnEnrollmentRoster",
+      "@type": "xsd:boolean"
+    },
+    "ShowInConsumerMode": {
+      "@id": "mb:ShowInConsumerMode",
+      "@type": "xsd:boolean"
+    },
+    "RequiredConsumerMode": {
+      "@id": "mb:RequiredConsumerMode",
+      "@type": "xsd:boolean"
+    },
+    "RequiredBizMode": {
+      "@id": "mb:RequiredBizMode",
+      "@type": "xsd:boolean"
+    },
+    "ClientIndexID": {
+      "@id": "mb:ClientIndexID",
+      "@type": "xsd:integer"
+    },
+    "IsAvailability": {
+      "@id": "mb:IsAvailability",
+      "@type": "xsd:boolean"
+    },
+    "ClassAssistant": {
+      "@id": "mb:ClassAssistant",
+      "@type": "xsd:boolean"
+    },
+    "ClassAssistant2": {
+      "@id": "mb:ClassAssistant2",
+      "@type": "xsd:boolean"
+    },
+    "AppointmentInstructor": {
+      "@id": "mb:AppointmentInstructor",
+      "@type": "xsd:boolean"
+    },
+    "ClassTeacher": {
+      "@id": "mb:ClassTeacher",
+      "@type": "xsd:boolean"
+    },
+    "CategoryId": {
+      "@id": "mb:CategoryId",
+      "@type": "xsd:integer"
+    },
+    "SubcategoryId": {
+      "@id": "mb:SubcategoryId",
+      "@type": "xsd:integer"
+    },
+    "TimeLength": {
+      "@id": "mb:TimeLength",
+      "@type": "xsd:integer"
+    },
+    "PayRateType": {
+      "@id": "mb:PayRateType",
+      "@type": "xsd:string"
+    },
+    "PayRateAmount": {
+      "@id": "mb:PayRateAmount",
+      "@type": "xsd:double"
+    },
+    "FrequencyType": {
+      "@id": "mb:FrequencyType",
+      "@type": "xsd:string"
+    },
+    "FrequencyValue": {
+      "@id": "mb:FrequencyValue",
+      "@type": "xsd:integer"
+    },
+    "FrequencyTimeUnit": {
+      "@id": "mb:FrequencyTimeUnit",
+      "@type": "xsd:string"
+    },
+    "DailyStartTime": {
+      "@id": "mb:DailyStartTime",
+      "@type": "xsd:dateTime"
+    },
+    "DailyEndTime": {
+      "@id": "mb:DailyEndTime",
+      "@type": "xsd:dateTime"
+    },
+    "ClassID": {
+      "@id": "mb:ClassID",
+      "@type": "xsd:integer"
+    },
+    "HideCancel": {
+      "@id": "mb:HideCancel",
+      "@type": "xsd:boolean"
+    },
+    "SendClientEmail": {
+      "@id": "mb:SendClientEmail",
+      "@type": "xsd:boolean"
+    },
+    "SendStaffEmail": {
+      "@id": "mb:SendStaffEmail",
+      "@type": "xsd:boolean"
+    },
+    "Visits": {
+      "@id": "mb:Visits",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ClientPhotoUrl": {
+      "@id": "mb:ClientPhotoUrl",
+      "@type": "xsd:string"
+    },
+    "ClientUniqueId": {
+      "@id": "mb:ClientUniqueId",
+      "@type": "xsd:integer"
+    },
+    "Missed": {
+      "@id": "mb:Missed",
+      "@type": "xsd:boolean"
+    },
+    "VisitType": {
+      "@id": "mb:VisitType",
+      "@type": "xsd:integer"
+    },
+    "TypeGroup": {
+      "@id": "mb:TypeGroup",
+      "@type": "xsd:integer"
+    },
+    "TypeTaken": {
+      "@id": "mb:TypeTaken",
+      "@type": "xsd:string"
+    },
+    "Clients": {
+      "@id": "mb:Clients",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "TotalBooked": {
+      "@id": "mb:TotalBooked",
+      "@type": "xsd:integer"
+    },
+    "TotalSignedIn": {
+      "@id": "mb:TotalSignedIn",
+      "@type": "xsd:integer"
+    },
+    "TotalBookedWaitlist": {
+      "@id": "mb:TotalBookedWaitlist",
+      "@type": "xsd:integer"
+    },
+    "WebBooked": {
+      "@id": "mb:WebBooked",
+      "@type": "xsd:integer"
+    },
+    "SemesterId": {
+      "@id": "mb:SemesterId",
+      "@type": "xsd:integer"
+    },
+    "IsCanceled": {
+      "@id": "mb:IsCanceled",
+      "@type": "xsd:boolean"
+    },
+    "Substitute": {
+      "@id": "mb:Substitute",
+      "@type": "xsd:boolean"
+    },
+    "IsWaitlistAvailable": {
+      "@id": "mb:IsWaitlistAvailable",
+      "@type": "xsd:boolean"
+    },
+    "IsEnrolled": {
+      "@id": "mb:IsEnrolled",
+      "@type": "xsd:boolean"
+    },
+    "IsAvailable": {
+      "@id": "mb:IsAvailable",
+      "@type": "xsd:boolean"
+    },
+    "LastUpdated": {
+      "@id": "mb:LastUpdated",
+      "@type": "xsd:dateTime"
+    },
+    "Prereq": {
+      "@id": "mb:Prereq",
+      "@type": "xsd:string"
+    },
+    "VirtualStreamLink": {
+      "@id": "mb:VirtualStreamLink",
+      "@type": "xsd:string"
+    },
+    "WaitListSize": {
+      "@id": "mb:WaitListSize",
+      "@type": "xsd:integer"
+    },
+    "ClassNotes": {
+      "@id": "mb:ClassNotes",
+      "@type": "xsd:string"
+    },
+    "Item": {
+      "@id": "mb:Item",
+      "@type": "@id"
+    },
+    "SalesNotes": {
+      "@id": "mb:SalesNotes",
+      "@type": "xsd:string"
+    },
+    "DiscountAmount": {
+      "@id": "mb:DiscountAmount",
+      "@type": "xsd:double"
+    },
+    "VisitIds": {
+      "@id": "mb:VisitIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "AppointmentIds": {
+      "@id": "mb:AppointmentIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "Quantity": {
+      "@id": "mb:Quantity",
+      "@type": "xsd:integer"
+    },
+    "CategoryName": {
+      "@id": "mb:CategoryName",
+      "@type": "xsd:string"
+    },
+    "IsPrimary": {
+      "@id": "mb:IsPrimary",
+      "@type": "xsd:boolean"
+    },
+    "IsSecondary": {
+      "@id": "mb:IsSecondary",
+      "@type": "xsd:boolean"
+    },
+    "CreatedDateTimeUTC": {
+      "@id": "mb:CreatedDateTimeUTC",
+      "@type": "xsd:dateTime"
+    },
+    "ModifiedDateTimeUTC": {
+      "@id": "mb:ModifiedDateTimeUTC",
+      "@type": "xsd:dateTime"
+    },
+    "SubCategories": {
+      "@id": "mb:SubCategories",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "SubCategoryName": {
+      "@id": "mb:SubCategoryName",
+      "@type": "xsd:string"
+    },
+    "TotalCount": {
+      "@id": "mb:TotalCount",
+      "@type": "xsd:integer"
+    },
+    "PaymentMethodId": {
+      "@id": "mb:PaymentMethodId",
+      "@type": "xsd:integer"
+    },
+    "Metadata": {
+      "@id": "mb:Metadata",
+      "@type": "xsd:string"
+    },
+    "AppointmentBookingRequests": {
+      "@id": "mb:AppointmentBookingRequests",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "EnrollmentIds": {
+      "@id": "mb:EnrollmentIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "ClassIds": {
+      "@id": "mb:ClassIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "CourseIds": {
+      "@id": "mb:CourseIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "Items": {
+      "@id": "mb:Items",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Payments": {
+      "@id": "mb:Payments",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "CartId": {
+      "@id": "mb:CartId",
+      "@type": "xsd:string"
+    },
+    "UniqueClientId": {
+      "@id": "mb:UniqueClientId",
+      "@type": "xsd:integer"
+    },
+    "PayerClientId": {
+      "@id": "mb:PayerClientId",
+      "@type": "xsd:string"
+    },
+    "UniquePayerClientId": {
+      "@id": "mb:UniquePayerClientId",
+      "@type": "xsd:integer"
+    },
+    "InStore": {
+      "@id": "mb:InStore",
+      "@type": "xsd:boolean"
+    },
+    "CalculateTax": {
+      "@id": "mb:CalculateTax",
+      "@type": "xsd:boolean"
+    },
+    "PromotionCode": {
+      "@id": "mb:PromotionCode",
+      "@type": "xsd:string"
+    },
+    "Image": {
+      "@id": "mb:Image",
+      "@type": "xsd:string"
+    },
+    "ImageFileName": {
+      "@id": "mb:ImageFileName",
+      "@type": "xsd:string"
+    },
+    "ConsumerPresent": {
+      "@id": "mb:ConsumerPresent",
+      "@type": "xsd:boolean"
+    },
+    "PaymentAuthenticationCallbackUrl": {
+      "@id": "mb:PaymentAuthenticationCallbackUrl",
+      "@type": "xsd:string"
+    },
+    "TransactionIds": {
+      "@id": "mb:TransactionIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "IsBillingPostalCodeRequired": {
+      "@id": "mb:IsBillingPostalCodeRequired",
+      "@type": "xsd:boolean"
+    },
+    "EnforceLocationRestrictions": {
+      "@id": "mb:EnforceLocationRestrictions",
+      "@type": "xsd:boolean"
+    },
+    "CartItems": {
+      "@id": "mb:CartItems",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "SubTotal": {
+      "@id": "mb:SubTotal",
+      "@type": "xsd:double"
+    },
+    "DiscountTotal": {
+      "@id": "mb:DiscountTotal",
+      "@type": "xsd:double"
+    },
+    "TaxTotal": {
+      "@id": "mb:TaxTotal",
+      "@type": "xsd:double"
+    },
+    "GrandTotal": {
+      "@id": "mb:GrandTotal",
+      "@type": "xsd:double"
+    },
+    "Transactions": {
+      "@id": "mb:Transactions",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "TransactionId": {
+      "@id": "mb:TransactionId",
+      "@type": "xsd:integer"
+    },
+    "AuthenticationUrl": {
+      "@id": "mb:AuthenticationUrl",
+      "@type": "xsd:string"
+    },
+    "SaleId": {
+      "@id": "mb:SaleId",
+      "@type": "xsd:integer"
+    },
+    "Classes": {
+      "@id": "mb:Classes",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Enrollments": {
+      "@id": "mb:Enrollments",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Organizer": {
+      "@id": "mb:Organizer",
+      "@type": "@id"
+    },
+    "FrequencyInterval": {
+      "@id": "mb:FrequencyInterval",
+      "@type": "xsd:integer"
+    },
+    "ClientIds": {
+      "@id": "mb:ClientIds",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "ArrivalProgramID": {
+      "@id": "mb:ArrivalProgramID",
+      "@type": "xsd:integer"
+    },
+    "ArrivalProgramName": {
+      "@id": "mb:ArrivalProgramName",
+      "@type": "xsd:string"
+    },
+    "CanAccess": {
+      "@id": "mb:CanAccess",
+      "@type": "xsd:boolean"
+    },
+    "LocationsIDs": {
+      "@id": "mb:LocationsIDs",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "AutopayStatus": {
+      "@id": "mb:AutopayStatus",
+      "@type": "@id"
+    },
+    "AutoRenewing": {
+      "@id": "mb:AutoRenewing",
+      "@type": "xsd:boolean"
+    },
+    "FirstAutoPay": {
+      "@id": "mb:FirstAutoPay",
+      "@type": "xsd:double"
+    },
+    "LastAutoPay": {
+      "@id": "mb:LastAutoPay",
+      "@type": "xsd:double"
+    },
+    "NormalAutoPay": {
+      "@id": "mb:NormalAutoPay",
+      "@type": "xsd:double"
+    },
+    "IsMonthToMonth": {
+      "@id": "mb:IsMonthToMonth",
+      "@type": "xsd:boolean"
+    },
+    "AutoRenewClientContractID": {
+      "@id": "mb:AutoRenewClientContractID",
+      "@type": "xsd:integer"
+    },
+    "ContractText": {
+      "@id": "mb:ContractText",
+      "@type": "xsd:string"
+    },
+    "ContractAutoRenewed": {
+      "@id": "mb:ContractAutoRenewed",
+      "@type": "xsd:boolean"
+    },
+    "ContractName": {
+      "@id": "mb:ContractName",
+      "@type": "xsd:string"
+    },
+    "OriginationLocationId": {
+      "@id": "mb:OriginationLocationId",
+      "@type": "xsd:integer"
+    },
+    "UpcomingAutopayEvents": {
+      "@id": "mb:UpcomingAutopayEvents",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ClientContractId": {
+      "@id": "mb:ClientContractId",
+      "@type": "xsd:integer"
+    },
+    "ChargeAmount": {
+      "@id": "mb:ChargeAmount",
+      "@type": "xsd:double"
+    },
+    "Subtotal": {
+      "@id": "mb:Subtotal",
+      "@type": "xsd:double"
+    },
+    "Tax": {
+      "@id": "mb:Tax",
+      "@type": "xsd:double"
+    },
+    "PaymentMethod": {
+      "@id": "mb:PaymentMethod",
+      "@type": "@id"
+    },
+    "ScheduleDate": {
+      "@id": "mb:ScheduleDate",
+      "@type": "xsd:dateTime"
+    },
+    "ContractID": {
+      "@id": "mb:ContractID",
+      "@type": "xsd:integer"
+    },
+    "TerminationDate": {
+      "@id": "mb:TerminationDate",
+      "@type": "xsd:dateTime"
+    },
+    "MinimumCommitmentValue": {
+      "@id": "mb:MinimumCommitmentValue",
+      "@type": "xsd:integer"
+    },
+    "MinimumCommitmentUnit": {
+      "@id": "mb:MinimumCommitmentUnit",
+      "@type": "@id"
+    },
+    "MinimumCommitmentEndDate": {
+      "@id": "mb:MinimumCommitmentEndDate",
+      "@type": "xsd:dateTime"
+    },
+    "FileName": {
+      "@id": "mb:FileName",
+      "@type": "xsd:string"
+    },
+    "MediaType": {
+      "@id": "mb:MediaType",
+      "@type": "xsd:string"
+    },
+    "Buffer": {
+      "@id": "mb:Buffer",
+      "@type": "xsd:string"
+    },
+    "RequiredBusinessMode": {
+      "@id": "mb:RequiredBusinessMode",
+      "@type": "xsd:boolean"
+    },
+    "Values": {
+      "@id": "mb:Values",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "RestrictedLocations": {
+      "@id": "mb:RestrictedLocations",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "IconCode": {
+      "@id": "mb:IconCode",
+      "@type": "xsd:string"
+    },
+    "MembershipId": {
+      "@id": "mb:MembershipId",
+      "@type": "xsd:integer"
+    },
+    "Memberships": {
+      "@id": "mb:Memberships",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ErrorMessage": {
+      "@id": "mb:ErrorMessage",
+      "@type": "xsd:string"
+    },
+    "SaleDate": {
+      "@id": "mb:SaleDate",
+      "@type": "xsd:dateTime"
+    },
+    "SaleTime": {
+      "@id": "mb:SaleTime",
+      "@type": "xsd:string"
+    },
+    "SaleDateTime": {
+      "@id": "mb:SaleDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "OriginalSaleDateTime": {
+      "@id": "mb:OriginalSaleDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "SalesRepId": {
+      "@id": "mb:SalesRepId",
+      "@type": "xsd:integer"
+    },
+    "RecipientClientId": {
+      "@id": "mb:RecipientClientId",
+      "@type": "xsd:integer"
+    },
+    "PurchasedItems": {
+      "@id": "mb:PurchasedItems",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "SaleDetailId": {
+      "@id": "mb:SaleDetailId",
+      "@type": "xsd:integer"
+    },
+    "IsService": {
+      "@id": "mb:IsService",
+      "@type": "xsd:boolean"
+    },
+    "BarcodeId": {
+      "@id": "mb:BarcodeId",
+      "@type": "xsd:string"
+    },
+    "ContractId": {
+      "@id": "mb:ContractId",
+      "@type": "xsd:integer"
+    },
+    "SubCategoryId": {
+      "@id": "mb:SubCategoryId",
+      "@type": "xsd:integer"
+    },
+    "UnitPrice": {
+      "@id": "mb:UnitPrice",
+      "@type": "xsd:double"
+    },
+    "DiscountPercent": {
+      "@id": "mb:DiscountPercent",
+      "@type": "xsd:double"
+    },
+    "TaxAmount": {
+      "@id": "mb:TaxAmount",
+      "@type": "xsd:double"
+    },
+    "TotalAmount": {
+      "@id": "mb:TotalAmount",
+      "@type": "xsd:double"
+    },
+    "PaymentRefId": {
+      "@id": "mb:PaymentRefId",
+      "@type": "xsd:integer"
+    },
+    "ExpDate": {
+      "@id": "mb:ExpDate",
+      "@type": "xsd:dateTime"
+    },
+    "GiftCardBarcodeId": {
+      "@id": "mb:GiftCardBarcodeId",
+      "@type": "xsd:string"
+    },
+    "Method": {
+      "@id": "mb:Method",
+      "@type": "xsd:integer"
+    },
+    "AccountPayment": {
+      "@id": "mb:AccountPayment",
+      "@type": "xsd:boolean"
+    },
+    "Price": {
+      "@id": "mb:Price",
+      "@type": "xsd:double"
+    },
+    "AmountPaid": {
+      "@id": "mb:AmountPaid",
+      "@type": "xsd:double"
+    },
+    "ActionDateTime": {
+      "@id": "mb:ActionDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "Source": {
+      "@id": "mb:Source",
+      "@type": "xsd:string"
+    },
+    "SourceID": {
+      "@id": "mb:SourceID",
+      "@type": "xsd:integer"
+    },
+    "ExpirationDateTime": {
+      "@id": "mb:ExpirationDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "Points": {
+      "@id": "mb:Points",
+      "@type": "xsd:integer"
+    },
+    "ActivationType": {
+      "@id": "mb:ActivationType",
+      "@type": "@id"
+    },
+    "CannotPayForClassesBeforeActivation": {
+      "@id": "mb:CannotPayForClassesBeforeActivation",
+      "@type": "xsd:boolean"
+    },
+    "BookingSuspended": {
+      "@id": "mb:BookingSuspended",
+      "@type": "xsd:boolean"
+    },
+    "SuspensionStartDate": {
+      "@id": "mb:SuspensionStartDate",
+      "@type": "xsd:string"
+    },
+    "SuspensionEndDate": {
+      "@id": "mb:SuspensionEndDate",
+      "@type": "xsd:string"
+    },
+    "SuspensionInfo": {
+      "@id": "mb:SuspensionInfo",
+      "@type": "@id"
+    },
+    "CommissionType": {
+      "@id": "mb:CommissionType",
+      "@type": "xsd:string"
+    },
+    "CommissionEarnings": {
+      "@id": "mb:CommissionEarnings",
+      "@type": "xsd:double"
+    },
+    "SaleType": {
+      "@id": "mb:SaleType",
+      "@type": "xsd:string"
+    },
+    "EarningsDetails": {
+      "@id": "mb:EarningsDetails",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Earnings": {
+      "@id": "mb:Earnings",
+      "@type": "xsd:double"
+    },
+    "AccessToken": {
+      "@id": "mb:AccessToken",
+      "@type": "xsd:string"
+    },
+    "CreatedDateTime": {
+      "@id": "mb:CreatedDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "CreatedBy": {
+      "@id": "mb:CreatedBy",
+      "@type": "@id"
+    },
+    "AssignedTo": {
+      "@id": "mb:AssignedTo",
+      "@type": "@id"
+    },
+    "AssignsMembershipId": {
+      "@id": "mb:AssignsMembershipId",
+      "@type": "xsd:integer"
+    },
+    "AssignsMembershipName": {
+      "@id": "mb:AssignsMembershipName",
+      "@type": "xsd:string"
+    },
+    "SoldOnline": {
+      "@id": "mb:SoldOnline",
+      "@type": "xsd:boolean"
+    },
+    "ContractItems": {
+      "@id": "mb:ContractItems",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "OneTimeItem": {
+      "@id": "mb:OneTimeItem",
+      "@type": "xsd:boolean"
+    },
+    "IntroOffer": {
+      "@id": "mb:IntroOffer",
+      "@type": "xsd:string"
+    },
+    "AutopayTriggerType": {
+      "@id": "mb:AutopayTriggerType",
+      "@type": "xsd:string"
+    },
+    "ActionUponCompletionOfAutopays": {
+      "@id": "mb:ActionUponCompletionOfAutopays",
+      "@type": "xsd:string"
+    },
+    "ClientsChargedOn": {
+      "@id": "mb:ClientsChargedOn",
+      "@type": "xsd:string"
+    },
+    "ClientsChargedOnSpecificDate": {
+      "@id": "mb:ClientsChargedOnSpecificDate",
+      "@type": "xsd:dateTime"
+    },
+    "DepositAmount": {
+      "@id": "mb:DepositAmount",
+      "@type": "xsd:double"
+    },
+    "FirstAutopayFree": {
+      "@id": "mb:FirstAutopayFree",
+      "@type": "xsd:boolean"
+    },
+    "LastAutopayFree": {
+      "@id": "mb:LastAutopayFree",
+      "@type": "xsd:boolean"
+    },
+    "ClientTerminateOnline": {
+      "@id": "mb:ClientTerminateOnline",
+      "@type": "xsd:boolean"
+    },
+    "MembershipTypeRestrictions": {
+      "@id": "mb:MembershipTypeRestrictions",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "LocationPurchaseRestrictionIds": {
+      "@id": "mb:LocationPurchaseRestrictionIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "LocationPurchaseRestrictionNames": {
+      "@id": "mb:LocationPurchaseRestrictionNames",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "AgreementTerms": {
+      "@id": "mb:AgreementTerms",
+      "@type": "xsd:string"
+    },
+    "RequiresElectronicConfirmation": {
+      "@id": "mb:RequiresElectronicConfirmation",
+      "@type": "xsd:boolean"
+    },
+    "AutopayEnabled": {
+      "@id": "mb:AutopayEnabled",
+      "@type": "xsd:boolean"
+    },
+    "FirstPaymentAmountSubtotal": {
+      "@id": "mb:FirstPaymentAmountSubtotal",
+      "@type": "xsd:double"
+    },
+    "FirstPaymentAmountTax": {
+      "@id": "mb:FirstPaymentAmountTax",
+      "@type": "xsd:double"
+    },
+    "FirstPaymentAmountTotal": {
+      "@id": "mb:FirstPaymentAmountTotal",
+      "@type": "xsd:double"
+    },
+    "RecurringPaymentAmountSubtotal": {
+      "@id": "mb:RecurringPaymentAmountSubtotal",
+      "@type": "xsd:double"
+    },
+    "RecurringPaymentAmountTax": {
+      "@id": "mb:RecurringPaymentAmountTax",
+      "@type": "xsd:double"
+    },
+    "RecurringPaymentAmountTotal": {
+      "@id": "mb:RecurringPaymentAmountTotal",
+      "@type": "xsd:double"
+    },
+    "TotalContractAmountSubtotal": {
+      "@id": "mb:TotalContractAmountSubtotal",
+      "@type": "xsd:double"
+    },
+    "TotalContractAmountTax": {
+      "@id": "mb:TotalContractAmountTax",
+      "@type": "xsd:double"
+    },
+    "TotalContractAmountTotal": {
+      "@id": "mb:TotalContractAmountTotal",
+      "@type": "xsd:double"
+    },
+    "PromoPaymentAmountSubtotal": {
+      "@id": "mb:PromoPaymentAmountSubtotal",
+      "@type": "xsd:double"
+    },
+    "PromoPaymentAmountTax": {
+      "@id": "mb:PromoPaymentAmountTax",
+      "@type": "xsd:double"
+    },
+    "PromoPaymentAmountTotal": {
+      "@id": "mb:PromoPaymentAmountTotal",
+      "@type": "xsd:double"
+    },
+    "NumberOfPromoAutopays": {
+      "@id": "mb:NumberOfPromoAutopays",
+      "@type": "xsd:integer"
+    },
+    "SourceSiteId": {
+      "@id": "mb:SourceSiteId",
+      "@type": "xsd:integer"
+    },
+    "SourceClientId": {
+      "@id": "mb:SourceClientId",
+      "@type": "xsd:string"
+    },
+    "SourceUniqueClientId": {
+      "@id": "mb:SourceUniqueClientId",
+      "@type": "xsd:integer"
+    },
+    "TargetSiteId": {
+      "@id": "mb:TargetSiteId",
+      "@type": "xsd:integer"
+    },
+    "TargetClientId": {
+      "@id": "mb:TargetClientId",
+      "@type": "xsd:string"
+    },
+    "TargetUniqueClientId": {
+      "@id": "mb:TargetUniqueClientId",
+      "@type": "xsd:integer"
+    },
+    "CopiedFrom": {
+      "@id": "mb:CopiedFrom",
+      "@type": "@id"
+    },
+    "CopiedTo": {
+      "@id": "mb:CopiedTo",
+      "@type": "@id"
+    },
+    "ReservationId": {
+      "@id": "mb:ReservationId",
+      "@type": "xsd:string"
+    },
+    "ReservationExternalId": {
+      "@id": "mb:ReservationExternalId",
+      "@type": "xsd:string"
+    },
+    "ClassExternalId": {
+      "@id": "mb:ClassExternalId",
+      "@type": "xsd:string"
+    },
+    "MemberExternalId": {
+      "@id": "mb:MemberExternalId",
+      "@type": "xsd:string"
+    },
+    "ReservationType": {
+      "@id": "mb:ReservationType",
+      "@type": "xsd:string"
+    },
+    "Spots": {
+      "@id": "mb:Spots",
+      "@type": "@id"
+    },
+    "ReservedSpotNumbers": {
+      "@id": "mb:ReservedSpotNumbers",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "AvailableSpotNumbers": {
+      "@id": "mb:AvailableSpotNumbers",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "UnavailableSpotNumbers": {
+      "@id": "mb:UnavailableSpotNumbers",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "IsConfirmed": {
+      "@id": "mb:IsConfirmed",
+      "@type": "xsd:boolean"
+    },
+    "ConfirmationDate": {
+      "@id": "mb:ConfirmationDate",
+      "@type": "xsd:dateTime"
+    },
+    "CreditCardNumber": {
+      "@id": "mb:CreditCardNumber",
+      "@type": "xsd:string"
+    },
+    "BillingName": {
+      "@id": "mb:BillingName",
+      "@type": "xsd:string"
+    },
+    "BillingAddress": {
+      "@id": "mb:BillingAddress",
+      "@type": "xsd:string"
+    },
+    "BillingCity": {
+      "@id": "mb:BillingCity",
+      "@type": "xsd:string"
+    },
+    "BillingState": {
+      "@id": "mb:BillingState",
+      "@type": "xsd:string"
+    },
+    "BillingPostalCode": {
+      "@id": "mb:BillingPostalCode",
+      "@type": "xsd:string"
+    },
+    "SaveInfo": {
+      "@id": "mb:SaveInfo",
+      "@type": "xsd:boolean"
+    },
+    "CardId": {
+      "@id": "mb:CardId",
+      "@type": "xsd:string"
+    },
+    "CVV": {
+      "@id": "mb:CVV",
+      "@type": "xsd:string"
+    },
+    "SiteIsActive": {
+      "@id": "mb:SiteIsActive",
+      "@type": "xsd:boolean"
+    },
+    "PromotionId": {
+      "@id": "mb:PromotionId",
+      "@type": "xsd:integer"
+    },
+    "EntryDate": {
+      "@id": "mb:EntryDate",
+      "@type": "xsd:dateTime"
+    },
+    "SiteName": {
+      "@id": "mb:SiteName",
+      "@type": "xsd:string"
+    },
+    "StaffFirstName": {
+      "@id": "mb:StaffFirstName",
+      "@type": "xsd:string"
+    },
+    "StaffLastName": {
+      "@id": "mb:StaffLastName",
+      "@type": "xsd:string"
+    },
+    "StaffDisplayName": {
+      "@id": "mb:StaffDisplayName",
+      "@type": "xsd:string"
+    },
+    "IsActive": {
+      "@id": "mb:IsActive",
+      "@type": "xsd:boolean"
+    },
+    "IsDefault": {
+      "@id": "mb:IsDefault",
+      "@type": "xsd:boolean"
+    },
+    "ActivationCode": {
+      "@id": "mb:ActivationCode",
+      "@type": "xsd:string"
+    },
+    "ActivationLink": {
+      "@id": "mb:ActivationLink",
+      "@type": "xsd:string"
+    },
+    "RequestedLimit": {
+      "@id": "mb:RequestedLimit",
+      "@type": "xsd:integer"
+    },
+    "RequestedOffset": {
+      "@id": "mb:RequestedOffset",
+      "@type": "xsd:integer"
+    },
+    "PageSize": {
+      "@id": "mb:PageSize",
+      "@type": "xsd:integer"
+    },
+    "TotalResults": {
+      "@id": "mb:TotalResults",
+      "@type": "xsd:integer"
+    },
+    "ActiveSessionTimes": {
+      "@id": "mb:ActiveSessionTimes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "PaymentMethods": {
+      "@id": "mb:PaymentMethods",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Options": {
+      "@id": "mb:Options",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "AvailableDates": {
+      "@id": "mb:AvailableDates",
+      "@container": "@set",
+      "@type": "xsd:dateTime"
+    },
+    "Categories": {
+      "@id": "mb:Categories",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ClassDescriptions": {
+      "@id": "mb:ClassDescriptions",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ClassSchedules": {
+      "@id": "mb:ClassSchedules",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ClientServices": {
+      "@id": "mb:ClientServices",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ClientContracts": {
+      "@id": "mb:ClientContracts",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ClientArrivals": {
+      "@id": "mb:ClientArrivals",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Contracts": {
+      "@id": "mb:Contracts",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ClientDuplicates": {
+      "@id": "mb:ClientDuplicates",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "FormulaNotes": {
+      "@id": "mb:FormulaNotes",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Purchases": {
+      "@id": "mb:Purchases",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ReferralTypes": {
+      "@id": "mb:ReferralTypes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "Balance": {
+      "@id": "mb:Balance",
+      "@type": "xsd:integer"
+    },
+    "WaitlistInfo": {
+      "@id": "mb:WaitlistInfo",
+      "@type": "@id"
+    },
+    "WaitlistId": {
+      "@id": "mb:WaitlistId",
+      "@type": "xsd:integer"
+    },
+    "WaitlistOrderNumber": {
+      "@id": "mb:WaitlistOrderNumber",
+      "@type": "xsd:integer"
+    },
+    "Commissions": {
+      "@id": "mb:Commissions",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ContactLogTypes": {
+      "@id": "mb:ContactLogTypes",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ContactLogs": {
+      "@id": "mb:ContactLogs",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Courses": {
+      "@id": "mb:Courses",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "CrossRegionalClientAssociations": {
+      "@id": "mb:CrossRegionalClientAssociations",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "GenderOptions": {
+      "@id": "mb:GenderOptions",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "RemainingBalance": {
+      "@id": "mb:RemainingBalance",
+      "@type": "xsd:double"
+    },
+    "GiftCards": {
+      "@id": "mb:GiftCards",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "LocationIds": {
+      "@id": "mb:LocationIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "EditableByConsumer": {
+      "@id": "mb:EditableByConsumer",
+      "@type": "xsd:boolean"
+    },
+    "CardValue": {
+      "@id": "mb:CardValue",
+      "@type": "xsd:double"
+    },
+    "SalePrice": {
+      "@id": "mb:SalePrice",
+      "@type": "xsd:double"
+    },
+    "MembershipRestrictionIds": {
+      "@id": "mb:MembershipRestrictionIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "GiftCardTerms": {
+      "@id": "mb:GiftCardTerms",
+      "@type": "xsd:string"
+    },
+    "ContactInfo": {
+      "@id": "mb:ContactInfo",
+      "@type": "xsd:string"
+    },
+    "DisplayLogo": {
+      "@id": "mb:DisplayLogo",
+      "@type": "xsd:boolean"
+    },
+    "Layouts": {
+      "@id": "mb:Layouts",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "LayoutId": {
+      "@id": "mb:LayoutId",
+      "@type": "xsd:integer"
+    },
+    "LayoutName": {
+      "@id": "mb:LayoutName",
+      "@type": "xsd:string"
+    },
+    "LayoutUrl": {
+      "@id": "mb:LayoutUrl",
+      "@type": "xsd:string"
+    },
+    "LiabilityWaiver": {
+      "@id": "mb:LiabilityWaiver",
+      "@type": "xsd:string"
+    },
+    "Locations": {
+      "@id": "mb:Locations",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "MembershipName": {
+      "@id": "mb:MembershipName",
+      "@type": "xsd:string"
+    },
+    "Priority": {
+      "@id": "mb:Priority",
+      "@type": "xsd:integer"
+    },
+    "MemberRetailDiscount": {
+      "@id": "mb:MemberRetailDiscount",
+      "@type": "xsd:double"
+    },
+    "MemberServiceDiscount": {
+      "@id": "mb:MemberServiceDiscount",
+      "@type": "xsd:double"
+    },
+    "AllowClientsToScheduleUnpaid": {
+      "@id": "mb:AllowClientsToScheduleUnpaid",
+      "@type": "xsd:boolean"
+    },
+    "OnlineBookingRestrictedToMembersOnly": {
+      "@id": "mb:OnlineBookingRestrictedToMembersOnly",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "DayOfMonthSchedulingOpensForNextMonth": {
+      "@id": "mb:DayOfMonthSchedulingOpensForNextMonth",
+      "@type": "xsd:integer"
+    },
+    "RestrictSelfSignInToMembersOnly": {
+      "@id": "mb:RestrictSelfSignInToMembersOnly",
+      "@type": "xsd:boolean"
+    },
+    "AllowMembersToBookAppointmentsWithoutPaying": {
+      "@id": "mb:AllowMembersToBookAppointmentsWithoutPaying",
+      "@type": "xsd:boolean"
+    },
+    "AllowMembersToPurchaseNonMembersServices": {
+      "@id": "mb:AllowMembersToPurchaseNonMembersServices",
+      "@type": "xsd:boolean"
+    },
+    "AllowMembersToPurchaseNonMembersProducts": {
+      "@id": "mb:AllowMembersToPurchaseNonMembersProducts",
+      "@type": "xsd:boolean"
+    },
+    "EarlyAccessDaysBeforeSchedulingWindow": {
+      "@id": "mb:EarlyAccessDaysBeforeSchedulingWindow",
+      "@type": "xsd:integer"
+    },
+    "MobileProviders": {
+      "@id": "mb:MobileProviders",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ProviderName": {
+      "@id": "mb:ProviderName",
+      "@type": "xsd:string"
+    },
+    "ProviderAddress": {
+      "@id": "mb:ProviderAddress",
+      "@type": "xsd:string"
+    },
+    "Packages": {
+      "@id": "mb:Packages",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "DiscountPercentage": {
+      "@id": "mb:DiscountPercentage",
+      "@type": "xsd:double"
+    },
+    "SellOnline": {
+      "@id": "mb:SellOnline",
+      "@type": "xsd:boolean"
+    },
+    "Services": {
+      "@id": "mb:Services",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "OnlinePrice": {
+      "@id": "mb:OnlinePrice",
+      "@type": "xsd:double"
+    },
+    "TaxIncluded": {
+      "@id": "mb:TaxIncluded",
+      "@type": "xsd:double"
+    },
+    "TaxRate": {
+      "@id": "mb:TaxRate",
+      "@type": "xsd:double"
+    },
+    "SaleInContractOnly": {
+      "@id": "mb:SaleInContractOnly",
+      "@type": "xsd:boolean"
+    },
+    "ExpirationType": {
+      "@id": "mb:ExpirationType",
+      "@type": "xsd:string"
+    },
+    "ExpirationUnit": {
+      "@id": "mb:ExpirationUnit",
+      "@type": "xsd:string"
+    },
+    "ExpirationLength": {
+      "@id": "mb:ExpirationLength",
+      "@type": "xsd:integer"
+    },
+    "RevenueCategory": {
+      "@id": "mb:RevenueCategory",
+      "@type": "xsd:string"
+    },
+    "SellAtLocationIds": {
+      "@id": "mb:SellAtLocationIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "UseAtLocationIds": {
+      "@id": "mb:UseAtLocationIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "IsIntroOffer": {
+      "@id": "mb:IsIntroOffer",
+      "@type": "xsd:boolean"
+    },
+    "IntroOfferType": {
+      "@id": "mb:IntroOfferType",
+      "@type": "xsd:string"
+    },
+    "IsThirdPartyDiscountPricing": {
+      "@id": "mb:IsThirdPartyDiscountPricing",
+      "@type": "xsd:boolean"
+    },
+    "Discontinued": {
+      "@id": "mb:Discontinued",
+      "@type": "xsd:boolean"
+    },
+    "RestrictToMembershipIds": {
+      "@id": "mb:RestrictToMembershipIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "ApplyMemberDiscountsOfMembershipIds": {
+      "@id": "mb:ApplyMemberDiscountsOfMembershipIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "Products": {
+      "@id": "mb:Products",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "SecondaryCategoryId": {
+      "@id": "mb:SecondaryCategoryId",
+      "@type": "xsd:integer"
+    },
+    "GroupId": {
+      "@id": "mb:GroupId",
+      "@type": "xsd:integer"
+    },
+    "ShortDescription": {
+      "@id": "mb:ShortDescription",
+      "@type": "xsd:string"
+    },
+    "LongDescription": {
+      "@id": "mb:LongDescription",
+      "@type": "xsd:string"
+    },
+    "SupplierId": {
+      "@id": "mb:SupplierId",
+      "@type": "xsd:integer"
+    },
+    "SupplierName": {
+      "@id": "mb:SupplierName",
+      "@type": "xsd:string"
+    },
+    "ManufacturerId": {
+      "@id": "mb:ManufacturerId",
+      "@type": "xsd:string"
+    },
+    "PaymentTypes": {
+      "@id": "mb:PaymentTypes",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "PaymentTypeName": {
+      "@id": "mb:PaymentTypeName",
+      "@type": "xsd:string"
+    },
+    "Fee": {
+      "@id": "mb:Fee",
+      "@type": "xsd:double"
+    },
+    "classes": {
+      "@id": "mb:classes",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ClassName": {
+      "@id": "mb:ClassName",
+      "@type": "xsd:string"
+    },
+    "ClassStartTime": {
+      "@id": "mb:ClassStartTime",
+      "@type": "xsd:dateTime"
+    },
+    "ClassEndTime": {
+      "@id": "mb:ClassEndTime",
+      "@type": "xsd:dateTime"
+    },
+    "ClassMaximumCapacity": {
+      "@id": "mb:ClassMaximumCapacity",
+      "@type": "xsd:integer"
+    },
+    "RoomId": {
+      "@id": "mb:RoomId",
+      "@type": "xsd:string"
+    },
+    "Reservations": {
+      "@id": "mb:Reservations",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "pagination": {
+      "@id": "mb:pagination",
+      "@type": "@id"
+    },
+    "PageNumber": {
+      "@id": "mb:PageNumber",
+      "@type": "xsd:integer"
+    },
+    "TotalResultCount": {
+      "@id": "mb:TotalResultCount",
+      "@type": "xsd:integer"
+    },
+    "TotalPageCount": {
+      "@id": "mb:TotalPageCount",
+      "@type": "xsd:integer"
+    },
+    "responseDetails": {
+      "@id": "mb:responseDetails",
+      "@type": "@id"
+    },
+    "UnitsLogged": {
+      "@id": "mb:UnitsLogged",
+      "@type": "xsd:integer"
+    },
+    "UnitsSold": {
+      "@id": "mb:UnitsSold",
+      "@type": "xsd:integer"
+    },
+    "UnitsInStock": {
+      "@id": "mb:UnitsInStock",
+      "@type": "xsd:integer"
+    },
+    "ReorderLevel": {
+      "@id": "mb:ReorderLevel",
+      "@type": "xsd:integer"
+    },
+    "MaxLevel": {
+      "@id": "mb:MaxLevel",
+      "@type": "xsd:integer"
+    },
+    "PromoCodes": {
+      "@id": "mb:PromoCodes",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ProspectStages": {
+      "@id": "mb:ProspectStages",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Relationships": {
+      "@id": "mb:Relationships",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "RequiredClientFields": {
+      "@id": "mb:RequiredClientFields",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "Sales": {
+      "@id": "mb:Sales",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ScheduledServiceEarnings": {
+      "@id": "mb:ScheduledServiceEarnings",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ScheduledServiceId": {
+      "@id": "mb:ScheduledServiceId",
+      "@type": "xsd:integer"
+    },
+    "ScheduledServiceType": {
+      "@id": "mb:ScheduledServiceType",
+      "@type": "@id"
+    },
+    "DateTime": {
+      "@id": "mb:DateTime",
+      "@type": "xsd:dateTime"
+    },
+    "Semesters": {
+      "@id": "mb:Semesters",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "MultiRegistrationDiscount": {
+      "@id": "mb:MultiRegistrationDiscount",
+      "@type": "xsd:double"
+    },
+    "MultiRegistrationDeadline": {
+      "@id": "mb:MultiRegistrationDeadline",
+      "@type": "xsd:dateTime"
+    },
+    "SessionTypes": {
+      "@id": "mb:SessionTypes",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Sites": {
+      "@id": "mb:Sites",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "AcceptsAmericanExpress": {
+      "@id": "mb:AcceptsAmericanExpress",
+      "@type": "xsd:boolean"
+    },
+    "AcceptsDiscover": {
+      "@id": "mb:AcceptsDiscover",
+      "@type": "xsd:boolean"
+    },
+    "AcceptsMasterCard": {
+      "@id": "mb:AcceptsMasterCard",
+      "@type": "xsd:boolean"
+    },
+    "AcceptsVisa": {
+      "@id": "mb:AcceptsVisa",
+      "@type": "xsd:boolean"
+    },
+    "AllowsDashboardAccess": {
+      "@id": "mb:AllowsDashboardAccess",
+      "@type": "xsd:boolean"
+    },
+    "ContactEmail": {
+      "@id": "mb:ContactEmail",
+      "@type": "xsd:string"
+    },
+    "LogoUrl": {
+      "@id": "mb:LogoUrl",
+      "@type": "xsd:string"
+    },
+    "PageColor1": {
+      "@id": "mb:PageColor1",
+      "@type": "xsd:string"
+    },
+    "PageColor2": {
+      "@id": "mb:PageColor2",
+      "@type": "xsd:string"
+    },
+    "PageColor3": {
+      "@id": "mb:PageColor3",
+      "@type": "xsd:string"
+    },
+    "PageColor4": {
+      "@id": "mb:PageColor4",
+      "@type": "xsd:string"
+    },
+    "PricingLevel": {
+      "@id": "mb:PricingLevel",
+      "@type": "xsd:string"
+    },
+    "SmsPackageEnabled": {
+      "@id": "mb:SmsPackageEnabled",
+      "@type": "xsd:boolean"
+    },
+    "TaxInclusivePrices": {
+      "@id": "mb:TaxInclusivePrices",
+      "@type": "xsd:boolean"
+    },
+    "CurrencyIsoCode": {
+      "@id": "mb:CurrencyIsoCode",
+      "@type": "xsd:string"
+    },
+    "CountryCode": {
+      "@id": "mb:CountryCode",
+      "@type": "xsd:string"
+    },
+    "TimeZone": {
+      "@id": "mb:TimeZone",
+      "@type": "xsd:string"
+    },
+    "AcceptsDirectDebit": {
+      "@id": "mb:AcceptsDirectDebit",
+      "@type": "xsd:boolean"
+    },
+    "LeadChannels": {
+      "@id": "mb:LeadChannels",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "SalespipelineId": {
+      "@id": "mb:SalespipelineId",
+      "@type": "xsd:integer"
+    },
+    "UniversalCustomerId": {
+      "@id": "mb:UniversalCustomerId",
+      "@type": "xsd:string"
+    },
+    "StudioId": {
+      "@id": "mb:StudioId",
+      "@type": "xsd:integer"
+    },
+    "PerStaffPricing": {
+      "@id": "mb:PerStaffPricing",
+      "@type": "xsd:boolean"
+    },
+    "MobileImageURL": {
+      "@id": "mb:MobileImageURL",
+      "@type": "xsd:string"
+    },
+    "UserGroup": {
+      "@id": "mb:UserGroup",
+      "@type": "@id"
+    },
+    "PermissionGroupName": {
+      "@id": "mb:PermissionGroupName",
+      "@type": "xsd:string"
+    },
+    "IpRestricted": {
+      "@id": "mb:IpRestricted",
+      "@type": "xsd:boolean"
+    },
+    "AllowedPermissions": {
+      "@id": "mb:AllowedPermissions",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "DeniedPermissions": {
+      "@id": "mb:DeniedPermissions",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "StaffSessionTypes": {
+      "@id": "mb:StaffSessionTypes",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "TimeCards": {
+      "@id": "mb:TimeCards",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Task": {
+      "@id": "mb:Task",
+      "@type": "xsd:string"
+    },
+    "TimeIn": {
+      "@id": "mb:TimeIn",
+      "@type": "xsd:dateTime"
+    },
+    "TimeOut": {
+      "@id": "mb:TimeOut",
+      "@type": "xsd:dateTime"
+    },
+    "Hours": {
+      "@id": "mb:Hours",
+      "@type": "xsd:double"
+    },
+    "HourlyRate": {
+      "@id": "mb:HourlyRate",
+      "@type": "xsd:double"
+    },
+    "Tips": {
+      "@id": "mb:Tips",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Settled": {
+      "@id": "mb:Settled",
+      "@type": "xsd:boolean"
+    },
+    "TransactionTime": {
+      "@id": "mb:TransactionTime",
+      "@type": "xsd:dateTime"
+    },
+    "AuthTime": {
+      "@id": "mb:AuthTime",
+      "@type": "xsd:dateTime"
+    },
+    "MerchantId": {
+      "@id": "mb:MerchantId",
+      "@type": "xsd:string"
+    },
+    "TerminalId": {
+      "@id": "mb:TerminalId",
+      "@type": "xsd:string"
+    },
+    "CardExpirationMonth": {
+      "@id": "mb:CardExpirationMonth",
+      "@type": "xsd:string"
+    },
+    "CardExpirationYear": {
+      "@id": "mb:CardExpirationYear",
+      "@type": "xsd:string"
+    },
+    "CCLastFour": {
+      "@id": "mb:CCLastFour",
+      "@type": "xsd:string"
+    },
+    "CCSwiped": {
+      "@id": "mb:CCSwiped",
+      "@type": "xsd:boolean"
+    },
+    "ACHLastFour": {
+      "@id": "mb:ACHLastFour",
+      "@type": "xsd:string"
+    },
+    "WaitlistEntries": {
+      "@id": "mb:WaitlistEntries",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "ClassDate": {
+      "@id": "mb:ClassDate",
+      "@type": "xsd:dateTime"
+    },
+    "EnrollmentDateForward": {
+      "@id": "mb:EnrollmentDateForward",
+      "@type": "xsd:dateTime"
+    },
+    "RequestDateTime": {
+      "@id": "mb:RequestDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "VisitRefNo": {
+      "@id": "mb:VisitRefNo",
+      "@type": "xsd:integer"
+    },
+    "Web": {
+      "@id": "mb:Web",
+      "@type": "xsd:boolean"
+    },
+    "Headers": {
+      "@id": "mb:Headers",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "key": {
+      "@id": "mb:key",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "mb:value",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "PromotionCodes": {
+      "@id": "mb:PromotionCodes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "SendNotifications": {
+      "@id": "mb:SendNotifications",
+      "@type": "xsd:boolean"
+    },
+    "Username": {
+      "@id": "mb:Username",
+      "@type": "xsd:string"
+    },
+    "Password": {
+      "@id": "mb:Password",
+      "@type": "xsd:string"
+    },
+    "TokenType": {
+      "@id": "mb:TokenType",
+      "@type": "xsd:string"
+    },
+    "Expires": {
+      "@id": "mb:Expires",
+      "@type": "xsd:dateTime"
+    },
+    "AuthenticationRedirectUrl": {
+      "@id": "mb:AuthenticationRedirectUrl",
+      "@type": "xsd:string"
+    },
+    "SendEmailReceipt": {
+      "@id": "mb:SendEmailReceipt",
+      "@type": "xsd:boolean"
+    },
+    "PaymentInfo": {
+      "@id": "mb:PaymentInfo",
+      "@type": "@id"
+    },
+    "EmailReceipt": {
+      "@id": "mb:EmailReceipt",
+      "@type": "xsd:boolean"
+    },
+    "PaymentProcessingFailures": {
+      "@id": "mb:PaymentProcessingFailures",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "FirstPaymentOccurs": {
+      "@id": "mb:FirstPaymentOccurs",
+      "@type": "xsd:string"
+    },
+    "ClientSignature": {
+      "@id": "mb:ClientSignature",
+      "@type": "xsd:string"
+    },
+    "UseDirectDebit": {
+      "@id": "mb:UseDirectDebit",
+      "@type": "xsd:boolean"
+    },
+    "UseAccountCredit": {
+      "@id": "mb:UseAccountCredit",
+      "@type": "xsd:boolean"
+    },
+    "ProrateDate": {
+      "@id": "mb:ProrateDate",
+      "@type": "xsd:dateTime"
+    },
+    "Totals": {
+      "@id": "mb:Totals",
+      "@type": "@id"
+    },
+    "Total": {
+      "@id": "mb:Total",
+      "@type": "xsd:double"
+    },
+    "PurchaserClientId": {
+      "@id": "mb:PurchaserClientId",
+      "@type": "xsd:string"
+    },
+    "GiftCardId": {
+      "@id": "mb:GiftCardId",
+      "@type": "xsd:integer"
+    },
+    "RecipientEmail": {
+      "@id": "mb:RecipientEmail",
+      "@type": "xsd:string"
+    },
+    "RecipientName": {
+      "@id": "mb:RecipientName",
+      "@type": "xsd:string"
+    },
+    "Title": {
+      "@id": "mb:Title",
+      "@type": "xsd:string"
+    },
+    "GiftMessage": {
+      "@id": "mb:GiftMessage",
+      "@type": "xsd:string"
+    },
+    "DeliveryDate": {
+      "@id": "mb:DeliveryDate",
+      "@type": "xsd:dateTime"
+    },
+    "SenderName": {
+      "@id": "mb:SenderName",
+      "@type": "xsd:string"
+    },
+    "FromName": {
+      "@id": "mb:FromName",
+      "@type": "xsd:string"
+    },
+    "PurchaserEmail": {
+      "@id": "mb:PurchaserEmail",
+      "@type": "xsd:string"
+    },
+    "LateCancel": {
+      "@id": "mb:LateCancel",
+      "@type": "xsd:boolean"
+    },
+    "VisitId": {
+      "@id": "mb:VisitId",
+      "@type": "xsd:integer"
+    },
+    "Details": {
+      "@id": "mb:Details",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "Limit": {
+      "@id": "mb:Limit",
+      "@type": "xsd:integer"
+    },
+    "Offset": {
+      "@id": "mb:Offset",
+      "@type": "xsd:integer"
+    },
+    "ReturnReason": {
+      "@id": "mb:ReturnReason",
+      "@type": "xsd:string"
+    },
+    "ReturnSaleID": {
+      "@id": "mb:ReturnSaleID",
+      "@type": "xsd:integer"
+    },
+    "TrainerID": {
+      "@id": "mb:TrainerID",
+      "@type": "xsd:integer"
+    },
+    "EmailType": {
+      "@id": "mb:EmailType",
+      "@type": "xsd:string"
+    },
+    "UserEmail": {
+      "@id": "mb:UserEmail",
+      "@type": "xsd:string"
+    },
+    "UserFirstName": {
+      "@id": "mb:UserFirstName",
+      "@type": "xsd:string"
+    },
+    "UserLastName": {
+      "@id": "mb:UserLastName",
+      "@type": "xsd:string"
+    },
+    "OverrideConflicts": {
+      "@id": "mb:OverrideConflicts",
+      "@type": "xsd:boolean"
+    },
+    "SendOriginalTeacherEmail": {
+      "@id": "mb:SendOriginalTeacherEmail",
+      "@type": "xsd:boolean"
+    },
+    "SendSubstituteTeacherEmail": {
+      "@id": "mb:SendSubstituteTeacherEmail",
+      "@type": "xsd:boolean"
+    },
+    "SuspensionType": {
+      "@id": "mb:SuspensionType",
+      "@type": "xsd:string"
+    },
+    "SuspensionStart": {
+      "@id": "mb:SuspensionStart",
+      "@type": "xsd:dateTime"
+    },
+    "DurationUnit": {
+      "@id": "mb:DurationUnit",
+      "@type": "xsd:integer"
+    },
+    "OpenEnded": {
+      "@id": "mb:OpenEnded",
+      "@type": "xsd:boolean"
+    },
+    "SuspensionNotes": {
+      "@id": "mb:SuspensionNotes",
+      "@type": "xsd:string"
+    },
+    "SuspensionFee": {
+      "@id": "mb:SuspensionFee",
+      "@type": "xsd:double"
+    },
+    "TerminationCode": {
+      "@id": "mb:TerminationCode",
+      "@type": "xsd:string"
+    },
+    "TerminationComments": {
+      "@id": "mb:TerminationComments",
+      "@type": "xsd:string"
+    },
+    "Execute": {
+      "@id": "mb:Execute",
+      "@type": "xsd:string"
+    },
+    "AvailabilityIds": {
+      "@id": "mb:AvailabilityIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "RetainScheduleChanges": {
+      "@id": "mb:RetainScheduleChanges",
+      "@type": "xsd:boolean"
+    },
+    "AutopayStartDate": {
+      "@id": "mb:AutopayStartDate",
+      "@type": "xsd:dateTime"
+    },
+    "AutopayEndDate": {
+      "@id": "mb:AutopayEndDate",
+      "@type": "xsd:dateTime"
+    },
+    "ReplaceWithProductId": {
+      "@id": "mb:ReplaceWithProductId",
+      "@type": "xsd:integer"
+    },
+    "OverwriteAllProductIDs": {
+      "@id": "mb:OverwriteAllProductIDs",
+      "@type": "xsd:boolean"
+    },
+    "CrossRegionalUpdate": {
+      "@id": "mb:CrossRegionalUpdate",
+      "@type": "xsd:boolean"
+    },
+    "SourceId": {
+      "@id": "mb:SourceId",
+      "@type": "xsd:integer"
+    },
+    "Makeup": {
+      "@id": "mb:Makeup",
+      "@type": "xsd:boolean"
+    },
+    "SaleID": {
+      "@id": "mb:SaleID",
+      "@type": "xsd:integer"
+    },
+    "ID": {
+      "@id": "mb:ID",
+      "@type": "xsd:integer"
+    },
+    "File": {
+      "@id": "mb:File",
+      "@type": "@id"
+    },
+    "FileSize": {
+      "@id": "mb:FileSize",
+      "@type": "xsd:integer"
+    },
+    "Bytes": {
+      "@id": "mb:Bytes",
+      "@type": "xsd:string"
+    },
+    "ClassInstanceIds": {
+      "@id": "mb:ClassInstanceIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    }
+  }
+}

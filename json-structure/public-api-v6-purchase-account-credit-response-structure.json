@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-purchase-account-credit-response-structure.json",
+  "name": "PurchaseAccountCreditResponse",
+  "description": "Implementation of the 'PurchaseAccountCreditResponse' model.",
+  "type": "object",
+  "properties": {
+    "AmountPaid": {
+      "type": "double",
+      "description": "The amount paid for the gift card by the purchaser.",
+      "example": 49.99
+    },
+    "ClientId": {
+      "type": "string",
+      "description": "The client ID of the purchaser.",
+      "example": "example-value"
+    },
+    "SaleId": {
+      "type": "int32",
+      "description": "The sale ID of the gift card.",
+      "example": 123456
+    },
+    "EmailReceipt": {
+      "type": "boolean",
+      "description": "Whether or not an email receipt was sent to the purchaser. If true, a receipt was sent.",
+      "example": true
+    },
+    "PaymentProcessingFailures": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PaymentProcessingFailure"
+      },
+      "description": "Any cart processing failures, for example when SCA challenged, the cart is in PaymentAuthenticationRequired state and at least one of the failures listed will provide an authentication Url.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "StaffId": 123456,
+  "IsAvailability": true,
+  "DaysOfWeek": [
+    "example-value"
+  ],
+  "StartTime": "example-value",
+  "EndTime": "example-value",
+  "StartDate": "example-value",
+  "EndDate": "example-value",
+  "Description": "Example note for Mindbody Public API.",
+  "ProgramIds": [
+    1
+  ],
+  "LocationId": 123456,
+  "Status": "Active"
+}

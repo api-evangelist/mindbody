@@ -1,0 +1,13 @@
+{
+  "ClientId": "example-value",
+  "ClassId": 123456,
+  "Test": true,
+  "RequirePayment": true,
+  "Waitlist": true,
+  "SendEmail": true,
+  "WaitlistEntryId": 123456,
+  "ClientServiceId": 123456,
+  "CrossRegionalBooking": true,
+  "CrossRegionalBookingClientServiceSiteId": 123456,
+  "UniqueId": 123456
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-semester-structure.json",
+  "name": "Semester",
+  "description": "Implementation of the 'Semester' model. Semesters help you quickly classify enrollments.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "This semester\u2019s unique ID.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "Name of the semester.",
+      "example": "Sunset Yoga Studio"
+    },
+    "Description": {
+      "type": "string",
+      "description": "The description of the semester.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "StartDate": {
+      "type": "datetime",
+      "description": "Start date of the semester.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EndDate": {
+      "type": "datetime",
+      "description": "End date of the semester.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "MultiRegistrationDiscount": {
+      "type": "double",
+      "description": "Discount for multiple registration in the semester.",
+      "example": 1.0
+    },
+    "MultiRegistrationDeadline": {
+      "type": "datetime",
+      "description": "Registration deadline of the semester.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the semester is active.",
+      "example": true
+    }
+  }
+}

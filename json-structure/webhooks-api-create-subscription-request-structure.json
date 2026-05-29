@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/webhooks-api-create-subscription-request-structure.json",
+  "name": "CreateSubscriptionRequest",
+  "description": "Implementation of the 'CreateSubscriptionRequest' model. Request used to add a webhook subscription for the requesting developer",
+  "type": "object",
+  "properties": {
+    "eventIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "The events you want to be sent to the specified `webhookUrl`.",
+      "example": [
+        "example-value"
+      ]
+    },
+    "eventSchemaVersion": {
+      "type": "double",
+      "description": "The event schema version for this subscription. `1` is currently the only accepted value.",
+      "example": 1.0
+    },
+    "referenceId": {
+      "type": "string",
+      "description": "An arbitrary field that you can set to a value of your choice. Mindbody stores and returns this value for the subscription you are creating. Most commonly, this field stores a GUID that you can use in your application.",
+      "example": "example-value"
+    },
+    "webhookUrl": {
+      "type": "string",
+      "description": "The URL that Mindbody posts the event notifications to. Webhook URL Requirements lists considerations and requirements for this URL.",
+      "example": "https://example.mindbodyonline.com/resource/abc123"
+    }
+  }
+}

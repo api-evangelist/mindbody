@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-color-structure.json",
+  "name": "Color",
+  "description": "Implementation of the 'Color' model. A color used by products.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "The unique ID of the product color.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the color of product.",
+      "example": "Sunset Yoga Studio"
+    }
+  }
+}

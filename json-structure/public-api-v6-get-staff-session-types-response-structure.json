@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-staff-session-types-response-structure.json",
+  "name": "GetStaffSessionTypesResponse",
+  "description": "Implementation of the 'GetStaffSessionTypesResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination properties used."
+    },
+    "StaffSessionTypes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/StaffSessionType"
+      },
+      "description": "Contains information about staff member session types.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

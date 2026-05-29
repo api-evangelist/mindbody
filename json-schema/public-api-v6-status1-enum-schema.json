@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-status1-enum-schema.json",
+  "title": "Status1Enum",
+  "description": "Status1Enum enumeration.",
+  "type": "string",
+  "enum": [
+    "Booked",
+    "Completed",
+    "Confirmed",
+    "Arrived",
+    "NoShow",
+    "Cancelled",
+    "LateCancelled"
+  ]
+}

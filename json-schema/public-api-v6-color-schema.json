@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-color-schema.json",
+  "title": "Color",
+  "description": "Implementation of the 'Color' model. A color used by products.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unique ID of the product color.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the color of product.",
+      "example": "Sunset Yoga Studio"
+    }
+  }
+}

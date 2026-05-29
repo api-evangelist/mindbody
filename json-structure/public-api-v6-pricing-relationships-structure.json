@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-pricing-relationships-structure.json",
+  "name": "PricingRelationships",
+  "description": "Implementation of the 'PricingRelationships' model.",
+  "type": "object",
+  "properties": {
+    "PaysFor": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "The model property of type List[int].",
+      "example": [
+        1
+      ]
+    },
+    "PaidBy": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "The model property of type List[int].",
+      "example": [
+        1
+      ]
+    }
+  }
+}

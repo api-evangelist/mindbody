@@ -1,0 +1,389 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Mindbody Public API v6 \u2014 Pick A Spot"
+  description: "Pick A Spot \u2014 6 operations. Lead operation: Mindbody This Endpoint Supports Pagination. See Pagination Object for a. Self-contained Naftiko capability covering one Mindbody business\
+    \ surface."
+  tags:
+  - Mindbody
+  - Mindbody Public API v6
+  - Pick A Spot
+  created: '2026-05-28'
+  modified: '2026-05-28'
+binds:
+- namespace: env
+  keys:
+    MINDBODY_API_KEY: MINDBODY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: public-api-v6-pick-a-spot
+    baseUri: https://api.mindbodyonline.com
+    description: "Mindbody Public API v6 \u2014 Pick A Spot business capability. Self-contained, no shared references."
+    authentication:
+      type: apikey
+      key: API-Key
+      value: '{{env.MINDBODY_API_KEY}}'
+      placement: header
+    resources:
+    - name: pickaspot-v1-class
+      path: /pickaspot/v1/class
+      operations:
+      - name: getClassList
+        method: GET
+        description: Mindbody This Endpoint Supports Pagination. See Pagination Object for a
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: pickaspot-v1-class-class-id
+      path: /pickaspot/v1/class/{classId}
+      operations:
+      - name: getClass
+        method: GET
+        description: Mindbody Get a Class Filtered by ClassId
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: classId
+          in: path
+          type: string
+          required: true
+          description: The request template parameter.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: pickaspot-v1-reservation-path-info
+      path: /pickaspot/v1/reservation/{pathInfo}
+      operations:
+      - name: getReservation
+        method: GET
+        description: Mindbody Retrieves Reservation for Pick a Spot
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: pathInfo
+          in: path
+          type: string
+          required: true
+          description: The request template parameter.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateReservation
+        method: PUT
+        description: Mindbody A User Token is Required for This Endpoint
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: pathInfo
+          in: path
+          type: string
+          required: true
+          description: The request template parameter.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createReservation
+        method: POST
+        description: Mindbody Creates a Spot Reservation for a Given Pick-a-spot Class. the Actual
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: pathInfo
+          in: path
+          type: string
+          required: true
+          description: The request template parameter.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteReservation
+        method: DELETE
+        description: Mindbody A User Token is Required for This Endpoint
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: pathInfo
+          in: path
+          type: string
+          required: true
+          description: The request template parameter.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: public-api-v6-pick-a-spot-rest
+    port: 8080
+    description: "REST adapter for Mindbody Public API v6 \u2014 Pick A Spot. One Spectral-compliant resource per consumed operation, prefixed with /v1."
+    resources:
+    - path: /v1/pickaspot/v1/class
+      name: v1-pickaspot-v1-class
+      description: REST surface for /v1/pickaspot/v1/class.
+      operations:
+      - method: GET
+        name: getClassList
+        description: Mindbody This Endpoint Supports Pagination. See Pagination Object for a
+        call: public-api-v6-pick-a-spot.getClassList
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/pickaspot/v1/class/{class-id}
+      name: v1-pickaspot-v1-class-class-id
+      description: REST surface for /v1/pickaspot/v1/class/{class-id}.
+      operations:
+      - method: GET
+        name: getClass
+        description: Mindbody Get a Class Filtered by ClassId
+        call: public-api-v6-pick-a-spot.getClass
+        with:
+          version: rest.version
+          classId: rest.classId
+          siteId: rest.siteId
+          authorization: rest.authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/pickaspot/v1/reservation/{path-info}
+      name: v1-pickaspot-v1-reservation-path-info
+      description: REST surface for /v1/pickaspot/v1/reservation/{path-info}.
+      operations:
+      - method: GET
+        name: getReservation
+        description: Mindbody Retrieves Reservation for Pick a Spot
+        call: public-api-v6-pick-a-spot.getReservation
+        with:
+          version: rest.version
+          pathInfo: rest.pathInfo
+          siteId: rest.siteId
+          authorization: rest.authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateReservation
+        description: Mindbody A User Token is Required for This Endpoint
+        call: public-api-v6-pick-a-spot.updateReservation
+        with:
+          version: rest.version
+          pathInfo: rest.pathInfo
+          siteId: rest.siteId
+          authorization: rest.authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createReservation
+        description: Mindbody Creates a Spot Reservation for a Given Pick-a-spot Class. the Actual
+        call: public-api-v6-pick-a-spot.createReservation
+        with:
+          version: rest.version
+          pathInfo: rest.pathInfo
+          siteId: rest.siteId
+          authorization: rest.authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteReservation
+        description: Mindbody A User Token is Required for This Endpoint
+        call: public-api-v6-pick-a-spot.deleteReservation
+        with:
+          version: rest.version
+          pathInfo: rest.pathInfo
+          siteId: rest.siteId
+          authorization: rest.authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: public-api-v6-pick-a-spot-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for Mindbody Public API v6 \u2014 Pick A Spot. One tool per consumed operation, routed inline through this capability's consumes block."
+    tools:
+    - name: this-endpoint-supports-pagination.-see
+      description: Mindbody This Endpoint Supports Pagination. See Pagination Object for a
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-pick-a-spot.getClassList
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-class-filtered-classid
+      description: Mindbody Get a Class Filtered by ClassId
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-pick-a-spot.getClass
+      with:
+        version: tools.version
+        classId: tools.classId
+        siteId: tools.siteId
+        authorization: tools.authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieves-reservation-pick-spot
+      description: Mindbody Retrieves Reservation for Pick a Spot
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-pick-a-spot.getReservation
+      with:
+        version: tools.version
+        pathInfo: tools.pathInfo
+        siteId: tools.siteId
+        authorization: tools.authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-token-is-required-this
+      description: Mindbody A User Token is Required for This Endpoint
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: public-api-v6-pick-a-spot.updateReservation
+      with:
+        version: tools.version
+        pathInfo: tools.pathInfo
+        siteId: tools.siteId
+        authorization: tools.authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-spot-reservation-given-pick
+      description: Mindbody Creates a Spot Reservation for a Given Pick-a-spot Class. the Actual
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-pick-a-spot.createReservation
+      with:
+        version: tools.version
+        pathInfo: tools.pathInfo
+        siteId: tools.siteId
+        authorization: tools.authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-token-is-required-this-2
+      description: Mindbody A User Token is Required for This Endpoint
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: public-api-v6-pick-a-spot.deleteReservation
+      with:
+        version: tools.version
+        pathInfo: tools.pathInfo
+        siteId: tools.siteId
+        authorization: tools.authorization
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-send-auto-email-request-structure.json",
+  "name": "SendAutoEmailRequest",
+  "description": "Implementation of the 'SendAutoEmailRequest' model.",
+  "type": "object",
+  "properties": {
+    "ClientId": {
+      "type": "string",
+      "description": "The ID of the client email will be sent to.",
+      "example": "example-value"
+    },
+    "EmailType": {
+      "type": "string",
+      "description": "The type of the email that will be sent to a client. Possible values are: * BusinessWelcomeEmail * ConsumerWelcomeEmail",
+      "example": "example-value"
+    }
+  }
+}

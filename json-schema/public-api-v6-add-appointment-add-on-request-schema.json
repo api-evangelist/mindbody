@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-add-appointment-add-on-request-schema.json",
+  "title": "AddAppointmentAddOnRequest",
+  "description": "Implementation of the 'AddAppointmentAddOnRequest' model. Creates an add-on for an appointment",
+  "type": "object",
+  "properties": {
+    "ApplyPayment": {
+      "type": "boolean",
+      "description": "When `true`, indicates that a payment should be applied to the appointment. Currently only ApplyPayment=false is implemented. Default: **true**",
+      "example": true
+    },
+    "AppointmentId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The appointment ID the add-on is getting added to.",
+      "example": 123456
+    },
+    "SessionTypeId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The session type associated with the new appointment add-on.",
+      "example": 123456
+    },
+    "StaffId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the staff member who is adding the new appointment add-on. Default: staff member performing the appointment.",
+      "example": 123456
+    },
+    "Test": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the method is to be validated, but no new appointment add-on data is added. Default: **false**",
+      "example": true
+    }
+  }
+}

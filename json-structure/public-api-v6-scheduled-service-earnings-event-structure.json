@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-scheduled-service-earnings-event-structure.json",
+  "name": "ScheduledServiceEarningsEvent",
+  "description": "Implementation of the 'ScheduledServiceEarningsEvent' model.",
+  "type": "object",
+  "properties": {
+    "StaffId": {
+      "type": "int32",
+      "description": "The ID of the staff member who taught the class.",
+      "example": 123456
+    },
+    "ScheduledServiceId": {
+      "type": "int32",
+      "description": "The class' ID.",
+      "example": 123456
+    },
+    "ScheduledServiceType": {
+      "$ref": "#/components/schemas/ScheduledServiceTypeEnum",
+      "description": "The type of the scheduled service; i.e, a class, appointment, or enrollment."
+    },
+    "Earnings": {
+      "type": "double",
+      "description": "The total monetary amount the staff is to be paid for this class.",
+      "example": 1.0
+    },
+    "DateTime": {
+      "type": "datetime",
+      "description": "The model property of type datetime.",
+      "example": "2026-05-28T14:30:00Z"
+    }
+  }
+}

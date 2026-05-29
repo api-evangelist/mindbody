@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-custom-client-field-value-structure.json",
+  "name": "CustomClientFieldValue",
+  "description": "Implementation of the 'CustomClientFieldValue' model. The value of a custom client field",
+  "type": "object",
+  "properties": {
+    "Value": {
+      "type": "string",
+      "description": "The value of a specific custom field for a client.",
+      "example": "example-value"
+    },
+    "Id": {
+      "type": "int32",
+      "description": "The ID of the custom client field.",
+      "example": 123456
+    },
+    "DataType": {
+      "type": "string",
+      "description": "The data type of the field.",
+      "example": "example-value"
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the field.",
+      "example": "Sunset Yoga Studio"
+    }
+  }
+}

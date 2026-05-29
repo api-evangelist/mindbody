@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-mobile-provider-structure.json",
+  "name": "MobileProvider",
+  "description": "Implementation of the 'MobileProvider' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "The model property of type int.",
+      "example": 123456
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "The model property of type bool.",
+      "example": true
+    },
+    "ProviderName": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "ProviderAddress": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "123 Market St"
+    }
+  }
+}

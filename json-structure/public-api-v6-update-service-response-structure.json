@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-update-service-response-structure.json",
+  "name": "UpdateServiceResponse",
+  "description": "Implementation of the 'UpdateServiceResponse' model. A response from the Update Services API method.",
+  "type": "object",
+  "properties": {
+    "Services": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Service"
+      },
+      "description": "List of services as response",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

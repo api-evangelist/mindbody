@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-class-schema.json",
+  "title": "Class",
+  "description": "Implementation of the 'Class' model. Represents a single class instance. The class meets at the start time, goes until the end time.",
+  "type": "object",
+  "properties": {
+    "ClassScheduleId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID used to retrieve the class schedule for the desired class.",
+      "example": 123456
+    },
+    "Visits": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Visit"
+      },
+      "description": "Contains information about visits.",
+      "example": [
+        {}
+      ]
+    },
+    "Clients": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Client"
+      },
+      "description": "Contains information about clients.",
+      "example": [
+        {}
+      ]
+    },
+    "Location": {
+      "$ref": "#/components/schemas/Location",
+      "description": "Contains information about a location."
+    },
+    "Resource": {
+      "$ref": "#/components/schemas/ResourceSlim",
+      "description": "Contains information about a resource, such as a room, assigned to a class."
+    },
+    "MaxCapacity": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The maximum number of clients allowed in the class.",
+      "example": 1
+    },
+    "WebCapacity": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The maximum number of clients allowed to sign up online for the class.",
+      "example": 1
+    },
+    "TotalBooked": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The total number of clients booked in the class.",
+      "example": 1
+    },
+    "TotalSignedIn": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The total number of clients signed into the class.",
+      "example": 1
+    },
+    "TotalBookedWaitlist": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The total number of booked clients on the waiting list for the class.",
+      "example": 1
+    },
+    "WebBooked": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The total number of clients who signed up online for the class.",
+      "example": 1
+    },
+    "SemesterId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the semester that the class is a part of, if any.",
+      "example": 123456
+    },
+    "IsCanceled": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the class has been cancelled.<br /> When `false`, indicates that the class has not been cancelled.",
+      "example": true
+    },
+    "Substitute": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the class is being taught by a substitute teacher.<br /> When `false`, indicates that the class is being taught by its regular teacher.",
+      "example": true
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the class is shown to clients when in consumer mode.<br /> When `false`, indicates that the class is not shown to clients when in consumer mode.",
+      "example": true
+    },
+    "IsWaitlistAvailable": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the clients can be placed on a waiting list for the class.<br /> When `false`, indicates that the clients cannot be placed on a waiting list for the class.",
+      "example": true
+    },
+    "IsEnrolled": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the client with the given `ClientId` is enrolled in this class.<br /> When `false`, indicates that the client with the given `ClientId` is not enrolled in this class.",
+      "example": true
+    },
+    "HideCancel": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this class is hidden when cancelled.<br /> When `false`, indicates that this class is not hidden when cancelled.",
+      "example": true
+    },
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unique identifier for the class.",
+      "example": 123456
+    },
+    "IsAvailable": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the client with the given client ID can book this class.<br /> When `false`, indicates that the client with the given client ID cannot book this class.",
+      "example": true
+    },
+    "StartDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time this class is scheduled to start.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EndDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time this class is scheduled to end.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "LastModifiedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The last time this class was modified.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "ClassDescription": {
+      "$ref": "#/components/schemas/ClassDescription",
+      "description": "Contains information that defines the class."
+    },
+    "Staff": {
+      "$ref": "#/components/schemas/Staff",
+      "description": "Contains information about the staff member."
+    },
+    "BookingWindow": {
+      "$ref": "#/components/schemas/BookingWindow",
+      "description": "Contains information about the window for booking."
+    },
+    "BookingStatus": {
+      "$ref": "#/components/schemas/BookingStatusEnum",
+      "description": "Contains the booking\u2019s payment status."
+    },
+    "VirtualStreamLink": {
+      "type": "string",
+      "description": "The link to the Mindbody-hosted live stream for the class. This is `null` when no live stream is configured for the class.",
+      "example": "example-value"
+    },
+    "WaitListSize": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The maximum number allowed on the waiting list for the class.",
+      "example": 1
+    },
+    "ClassNotes": {
+      "type": "string",
+      "description": "Notes for the class",
+      "example": "Example note for Mindbody Public API."
+    }
+  }
+}

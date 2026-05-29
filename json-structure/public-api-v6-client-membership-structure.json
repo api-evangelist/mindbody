@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-client-membership-structure.json",
+  "name": "ClientMembership",
+  "description": "Implementation of the 'ClientMembership' model.",
+  "type": "object",
+  "properties": {
+    "RestrictedLocations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Location"
+      },
+      "description": "The locations that the membership is restricted to, if any. Please note that client memberships with location restrictions can only be used to pay for scheduled services at the site to which they belong. Memberships with location restrictions can not be used to pay for scheduled services at other sites within an organization.",
+      "example": [
+        {}
+      ]
+    },
+    "IconCode": {
+      "type": "string",
+      "description": "Text code that represents the `MembershipIcon`.",
+      "example": "example-value"
+    },
+    "MembershipId": {
+      "type": "int32",
+      "description": "The membership's ID.",
+      "example": 123456
+    },
+    "ActiveDate": {
+      "type": "datetime",
+      "description": "The date that this pricing option became active and could be used to pay for services.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Count": {
+      "type": "int32",
+      "description": "The number of service sessions this pricing option contained when first purchased.",
+      "example": 10
+    },
+    "Current": {
+      "type": "boolean",
+      "description": "When `true`, there are service sessions remaining on the pricing option that can be used pay for the current session.<br /> When `false`, the client cannot use this pricing option to pay for other services.",
+      "example": true
+    },
+    "ExpirationDate": {
+      "type": "datetime",
+      "description": "The date when the pricing option expires and can no longer be used to pay for services, even if unused service sessions remain on the option; expressed as UTC.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Id": {
+      "type": "int32",
+      "description": "The unique ID assigned to this pricing option, specific to when it was purchased by the client.",
+      "example": 123456
+    },
+    "ProductId": {
+      "type": "int32",
+      "description": "The unique ID of this pricing option, not specific to any client's purchase of it.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of this pricing option.",
+      "example": "Sunset Yoga Studio"
+    },
+    "PaymentDate": {
+      "type": "datetime",
+      "description": "The date on which the client paid for this pricing option.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Program": {
+      "$ref": "#/components/schemas/Program",
+      "description": "Contains information about the service category this service falls under."
+    },
+    "Remaining": {
+      "type": "int32",
+      "description": "The number of service sessions remaining in the pricing option that can still be used.",
+      "example": 1
+    },
+    "SiteId": {
+      "type": "int32",
+      "description": "The ID of the subscriber site associated with this pricing option.",
+      "example": -99
+    },
+    "Action": {
+      "$ref": "#/components/schemas/Action1Enum",
+      "description": "The action taken."
+    },
+    "ClientID": {
+      "type": "string",
+      "description": "The Client ID assigned to this pricing option, specific to when it was purchased by the client.",
+      "example": "example-value"
+    },
+    "Returned": {
+      "type": "boolean",
+      "description": "Identification for purchased service is returned or not.",
+      "example": true
+    }
+  }
+}

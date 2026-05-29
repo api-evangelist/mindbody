@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-contracts-response-structure.json",
+  "name": "GetContractsResponse",
+  "description": "Implementation of the 'GetContractsResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "Contracts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Contract"
+      },
+      "description": "Contains information about each contract.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

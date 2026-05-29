@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-issue-request-schema.json",
+  "title": "IssueRequest",
+  "description": "Implementation of the 'IssueRequest' model. POST UserToken/Issue request",
+  "type": "object",
+  "properties": {
+    "Username": {
+      "type": "string",
+      "description": "The staff member\u2019s username.",
+      "example": "example-value"
+    },
+    "Password": {
+      "type": "string",
+      "description": "The staff member\u2019s password.",
+      "example": "example-value"
+    }
+  }
+}

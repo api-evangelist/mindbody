@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-deactivate-promo-code-request-structure.json",
+  "name": "DeactivatePromoCodeRequest",
+  "description": "Implementation of the 'DeactivatePromoCodeRequest' model.",
+  "type": "object",
+  "properties": {
+    "PromotionId": {
+      "type": "int32",
+      "description": "The promocodeID",
+      "example": 123456
+    }
+  }
+}

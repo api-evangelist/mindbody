@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-discount-structure.json",
+  "name": "Discount",
+  "description": "Implementation of the 'Discount' model. Discount for a promo code",
+  "type": "object",
+  "properties": {
+    "Type": {
+      "type": "string",
+      "description": "Type of discount percentage/amount",
+      "example": "example-value"
+    },
+    "Amount": {
+      "type": "double",
+      "description": "Amount of discount",
+      "example": 49.99
+    }
+  }
+}

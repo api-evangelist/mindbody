@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-package-schema.json",
+  "title": "Package",
+  "description": "Implementation of the 'Package' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the package.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the package.",
+      "example": "Sunset Yoga Studio"
+    },
+    "DiscountPercentage": {
+      "type": "number",
+      "format": "double",
+      "description": "The discount percentage applied to the package.",
+      "example": 1.0
+    },
+    "SellOnline": {
+      "type": "boolean",
+      "description": "When `true`, only products that can be sold online are returned.<br /> When `false`, all products are returned.",
+      "example": true
+    },
+    "Services": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Service"
+      },
+      "description": "Information about the services in the packages.",
+      "example": [
+        {}
+      ]
+    },
+    "Products": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Product"
+      },
+      "description": "Information about the products in the packages.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

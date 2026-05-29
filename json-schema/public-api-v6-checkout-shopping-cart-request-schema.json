@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-checkout-shopping-cart-request-schema.json",
+  "title": "CheckoutShoppingCartRequest",
+  "description": "Implementation of the 'CheckoutShoppingCartRequest' model.",
+  "type": "object",
+  "properties": {
+    "Items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CheckoutItemWrapper"
+      },
+      "description": "A list of the items in the cart.",
+      "example": [
+        {}
+      ]
+    },
+    "Payments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CheckoutPaymentInfo"
+      },
+      "description": "A list of payment information objects to be applied to payment against the items in the cart.",
+      "example": [
+        {}
+      ]
+    },
+    "CartId": {
+      "type": "string",
+      "description": "The unique ID of the shopping cart to be processed. You can use this value to maintain a persistent cart. If you do not specify a cart ID, the MINDBODY software generates one.",
+      "example": "example-value"
+    },
+    "ClientId": {
+      "type": "string",
+      "description": "The RSSID of the client making the purchase. A 'ClientId' OR 'UniqueClientId' must be specified to complete a sale.",
+      "example": "example-value"
+    },
+    "UniqueClientId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The UniqueId of the client making the purchase. A 'ClientId' OR 'UniqueClientId' must be specified to complete a sale. Note: you need to provide the 'UniqueClientId' OR the 'ClientId'. If both are provided, the 'UniqueClientId' takes precedence.",
+      "example": 123456
+    },
+    "PayerClientId": {
+      "type": "string",
+      "description": "The RSSID of the client paying for the purchase. This client needs to have a relationship of type \"Pays for\" with the client specified in the 'ClientId' or 'UniqueClientId' fields.",
+      "example": "example-value"
+    },
+    "UniquePayerClientId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The UniqueId of the client paying for the purchase. This client needs to have a relationship of type \"Pays for\" with the client specified in the 'ClientId' or 'UniqueClientId' field. Note: you need to provide the 'UniquePayerClientId' OR the 'PayerClientId'. If both are provided, the 'UniquePayerClientId' takes precedence.",
+      "example": 123456
+    },
+    "Test": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the contents of the cart are validated, but the transaction does not take place. You should use this parameter during testing and when checking the calculated totals of the items in the cart.<br /> When `false`, the transaction takes place and the database is affected.<br /> Default: **false**",
+      "example": true
+    },
+    "InStore": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the cart is to be completed by a staff member and is to take place at one of the business\u2019 physical locations.<br /> When `false`, indicates that the cart is to be completed by a client from the business\u2019 online store.<br /> Default: **false**",
+      "example": true
+    },
+    "CalculateTax": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the tax should be calculated. When `false`, indicates that the tax should not be calculated. Default: **true**",
+      "example": true
+    },
+    "PromotionCode": {
+      "type": "string",
+      "description": "Promotion code to be applied to the cart.",
+      "example": "example-value"
+    },
+    "SendEmail": {
+      "type": "boolean",
+      "description": "When `true`, sends a purchase receipt email to the client. Note that all appropriate permissions and settings must be enabled for the client to receive an email.<br /> Default: **false**",
+      "example": true
+    },
+    "LocationId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The location ID to be used for pulling business mode prices and taxes. If no location ID is supplied, it defaults to the online store, represented by a null value. Default: **null** (the online store)",
+      "example": 123456
+    },
+    "Image": {
+      "type": "string",
+      "description": "The byte array data of the signature image.",
+      "example": "example-value"
+    },
+    "ImageFileName": {
+      "type": "string",
+      "description": "The name of the signature image being uploaded.",
+      "example": "example-value"
+    },
+    "ConsumerPresent": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the consumer is present or otherwise able to successfully negotiate an SCA challenge. It is not a good idea to have this always be `false` as that could very likely lead to a bank declining all transactions for the merchant. Defaults to `false`.",
+      "example": true
+    },
+    "PaymentAuthenticationCallbackUrl": {
+      "type": "string",
+      "description": "The URL consumer is redirected to if the bank requests SCA. This field is only needed if ConsumerPresent is `true`",
+      "example": "https://example.mindbodyonline.com/resource/abc123"
+    },
+    "TransactionIds": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "description": "The list of TransactionIds provided with initial response containing SCA Challenge URLs for ConsumerPresent transactions",
+      "example": [
+        1
+      ]
+    },
+    "IsBillingPostalCodeRequired": {
+      "type": "boolean",
+      "description": "the flag to check billing post code is required or not.",
+      "example": true
+    },
+    "EnforceLocationRestrictions": {
+      "type": "boolean",
+      "description": "When `true`, enforces \"sell at\" location restrictions on the cart items. When `false`, \"sell at\" location restrictions are not enforced. Default: **false**",
+      "example": true
+    }
+  }
+}

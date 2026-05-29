@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-assigned-client-index-schema.json",
+  "title": "AssignedClientIndex",
+  "description": "Implementation of the 'AssignedClientIndex' model. Represents a client index value assigned to a client",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The index ID assigned to the client.",
+      "example": 123456
+    },
+    "ValueId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The index\u2019s value ID.",
+      "example": 123456
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-gift-card-structure.json",
+  "name": "GiftCard",
+  "description": "Implementation of the 'GiftCard' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "The gift card's `ProductID`.",
+      "example": 123456
+    },
+    "LocationIds": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "The IDs of the locations where the gift card is sold.",
+      "example": [
+        1
+      ]
+    },
+    "Description": {
+      "type": "string",
+      "description": "A description of the gift card.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "EditableByConsumer": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the gift card can be edited by the client.",
+      "example": true
+    },
+    "CardValue": {
+      "type": "double",
+      "description": "The value of the gift card.",
+      "example": 1.0
+    },
+    "SalePrice": {
+      "type": "double",
+      "description": "The sale price of the gift card, if applicable.",
+      "example": 49.99
+    },
+    "SoldOnline": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the gift card is sold online.",
+      "example": true
+    },
+    "MembershipRestrictionIds": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "A list of IDs for membership restrictions, if this card is restricted to members with certain types of memberships.",
+      "example": [
+        1
+      ]
+    },
+    "GiftCardTerms": {
+      "type": "string",
+      "description": "The terms of the gift card.",
+      "example": "example-value"
+    },
+    "ContactInfo": {
+      "type": "string",
+      "description": "Contact information for the gift card.",
+      "example": "example-value"
+    },
+    "DisplayLogo": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the logo should be displayed on the gift card.",
+      "example": true
+    },
+    "Layouts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/GiftCardLayout"
+      },
+      "description": "A list of layouts available for the gift card.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

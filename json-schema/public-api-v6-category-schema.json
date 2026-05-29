@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-category-schema.json",
+  "title": "Category",
+  "description": "Implementation of the 'Category' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The category Id used for api calls.",
+      "example": 123456
+    },
+    "CategoryName": {
+      "type": "string",
+      "description": "Category Name",
+      "example": "example-value"
+    },
+    "Description": {
+      "type": "string",
+      "description": "Category Description",
+      "example": "Example note for Mindbody Public API."
+    },
+    "Service": {
+      "type": "boolean",
+      "description": "Category service",
+      "example": true
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "Check if Category is active.",
+      "example": true
+    },
+    "IsPrimary": {
+      "type": "boolean",
+      "description": "Check if Category is of primary type.",
+      "example": true
+    },
+    "IsSecondary": {
+      "type": "boolean",
+      "description": "Check if Category is of secondary type.",
+      "example": true
+    },
+    "CreatedDateTimeUTC": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Category Created DateTime UTC",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "ModifiedDateTimeUTC": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Category Modified DateTime UTC",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "SubCategories": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SubCategory"
+      },
+      "description": "Contains the SubCategory objects, each of which describes the subcategories for a category.",
+      "example": [
+        {}
+      ]
+    },
+    "TotalCount": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Get total number of rows",
+      "example": 10
+    }
+  }
+}

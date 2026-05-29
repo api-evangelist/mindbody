@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-add-promo-code-response-structure.json",
+  "name": "AddPromoCodeResponse",
+  "description": "Implementation of the 'AddPromoCodeResponse' model.",
+  "type": "object",
+  "properties": {
+    "PromoCode": {
+      "$ref": "#/components/schemas/PromoCode",
+      "description": "Contains information about PromoCode"
+    }
+  }
+}

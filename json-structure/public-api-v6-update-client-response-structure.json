@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-update-client-response-structure.json",
+  "name": "UpdateClientResponse",
+  "description": "Implementation of the 'UpdateClientResponse' model.",
+  "type": "object",
+  "properties": {
+    "Client": {
+      "$ref": "#/components/schemas/ClientWithSuspensionInfo",
+      "description": "Contains information about the updated client."
+    }
+  }
+}

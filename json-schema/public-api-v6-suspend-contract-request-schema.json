@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-suspend-contract-request-schema.json",
+  "title": "SuspendContractRequest",
+  "description": "Implementation of the 'SuspendContractRequest' model.",
+  "type": "object",
+  "properties": {
+    "ClientId": {
+      "type": "string",
+      "description": "The ID of the client.",
+      "example": "example-value"
+    },
+    "ClientContractId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unique ID of the sale of the contract.",
+      "example": 123456
+    },
+    "SuspensionType": {
+      "type": "string",
+      "description": "ex. Illness, Injury, Vacation. (Note this can be customized by each studio). If provided, then Duration, DurationUnit, and SuspensionFee (if applicable) are automatically applied. Restrict Days are not supported.",
+      "example": "example-value"
+    },
+    "SuspensionStart": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The contract suspension start date. Default: *today\u2019s date*",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Duration": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The number of (DurationUnit) the suspension lasts.",
+      "example": 1
+    },
+    "DurationUnit": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unit applied to Duration.",
+      "example": 1
+    },
+    "OpenEnded": {
+      "type": "boolean",
+      "description": "When `true`, indicates that suspension is open ended. Also, when `true`, then Duration and DurationUnit are ignored. Default: *false*",
+      "example": true
+    },
+    "SuspensionNotes": {
+      "type": "string",
+      "description": "The comments for suspending a contract.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "SuspensionFee": {
+      "type": "number",
+      "format": "double",
+      "description": "An optional charge that clients who wish to pause a contract for a set period of time can be charged.",
+      "example": 1.0
+    }
+  }
+}

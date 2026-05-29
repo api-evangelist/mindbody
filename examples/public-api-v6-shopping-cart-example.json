@@ -1,0 +1,14 @@
+{
+  "Id": "example-value",
+  "CartItems": [
+    {}
+  ],
+  "SubTotal": 49.99,
+  "DiscountTotal": 49.99,
+  "TaxTotal": 49.99,
+  "GrandTotal": 49.99,
+  "Transactions": [
+    {}
+  ],
+  "SaleId": 123456
+}

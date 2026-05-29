@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-activation-code-response-structure.json",
+  "name": "GetActivationCodeResponse",
+  "description": "Implementation of the 'GetActivationCodeResponse' model.",
+  "type": "object",
+  "properties": {
+    "ActivationCode": {
+      "type": "string",
+      "description": "An activation code used to provide access to a site\u2019s business data through MINDBODY.",
+      "example": "example-value"
+    },
+    "ActivationLink": {
+      "type": "string",
+      "description": "A link to the Manage Credentials screen.",
+      "example": "example-value"
+    }
+  }
+}

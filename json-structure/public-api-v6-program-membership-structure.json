@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-program-membership-structure.json",
+  "name": "ProgramMembership",
+  "description": "Implementation of the 'ProgramMembership' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "The service category\u2019s ID.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of this service category.",
+      "example": "Sunset Yoga Studio"
+    }
+  }
+}

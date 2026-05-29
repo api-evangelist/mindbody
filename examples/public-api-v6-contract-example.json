@@ -1,0 +1,52 @@
+{
+  "Id": 123456,
+  "Name": "Sunset Yoga Studio",
+  "Description": "Example note for Mindbody Public API.",
+  "AssignsMembershipId": 123456,
+  "AssignsMembershipName": "example-value",
+  "SoldOnline": true,
+  "ContractItems": [
+    {}
+  ],
+  "IntroOffer": "example-value",
+  "AutopaySchedule": {
+    "FrequencyType": "example-value",
+    "FrequencyValue": 1,
+    "FrequencyTimeUnit": "example-value"
+  },
+  "NumberOfAutopays": 1,
+  "AutopayTriggerType": "example-value",
+  "ActionUponCompletionOfAutopays": "example-value",
+  "ClientsChargedOn": "example-value",
+  "ClientsChargedOnSpecificDate": "2026-05-28T14:30:00Z",
+  "DiscountAmount": 49.99,
+  "DepositAmount": 49.99,
+  "FirstAutopayFree": true,
+  "LastAutopayFree": true,
+  "ClientTerminateOnline": true,
+  "MembershipTypeRestrictions": [
+    {}
+  ],
+  "LocationPurchaseRestrictionIds": [
+    1
+  ],
+  "LocationPurchaseRestrictionNames": [
+    "example-value"
+  ],
+  "AgreementTerms": "example-value",
+  "RequiresElectronicConfirmation": true,
+  "AutopayEnabled": true,
+  "FirstPaymentAmountSubtotal": 49.99,
+  "FirstPaymentAmountTax": 49.99,
+  "FirstPaymentAmountTotal": 49.99,
+  "RecurringPaymentAmountSubtotal": 49.99,
+  "RecurringPaymentAmountTax": 49.99,
+  "RecurringPaymentAmountTotal": 49.99,
+  "TotalContractAmountSubtotal": 49.99,
+  "TotalContractAmountTax": 49.99,
+  "TotalContractAmountTotal": 49.99,
+  "PromoPaymentAmountSubtotal": 49.99,
+  "PromoPaymentAmountTax": 49.99,
+  "PromoPaymentAmountTotal": 49.99,
+  "NumberOfPromoAutopays": 1
+}

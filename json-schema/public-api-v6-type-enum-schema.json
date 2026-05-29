@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-type-enum-schema.json",
+  "title": "TypeEnum",
+  "description": "TypeEnum enumeration.",
+  "type": "string",
+  "enum": [
+    "All",
+    "Class",
+    "Enrollment",
+    "Appointment",
+    "Resource",
+    "Media",
+    "Arrival"
+  ]
+}

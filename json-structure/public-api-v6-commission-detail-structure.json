@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-commission-detail-structure.json",
+  "name": "CommissionDetail",
+  "description": "Implementation of the 'CommissionDetail' model.",
+  "type": "object",
+  "properties": {
+    "CommissionType": {
+      "type": "string",
+      "description": "The type of commission earned. Possible values are: * ItemStandardPercentageCommission * ItemStandardFlatCommission * ItemPromotionalPercentageCommission * ItemPromotionalFlatCommission * StaffStandardPercentageCommission * StaffStandardFlatCommission * StaffPromotionalPercentageCommission * StaffPromotionalFlatCommission",
+      "example": "example-value"
+    },
+    "CommissionEarnings": {
+      "type": "double",
+      "description": "The portion of `Earnings` earned by this `CommissionType`.",
+      "example": 1.0
+    }
+  }
+}

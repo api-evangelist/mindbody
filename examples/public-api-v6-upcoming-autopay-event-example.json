@@ -1,0 +1,9 @@
+{
+  "ClientContractId": 123456,
+  "ChargeAmount": 49.99,
+  "Subtotal": 1.0,
+  "Tax": 1.0,
+  "PaymentMethod": "Other",
+  "ScheduleDate": "2026-05-28T14:30:00Z",
+  "ProductId": 123456
+}

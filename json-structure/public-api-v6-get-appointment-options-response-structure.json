@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-appointment-options-response-structure.json",
+  "name": "GetAppointmentOptionsResponse",
+  "description": "Implementation of the 'GetAppointmentOptionsResponse' model.",
+  "type": "object",
+  "properties": {
+    "Options": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AppointmentOption"
+      },
+      "description": "Contains information about the appointment options.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

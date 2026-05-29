@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-return-sale-request-schema.json",
+  "title": "ReturnSaleRequest",
+  "description": "Implementation of the 'ReturnSaleRequest' model. ReturnSaleRequest",
+  "type": "object",
+  "properties": {
+    "SaleId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The Sale ID of the sale item to be returned.",
+      "example": 123456
+    },
+    "ReturnReason": {
+      "type": "string",
+      "description": "The reason for the return.",
+      "example": "example-value"
+    }
+  }
+}

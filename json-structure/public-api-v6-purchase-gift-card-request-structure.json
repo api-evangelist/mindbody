@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-purchase-gift-card-request-structure.json",
+  "name": "PurchaseGiftCardRequest",
+  "description": "Implementation of the 'PurchaseGiftCardRequest' model.",
+  "type": "object",
+  "properties": {
+    "LocationId": {
+      "type": "int32",
+      "description": "The ID of the location where the gift card is being sold.",
+      "example": 123456
+    },
+    "PurchaserClientId": {
+      "type": "string",
+      "description": "The RSSID of the client who is purchasing the gift card.",
+      "example": "example-value"
+    },
+    "GiftCardId": {
+      "type": "int32",
+      "description": "The product ID of the gift card being purchased.",
+      "example": 123456
+    },
+    "Test": {
+      "type": "boolean",
+      "description": "When `true`, allows you to test the request without affecting the database.<br /> When `false`, the request is carried out and the database is affected.",
+      "example": true
+    },
+    "LayoutId": {
+      "type": "int32",
+      "description": "The ID of the layout used for the gift card\u2019s image.",
+      "example": 123456
+    },
+    "SendEmailReceipt": {
+      "type": "boolean",
+      "description": "When `true`, indicates that a purchase receipt email should be sent to the purchasing client, if all settings are correctly configured.<br /> When `false`, no email is sent to the purchaser.",
+      "example": true
+    },
+    "RecipientEmail": {
+      "type": "string",
+      "description": "The email address to send the gift card image to. This parameter is required if the `LayoutId` is not 0.<br /> Maximum length: **100**",
+      "example": "kinlane@example.com"
+    },
+    "RecipientName": {
+      "type": "string",
+      "description": "The name of the person who is to receive the gift card. This parameter is required if the `LayoutId` is not 0.<br /> Maximum length: **20**",
+      "example": "example-value"
+    },
+    "Title": {
+      "type": "string",
+      "description": "The text to use as the title of the gift card, for example: Happy Birthday, Maria! This parameter is required if the `LayoutId` is not 0.<br /> Maximum length: **20**",
+      "example": "example-value"
+    },
+    "GiftMessage": {
+      "type": "string",
+      "description": "A personal message to include in the gift card.<br /> Maximum length: **300**",
+      "example": "example-value"
+    },
+    "DeliveryDate": {
+      "type": "datetime",
+      "description": "The date that the gift card\u2019s image is to be delivered to the recipient. This parameter cannot be set to a date in the past. This parameter is required if the `LayoutId` is not 0. Default: **today** Minimum: **today**",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "PaymentInfo": {
+      "$ref": "#/components/schemas/CheckoutPaymentInfo",
+      "description": "Contains information about the payment."
+    },
+    "SalesRepId": {
+      "type": "int32",
+      "description": "The ID of the staff member who is to be marked as the sales rep for this gift card purchase.",
+      "example": 123456
+    },
+    "ConsumerPresent": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the consumer is available to address any SCA challenge issued by the bank. EU Only.<br /> Default: **false**",
+      "example": true
+    },
+    "PaymentAuthenticationCallbackUrl": {
+      "type": "string",
+      "description": "This is the Url the consumer will be redirected back to after completion of the Banks SCA challenge.",
+      "example": "https://example.mindbodyonline.com/resource/abc123"
+    },
+    "BarcodeId": {
+      "type": "string",
+      "description": "Sets the barcode ID of the giftcard. When not provided, a barcode ID is automatically generated.<br /> If a giftcard with the given barcode ID already exists and the site supports reloadable giftcards, the existing giftcard is reloaded<br /> Maximum length: **100**",
+      "example": "example-value"
+    },
+    "SenderName": {
+      "type": "string",
+      "description": "Overrides the name that would otherwise be populated by specifying PurchaserClientId.<br /> Maximum length: **20**",
+      "example": "example-value"
+    }
+  }
+}

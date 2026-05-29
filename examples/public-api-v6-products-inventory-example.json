@@ -1,0 +1,12 @@
+{
+  "ProductId": 123456,
+  "BarcodeId": "example-value",
+  "LocationId": 123456,
+  "UnitsLogged": 1,
+  "UnitsSold": 1,
+  "UnitsInStock": 1,
+  "ReorderLevel": 1,
+  "MaxLevel": 1,
+  "CreatedDateTimeUTC": "2026-05-28T14:30:00Z",
+  "ModifiedDateTimeUTC": "2026-05-28T14:30:00Z"
+}

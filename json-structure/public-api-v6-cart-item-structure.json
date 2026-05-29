@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-cart-item-structure.json",
+  "name": "CartItem",
+  "description": "Implementation of the 'CartItem' model.",
+  "type": "object",
+  "properties": {
+    "Item": {
+      "$ref": "#/components/schemas/Any",
+      "description": "A purchased item; either a pricing option or a retail product."
+    },
+    "SalesNotes": {
+      "type": "string",
+      "description": "Sales Notes for the Product Purcahsed",
+      "example": "Example note for Mindbody Public API."
+    },
+    "DiscountAmount": {
+      "type": "double",
+      "description": "The amount of the discount applied to the item.",
+      "example": 49.99
+    },
+    "VisitIds": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "The IDs of the booked classes, enrollments, or courses that were reconciled by this cart item. This list is only returned if a valid visit ID was passed in the request\u2019s `VisitIds` list.",
+      "example": [
+        1
+      ]
+    },
+    "AppointmentIds": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "Gets or sets the item.",
+      "example": [
+        1
+      ]
+    },
+    "Appointments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Appointment"
+      },
+      "description": "The IDs of the appointments that were reconciled by this cart item. This list is only returned if a valid appointment ID was passed in the request\u2019s `AppointmentIds` list.",
+      "example": [
+        {}
+      ]
+    },
+    "Id": {
+      "type": "int32",
+      "description": "The item\u2019s ID in the current cart.",
+      "example": 123456
+    },
+    "Quantity": {
+      "type": "int32",
+      "description": "The quantity of the item being purchased.",
+      "example": 10
+    }
+  }
+}

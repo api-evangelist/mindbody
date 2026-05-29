@@ -1,0 +1,7 @@
+{
+  "ClientId": "example-value",
+  "ClientContractId": 123456,
+  "TerminationDate": "2026-05-28T14:30:00Z",
+  "TerminationCode": "example-value",
+  "TerminationComments": "Example note for Mindbody Public API."
+}

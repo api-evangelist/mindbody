@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-update-client-rewards-request-structure.json",
+  "name": "UpdateClientRewardsRequest",
+  "description": "Implementation of the 'UpdateClientRewardsRequest' model. Request object for using the API to Earn or Redeem reward points",
+  "type": "object",
+  "properties": {
+    "ClientId": {
+      "type": "string",
+      "description": "The ID of the client that is getting rewards earned or redeemed.",
+      "example": "example-value"
+    },
+    "Points": {
+      "type": "int32",
+      "description": "The amount of points the client is getting earned or redeemed, must be a positive number.",
+      "example": 1
+    },
+    "Action": {
+      "type": "string",
+      "description": "Indicates if rewards are getting earned or redeemed. Possible values are: *Earned *Redeemed",
+      "example": "example-value"
+    },
+    "Source": {
+      "type": "string",
+      "description": "If Action passed as **Earned**, possible values are: * Appointment Booking * Class Booking * Referral * Sale <br />Omit if Action passed as **Redeemed**.",
+      "example": "example-value"
+    },
+    "SourceId": {
+      "type": "int32",
+      "description": "The unique identifier in the MINDBODY system for the **Source**. If Action is **Earned**, and an optional SourceID is provided, it is validated as follows: * If Source is Appointment Booking, then a provided SourceID must be a valid Visit.AppointmentId for the indicated Client. * If Source is **Class Booking**, then a provided SourceID must be a valid Visit.Id for the indicated client. * If Source is **Sale**, then a provided SourceID must be a valid Sale.Id for the indicated client. * If Source",
+      "example": 123456
+    },
+    "ActionDateTime": {
+      "type": "datetime",
+      "description": "The date and time when the points were earned or redeemed in UTC format. This date may be in the past, however it may not be in the future. Default: **current date/time**",
+      "example": "2026-05-28T14:30:00Z"
+    }
+  }
+}

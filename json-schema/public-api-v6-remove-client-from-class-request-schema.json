@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-remove-client-from-class-request-schema.json",
+  "title": "RemoveClientFromClassRequest",
+  "description": "Implementation of the 'RemoveClientFromClassRequest' model.",
+  "type": "object",
+  "properties": {
+    "ClassId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the class that you want to remove the client from.",
+      "example": 123456
+    },
+    "ClientId": {
+      "type": "string",
+      "description": "The RSSID of the client to remove from the specified class.",
+      "example": "example-value"
+    },
+    "UniqueClientId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The Unique Id of the client to remove from the specified class Note: you need to provide the 'UniqueClientId' OR the 'ClientId'. If both are provided, the 'UniqueClientId' takes precedence.",
+      "example": 123456
+    },
+    "Test": {
+      "type": "boolean",
+      "description": "When `true`, the request ensures that its parameters are valid without affecting real data.<br /> When `false`, the request performs as intended and may affect live client data.<br /> Default: **false**",
+      "example": true
+    },
+    "SendEmail": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the client should be sent an email. Depending on the site and client settings, an email may or may not be sent.<br /> Default: **false** Note: When the Authorization header is passed and the SendEmail is set to `true`, then an email will be sent. When the Authorization header is passed and the SendEmail is set to `false`, then an email will not be sent. When the Authorization header is not passed and the SendEmail is set to either `true` or `false`, then an email will",
+      "example": true
+    },
+    "LateCancel": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the client is to be late cancelled from the class.<br /> When `false`, indicates that the client is to be early cancelled from the class.<br /> Default: **false**",
+      "example": true
+    },
+    "VisitId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the client visit that you want to remove from the class. Default: **0**",
+      "example": 123456
+    }
+  }
+}

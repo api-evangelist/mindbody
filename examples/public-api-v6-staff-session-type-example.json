@@ -1,0 +1,17 @@
+{
+  "StaffId": 123456,
+  "Type": "All",
+  "Id": 123456,
+  "Name": "Sunset Yoga Studio",
+  "NumDeducted": 1,
+  "ProgramId": 123456,
+  "Category": "example-value",
+  "CategoryId": 123456,
+  "Subcategory": "example-value",
+  "SubcategoryId": 123456,
+  "TimeLength": 1,
+  "PrepTime": 1,
+  "FinishTime": 1,
+  "PayRateType": "example-value",
+  "PayRateAmount": 49.99
+}

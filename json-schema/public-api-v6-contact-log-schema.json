@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-contact-log-schema.json",
+  "title": "ContactLog",
+  "description": "Implementation of the 'ContactLog' model. A contact log.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The contact log\u2019s ID.",
+      "example": 123456
+    },
+    "Text": {
+      "type": "string",
+      "description": "The contact log\u2019s body text.",
+      "example": "example-value"
+    },
+    "CreatedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The local date and time when the contact log was created.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "FollowupByDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date by which the assigned staff member should close or follow up on this contact log.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "ContactMethod": {
+      "type": "string",
+      "description": "The method by which the client wants to be contacted.",
+      "example": "example-value"
+    },
+    "ContactName": {
+      "type": "string",
+      "description": "The name of the client to contact.",
+      "example": "example-value"
+    },
+    "Client": {
+      "$ref": "#/components/schemas/Client",
+      "description": "Information about the client to whom the contact log belongs."
+    },
+    "CreatedBy": {
+      "$ref": "#/components/schemas/Staff",
+      "description": "Information about the staff member who created the contact log."
+    },
+    "AssignedTo": {
+      "$ref": "#/components/schemas/Staff",
+      "description": "Information about the staff member to whom the contact log is assigned for follow up."
+    },
+    "Comments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ContactLogComment"
+      },
+      "description": "Information about the comment.",
+      "example": [
+        {}
+      ]
+    },
+    "Types": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ContactLogType"
+      },
+      "description": "Information about the type of contact log.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "Id": 123456,
+  "Name": "Sunset Yoga Studio",
+  "Description": "Example note for Mindbody Public API.",
+  "StartDate": "2026-05-28T14:30:00Z",
+  "EndDate": "2026-05-28T14:30:00Z",
+  "MultiRegistrationDiscount": 1.0,
+  "MultiRegistrationDeadline": "2026-05-28T14:30:00Z",
+  "Active": true
+}

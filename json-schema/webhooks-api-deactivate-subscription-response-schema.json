@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/webhooks-api-deactivate-subscription-response-schema.json",
+  "title": "DeactivateSubscriptionResponse",
+  "description": "Implementation of the 'DeactivateSubscriptionResponse' model. Returned after a subscription is deactivated",
+  "type": "object",
+  "properties": {
+    "deactivationDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The UTC date and time when the deactivation took place.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "message": {
+      "type": "string",
+      "description": "A message about the deactivation request. Unless an error occurs, this message always `\"Subscription deactivated successfully.\"`.",
+      "example": "example-value"
+    },
+    "referenceId": {
+      "type": "string",
+      "description": "The subscription's reference ID, assigned when the subscription was created.",
+      "example": "example-value"
+    },
+    "subscriptionId": {
+      "type": "string",
+      "description": "The subscription ID (a GUID).",
+      "example": "example-value"
+    }
+  }
+}

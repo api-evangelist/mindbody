@@ -1,0 +1,15 @@
+{
+  "Id": 123456,
+  "CategoryName": "example-value",
+  "Description": "Example note for Mindbody Public API.",
+  "Service": true,
+  "Active": true,
+  "IsPrimary": true,
+  "IsSecondary": true,
+  "CreatedDateTimeUTC": "2026-05-28T14:30:00Z",
+  "ModifiedDateTimeUTC": "2026-05-28T14:30:00Z",
+  "SubCategories": [
+    {}
+  ],
+  "TotalCount": 10
+}

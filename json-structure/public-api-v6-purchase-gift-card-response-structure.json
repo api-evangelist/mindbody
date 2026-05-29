@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-purchase-gift-card-response-structure.json",
+  "name": "PurchaseGiftCardResponse",
+  "description": "Implementation of the 'PurchaseGiftCardResponse' model.",
+  "type": "object",
+  "properties": {
+    "BarcodeId": {
+      "type": "string",
+      "description": "The barcode ID assigned to the purchased gift card.",
+      "example": "example-value"
+    },
+    "Value": {
+      "type": "double",
+      "description": "The monetary value of the gift card.",
+      "example": 1.0
+    },
+    "AmountPaid": {
+      "type": "double",
+      "description": "The amount paid for the gift card by the purchaser.",
+      "example": 49.99
+    },
+    "FromName": {
+      "type": "string",
+      "description": "The name of the purchaser.",
+      "example": "example-value"
+    },
+    "LayoutId": {
+      "type": "int32",
+      "description": "The ID of the layout used for this gift card.",
+      "example": 123456
+    },
+    "EmailReceipt": {
+      "type": "boolean",
+      "description": "Whether or not an email receipt was sent to the purchaser. If true, a receipt was sent.",
+      "example": true
+    },
+    "PurchaserClientId": {
+      "type": "string",
+      "description": "The client ID of the purchaser.",
+      "example": "example-value"
+    },
+    "PurchaserEmail": {
+      "type": "string",
+      "description": "The purchaser\u2019s email address.",
+      "example": "kinlane@example.com"
+    },
+    "RecipientEmail": {
+      "type": "string",
+      "description": "The recipient\u2019s email address.",
+      "example": "kinlane@example.com"
+    },
+    "SaleId": {
+      "type": "int32",
+      "description": "The sale ID of the gift card.",
+      "example": 123456
+    },
+    "PaymentProcessingFailures": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PaymentProcessingFailure"
+      },
+      "description": "Any cart processing failures, for example when SCA challenged, the cart is in PaymentAuthenticationRequired state and at least one of the failures listed will provide an authentication Url.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

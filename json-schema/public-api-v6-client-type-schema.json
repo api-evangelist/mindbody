@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-client-type-schema.json",
+  "title": "ClientType",
+  "description": "Implementation of the 'ClientType' model. Represents a client's type classification.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unique identifier for the client type.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The display name of the client type.",
+      "example": "Sunset Yoga Studio"
+    }
+  }
+}

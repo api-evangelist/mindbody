@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-enrollments-response-schema.json",
+  "title": "GetEnrollmentsResponse",
+  "description": "Implementation of the 'GetEnrollmentsResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "Enrollments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ClassSchedule"
+      },
+      "description": "Contains information about the enrollments.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

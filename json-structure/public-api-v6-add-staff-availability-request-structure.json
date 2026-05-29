@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-add-staff-availability-request-structure.json",
+  "name": "AddStaffAvailabilityRequest",
+  "description": "Implementation of the 'AddStaffAvailabilityRequest' model. Add Staff Availability/Unavailability Schedule",
+  "type": "object",
+  "properties": {
+    "StaffId": {
+      "type": "int32",
+      "description": "The ID of the staff member that availability or unavailability will be added.",
+      "example": 123456
+    },
+    "IsAvailability": {
+      "type": "boolean",
+      "description": "When `true`, indicates that availability will be added, <br /> When `false`, indicates that unavailability will be added.",
+      "example": true
+    },
+    "DaysOfWeek": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "The days of the week. Must contain at least one of the following Sunday, Monday, Tuesday etc.",
+      "example": [
+        "example-value"
+      ]
+    },
+    "StartTime": {
+      "type": "string",
+      "description": "The start time of the schedule. Must be in HH:MM:SS format.",
+      "example": "example-value"
+    },
+    "EndTime": {
+      "type": "string",
+      "description": "The end time of the schedule. Must be in HH:MM:SS format.",
+      "example": "example-value"
+    },
+    "StartDate": {
+      "type": "string",
+      "description": "The start date of the schedule. Must be in YYYY-MM-DD format.",
+      "example": "example-value"
+    },
+    "EndDate": {
+      "type": "string",
+      "description": "The end date of the schedule. Must be in YYYY-MM-DD format.",
+      "example": "example-value"
+    },
+    "Description": {
+      "type": "string",
+      "description": "The description of the unavailability, ex. Lunch, Vacation. Required if IsAvailability passed as `false`. Omit if IsAvailability passed as `true`.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "ProgramIds": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "A list of program IDs. Must be a valid active schedulable Program ID. Required if IsAvailability passed as `true`. Omit if IsAvailability passed as `false`.",
+      "example": [
+        1
+      ]
+    },
+    "LocationId": {
+      "type": "int32",
+      "description": "The ID of the location where the availability is added. Required if IsAvailability passed as `true`. Omit if IsAvailability passed as `false`.",
+      "example": 123456
+    },
+    "Status": {
+      "type": "string",
+      "description": "The status of availability or unavailability. Possible values are: * Masked * Hidden * Public Default: Public",
+      "example": "Active"
+    }
+  }
+}

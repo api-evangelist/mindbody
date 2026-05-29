@@ -1,0 +1,258 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-staff1-structure.json",
+  "name": "Staff1",
+  "description": "Implementation of the 'Staff1' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "The ID assigned to the staff member.",
+      "example": 123456
+    },
+    "FirstName": {
+      "type": "string",
+      "description": "The staff member\u2019s first name.",
+      "example": "Alex"
+    },
+    "LastName": {
+      "type": "string",
+      "description": "The staff member\u2019s last name.",
+      "example": "Lane"
+    },
+    "DisplayName": {
+      "type": "string",
+      "description": "The display name of the staff member.",
+      "example": "example-value"
+    },
+    "Email": {
+      "type": "string",
+      "description": "The staff member\u2019s email address.",
+      "example": "kinlane@example.com"
+    },
+    "Bio": {
+      "type": "string",
+      "description": "The staff member\u2019s biography. This string contains HTML.",
+      "example": "example-value"
+    },
+    "Address": {
+      "type": "string",
+      "description": "The address of the staff member who is teaching the class.",
+      "example": "123 Market St"
+    },
+    "Address2": {
+      "type": "string",
+      "description": "The address2 of the staff member who is teaching the class.",
+      "example": "123 Market St"
+    },
+    "City": {
+      "type": "string",
+      "description": "The staff member\u2019s city.",
+      "example": "San Francisco"
+    },
+    "State": {
+      "type": "string",
+      "description": "The staff member\u2019s state.",
+      "example": "CA"
+    },
+    "PostalCode": {
+      "type": "string",
+      "description": "The staff member\u2019s postal code.",
+      "example": "94110"
+    },
+    "ForeignZip": {
+      "type": "string",
+      "description": "The staff member\u2019s Foreign Zip code.",
+      "example": "example-value"
+    },
+    "Country": {
+      "type": "string",
+      "description": "The staff member\u2019s country.",
+      "example": "US"
+    },
+    "WorkPhone": {
+      "type": "string",
+      "description": "The staff member\u2019s work phone number.",
+      "example": "+15551234567"
+    },
+    "HomePhone": {
+      "type": "string",
+      "description": "The staff member\u2019s home phone number.",
+      "example": "+15551234567"
+    },
+    "CellPhone": {
+      "type": "string",
+      "description": "The staff member\u2019s mobile phone number.",
+      "example": "+15551234567"
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member is Active. When `false`, indicates that the staff member is not Active.",
+      "example": true
+    },
+    "IsSystem": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member is a system . When `false`, indicates that the staff member is not system.",
+      "example": true
+    },
+    "SmodeId": {
+      "type": "int32",
+      "description": "The Staff's Smode Id",
+      "example": 123456
+    },
+    "AppointmentTrn": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member offers appointments. When `false`, indicates that the staff member does not offer appointments.",
+      "example": true
+    },
+    "AlwaysAllowDoubleBooking": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member can be scheduled for overlapping services. When `false`, indicates that the staff can only be scheduled for one service at a time in any given time-frame.",
+      "example": true
+    },
+    "IndependentContractor": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member is an independent contractor. When `false`, indicates that the staff member is not an independent contractor.",
+      "example": true
+    },
+    "ImageUrl": {
+      "type": "string",
+      "description": "The URL of the staff member\u2019s image, if one has been uploaded.",
+      "example": "https://example.mindbodyonline.com/resource/abc123"
+    },
+    "IsMale": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member is male. When `false`, indicates that the staff member is female.",
+      "example": true
+    },
+    "ReservationTrn": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member offers Reservation. When `false`, indicates that the staff member does not offer Reservation.",
+      "example": true
+    },
+    "SortOrder": {
+      "type": "int32",
+      "description": "If configured by the business owner, this field determines a staff member\u2019s weight when sorting. Use this field to sort staff members on your interface.",
+      "example": 1
+    },
+    "MultiLocationPermission": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member has Multi Location Permission. When `false`, indicates that the staff member does not has Multi Location Permission.",
+      "example": true
+    },
+    "Name": {
+      "type": "string",
+      "description": "The staff member\u2019s name.",
+      "example": "Sunset Yoga Studio"
+    },
+    "ProviderIDs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "A list of ProviderIds for the staff.",
+      "example": [
+        "example-value"
+      ]
+    },
+    "StaffSettings": {
+      "$ref": "#/components/schemas/StaffSetting",
+      "description": "This object contains the staff settings."
+    },
+    "Rep": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff is sales Rep 1 else `false`.",
+      "example": true
+    },
+    "Rep2": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff is sales Rep 2 else `false`.",
+      "example": true
+    },
+    "Rep3": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff is sales Rep 3 else `false`.",
+      "example": true
+    },
+    "Rep4": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff is sales Rep 4 else `false`.",
+      "example": true
+    },
+    "Rep5": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff is sales Rep 5 else `false`.",
+      "example": true
+    },
+    "Rep6": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff is sales Rep 6 else `false`.",
+      "example": true
+    },
+    "Assistant": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff is assistant. When `false`, indicates that the staff is not assistant.",
+      "example": true
+    },
+    "Assistant2": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff is assistant2. When `false`, indicates that the staff is not assistant2.",
+      "example": true
+    },
+    "EmploymentStart": {
+      "type": "datetime",
+      "description": "The start date of employment.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EmploymentEnd": {
+      "type": "datetime",
+      "description": "The end date of employment.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EmpID": {
+      "type": "string",
+      "description": "The custom staff ID assigned to the staff member.",
+      "example": "example-value"
+    },
+    "Appointments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Appointment1"
+      },
+      "description": "A list of appointments for the staff.",
+      "example": [
+        {}
+      ]
+    },
+    "Unavailabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Unavailability1"
+      },
+      "description": "A list of unavailabilities for the staff.",
+      "example": [
+        {}
+      ]
+    },
+    "Availabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Availability1"
+      },
+      "description": "A list of availabilities for the staff.",
+      "example": [
+        {}
+      ]
+    },
+    "LoginLocations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Location1"
+      },
+      "description": "A list of LoginLocations for the staff",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

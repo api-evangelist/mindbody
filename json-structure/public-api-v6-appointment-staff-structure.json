@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-appointment-staff-structure.json",
+  "name": "AppointmentStaff",
+  "description": "Implementation of the 'AppointmentStaff' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "The model property of type int.",
+      "example": 123456
+    },
+    "FirstName": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "Alex"
+    },
+    "LastName": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "Lane"
+    },
+    "DisplayName": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    }
+  }
+}

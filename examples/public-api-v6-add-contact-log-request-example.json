@@ -1,0 +1,16 @@
+{
+  "ClientId": "example-value",
+  "ContactMethod": "example-value",
+  "AssignedToStaffId": 123456,
+  "Text": "example-value",
+  "FollowupByDate": "2026-05-28T14:30:00Z",
+  "ContactName": "example-value",
+  "IsComplete": true,
+  "Comments": [
+    "Example note for Mindbody Public API."
+  ],
+  "Types": [
+    {}
+  ],
+  "Test": true
+}

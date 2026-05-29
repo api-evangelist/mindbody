@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-transactions-response-structure.json",
+  "name": "GetTransactionsResponse",
+  "description": "Implementation of the 'GetTransactionsResponse' model. Get transactions response properties",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "Transactions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Transaction"
+      },
+      "description": "Contains the transaction objects, each of which describes the transaction details for a purchase event.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

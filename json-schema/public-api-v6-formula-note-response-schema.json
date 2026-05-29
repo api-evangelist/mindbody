@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-formula-note-response-schema.json",
+  "title": "FormulaNoteResponse",
+  "description": "Implementation of the 'FormulaNoteResponse' model. An individual Client Formula Note.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The formula note ID.",
+      "example": 123456
+    },
+    "ClientId": {
+      "type": "string",
+      "description": "The unique Id of the client for the formula note. This is the unique ID for the client in the site where the formula note originated. This is different than the ClientId specified in the request, which is the id for the client assigned by the business.",
+      "example": "example-value"
+    },
+    "AppointmentId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The appointment ID that the formula note is related to.",
+      "example": 123456
+    },
+    "EntryDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date formula note was created.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Note": {
+      "type": "string",
+      "description": "The new formula note text.",
+      "example": "example-value"
+    },
+    "SiteId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The site Id.",
+      "example": -99
+    },
+    "SiteName": {
+      "type": "string",
+      "description": "The site name.",
+      "example": "example-value"
+    },
+    "StaffFirstName": {
+      "type": "string",
+      "description": "The first name of the staff for the optional associated appointment. If no appointment ID is provided, this will be null.",
+      "example": "example-value"
+    },
+    "StaffLastName": {
+      "type": "string",
+      "description": "The last name of the staff for the optional associated appointment. If no appointment ID is provided, this will be null.",
+      "example": "example-value"
+    },
+    "StaffDisplayName": {
+      "type": "string",
+      "description": "The display name of the staff for the optional associated appointment. If no appointment ID is provided, or no display name is specified for the staff member, this will be null.",
+      "example": "example-value"
+    }
+  }
+}

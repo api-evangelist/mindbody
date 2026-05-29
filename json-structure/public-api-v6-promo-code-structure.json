@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-promo-code-structure.json",
+  "name": "PromoCode",
+  "description": "Implementation of the 'PromoCode' model.",
+  "type": "object",
+  "properties": {
+    "PromotionID": {
+      "type": "int32",
+      "description": "ID of the promo code",
+      "example": 1
+    },
+    "Name": {
+      "type": "string",
+      "description": "Name of the promo code",
+      "example": "Sunset Yoga Studio"
+    },
+    "Code": {
+      "type": "string",
+      "description": "The code of the promocode.",
+      "example": "example-value"
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "Indicates that promocode is active.",
+      "example": true
+    },
+    "Discount": {
+      "$ref": "#/components/schemas/Discount",
+      "description": "Contains information about the discount."
+    },
+    "ActivationDate": {
+      "type": "datetime",
+      "description": "The promocode activation date.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "ExpirationDate": {
+      "type": "datetime",
+      "description": "The promocode expiration date.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "MaxUses": {
+      "type": "int32",
+      "description": "The maximun number of uses.",
+      "example": 1
+    },
+    "NumberOfAutopays": {
+      "type": "int32",
+      "description": "Number of Autopays",
+      "example": 1
+    },
+    "DaysAfterCloseDate": {
+      "type": "int32",
+      "description": "The number of days a client has to use a promocode after they are no longer a prospect.",
+      "example": 1
+    },
+    "AllowOnline": {
+      "type": "boolean",
+      "description": "Indicates if promocode to be redeemed online in consumer mode.",
+      "example": true
+    },
+    "LastModifiedDateTime": {
+      "type": "datetime",
+      "description": "Promo code last modified date and time",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "DaysValid": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DaysValidEnum"
+      },
+      "description": "What days the promo code can be used",
+      "example": [
+        {}
+      ]
+    },
+    "ApplicableItems": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ApplicableItem"
+      },
+      "description": "Contains information about a promocode applicable items.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-contact-log-sub-type-schema.json",
+  "title": "ContactLogSubType",
+  "description": "Implementation of the 'ContactLogSubType' model. A contact log subtype.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unique ID of the subtype",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the subcontactlog Type.",
+      "example": "Sunset Yoga Studio"
+    }
+  }
+}

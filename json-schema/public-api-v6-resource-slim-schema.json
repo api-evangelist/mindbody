@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-resource-slim-schema.json",
+  "title": "ResourceSlim",
+  "description": "Implementation of the 'ResourceSlim' model. Contains information about resources, such as rooms.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the resource being used for this appointment.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the resource being used for this appointment.",
+      "example": "Sunset Yoga Studio"
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-sale-structure.json",
+  "name": "Sale",
+  "description": "Implementation of the 'Sale' model. Contains the Sale details.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "The sale ID.",
+      "example": 123456
+    },
+    "SaleDate": {
+      "type": "datetime",
+      "description": "The date the item was sold.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "SaleTime": {
+      "type": "string",
+      "description": "The time the item was sold.",
+      "example": "example-value"
+    },
+    "SaleDateTime": {
+      "type": "datetime",
+      "description": "The date and time the item was sold.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "OriginalSaleDateTime": {
+      "type": "datetime",
+      "description": "The date and time the item was sold originally.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "SalesRepId": {
+      "type": "int32",
+      "description": "The sales representative ID",
+      "example": 123456
+    },
+    "ClientId": {
+      "type": "string",
+      "description": "The ID of the client who made the purchase.",
+      "example": "example-value"
+    },
+    "RecipientClientId": {
+      "type": "int32",
+      "description": "Recipient Client Id",
+      "example": 123456
+    },
+    "PurchasedItems": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PurchasedItem"
+      },
+      "description": "Contains the `PurchasedItem` objects that describe the purchased items.",
+      "example": [
+        {}
+      ]
+    },
+    "LocationId": {
+      "type": "int32",
+      "description": "The ID of the location where the sale takes place.",
+      "example": 123456
+    },
+    "Payments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SalePayment"
+      },
+      "description": "Contains the `SalePayment` objects that describe the payments that contributed to this sale.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

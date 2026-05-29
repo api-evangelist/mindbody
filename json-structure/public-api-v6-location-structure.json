@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-location-structure.json",
+  "name": "Location",
+  "description": "Implementation of the 'Location' model.",
+  "type": "object",
+  "properties": {
+    "AdditionalImageURLs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "A list of URLs of any images associated with this location.",
+      "example": [
+        "example-value"
+      ]
+    },
+    "Address": {
+      "type": "string",
+      "description": "The first line of the location\u2019s street address.",
+      "example": "123 Market St"
+    },
+    "Address2": {
+      "type": "string",
+      "description": "A second address line for the location\u2019s street address, if needed.",
+      "example": "123 Market St"
+    },
+    "Amenities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Amenity"
+      },
+      "description": "A list of strings representing amenities available at the location.",
+      "example": [
+        {}
+      ]
+    },
+    "BusinessDescription": {
+      "type": "string",
+      "description": "The business description for the location, as configured by the business owner.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "City": {
+      "type": "string",
+      "description": "The location\u2019s city.",
+      "example": "San Francisco"
+    },
+    "Description": {
+      "type": "string",
+      "description": "A description of the location.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "HasClasses": {
+      "type": "boolean",
+      "description": "When `true`, indicates that classes are held at this location.<br /> When `false`, Indicates that classes are not held at this location.",
+      "example": true
+    },
+    "Id": {
+      "type": "int32",
+      "description": "The ID assigned to this location.",
+      "example": 123456
+    },
+    "Latitude": {
+      "type": "double",
+      "description": "The location\u2019s latitude.",
+      "example": 1.0
+    },
+    "Longitude": {
+      "type": "double",
+      "description": "The location\u2019s longitude.",
+      "example": 1.0
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of this location.",
+      "example": "Sunset Yoga Studio"
+    },
+    "Phone": {
+      "type": "string",
+      "description": "The location\u2019s phone number.",
+      "example": "+15551234567"
+    },
+    "PhoneExtension": {
+      "type": "string",
+      "description": "The location\u2019s phone extension.",
+      "example": "example-value"
+    },
+    "PostalCode": {
+      "type": "string",
+      "description": "The location\u2019s postal code.",
+      "example": "94110"
+    },
+    "SiteID": {
+      "type": "int32",
+      "description": "The ID number assigned to this location.",
+      "example": 1
+    },
+    "StateProvCode": {
+      "type": "string",
+      "description": "The location\u2019s state or province code.",
+      "example": "example-value"
+    },
+    "Tax1": {
+      "type": "double",
+      "description": "A decimal representation of the location\u2019s first tax rate. Tax properties are provided to apply all taxes to the purchase price that the purchase is subject to. Use as many tax properties as needed to represent all the taxes that apply in the location. Enter a decimal number that represents the appropriate tax rate. For example, for an 8% sales tax, enter 0.08.",
+      "example": 1.0
+    },
+    "Tax2": {
+      "type": "double",
+      "description": "A decimal representation of the location\u2019s second tax rate. See the example in the description of Tax1.",
+      "example": 1.0
+    },
+    "Tax3": {
+      "type": "double",
+      "description": "A decimal representation of the location\u2019s third tax rate. See the example in the description of Tax1.",
+      "example": 1.0
+    },
+    "Tax4": {
+      "type": "double",
+      "description": "A decimal representation of the location\u2019s fourth tax rate. See the example in the description of Tax1.",
+      "example": 1.0
+    },
+    "Tax5": {
+      "type": "double",
+      "description": "A decimal representation of the location\u2019s fifth tax rate. See the example in the description of Tax1.",
+      "example": 1.0
+    },
+    "TotalNumberOfRatings": {
+      "type": "int32",
+      "description": "The number of reviews that clients have left for this location.",
+      "example": 1
+    },
+    "AverageRating": {
+      "type": "double",
+      "description": "The average rating for the location, out of five stars.",
+      "example": 1.0
+    },
+    "TotalNumberOfDeals": {
+      "type": "int32",
+      "description": "The number of distinct introductory pricing options available for purchase at this location.",
+      "example": 1
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-session-type-schema.json",
+  "title": "SessionType",
+  "description": "Implementation of the 'SessionType' model. SessionType contains information about the session types in a business.",
+  "type": "object",
+  "properties": {
+    "Type": {
+      "$ref": "#/components/schemas/TypeEnum",
+      "description": "Contains the class description session type. Possible values are: * All * Class * Enrollment * Appointment * Resource * Media * Arrival"
+    },
+    "DefaultTimeLength": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The default amount of time that a session of this type typically lasts.",
+      "example": 1
+    },
+    "StaffTimeLength": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The amount of time that a session of this type will last for a specific Staff (when applicable.)",
+      "example": 1
+    },
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "This session type\u2019s unique ID.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of this session type.",
+      "example": "Sunset Yoga Studio"
+    },
+    "OnlineDescription": {
+      "type": "string",
+      "description": "The online description associated with the appointment.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "NumDeducted": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The number of sessions that this session type deducts from the pricing option used to pay for this type of session.",
+      "example": 1
+    },
+    "ProgramId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "This session type\u2019s service category ID.",
+      "example": 123456
+    },
+    "Category": {
+      "type": "string",
+      "description": "This session type\u2019s category.",
+      "example": "example-value"
+    },
+    "CategoryId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "This session type\u2019s category ID.",
+      "example": 123456
+    },
+    "Subcategory": {
+      "type": "string",
+      "description": "This session type\u2019s subcategory.",
+      "example": "example-value"
+    },
+    "SubcategoryId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "This session type\u2019s subcategory ID.",
+      "example": 123456
+    },
+    "AvailableForAddOn": {
+      "type": "boolean",
+      "description": "This session type\u2019s Add On Flag.",
+      "example": true
+    }
+  }
+}

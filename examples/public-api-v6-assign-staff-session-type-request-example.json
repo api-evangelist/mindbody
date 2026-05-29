@@ -1,0 +1,10 @@
+{
+  "StaffId": 123456,
+  "SessionTypeId": 123456,
+  "Active": true,
+  "TimeLength": 1,
+  "PrepTime": 1,
+  "FinishTime": 1,
+  "PayRateType": "example-value",
+  "PayRateAmount": 49.99
+}

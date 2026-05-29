@@ -1,0 +1,36 @@
+{
+  "Appointment": {
+    "GenderPreference": "None",
+    "Duration": 1,
+    "ProviderId": "example-value",
+    "Id": 123456,
+    "Status": "None",
+    "StartDateTime": "2026-05-28T14:30:00Z",
+    "EndDateTime": "2026-05-28T14:30:00Z",
+    "Notes": "Example note for Mindbody Public API.",
+    "PartnerExternalId": "example-value",
+    "StaffRequested": true,
+    "ProgramId": 123456,
+    "SessionTypeId": 123456,
+    "LocationId": 123456,
+    "StaffId": 123456,
+    "Staff": {
+      "Id": 123456,
+      "FirstName": "Alex",
+      "LastName": "Lane",
+      "DisplayName": "example-value"
+    },
+    "ClientId": "example-value",
+    "FirstAppointment": true,
+    "IsWaitlist": true,
+    "WaitlistEntryId": 123456,
+    "ClientServiceId": 123456,
+    "Resources": [
+      {}
+    ],
+    "AddOns": [
+      {}
+    ],
+    "OnlineDescription": "Example note for Mindbody Public API."
+  }
+}

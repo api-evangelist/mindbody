@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-upload-client-document-request-structure.json",
+  "name": "UploadClientDocumentRequest",
+  "description": "Implementation of the 'UploadClientDocumentRequest' model.",
+  "type": "object",
+  "properties": {
+    "ClientId": {
+      "type": "string",
+      "description": "The RSSID of the client for whom the document is to be uploaded.",
+      "example": "example-value"
+    },
+    "File": {
+      "$ref": "#/components/schemas/ClientDocument",
+      "description": "Contains information about the file to be uploaded."
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-categories-response-structure.json",
+  "name": "GetCategoriesResponse",
+  "description": "Implementation of the 'GetCategoriesResponse' model. Get Categories Response Model",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "Categories": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Category"
+      },
+      "description": "Contains the Category objects, each of which describes the categories for a site.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

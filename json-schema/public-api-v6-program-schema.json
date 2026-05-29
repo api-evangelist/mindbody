@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-program-schema.json",
+  "title": "Program",
+  "description": "Implementation of the 'Program' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The service category\u2019s ID.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of this service category.",
+      "example": "Sunset Yoga Studio"
+    },
+    "ScheduleType": {
+      "$ref": "#/components/schemas/ScheduleTypeEnum",
+      "description": "The service category\u2019s schedule type. Possible values are: * All * Class * Enrollment * Appointment * Resource * Arrival"
+    },
+    "CancelOffset": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The offset to use for the service category.",
+      "example": 10
+    },
+    "ContentFormats": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "The content delivery platform(s) used by the service category. Possible values are: * InPerson * Livestream:Mindbody * Livestream:Other",
+      "example": [
+        "example-value"
+      ]
+    },
+    "PricingRelationships": {
+      "$ref": "#/components/schemas/PricingRelationships",
+      "description": "Pricing relationships"
+    }
+  }
+}

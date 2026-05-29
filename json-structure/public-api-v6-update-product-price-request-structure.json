@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-update-product-price-request-structure.json",
+  "name": "UpdateProductPriceRequest",
+  "description": "Implementation of the 'UpdateProductPriceRequest' model. Update Product Price Request Model",
+  "type": "object",
+  "properties": {
+    "BarcodeId": {
+      "type": "string",
+      "description": "The barcode number of the product. This is the `Products[].Id` returned from GET Products.",
+      "example": "example-value"
+    },
+    "Price": {
+      "type": "double",
+      "description": "The price you sell the product for.",
+      "example": 49.99
+    },
+    "OnlinePrice": {
+      "type": "double",
+      "description": "The online price of the product.",
+      "example": 49.99
+    }
+  }
+}

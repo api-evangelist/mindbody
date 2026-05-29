@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-sites-response-structure.json",
+  "name": "GetSitesResponse",
+  "description": "Implementation of the 'GetSitesResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "Sites": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Site"
+      },
+      "description": "Contains information about the sites.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

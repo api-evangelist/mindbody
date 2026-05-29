@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-update-site-client-index-response-schema.json",
+  "title": "UpdateSiteClientIndexResponse",
+  "description": "Implementation of the 'UpdateSiteClientIndexResponse' model.",
+  "type": "object",
+  "properties": {
+    "ClientIndexID": {
+      "type": "integer",
+      "format": "int32",
+      "description": "ID of the client index.",
+      "example": 1
+    },
+    "ClientIndexName": {
+      "type": "string",
+      "description": "The name of the client index.",
+      "example": "example-value"
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "Indicates if Client Index is Active",
+      "example": true
+    },
+    "ShowOnNewClient": {
+      "type": "boolean",
+      "description": "Indicates if Client Index is shown on a new client profile",
+      "example": true
+    },
+    "ShowOnEnrollmentRoster": {
+      "type": "boolean",
+      "description": "Indicates if Client Index is shown on Enrollement Roster",
+      "example": true
+    },
+    "EditOnEnrollmentRoster": {
+      "type": "boolean",
+      "description": "Indicates if Client Index can be edited on Enrollement Roster",
+      "example": true
+    },
+    "SortOrder": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Indicates sort order",
+      "example": 1
+    },
+    "ShowInConsumerMode": {
+      "type": "boolean",
+      "description": "Indicates if Client Index is shown in consumer mode.",
+      "example": true
+    },
+    "RequiredConsumerMode": {
+      "type": "boolean",
+      "description": "Indicates if the index is required when creating profiles in consumer mode.",
+      "example": true
+    },
+    "RequiredBizMode": {
+      "type": "boolean",
+      "description": "Indicates if the index is required when creating profiles in business mode.",
+      "example": true
+    }
+  }
+}

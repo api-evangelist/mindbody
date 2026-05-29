@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-copy-credit-card-response-client-structure.json",
+  "name": "CopyCreditCardResponseClient",
+  "description": "Implementation of the 'CopyCreditCardResponseClient' model.",
+  "type": "object",
+  "properties": {
+    "ClientId": {
+      "type": "string",
+      "description": "ClientId",
+      "example": "example-value"
+    },
+    "UniqueId": {
+      "type": "int32",
+      "description": "UniqeuId",
+      "example": 123456
+    },
+    "SiteId": {
+      "type": "int32",
+      "description": "SiteId",
+      "example": -99
+    },
+    "FirstName": {
+      "type": "string",
+      "description": "First name of ClientId",
+      "example": "Alex"
+    },
+    "LastName": {
+      "type": "string",
+      "description": "Last name of ClientId",
+      "example": "Lane"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-update-availability-request-schema.json",
+  "title": "UpdateAvailabilityRequest",
+  "description": "Implementation of the 'UpdateAvailabilityRequest' model. This is the update avaialability request coming DTO",
+  "type": "object",
+  "properties": {
+    "AvailabilityIds": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "description": "Unique IDs for the availabilities or unavailabilities.",
+      "example": [
+        1
+      ]
+    },
+    "PublicDisplay": {
+      "$ref": "#/components/schemas/PublicDisplayEnum",
+      "description": "Choice that decides whether the availablity should be publicly visible, masked or hidden."
+    },
+    "DaysOfWeek": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DaysOfWeekEnum"
+      },
+      "description": "The days of week to update the availabilities or unavailabilities.<br /> Default: **All**",
+      "example": [
+        {}
+      ]
+    },
+    "ProgramIds": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "description": "The program Id to be set for the availabilities. Default: **All**",
+      "example": [
+        1
+      ]
+    },
+    "StartDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The start date and time for the availabilities or unavailabilities.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EndDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The end date and time for the availabilities or unavailabilities.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "LocationId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The location Id to be updated for the provided availability Ids.",
+      "example": 123456
+    },
+    "UnavailableDescription": {
+      "type": "string",
+      "description": "The description for unavailability.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "Test": {
+      "type": "boolean",
+      "description": "When `true`, the request ensures that its parameters are valid without affecting real data. When ``false`, the request performs as intended and may affect live client data. Default: **false**",
+      "example": true
+    }
+  }
+}

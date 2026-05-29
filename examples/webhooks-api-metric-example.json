@@ -1,0 +1,10 @@
+{
+  "creationDateTime": "2026-05-28T14:30:00Z",
+  "messagesAttempted": 1,
+  "messagesDelivered": 1,
+  "messagesFailed": 1,
+  "messagesUndelivered": 1,
+  "status": "example-value",
+  "statusChangeDate": "2026-05-28T14:30:00Z",
+  "subscriptionId": "example-value"
+}

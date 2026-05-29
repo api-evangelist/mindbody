@@ -1,0 +1,126 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Mindbody
+providerId: mindbody
+created: '2026-05-28'
+modified: '2026-05-28'
+reconciled: true
+
+tags:
+  - Rate Limiting
+  - Fitness
+  - Wellness
+  - Booking
+  - Webhooks
+
+description: >-
+  Mindbody enforces a per-API-key daily call quota across both sandbox and live
+  modes of the Public API v6: 1,000 calls per API key per day. Live-mode usage
+  beyond the quota is billed at roughly $0.003 per call rather than throttled,
+  while sandbox usage is hard-capped at 1,000/day. There is no documented
+  per-second or per-minute burst limit, so partners are responsible for pacing
+  their own bursts. The Webhooks API enforces delivery-side controls instead of
+  request-rate caps: webhook URLs must respond with a 2xx within 10 seconds,
+  Mindbody retries every 15 minutes for up to 3 hours, and subscriptions are
+  auto-deactivated after sustained delivery failures.
+
+sources:
+  - https://developers.mindbodyonline.com/resources/faqs
+  - https://developers.mindbodyonline.com/WebhooksDocumentation
+  - https://support.mindbodyonline.com/s/article/203267383-Application-Programming-Interface-API
+
+headers:
+  apiKey: API-Key
+  siteId: SiteId
+  authorization: Authorization
+  webhookSignature: X-Mindbody-Signature
+  userAgent: User-Agent
+
+responseCodes:
+  unauthorized: 401
+  forbidden: 403
+  notFound: 404
+  badRequest: 400
+  throttled: 429
+  serverError: 500
+
+limits:
+  - name: Public API v6 daily quota (live mode)
+    scope: key
+    metric: requests_per_day
+    limit: 1000
+    timeFrame: day
+    notes: First 1,000 calls per API key per day are free; overage calls are billed at ~$0.003 each rather than hard-throttled.
+
+  - name: Public API v6 daily quota (sandbox)
+    scope: key
+    metric: requests_per_day
+    limit: 1000
+    timeFrame: day
+    notes: Sandbox/test environment is hard-capped at 1,000 calls per API key per day; no overage available.
+
+  - name: Public API v6 burst pacing
+    scope: key
+    metric: varies
+    limit: 'no published per-second/per-minute cap; pace bursts client-side'
+    notes: Mindbody does not publish a per-second or per-minute burst ceiling; expect throttling responses on aggressive bursts and use exponential backoff.
+
+  - name: Webhooks subscription cap
+    scope: account
+    metric: concurrent_subscriptions
+    limit: 'see Webhooks Developer Portal'
+    notes: Subscriptions are scoped to the account; the portal exposes the active subscription list.
+
+  - name: Webhook delivery response time
+    scope: subscription
+    metric: seconds
+    limit: 10
+    timeFrame: second
+    notes: Subscriber URL must return a 2xx HTTP status within 10 seconds, otherwise the delivery is treated as failed.
+
+  - name: Webhook delivery retry window
+    scope: subscription
+    metric: retries
+    limit: 'every 15 minutes for up to 3 hours'
+    notes: After 12 retry attempts (3 hours), Mindbody stops retrying the message.
+
+policies:
+  - name: Daily quota with overage billing (Public API)
+    description: >-
+      Live-mode Public API usage is metered against a 1,000-call-per-day-per-key
+      ceiling. Calls above the ceiling are not blocked — they incur an overage
+      charge of approximately $0.003 per call on the partner invoice.
+  - name: Hard cap (sandbox)
+    description: >-
+      Sandbox traffic is hard-throttled at 1,000 calls per API key per day with
+      no overage. Plan integration testing accordingly.
+  - name: Exponential backoff
+    description: >-
+      On any 4xx/5xx burst response, partners are expected to back off using an
+      exponential delay (e.g. 1s, 2s, 4s, 8s) before retrying. Mindbody does not
+      currently surface Retry-After headers, so back-off is partner-managed.
+  - name: Idempotent webhook processing
+    description: >-
+      Mindbody does not guarantee single-delivery or in-order delivery of webhook
+      events. Subscribers MUST de-duplicate by messageId and reconcile with the
+      Public API every 24 hours to catch drift.
+  - name: HMAC signature verification
+    description: >-
+      Every webhook payload carries an X-Mindbody-Signature header of the form
+      `sha256={base64(HMAC-SHA256(messageSignatureKey, body))}`. Subscribers
+      MUST verify the signature before processing.
+  - name: TLS 1.2 minimum
+    description: >-
+      Mindbody requires TLS v1.2 or higher for all Public API and webhook
+      delivery callbacks. Older TLS versions are rejected.
+  - name: Server-to-server only
+    description: >-
+      Mindbody mandates that all Public API calls originate from a back-end
+      server. Direct browser/client-side use of the API key is prohibited.
+  - name: Webhook auto-deactivation
+    description: >-
+      Subscriptions that accumulate too many failed delivery attempts move to
+      DeactivatedTooManyFailedMessageDeliveryAttempts and a notification email
+      is sent. Subscribers must reactivate the subscription via PATCH after
+      fixing their endpoint.

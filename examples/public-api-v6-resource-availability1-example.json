@@ -1,0 +1,11 @@
+{
+  "ResourceId": 123456,
+  "StartDateTime": "2026-05-28T14:30:00Z",
+  "EndDateTime": "2026-05-28T14:30:00Z",
+  "SessionTypeIds": [
+    1
+  ],
+  "ProgramIds": [
+    1
+  ]
+}

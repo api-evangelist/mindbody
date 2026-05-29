@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-client-rewards-response-structure.json",
+  "name": "GetClientRewardsResponse",
+  "description": "Implementation of the 'GetClientRewardsResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "Balance": {
+      "type": "int32",
+      "description": "The total rewards points available to the indicated client after the above transaction.",
+      "example": 1
+    },
+    "Transactions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ClientRewardTransaction"
+      },
+      "description": "Contains information about the reward transaction details.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-client-memberships-structure.json",
+  "name": "ClientMemberships",
+  "description": "Implementation of the 'ClientMemberships' model.",
+  "type": "object",
+  "properties": {
+    "ClientId": {
+      "type": "string",
+      "description": "ID of the client.",
+      "example": "example-value"
+    },
+    "Memberships": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ClientMembership"
+      },
+      "description": "Contains information about the Client Memberships details.",
+      "example": [
+        {}
+      ]
+    },
+    "ErrorMessage": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    }
+  }
+}

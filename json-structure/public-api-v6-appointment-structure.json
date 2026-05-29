@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-appointment-structure.json",
+  "name": "Appointment",
+  "description": "Implementation of the 'Appointment' model. Contains information about an appointment.",
+  "type": "object",
+  "properties": {
+    "GenderPreference": {
+      "$ref": "#/components/schemas/GenderPreferenceEnum",
+      "description": "The prefered gender of the appointment provider. Possible values are: * None * Female * Male"
+    },
+    "Duration": {
+      "type": "int32",
+      "description": "The duration of the appointment.",
+      "example": 1
+    },
+    "ProviderId": {
+      "type": "string",
+      "description": "If a user has Complementary and Alternative Medicine features enabled, this property indicates the provider assigned to the appointment.",
+      "example": "example-value"
+    },
+    "Id": {
+      "type": "int32",
+      "description": "The unique ID of the appointment.",
+      "example": 123456
+    },
+    "Status": {
+      "$ref": "#/components/schemas/StatusEnum",
+      "description": "The status of this appointment. Possible values are: * None * Requested * Booked * Completed * Confirmed * Arrived * NoShow * Cancelled * LateCancelled"
+    },
+    "StartDateTime": {
+      "type": "datetime",
+      "description": "The date and time the appointment is to start.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EndDateTime": {
+      "type": "datetime",
+      "description": "The date and time the appointment is to end.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Notes": {
+      "type": "string",
+      "description": "Any notes associated with the appointment.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "PartnerExternalId": {
+      "type": "string",
+      "description": "Optional external key for api partners.",
+      "example": "example-value"
+    },
+    "StaffRequested": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member was requested specifically by the client.",
+      "example": true
+    },
+    "ProgramId": {
+      "type": "int32",
+      "description": "The ID of the program to which this appointment belongs.",
+      "example": 123456
+    },
+    "SessionTypeId": {
+      "type": "int32",
+      "description": "The ID of the session type of this appointment.",
+      "example": 123456
+    },
+    "LocationId": {
+      "type": "int32",
+      "description": "The ID of the location where this appointment is to take place.",
+      "example": 123456
+    },
+    "StaffId": {
+      "type": "int32",
+      "description": "The ID of the staff member providing the service for this appointment.",
+      "example": 123456
+    },
+    "Staff": {
+      "$ref": "#/components/schemas/AppointmentStaff",
+      "description": "Staff for the appointment"
+    },
+    "ClientId": {
+      "type": "string",
+      "description": "The RSSID of the client who is booked for this appointment.",
+      "example": "example-value"
+    },
+    "FirstAppointment": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this is the client\u2019s first appointment at this site.",
+      "example": true
+    },
+    "IsWaitlist": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the client should be added to a specific appointment waiting list. When `false`, the client should not be added to the waiting list. Default: *false*",
+      "example": true
+    },
+    "WaitlistEntryId": {
+      "type": "int32",
+      "description": "The unique ID of the appointment waitlist.",
+      "example": 123456
+    },
+    "ClientServiceId": {
+      "type": "int32",
+      "description": "The ID of the pass on the client\u2019s account that is to pay for this appointment.",
+      "example": 123456
+    },
+    "Resources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ResourceSlim"
+      },
+      "description": "The resources this appointment is to use.",
+      "example": [
+        {}
+      ]
+    },
+    "AddOns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AddOnSmall"
+      },
+      "description": "Any AddOns associated with the appointment",
+      "example": [
+        {}
+      ]
+    },
+    "OnlineDescription": {
+      "type": "string",
+      "description": "Online Description associated with the appointment",
+      "example": "Example note for Mindbody Public API."
+    }
+  }
+}

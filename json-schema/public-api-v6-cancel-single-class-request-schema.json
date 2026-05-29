@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-cancel-single-class-request-schema.json",
+  "title": "CancelSingleClassRequest",
+  "description": "Implementation of the 'CancelSingleClassRequest' model.",
+  "type": "object",
+  "properties": {
+    "ClassID": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Class ID to lookup.",
+      "example": 1
+    },
+    "HideCancel": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this class is hidden when cancelled. When `false`, indicates that this class is not hidden when cancelled.",
+      "example": true
+    },
+    "SendClientEmail": {
+      "type": "boolean",
+      "description": "When `true`, sends the client an automatic email about the cancellation, if the client has opted to receive email.",
+      "example": true
+    },
+    "SendStaffEmail": {
+      "type": "boolean",
+      "description": "When `true`, sends the staff an automatic email about the cancellation, if the staff has opted to receive email.",
+      "example": true
+    }
+  }
+}

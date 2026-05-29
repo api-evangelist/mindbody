@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-add-multiple-appointments-request-structure.json",
+  "name": "AddMultipleAppointmentsRequest",
+  "description": "Implementation of the 'AddMultipleAppointmentsRequest' model. Request to add multiple appointments.",
+  "type": "object",
+  "properties": {
+    "AddAppointmentRequests": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AddAppointmentRequest"
+      },
+      "description": "List of appointment requests to be added.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-checkout-item-structure.json",
+  "name": "CheckoutItem",
+  "description": "Implementation of the 'CheckoutItem' model.",
+  "type": "object",
+  "properties": {
+    "Type": {
+      "type": "string",
+      "description": "The type of item. Possible values are: * Service - Indicates that this item is a pricing option. * Product - Indicates that this item is a retail product. * Package - Indicates that this item is a package. * Tip - Indicates that this item is a tip.",
+      "example": "example-value"
+    },
+    "Metadata": {
+      "type": "string",
+      "description": "Contains information about the item to be purchased. See [Cart Item Metadata](https://developers.mindbodyonline.com/PublicDocumentation /V6#cart-item-metadata) for more information.",
+      "example": "example-value"
+    }
+  }
+}

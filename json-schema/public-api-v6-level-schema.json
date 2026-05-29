@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-level-schema.json",
+  "title": "Level",
+  "description": "Implementation of the 'Level' model. A session level.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Contains the Id given to this level.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "Contains the name given to this level.",
+      "example": "Sunset Yoga Studio"
+    },
+    "Description": {
+      "type": "string",
+      "description": "Contains a description of this level.",
+      "example": "Example note for Mindbody Public API."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "ID": 1,
+  "FirstName": "Alex",
+  "LastName": "Lane",
+  "Email": "kinlane@example.com",
+  "IsMale": true,
+  "HomePhone": "+15551234567",
+  "WorkPhone": "+15551234567",
+  "MobilePhone": "+15551234567",
+  "Bio": "example-value",
+  "Address": "123 Market St",
+  "Address2": "123 Market St",
+  "City": "San Francisco",
+  "State": "CA",
+  "Country": "US",
+  "PostalCode": "94110",
+  "ClassAssistant": true,
+  "ClassAssistant2": true,
+  "IndependentContractor": true,
+  "AppointmentInstructor": true,
+  "AlwaysAllowDoubleBooking": true,
+  "ClassTeacher": true,
+  "EmploymentStart": "2026-05-28T14:30:00Z",
+  "EmploymentEnd": "2026-05-28T14:30:00Z",
+  "SortOrder": 1,
+  "ProviderIDs": [
+    "example-value"
+  ],
+  "Active": true,
+  "Notes": "Example note for Mindbody Public API.",
+  "EmpID": "example-value"
+}

@@ -1,0 +1,25 @@
+{
+  "SiteId": -99,
+  "LocationId": 123456,
+  "ClassId": "example-value",
+  "ClassExternalId": "example-value",
+  "ClassName": "example-value",
+  "ClassStartTime": "2026-05-28T14:30:00Z",
+  "ClassEndTime": "2026-05-28T14:30:00Z",
+  "ClassMaximumCapacity": 1,
+  "RoomId": "example-value",
+  "Spots": {
+    "ReservedSpotNumbers": [
+      1
+    ],
+    "AvailableSpotNumbers": [
+      1
+    ],
+    "UnavailableSpotNumbers": [
+      1
+    ]
+  },
+  "Reservations": [
+    {}
+  ]
+}

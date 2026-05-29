@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-client-formula-notes-response-schema.json",
+  "title": "GetClientFormulaNotesResponse",
+  "description": "Implementation of the 'GetClientFormulaNotesResponse' model. Enables to retrieve cross regional formula notes for a client, or for a specific appointment. The two parameters are optional, however at least one must be provided. This endpoint supports pagination.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "FormulaNotes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/FormulaNoteResponse"
+      },
+      "description": "Contains details about the client\u2019s formula.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

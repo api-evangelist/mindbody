@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-active-session-times-response-schema.json",
+  "title": "GetActiveSessionTimesResponse",
+  "description": "Implementation of the 'GetActiveSessionTimesResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "ActiveSessionTimes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of available start times for active sessions. Note the following: * The times returned represent possibilities for scheduling a session, not necessarily currently scheduled sessions. * The response includes either all schedule types or those filtered by supplying `ScheduleType` or `SessionTypeIds`. * Each session has an associated schedule type, but when you supply `SessionTypeIds`, they may map to one or more of the schedule types.",
+      "example": [
+        "example-value"
+      ]
+    }
+  }
+}

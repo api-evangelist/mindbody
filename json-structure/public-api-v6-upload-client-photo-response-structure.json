@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-upload-client-photo-response-structure.json",
+  "name": "UploadClientPhotoResponse",
+  "description": "Implementation of the 'UploadClientPhotoResponse' model.",
+  "type": "object",
+  "properties": {
+    "ClientId": {
+      "type": "string",
+      "description": "The RSSID of the client for whom the photo was uploaded.",
+      "example": "example-value"
+    },
+    "PhotoUrl": {
+      "type": "string",
+      "description": "The URL of the uploaded photo.",
+      "example": "https://example.mindbodyonline.com/resource/abc123"
+    }
+  }
+}

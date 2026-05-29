@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-remove-clients-from-classes-response-structure.json",
+  "name": "RemoveClientsFromClassesResponse",
+  "description": "Implementation of the 'RemoveClientsFromClassesResponse' model. Remove Clients From Classes Response",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "Classes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Class"
+      },
+      "description": "Contains information about the classes from which the clients were removed.",
+      "example": [
+        {}
+      ]
+    },
+    "Errors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ApiError"
+      },
+      "description": "Contains information about the errors",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

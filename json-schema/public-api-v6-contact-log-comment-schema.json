@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-contact-log-comment-schema.json",
+  "title": "ContactLogComment",
+  "description": "Implementation of the 'ContactLogComment' model. A contact log comment.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The comment\u2019s ID.",
+      "example": 123456
+    },
+    "Text": {
+      "type": "string",
+      "description": "The comment\u2019s body text.",
+      "example": "example-value"
+    },
+    "CreatedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The local time when the comment was created.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "CreatedBy": {
+      "$ref": "#/components/schemas/Staff",
+      "description": "Information about the staff member who created the comment."
+    }
+  }
+}

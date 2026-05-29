@@ -1,0 +1,6 @@
+{
+  "Id": 123456,
+  "Active": true,
+  "ProviderName": "example-value",
+  "ProviderAddress": "123 Market St"
+}

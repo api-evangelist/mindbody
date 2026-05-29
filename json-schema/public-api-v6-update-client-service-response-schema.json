@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-update-client-service-response-schema.json",
+  "title": "UpdateClientServiceResponse",
+  "description": "Implementation of the 'UpdateClientServiceResponse' model.",
+  "type": "object",
+  "properties": {
+    "ClientService": {
+      "$ref": "#/components/schemas/ClientService",
+      "description": "Contains information about the service to be updated."
+    }
+  }
+}

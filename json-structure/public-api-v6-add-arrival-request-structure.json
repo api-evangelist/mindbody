@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-add-arrival-request-structure.json",
+  "name": "AddArrivalRequest",
+  "description": "Implementation of the 'AddArrivalRequest' model.",
+  "type": "object",
+  "properties": {
+    "ClientId": {
+      "type": "string",
+      "description": "The ID of the requested client.",
+      "example": "example-value"
+    },
+    "LocationId": {
+      "type": "int32",
+      "description": "The ID of the location for the requested arrival.",
+      "example": 123456
+    },
+    "ArrivalTypeId": {
+      "type": "int32",
+      "description": "The ID of the arrival program (service category) under which this arrival is to be logged. If this is not provided, the program ID of the first arrival pricing option found will be used. OPTIONAL: will take first payment found if not provided Default: **null**",
+      "example": 123456
+    },
+    "LeadChannelId": {
+      "type": "int32",
+      "description": "The ID of the Lead Channel ID from lead management. If this is supplied then it will map lead channel on the lead management. If this is not supplied then it wont save anything. This parameters required to track the lead channel if new client added while adding arrival of client on non home location.",
+      "example": 123456
+    },
+    "Test": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the arrival log is to be validated, but no new arrival data is added. When `false`, the arrival is logged and the database is affected. Default: **false**",
+      "example": true
+    }
+  }
+}

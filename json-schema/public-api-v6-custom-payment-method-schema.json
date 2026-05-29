@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-custom-payment-method-schema.json",
+  "title": "CustomPaymentMethod",
+  "description": "Implementation of the 'CustomPaymentMethod' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the custom payment method.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the custom payment method.",
+      "example": "Sunset Yoga Studio"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-scheduled-service-type-enum-structure.json",
+  "name": "ScheduledServiceTypeEnum",
+  "description": "ScheduledServiceTypeEnum enumeration.",
+  "type": "string",
+  "enum": [
+    "Class",
+    "Appointment",
+    "Enrollment",
+    "All"
+  ]
+}

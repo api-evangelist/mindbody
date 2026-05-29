@@ -1,0 +1,18 @@
+{
+  "Test": true,
+  "LocationID": 1,
+  "StaffIDs": [
+    1
+  ],
+  "ProgramIDs": [
+    1
+  ],
+  "StartDateTime": "2026-05-28T14:30:00Z",
+  "EndDateTime": "2026-05-28T14:30:00Z",
+  "DaysOfWeek": [
+    {}
+  ],
+  "UnavailableDescription": "Example note for Mindbody Public API.",
+  "IsUnavailable": true,
+  "PublicDisplay": "Hide"
+}

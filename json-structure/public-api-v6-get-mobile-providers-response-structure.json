@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-mobile-providers-response-structure.json",
+  "name": "GetMobileProvidersResponse",
+  "description": "Implementation of the 'GetMobileProvidersResponse' model. Get Mobile Providers Response Object",
+  "type": "object",
+  "properties": {
+    "MobileProviders": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/MobileProvider"
+      },
+      "description": "A list of mobile providers.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

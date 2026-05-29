@@ -1,0 +1,7 @@
+{
+  "StaffId": 123456,
+  "ScheduledServiceId": 123456,
+  "ScheduledServiceType": "Class",
+  "Earnings": 1.0,
+  "DateTime": "2026-05-28T14:30:00Z"
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-assign-staff-session-type-request-structure.json",
+  "name": "AssignStaffSessionTypeRequest",
+  "description": "Implementation of the 'AssignStaffSessionTypeRequest' model.",
+  "type": "object",
+  "properties": {
+    "StaffId": {
+      "type": "int32",
+      "description": "The ID of the staff member session type is getting assigned to. The staff member must be assignable to appointments or already be assigned to the session type in the request.",
+      "example": 123456
+    },
+    "SessionTypeId": {
+      "type": "int32",
+      "description": "The ID of the session type that is getting assigned to the staff member. The session type must be an appointment.",
+      "example": 123456
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "Indicates if assignment is active. Passing `false` is equivalent to deleting the assignment.",
+      "example": true
+    },
+    "TimeLength": {
+      "type": "int32",
+      "description": "The staff specific amount of time that a session of this type typically lasts.",
+      "example": 1
+    },
+    "PrepTime": {
+      "type": "int32",
+      "description": "Prep time in minutes",
+      "example": 1
+    },
+    "FinishTime": {
+      "type": "int32",
+      "description": "Finish time in minutes",
+      "example": 1
+    },
+    "PayRateType": {
+      "type": "string",
+      "description": "The pay rate type. Can be one of the following (case insensitive): Percent Flat No Pay If PayRateType is not provided in the request and the request is creating a completely new assignment (not editing an existing active or inactive assignment), then the staff member default pay rate and pay rate amount are used to create the assignment. Otherwise, the existing assignment values are used for any optional request parameters not included in the request.",
+      "example": "example-value"
+    },
+    "PayRateAmount": {
+      "type": "double",
+      "description": "The pay rate amount for the specific staff member. It is parsed according to the PayRateType.",
+      "example": 49.99
+    }
+  }
+}

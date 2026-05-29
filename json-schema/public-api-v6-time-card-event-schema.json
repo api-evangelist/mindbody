@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-time-card-event-schema.json",
+  "title": "TimeCardEvent",
+  "description": "Implementation of the 'TimeCardEvent' model.",
+  "type": "object",
+  "properties": {
+    "StaffId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the requested staff member.",
+      "example": 123456
+    },
+    "Task": {
+      "type": "string",
+      "description": "The staff member\u2019s job title.",
+      "example": "example-value"
+    },
+    "TimeIn": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time that the staff member started the job task.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "TimeOut": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time that the staff member stopped doing the job task.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Hours": {
+      "type": "number",
+      "format": "double",
+      "description": "The number of hours on this time card, rounded to the nearest fourth decimal place.",
+      "example": 1.0
+    },
+    "HourlyRate": {
+      "type": "number",
+      "format": "double",
+      "description": "The hourly rate the business pays this staff for this `Task`.",
+      "example": 1.0
+    },
+    "Earnings": {
+      "type": "number",
+      "format": "double",
+      "description": "The total amount earned by the staff member for this time card entry.",
+      "example": 1.0
+    }
+  }
+}

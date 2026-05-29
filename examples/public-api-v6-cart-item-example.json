@@ -1,0 +1,16 @@
+{
+  "Item": null,
+  "SalesNotes": "Example note for Mindbody Public API.",
+  "DiscountAmount": 49.99,
+  "VisitIds": [
+    1
+  ],
+  "AppointmentIds": [
+    1
+  ],
+  "Appointments": [
+    {}
+  ],
+  "Id": 123456,
+  "Quantity": 10
+}

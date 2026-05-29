@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-booking-status-enum-structure.json",
+  "name": "BookingStatusEnum",
+  "description": "BookingStatusEnum enumeration.",
+  "type": "string",
+  "enum": [
+    "PaymentRequired",
+    "BookAndPayLater",
+    "Free"
+  ]
+}

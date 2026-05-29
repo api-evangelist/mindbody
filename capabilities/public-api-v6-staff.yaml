@@ -1,0 +1,759 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Mindbody Public API v6 \u2014 Staff"
+  description: "Staff \u2014 10 operations. Lead operation: Mindbody Retrieves the Available Image URLs for a Specified Staff Member,. Self-contained Naftiko capability covering one Mindbody business surface."
+  tags:
+  - Mindbody
+  - Mindbody Public API v6
+  - Staff
+  created: '2026-05-28'
+  modified: '2026-05-28'
+binds:
+- namespace: env
+  keys:
+    MINDBODY_API_KEY: MINDBODY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: public-api-v6-staff
+    baseUri: https://api.mindbodyonline.com
+    description: "Mindbody Public API v6 \u2014 Staff business capability. Self-contained, no shared references."
+    authentication:
+      type: apikey
+      key: API-Key
+      value: '{{env.MINDBODY_API_KEY}}'
+      placement: header
+    resources:
+    - name: staff-imageurl
+      path: /staff/imageurl
+      operations:
+      - name: getStaffImageUrl
+        method: GET
+        description: Mindbody Retrieves the Available Image URLs for a Specified Staff Member,
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.staffId
+          in: query
+          type: integer
+          required: false
+          description: The ID of the staff member whose image URL details you want to retrieve.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: staff-salesreps
+      path: /staff/salesreps
+      operations:
+      - name: getSalesReps
+        method: GET
+        description: Mindbody This Endpoint Returns the Basic Details of the Staffs That Are Marked
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.activeOnly
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, will return only active reps data. Default : **false**'
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.salesRepNumbers
+          in: query
+          type: array
+          required: false
+          description: This is the list of the sales rep numbers for which the salesrep data will be fetched.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: staff-sessiontypes
+      path: /staff/sessiontypes
+      operations:
+      - name: getStaffSessionTypes
+        method: GET
+        description: Mindbody Gets a List of Active Session Types for a Specific Staff Member. a
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: request.staffId
+          in: query
+          type: integer
+          required: true
+          description: The ID of the staff member whose session types you want to return.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.onlineOnly
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, indicates that only the session types that can be booked online should be returned. Default: **false**'
+        - name: request.programIds
+          in: query
+          type: array
+          required: false
+          description: Filters results to session types that belong to one of the given program IDs. If omitted, all program IDs return.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: staff-staff
+      path: /staff/staff
+      operations:
+      - name: getStaff
+        method: GET
+        description: Mindbody When a User Token is Not Passed with the Request or the Passed User
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.filters
+          in: query
+          type: array
+          required: false
+          description: 'Filters to apply to the search. Possible values are: * StaffViewable * AppointmentInstructor * ClassInstructor * Male * Female'
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.locationId
+          in: query
+          type: integer
+          required: false
+          description: Return only staff members that are available at the specified location. You must supply a valid `SessionTypeID` and `StartDateTime` to use this parameter.
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.sessionTypeId
+          in: query
+          type: integer
+          required: false
+          description: Return only staff members that are available for the specified session type. You must supply a valid `StartDateTime` and `LocationID` to use this parameter.
+        - name: request.staffIds
+          in: query
+          type: array
+          required: false
+          description: A list of the requested staff IDs.
+        - name: request.startDateTime
+          in: query
+          type: string
+          required: false
+          description: Return only staff members that are available at the specified date and time. You must supply a valid `SessionTypeID` and `LocationID` to use this parameter.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: staff-staffpermissions
+      path: /staff/staffpermissions
+      operations:
+      - name: getStaffPermissions
+        method: GET
+        description: Mindbody Get Configured Staff Permissions for a Staff Member
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: request.staffId
+          in: query
+          type: integer
+          required: true
+          description: The ID of the staff member whose permissions you want to return.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: staff-addstaff
+      path: /staff/addstaff
+      operations:
+      - name: addStaff
+        method: POST
+        description: Mindbody Creates a New Staff Member Record at the Specified Business. the
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: staff-assignsessiontype
+      path: /staff/assignsessiontype
+      operations:
+      - name: assignStaffSessionType
+        method: POST
+        description: Mindbody Assigns a Staff Member to an Appointment Session Type with Staff
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: staff-staffavailability
+      path: /staff/staffavailability
+      operations:
+      - name: addStaffAvailability
+        method: POST
+        description: Mindbody Enables to Add Staff Availability or Unavailability for a Given Staff
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: staff-updatestaff
+      path: /staff/updatestaff
+      operations:
+      - name: updateStaff
+        method: POST
+        description: Mindbody Updates an Existing Staff Member Record at the Specified Business. the
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: staff-updatestaffpermissions
+      path: /staff/updatestaffpermissions
+      operations:
+      - name: updateStaffPermissions
+        method: POST
+        description: Mindbody Assigns a Permission Group to a Staff Member. a Staff User Token Must
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: public-api-v6-staff-rest
+    port: 8080
+    description: "REST adapter for Mindbody Public API v6 \u2014 Staff. One Spectral-compliant resource per consumed operation, prefixed with /v1."
+    resources:
+    - path: /v1/staff/imageurl
+      name: v1-staff-imageurl
+      description: REST surface for /v1/staff/imageurl.
+      operations:
+      - method: GET
+        name: getStaffImageUrl
+        description: Mindbody Retrieves the Available Image URLs for a Specified Staff Member,
+        call: public-api-v6-staff.getStaffImageUrl
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.staffId: rest.request.staffId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/staff/salesreps
+      name: v1-staff-salesreps
+      description: REST surface for /v1/staff/salesreps.
+      operations:
+      - method: GET
+        name: getSalesReps
+        description: Mindbody This Endpoint Returns the Basic Details of the Staffs That Are Marked
+        call: public-api-v6-staff.getSalesReps
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.activeOnly: rest.request.activeOnly
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+          request.salesRepNumbers: rest.request.salesRepNumbers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/staff/sessiontypes
+      name: v1-staff-sessiontypes
+      description: REST surface for /v1/staff/sessiontypes.
+      operations:
+      - method: GET
+        name: getStaffSessionTypes
+        description: Mindbody Gets a List of Active Session Types for a Specific Staff Member. a
+        call: public-api-v6-staff.getStaffSessionTypes
+        with:
+          version: rest.version
+          request.staffId: rest.request.staffId
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+          request.onlineOnly: rest.request.onlineOnly
+          request.programIds: rest.request.programIds
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/staff/staff
+      name: v1-staff-staff
+      description: REST surface for /v1/staff/staff.
+      operations:
+      - method: GET
+        name: getStaff
+        description: Mindbody When a User Token is Not Passed with the Request or the Passed User
+        call: public-api-v6-staff.getStaff
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.filters: rest.request.filters
+          request.limit: rest.request.limit
+          request.locationId: rest.request.locationId
+          request.offset: rest.request.offset
+          request.sessionTypeId: rest.request.sessionTypeId
+          request.staffIds: rest.request.staffIds
+          request.startDateTime: rest.request.startDateTime
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/staff/staffpermissions
+      name: v1-staff-staffpermissions
+      description: REST surface for /v1/staff/staffpermissions.
+      operations:
+      - method: GET
+        name: getStaffPermissions
+        description: Mindbody Get Configured Staff Permissions for a Staff Member
+        call: public-api-v6-staff.getStaffPermissions
+        with:
+          version: rest.version
+          request.staffId: rest.request.staffId
+          siteId: rest.siteId
+          authorization: rest.authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/staff/addstaff
+      name: v1-staff-addstaff
+      description: REST surface for /v1/staff/addstaff.
+      operations:
+      - method: POST
+        name: addStaff
+        description: Mindbody Creates a New Staff Member Record at the Specified Business. the
+        call: public-api-v6-staff.addStaff
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/staff/assignsessiontype
+      name: v1-staff-assignsessiontype
+      description: REST surface for /v1/staff/assignsessiontype.
+      operations:
+      - method: POST
+        name: assignStaffSessionType
+        description: Mindbody Assigns a Staff Member to an Appointment Session Type with Staff
+        call: public-api-v6-staff.assignStaffSessionType
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/staff/staffavailability
+      name: v1-staff-staffavailability
+      description: REST surface for /v1/staff/staffavailability.
+      operations:
+      - method: POST
+        name: addStaffAvailability
+        description: Mindbody Enables to Add Staff Availability or Unavailability for a Given Staff
+        call: public-api-v6-staff.addStaffAvailability
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/staff/updatestaff
+      name: v1-staff-updatestaff
+      description: REST surface for /v1/staff/updatestaff.
+      operations:
+      - method: POST
+        name: updateStaff
+        description: Mindbody Updates an Existing Staff Member Record at the Specified Business. the
+        call: public-api-v6-staff.updateStaff
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/staff/updatestaffpermissions
+      name: v1-staff-updatestaffpermissions
+      description: REST surface for /v1/staff/updatestaffpermissions.
+      operations:
+      - method: POST
+        name: updateStaffPermissions
+        description: Mindbody Assigns a Permission Group to a Staff Member. a Staff User Token Must
+        call: public-api-v6-staff.updateStaffPermissions
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: public-api-v6-staff-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for Mindbody Public API v6 \u2014 Staff. One tool per consumed operation, routed inline through this capability's consumes block."
+    tools:
+    - name: retrieves-available-image-urls-specified
+      description: Mindbody Retrieves the Available Image URLs for a Specified Staff Member,
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-staff.getStaffImageUrl
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.staffId: tools.request.staffId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-returns-basic-details
+      description: Mindbody This Endpoint Returns the Basic Details of the Staffs That Are Marked
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-staff.getSalesReps
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.activeOnly: tools.request.activeOnly
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+        request.salesRepNumbers: tools.request.salesRepNumbers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gets-list-active-session-types
+      description: Mindbody Gets a List of Active Session Types for a Specific Staff Member. a
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-staff.getStaffSessionTypes
+      with:
+        version: tools.version
+        request.staffId: tools.request.staffId
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+        request.onlineOnly: tools.request.onlineOnly
+        request.programIds: tools.request.programIds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: when-user-token-is-not
+      description: Mindbody When a User Token is Not Passed with the Request or the Passed User
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-staff.getStaff
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.filters: tools.request.filters
+        request.limit: tools.request.limit
+        request.locationId: tools.request.locationId
+        request.offset: tools.request.offset
+        request.sessionTypeId: tools.request.sessionTypeId
+        request.staffIds: tools.request.staffIds
+        request.startDateTime: tools.request.startDateTime
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-configured-staff-permissions-staff
+      description: Mindbody Get Configured Staff Permissions for a Staff Member
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-staff.getStaffPermissions
+      with:
+        version: tools.version
+        request.staffId: tools.request.staffId
+        siteId: tools.siteId
+        authorization: tools.authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-new-staff-member-record
+      description: Mindbody Creates a New Staff Member Record at the Specified Business. the
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-staff.addStaff
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: assigns-staff-member-appointment-session
+      description: Mindbody Assigns a Staff Member to an Appointment Session Type with Staff
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-staff.assignStaffSessionType
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: enables-add-staff-availability-unavailability
+      description: Mindbody Enables to Add Staff Availability or Unavailability for a Given Staff
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-staff.addStaffAvailability
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updates-existing-staff-member-record
+      description: Mindbody Updates an Existing Staff Member Record at the Specified Business. the
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-staff.updateStaff
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: assigns-permission-group-staff-member.
+      description: Mindbody Assigns a Permission Group to a Staff Member. a Staff User Token Must
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-staff.updateStaffPermissions
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,164 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Mindbody
+providerId: mindbody
+created: '2026-05-28'
+modified: '2026-05-28'
+reconciled: true
+
+tags:
+  - Fitness
+  - Wellness
+  - Beauty
+  - Booking
+  - Point of Sale
+
+description: >-
+  Mindbody prices its core business management software per location per month,
+  with three subscription tiers (Starter, Accelerate, Ultimate). API access is
+  bundled into every paid Mindbody business plan rather than sold as a separate
+  product line — partners use API keys issued through the Developer Portal, and
+  every Mindbody site they integrate with must hold an active business
+  subscription. Public API usage is metered on top of the base subscription:
+  the first 1,000 API calls per day are free for each live site, and overage
+  calls are billed at approximately one third of a US cent ($0.003) per call.
+  Payments, SMS, and marketplace discovery carry separate transaction fees,
+  and "branded mobile app" and similar premium features are paid add-ons.
+
+sources:
+  - https://www.mindbodyonline.com/business/pricing
+  - https://developers.mindbodyonline.com/resources/faqs
+  - https://support.mindbodyonline.com/s/article/203267383-Application-Programming-Interface-API
+
+plans:
+  - id: mindbody-starter
+    name: Starter
+    type: subscription
+    description: Entry tier — booking, payments, basic reporting; bundled API access subject to overage fees.
+    entries:
+      - label: Software subscription
+        name: software_subscription
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: US
+        unit: 1
+        price: '$99/month per location'
+        userMultiplied: false
+      - label: API calls (live mode)
+        name: api_calls_live
+        type: metered
+        metric: request
+        limit: 1000
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: 'free up to 1,000/day; $0.003/call thereafter'
+        userMultiplied: false
+    elements:
+      - name: Online booking and scheduling
+      - name: Integrated payments (separate transaction fees)
+      - name: Branded website booking widgets
+      - name: Mindbody marketplace listing
+      - name: Basic reporting
+      - name: Unlimited users per location
+      - name: Public API access (API key)
+      - name: Webhooks subscriptions
+
+  - id: mindbody-accelerate
+    name: Accelerate
+    type: subscription
+    description: Mid tier — adds analytics, room/resource management, Pick-a-Spot, promo codes, premium add-ons.
+    entries:
+      - label: Software subscription
+        name: software_subscription
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: US
+        unit: 1
+        price: 'contact sales (per location, per month)'
+        userMultiplied: false
+      - label: API calls (live mode)
+        name: api_calls_live
+        type: metered
+        metric: request
+        limit: 1000
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: 'free up to 1,000/day; $0.003/call thereafter'
+        userMultiplied: false
+    elements:
+      - name: Everything in Starter
+      - name: Powerful analytics and reporting
+      - name: Room and resource management
+      - name: Client Pick-a-Spot
+      - name: Promo codes
+      - name: Access to premium add-ons
+
+  - id: mindbody-ultimate
+    name: Ultimate
+    type: subscription
+    description: Top tier — adds dynamic marketing, automated campaigns, sales pipeline, advanced analytics.
+    entries:
+      - label: Software subscription
+        name: software_subscription
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: US
+        unit: 1
+        price: 'contact sales (per location, per month)'
+        userMultiplied: false
+      - label: API calls (live mode)
+        name: api_calls_live
+        type: metered
+        metric: request
+        limit: 1000
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: 'free up to 1,000/day; $0.003/call thereafter'
+        userMultiplied: false
+      - label: Marketing message volume
+        name: marketing_messages
+        type: metered
+        metric: message
+        limit: -1
+        timeFrame: month
+        geo: US
+        unit: 1
+        price: 'higher included message limits and lower per-message rates than Accelerate'
+        userMultiplied: false
+    elements:
+      - name: Everything in Accelerate
+      - name: Dynamic marketing list-building tools
+      - name: Automated email and text campaigns
+      - name: Built-in sales pipeline
+      - name: Advanced analytics for client insights
+
+  - id: mindbody-developer-sandbox
+    name: Developer Sandbox
+    type: freemium
+    description: Free sandbox tier for partner development against demo businesses; subject to the same 1,000 call/day cap.
+    entries:
+      - label: Sandbox API calls
+        name: sandbox_api_calls
+        type: metered
+        metric: request
+        limit: 1000
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: free
+        userMultiplied: false
+    elements:
+      - name: Sandbox Mindbody Demo Businesses
+      - name: Public API v6 access
+      - name: Webhooks API access
+      - name: API key, client key, and client secret for development

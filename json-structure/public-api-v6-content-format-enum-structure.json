@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-content-format-enum-structure.json",
+  "name": "ContentFormatEnum",
+  "description": "ContentFormatEnum enumeration.",
+  "type": "string",
+  "enum": [
+    "InPerson",
+    "Mindbody",
+    "Other"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-spot-structure.json",
+  "name": "Spot",
+  "description": "Implementation of the 'Spot' model. Contains information about the spot details.",
+  "type": "object",
+  "properties": {
+    "ReservedSpotNumbers": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "Contains information about the collection of reserved spot numbers.",
+      "example": [
+        1
+      ]
+    },
+    "AvailableSpotNumbers": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "Contains information about the collection of available spot numbers.",
+      "example": [
+        1
+      ]
+    },
+    "UnavailableSpotNumbers": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "Contains information about the collection of Unavailable spot numbers.",
+      "example": [
+        1
+      ]
+    }
+  }
+}

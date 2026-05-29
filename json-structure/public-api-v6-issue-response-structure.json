@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-issue-response-structure.json",
+  "name": "IssueResponse",
+  "description": "Implementation of the 'IssueResponse' model. POST UserToken/Issue successful response",
+  "type": "object",
+  "properties": {
+    "TokenType": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "AccessToken": {
+      "type": "string",
+      "description": "The authentication token value.",
+      "example": "example-value"
+    },
+    "Expires": {
+      "type": "datetime",
+      "description": "Token expiration in UTC.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "User": {
+      "$ref": "#/components/schemas/User",
+      "description": "Contains information about the user represented by the access token."
+    }
+  }
+}

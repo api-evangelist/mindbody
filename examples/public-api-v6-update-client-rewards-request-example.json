@@ -1,0 +1,8 @@
+{
+  "ClientId": "example-value",
+  "Points": 1,
+  "Action": "example-value",
+  "Source": "example-value",
+  "SourceId": 123456,
+  "ActionDateTime": "2026-05-28T14:30:00Z"
+}

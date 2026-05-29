@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-client-purchases-response-schema.json",
+  "title": "GetClientPurchasesResponse",
+  "description": "Implementation of the 'GetClientPurchasesResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "Purchases": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ClientPurchaseRecord"
+      },
+      "description": "Contains information that describes the item sold and the payment.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

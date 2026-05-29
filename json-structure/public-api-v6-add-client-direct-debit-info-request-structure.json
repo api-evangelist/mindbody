@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-add-client-direct-debit-info-request-structure.json",
+  "name": "AddClientDirectDebitInfoRequest",
+  "description": "Implementation of the 'AddClientDirectDebitInfoRequest' model.",
+  "type": "object",
+  "properties": {
+    "Test": {
+      "type": "boolean",
+      "description": "When `true`, indicates that test mode is enabled. The information is to be validated, but no data will be added or updated. Default: **false**",
+      "example": true
+    },
+    "ClientId": {
+      "type": "string",
+      "description": "The ID of the client being updated",
+      "example": "example-value"
+    },
+    "NameOnAccount": {
+      "type": "string",
+      "description": "The name on the bank account being added",
+      "example": "example-value"
+    },
+    "RoutingNumber": {
+      "type": "string",
+      "description": "The routing number of the bank account being added",
+      "example": "example-value"
+    },
+    "AccountNumber": {
+      "type": "string",
+      "description": "The bank account number",
+      "example": "example-value"
+    },
+    "AccountType": {
+      "type": "string",
+      "description": "The account type. Possible values: * Checking * Savings",
+      "example": "example-value"
+    }
+  }
+}

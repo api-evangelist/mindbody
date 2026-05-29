@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-client-duplicates-response-structure.json",
+  "name": "GetClientDuplicatesResponse",
+  "description": "Implementation of the 'GetClientDuplicatesResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "ClientDuplicates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ClientDuplicate"
+      },
+      "description": "The requested clients.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

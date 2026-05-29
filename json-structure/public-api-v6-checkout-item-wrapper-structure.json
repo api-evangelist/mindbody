@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-checkout-item-wrapper-structure.json",
+  "name": "CheckoutItemWrapper",
+  "description": "Implementation of the 'CheckoutItemWrapper' model.",
+  "type": "object",
+  "properties": {
+    "Item": {
+      "$ref": "#/components/schemas/CheckoutItem",
+      "description": "Information about an item in the cart."
+    },
+    "SalesNotes": {
+      "type": "string",
+      "description": "Sales Notes for the product",
+      "example": "Example note for Mindbody Public API."
+    },
+    "DiscountAmount": {
+      "type": "double",
+      "description": "The amount the item is discounted. This parameter is ignored for packages.",
+      "example": 49.99
+    },
+    "AppointmentBookingRequests": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CheckoutAppointmentBookingRequest"
+      },
+      "description": "A list of appointments to be booked then paid for by this item. This parameter applies only to pricing option items.",
+      "example": [
+        {}
+      ]
+    },
+    "EnrollmentIds": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "A list of enrollment IDs that this item is to pay for. This parameter applies only to pricing option items.",
+      "example": [
+        1
+      ]
+    },
+    "ClassIds": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "A list of class IDs that this item is to pay for. This parameter applies only to pricing option items.",
+      "example": [
+        1
+      ]
+    },
+    "CourseIds": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "A list of course IDs that this item is to pay for. This parameter applies only to pricing option items.",
+      "example": [
+        1
+      ]
+    },
+    "VisitIds": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "A list of visit IDs that this item is to pay for. This parameter applies only to pricing option items.",
+      "example": [
+        1
+      ]
+    },
+    "AppointmentIds": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "A list of appointment IDs that this item is to reconcile.",
+      "example": [
+        1
+      ]
+    },
+    "Id": {
+      "type": "int32",
+      "description": "The item\u2019s unique ID within the cart.",
+      "example": 123456
+    },
+    "Quantity": {
+      "type": "int32",
+      "description": "The number of this item to be purchased.",
+      "example": 10
+    }
+  }
+}

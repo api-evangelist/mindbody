@@ -1,0 +1,12 @@
+{
+  "errorInformation": [
+    {}
+  ],
+  "isSuccess": true,
+  "value": {
+    "deactivationDateTime": "2026-05-28T14:30:00Z",
+    "message": "example-value",
+    "referenceId": "example-value",
+    "subscriptionId": "example-value"
+  }
+}

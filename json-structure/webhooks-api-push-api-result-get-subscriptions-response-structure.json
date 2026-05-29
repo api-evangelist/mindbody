@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/webhooks-api-push-api-result-get-subscriptions-response-structure.json",
+  "name": "PushApiResultGetSubscriptionsResponse",
+  "description": "Implementation of the 'PushApiResult[GetSubscriptionsResponse]' model. A result returned for every request to the push API",
+  "type": "object",
+  "properties": {
+    "errorInformation": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PushApiError"
+      },
+      "description": "The model property of type List[PushApiError].",
+      "example": [
+        {}
+      ]
+    },
+    "isSuccess": {
+      "type": "boolean",
+      "description": "The model property of type bool.",
+      "example": true
+    },
+    "value": {
+      "$ref": "#/components/schemas/GetSubscriptionsResponse",
+      "description": "A wrapper for a get subscriptions request"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "MembershipId": 123456,
+  "MembershipName": "example-value",
+  "Priority": 1,
+  "MemberRetailDiscount": 1.0,
+  "MemberServiceDiscount": 1.0,
+  "AllowClientsToScheduleUnpaid": true,
+  "OnlineBookingRestrictedToMembersOnly": [
+    {}
+  ],
+  "DayOfMonthSchedulingOpensForNextMonth": 1,
+  "RestrictSelfSignInToMembersOnly": true,
+  "AllowMembersToBookAppointmentsWithoutPaying": true,
+  "AllowMembersToPurchaseNonMembersServices": true,
+  "AllowMembersToPurchaseNonMembersProducts": true,
+  "IsActive": true,
+  "EarlyAccessDaysBeforeSchedulingWindow": 1
+}

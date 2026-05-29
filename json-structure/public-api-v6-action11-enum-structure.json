@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-action11-enum-structure.json",
+  "name": "Action11Enum",
+  "description": "Action11Enum enumeration.",
+  "type": "string",
+  "enum": [
+    "Earned",
+    "Redeemed",
+    "Returned",
+    "Removed",
+    "LateCanceled"
+  ]
+}

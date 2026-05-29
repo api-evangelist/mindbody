@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-service-tag-structure.json",
+  "name": "ServiceTag",
+  "description": "Implementation of the 'ServiceTag' model. ServiceTag refers to Category and Subcategory fields for classes and appointments",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "The model property of type int.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "Sunset Yoga Studio"
+    }
+  }
+}

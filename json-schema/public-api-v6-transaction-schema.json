@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-transaction-schema.json",
+  "title": "Transaction",
+  "description": "Implementation of the 'Transaction' model.",
+  "type": "object",
+  "properties": {
+    "TransactionId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The transaction ID.",
+      "example": 123456
+    },
+    "SaleId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The sale ID.",
+      "example": 123456
+    },
+    "ClientId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the client who made the purchase.",
+      "example": 123456
+    },
+    "Amount": {
+      "type": "number",
+      "format": "double",
+      "description": "The amount charged on the card",
+      "example": 49.99
+    },
+    "Settled": {
+      "type": "boolean",
+      "description": "Whether it is settled or not",
+      "example": true
+    },
+    "Status": {
+      "type": "string",
+      "description": "Status of the transaction",
+      "example": "Active"
+    },
+    "TransactionTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time of card swiped",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "AuthTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time of card authorized",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "LocationId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the location where the sale takes place.",
+      "example": 123456
+    },
+    "MerchantId": {
+      "type": "string",
+      "description": "Merchant ID of the studio",
+      "example": "example-value"
+    },
+    "TerminalId": {
+      "type": "string",
+      "description": "Terminal ID used for payment. Not applicable for CNP/Bank",
+      "example": "example-value"
+    },
+    "CardExpirationMonth": {
+      "type": "string",
+      "description": "Expiry month of the card",
+      "example": "example-value"
+    },
+    "CardExpirationYear": {
+      "type": "string",
+      "description": "Expiry year of the card",
+      "example": "example-value"
+    },
+    "CCLastFour": {
+      "type": "string",
+      "description": "Last 4 digits of CC",
+      "example": "example-value"
+    },
+    "CardType": {
+      "type": "string",
+      "description": "Type of the card",
+      "example": "example-value"
+    },
+    "CCSwiped": {
+      "type": "boolean",
+      "description": "Whether card is swiped or not",
+      "example": true
+    },
+    "ACHLastFour": {
+      "type": "string",
+      "description": "Customer\u2019s ACH last 4 digits",
+      "example": "example-value"
+    }
+  }
+}

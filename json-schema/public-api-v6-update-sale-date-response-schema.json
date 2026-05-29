@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-update-sale-date-response-schema.json",
+  "title": "UpdateSaleDateResponse",
+  "description": "Implementation of the 'UpdateSaleDateResponse' model. Update Sale Date Response Properties",
+  "type": "object",
+  "properties": {
+    "Sale": {
+      "$ref": "#/components/schemas/Sale",
+      "description": "The updated Sale corresponding to the modified date"
+    }
+  }
+}

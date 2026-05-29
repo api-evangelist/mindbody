@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-payment-processing-failure-schema.json",
+  "title": "PaymentProcessingFailure",
+  "description": "Implementation of the 'PaymentProcessingFailure' model. Contains information about any payment processing failure. Specifically for when an SCA challenge is",
+  "type": "object",
+  "properties": {
+    "Type": {
+      "type": "string",
+      "description": "Returned only if SCA challenge is indicated.",
+      "example": "example-value"
+    },
+    "Message": {
+      "type": "string",
+      "description": "Returned only if SCA challenge is indicated.",
+      "example": "example-value"
+    },
+    "AuthenticationRedirectUrl": {
+      "type": "string",
+      "description": "Returned only if SCA challenge is indicated.",
+      "example": "https://example.mindbodyonline.com/resource/abc123"
+    }
+  }
+}

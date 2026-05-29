@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-client-index-value-schema.json",
+  "title": "ClientIndexValue",
+  "description": "Implementation of the 'ClientIndexValue' model. A client index value.",
+  "type": "object",
+  "properties": {
+    "Active": {
+      "type": "boolean",
+      "description": "For this call, this value is always `false` and can be ignored. When `false`, indicates that the index value has been deactivated and cannot be assigned to its parent index.",
+      "example": true
+    },
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The index value\u2019s ID.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the client index value.",
+      "example": "Sunset Yoga Studio"
+    }
+  }
+}

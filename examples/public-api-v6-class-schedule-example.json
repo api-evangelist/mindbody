@@ -1,0 +1,250 @@
+{
+  "Classes": [
+    {}
+  ],
+  "Clients": [
+    {}
+  ],
+  "Course": {
+    "Id": 123456,
+    "Name": "Sunset Yoga Studio",
+    "Description": "Example note for Mindbody Public API.",
+    "Notes": "Example note for Mindbody Public API.",
+    "StartDate": "2026-05-28T14:30:00Z",
+    "EndDate": "2026-05-28T14:30:00Z",
+    "Location": {
+      "AdditionalImageURLs": [
+        "example-value"
+      ],
+      "Address": "123 Market St",
+      "Address2": "123 Market St",
+      "Amenities": [
+        {}
+      ],
+      "BusinessDescription": "Example note for Mindbody Public API.",
+      "City": "San Francisco",
+      "Description": "Example note for Mindbody Public API.",
+      "HasClasses": true,
+      "Id": 123456,
+      "Latitude": 1.0,
+      "Longitude": 1.0,
+      "Name": "Sunset Yoga Studio",
+      "Phone": "+15551234567",
+      "PhoneExtension": "example-value",
+      "PostalCode": "94110",
+      "SiteID": 1,
+      "StateProvCode": "example-value",
+      "Tax1": 1.0,
+      "Tax2": 1.0,
+      "Tax3": 1.0,
+      "Tax4": 1.0,
+      "Tax5": 1.0,
+      "TotalNumberOfRatings": 1,
+      "AverageRating": 1.0,
+      "TotalNumberOfDeals": 1
+    },
+    "Organizer": {
+      "Address": "123 Market St",
+      "AppointmentInstructor": true,
+      "AlwaysAllowDoubleBooking": true,
+      "Bio": "example-value",
+      "City": "San Francisco",
+      "Country": "US",
+      "Email": "kinlane@example.com",
+      "FirstName": "Alex",
+      "DisplayName": "example-value",
+      "HomePhone": "+15551234567",
+      "Id": 123456,
+      "IndependentContractor": true,
+      "IsMale": true,
+      "LastName": "Lane",
+      "MobilePhone": "+15551234567",
+      "Name": "Sunset Yoga Studio",
+      "PostalCode": "94110",
+      "ClassTeacher": true,
+      "SortOrder": 1,
+      "State": "CA",
+      "WorkPhone": "+15551234567",
+      "ImageUrl": "https://example.mindbodyonline.com/resource/abc123",
+      "ClassAssistant": true,
+      "ClassAssistant2": true,
+      "EmploymentStart": "2026-05-28T14:30:00Z",
+      "EmploymentEnd": "2026-05-28T14:30:00Z",
+      "ProviderIDs": [
+        "example-value"
+      ],
+      "Rep": true,
+      "Rep2": true,
+      "Rep3": true,
+      "Rep4": true,
+      "Rep5": true,
+      "Rep6": true,
+      "StaffSettings": null,
+      "Appointments": [
+        {}
+      ],
+      "Unavailabilities": [
+        {}
+      ],
+      "Availabilities": [
+        {}
+      ],
+      "EmpID": "example-value"
+    },
+    "Program": {
+      "Id": 123456,
+      "Name": "Sunset Yoga Studio",
+      "ScheduleType": null,
+      "CancelOffset": 10,
+      "ContentFormats": [
+        "example-value"
+      ],
+      "PricingRelationships": null
+    },
+    "ImageUrl": "https://example.mindbodyonline.com/resource/abc123"
+  },
+  "SemesterId": 123456,
+  "IsAvailable": true,
+  "Id": 123456,
+  "ClassDescription": {
+    "Active": true,
+    "Description": "Example note for Mindbody Public API.",
+    "Id": 123456,
+    "ImageURL": "example-value",
+    "LastUpdated": "2026-05-28T14:30:00Z",
+    "Level": {
+      "Id": 123456,
+      "Name": "Sunset Yoga Studio",
+      "Description": "Example note for Mindbody Public API."
+    },
+    "Name": "Sunset Yoga Studio",
+    "Notes": "Example note for Mindbody Public API.",
+    "Prereq": "example-value",
+    "Program": {
+      "Id": 123456,
+      "Name": "Sunset Yoga Studio",
+      "ScheduleType": null,
+      "CancelOffset": 10,
+      "ContentFormats": [
+        "example-value"
+      ],
+      "PricingRelationships": null
+    },
+    "SessionType": {
+      "Type": null,
+      "DefaultTimeLength": 1,
+      "StaffTimeLength": 1,
+      "Id": 123456,
+      "Name": "Sunset Yoga Studio",
+      "OnlineDescription": "Example note for Mindbody Public API.",
+      "NumDeducted": 1,
+      "ProgramId": 123456,
+      "Category": "example-value",
+      "CategoryId": 123456,
+      "Subcategory": "example-value",
+      "SubcategoryId": 123456,
+      "AvailableForAddOn": true
+    },
+    "Category": "example-value",
+    "CategoryId": 123456,
+    "Subcategory": "example-value",
+    "SubcategoryId": 123456
+  },
+  "DaySunday": true,
+  "DayMonday": true,
+  "DayTuesday": true,
+  "DayWednesday": true,
+  "DayThursday": true,
+  "DayFriday": true,
+  "DaySaturday": true,
+  "AllowOpenEnrollment": true,
+  "AllowDateForwardEnrollment": true,
+  "StartTime": "2026-05-28T14:30:00Z",
+  "EndTime": "2026-05-28T14:30:00Z",
+  "StartDate": "2026-05-28T14:30:00Z",
+  "EndDate": "2026-05-28T14:30:00Z",
+  "Staff": {
+    "Address": "123 Market St",
+    "AppointmentInstructor": true,
+    "AlwaysAllowDoubleBooking": true,
+    "Bio": "example-value",
+    "City": "San Francisco",
+    "Country": "US",
+    "Email": "kinlane@example.com",
+    "FirstName": "Alex",
+    "DisplayName": "example-value",
+    "HomePhone": "+15551234567",
+    "Id": 123456,
+    "IndependentContractor": true,
+    "IsMale": true,
+    "LastName": "Lane",
+    "MobilePhone": "+15551234567",
+    "Name": "Sunset Yoga Studio",
+    "PostalCode": "94110",
+    "ClassTeacher": true,
+    "SortOrder": 1,
+    "State": "CA",
+    "WorkPhone": "+15551234567",
+    "ImageUrl": "https://example.mindbodyonline.com/resource/abc123",
+    "ClassAssistant": true,
+    "ClassAssistant2": true,
+    "EmploymentStart": "2026-05-28T14:30:00Z",
+    "EmploymentEnd": "2026-05-28T14:30:00Z",
+    "ProviderIDs": [
+      "example-value"
+    ],
+    "Rep": true,
+    "Rep2": true,
+    "Rep3": true,
+    "Rep4": true,
+    "Rep5": true,
+    "Rep6": true,
+    "StaffSettings": {
+      "UseStaffNicknames": true,
+      "ShowStaffLastNamesOnSchedules": true
+    },
+    "Appointments": [
+      {}
+    ],
+    "Unavailabilities": [
+      {}
+    ],
+    "Availabilities": [
+      {}
+    ],
+    "EmpID": "example-value"
+  },
+  "Location": {
+    "AdditionalImageURLs": [
+      "example-value"
+    ],
+    "Address": "123 Market St",
+    "Address2": "123 Market St",
+    "Amenities": [
+      {}
+    ],
+    "BusinessDescription": "Example note for Mindbody Public API.",
+    "City": "San Francisco",
+    "Description": "Example note for Mindbody Public API.",
+    "HasClasses": true,
+    "Id": 123456,
+    "Latitude": 1.0,
+    "Longitude": 1.0,
+    "Name": "Sunset Yoga Studio",
+    "Phone": "+15551234567",
+    "PhoneExtension": "example-value",
+    "PostalCode": "94110",
+    "SiteID": 1,
+    "StateProvCode": "example-value",
+    "Tax1": 1.0,
+    "Tax2": 1.0,
+    "Tax3": 1.0,
+    "Tax4": 1.0,
+    "Tax5": 1.0,
+    "TotalNumberOfRatings": 1,
+    "AverageRating": 1.0,
+    "TotalNumberOfDeals": 1
+  },
+  "FrequencyType": "Daily",
+  "FrequencyInterval": 1
+}

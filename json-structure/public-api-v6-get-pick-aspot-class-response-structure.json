@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-pick-aspot-class-response-structure.json",
+  "name": "GetPickASpotClassResponse",
+  "description": "Implementation of the 'GetPickASpotClassResponse' model. Contains information about the get PickASpot class response.",
+  "type": "object",
+  "properties": {
+    "classes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PickASpotClass"
+      },
+      "description": "Contains information about the PickASpot classes.",
+      "example": [
+        {}
+      ]
+    },
+    "pagination": {
+      "$ref": "#/components/schemas/Pagination",
+      "description": "Contains information about the pagination used."
+    },
+    "responseDetails": {
+      "$ref": "#/components/schemas/ResponseDetails",
+      "description": "Contains information about the response details."
+    }
+  }
+}

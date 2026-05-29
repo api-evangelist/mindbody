@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/webhooks-api-get-subscriptions-response-schema.json",
+  "title": "GetSubscriptionsResponse",
+  "description": "Implementation of the 'GetSubscriptionsResponse' model. A wrapper for a get subscriptions request",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Subscription"
+      },
+      "description": "A list of subscriptions",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

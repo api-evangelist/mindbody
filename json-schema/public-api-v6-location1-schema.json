@@ -1,0 +1,315 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-location1-schema.json",
+  "title": "Location1",
+  "description": "Implementation of the 'Location1' model.",
+  "type": "object",
+  "properties": {
+    "BusinessId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The model property of type int.",
+      "example": 123456
+    },
+    "SiteId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The model property of type int.",
+      "example": -99
+    },
+    "BusinessDescription": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "AdditionalImageURLs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "The model property of type List[str].",
+      "example": [
+        "example-value"
+      ]
+    },
+    "FacilitySquareFeet": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The model property of type int.",
+      "example": 1
+    },
+    "ProSpaFinderSite": {
+      "type": "boolean",
+      "description": "The model property of type bool.",
+      "example": true
+    },
+    "HasClasses": {
+      "type": "boolean",
+      "description": "The model property of type bool.",
+      "example": true
+    },
+    "PhoneExtension": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "Action": {
+      "$ref": "#/components/schemas/ActionEnum",
+      "description": "The model property of type ActionEnum."
+    },
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The model property of type int.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "Sunset Yoga Studio"
+    },
+    "Address": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "123 Market St"
+    },
+    "Address2": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "123 Market St"
+    },
+    "Tax1": {
+      "type": "number",
+      "format": "double",
+      "description": "The model property of type float.",
+      "example": 1.0
+    },
+    "Tax2": {
+      "type": "number",
+      "format": "double",
+      "description": "The model property of type float.",
+      "example": 1.0
+    },
+    "Tax3": {
+      "type": "number",
+      "format": "double",
+      "description": "The model property of type float.",
+      "example": 1.0
+    },
+    "Tax4": {
+      "type": "number",
+      "format": "double",
+      "description": "The model property of type float.",
+      "example": 1.0
+    },
+    "Tax5": {
+      "type": "number",
+      "format": "double",
+      "description": "The model property of type float.",
+      "example": 1.0
+    },
+    "Phone": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "+15551234567"
+    },
+    "City": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "San Francisco"
+    },
+    "StateProvCode": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "PostalCode": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "94110"
+    },
+    "Latitude": {
+      "type": "number",
+      "format": "double",
+      "description": "The model property of type float.",
+      "example": 1.0
+    },
+    "Longitude": {
+      "type": "number",
+      "format": "double",
+      "description": "The model property of type float.",
+      "example": 1.0
+    },
+    "DistanceInMiles": {
+      "type": "number",
+      "format": "double",
+      "description": "The model property of type float.",
+      "example": 1.0
+    },
+    "ImageURL": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "Description": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "HasSite": {
+      "type": "boolean",
+      "description": "The model property of type bool.",
+      "example": true
+    },
+    "CanBook": {
+      "type": "boolean",
+      "description": "The model property of type bool.",
+      "example": true
+    },
+    "NumberTreatmentRooms": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The model property of type int.",
+      "example": 1
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "The model property of type bool.",
+      "example": true
+    },
+    "InvActive": {
+      "type": "boolean",
+      "description": "The model property of type bool.",
+      "example": true
+    },
+    "WsShow": {
+      "type": "boolean",
+      "description": "The model property of type bool.",
+      "example": true
+    },
+    "Email": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "kinlane@example.com"
+    },
+    "ContactName": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "ShipAddress": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "123 Market St"
+    },
+    "ShipState": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "ShipPostal": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "ShipPhone": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "+15551234567"
+    },
+    "ShipPOC": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "TaxGrouping": {
+      "type": "boolean",
+      "description": "The model property of type bool.",
+      "example": true
+    },
+    "LabelTax1": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "LabelTax2": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "LabelTax3": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "LabelTax4": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "LabelTax5": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "WAC": {
+      "type": "boolean",
+      "description": "The model property of type bool.",
+      "example": true
+    },
+    "ShipAddress2": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "123 Market St"
+    },
+    "MasterLocId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The model property of type int.",
+      "example": 123456
+    },
+    "StreetAddress": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "123 Market St"
+    },
+    "Country": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "US"
+    },
+    "Ext": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "Amenities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Amenity1"
+      },
+      "description": "The model property of type List[Amenity1].",
+      "example": [
+        {}
+      ]
+    },
+    "TotalNumberOfDeals": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The model property of type int.",
+      "example": 1
+    },
+    "TotalNumberOfRatings": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The model property of type int.",
+      "example": 1
+    },
+    "AverageRating": {
+      "type": "number",
+      "format": "double",
+      "description": "The model property of type float.",
+      "example": 1.0
+    }
+  }
+}

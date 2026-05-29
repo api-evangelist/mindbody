@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-class-descriptions-response-structure.json",
+  "name": "GetClassDescriptionsResponse",
+  "description": "Implementation of the 'GetClassDescriptionsResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "ClassDescriptions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ClassDescription"
+      },
+      "description": "Contains information about the class descriptions.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "Client": {
+    "AppointmentGenderPreference": "None",
+    "BirthDate": "2026-05-28T14:30:00Z",
+    "Country": "US",
+    "CreationDate": "2026-05-28T14:30:00Z",
+    "CustomClientFields": [
+      {}
+    ],
+    "ClientCreditCard": {
+      "Address": "123 Market St",
+      "CardHolder": "example-value",
+      "CardNumber": "example-value",
+      "CardType": "example-value",
+      "City": "San Francisco",
+      "ExpMonth": "example-value",
+      "ExpYear": "example-value",
+      "LastFour": "example-value",
+      "PostalCode": "94110",
+      "State": "CA"
+    },
+    "ClientIndexes": [
+      {}
+    ],
+    "ClientRelationships": [
+      {}
+    ],
+    "FirstAppointmentDate": "2026-05-28T14:30:00Z",
+    "FirstClassDate": "2026-05-28T14:30:00Z",
+    "FirstName": "Alex",
+    "Id": "example-value",
+    "IsCompany": true,
+    "IsProspect": true,
+    "LastName": "Lane",
+    "Liability": {
+      "AgreementDate": "2026-05-28T14:30:00Z",
+      "IsReleased": true,
+      "ReleasedBy": 1
+    },
+    "LiabilityRelease": true,
+    "MembershipIcon": 1,
+    "MobileProvider": 1,
+    "Notes": "Example note for Mindbody Public API.",
+    "State": "CA",
+    "UniqueId": 123456,
+    "LastModifiedDateTime": "2026-05-28T14:30:00Z",
+    "RedAlert": "example-value",
+    "YellowAlert": "example-value",
+    "MiddleName": "example-value",
+    "ProspectStage": {
+      "Active": true,
+      "Description": "Example note for Mindbody Public API.",
+      "Id": 123456
+    },
+    "Email": "kinlane@example.com",
+    "MobilePhone": "+15551234567",
+    "HomePhone": "+15551234567",
+    "WorkPhone": "+15551234567",
+    "AccountBalance": 49.99,
+    "AddressLine1": "123 Market St",
+    "AddressLine2": "123 Market St",
+    "City": "San Francisco",
+    "PostalCode": "94110",
+    "WorkExtension": "example-value",
+    "ReferredBy": "example-value",
+    "PhotoUrl": "https://example.mindbodyonline.com/resource/abc123",
+    "EmergencyContactInfoName": "example-value",
+    "EmergencyContactInfoEmail": "kinlane@example.com",
+    "EmergencyContactInfoPhone": "+15551234567",
+    "EmergencyContactInfoRelationship": "example-value",
+    "Gender": "example-value",
+    "LastFormulaNotes": "Example note for Mindbody Public API.",
+    "Active": true,
+    "SalesReps": [
+      {}
+    ],
+    "Status": "Active",
+    "Action": "None",
+    "SendAccountEmails": true,
+    "SendAccountTexts": true,
+    "SendPromotionalEmails": true,
+    "SendPromotionalTexts": true,
+    "SendScheduleEmails": true,
+    "SendScheduleTexts": true,
+    "HomeLocation": {
+      "AdditionalImageURLs": [
+        "example-value"
+      ],
+      "Address": "123 Market St",
+      "Address2": "123 Market St",
+      "Amenities": [
+        {}
+      ],
+      "BusinessDescription": "Example note for Mindbody Public API.",
+      "City": "San Francisco",
+      "Description": "Example note for Mindbody Public API.",
+      "HasClasses": true,
+      "Id": 123456,
+      "Latitude": 1.0,
+      "Longitude": 1.0,
+      "Name": "Sunset Yoga Studio",
+      "Phone": "+15551234567",
+      "PhoneExtension": "example-value",
+      "PostalCode": "94110",
+      "SiteID": 1,
+      "StateProvCode": "example-value",
+      "Tax1": 1.0,
+      "Tax2": 1.0,
+      "Tax3": 1.0,
+      "Tax4": 1.0,
+      "Tax5": 1.0,
+      "TotalNumberOfRatings": 1,
+      "AverageRating": 1.0,
+      "TotalNumberOfDeals": 1
+    },
+    "LockerNumber": "example-value",
+    "ClientType": {
+      "Id": 123456,
+      "Name": "Sunset Yoga Studio"
+    }
+  }
+}

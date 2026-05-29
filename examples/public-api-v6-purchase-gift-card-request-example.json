@@ -1,0 +1,22 @@
+{
+  "LocationId": 123456,
+  "PurchaserClientId": "example-value",
+  "GiftCardId": 123456,
+  "Test": true,
+  "LayoutId": 123456,
+  "SendEmailReceipt": true,
+  "RecipientEmail": "kinlane@example.com",
+  "RecipientName": "example-value",
+  "Title": "example-value",
+  "GiftMessage": "example-value",
+  "DeliveryDate": "2026-05-28T14:30:00Z",
+  "PaymentInfo": {
+    "Type": "example-value",
+    "Metadata": "example-value"
+  },
+  "SalesRepId": 123456,
+  "ConsumerPresent": true,
+  "PaymentAuthenticationCallbackUrl": "https://example.mindbodyonline.com/resource/abc123",
+  "BarcodeId": "example-value",
+  "SenderName": "example-value"
+}

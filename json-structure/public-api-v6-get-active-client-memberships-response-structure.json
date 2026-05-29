@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-active-client-memberships-response-structure.json",
+  "name": "GetActiveClientMembershipsResponse",
+  "description": "Implementation of the 'GetActiveClientMembershipsResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "ClientMemberships": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ClientMembership"
+      },
+      "description": "Details about the requested memberships.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

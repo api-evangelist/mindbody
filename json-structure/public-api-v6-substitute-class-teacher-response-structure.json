@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-substitute-class-teacher-response-structure.json",
+  "name": "SubstituteClassTeacherResponse",
+  "description": "Implementation of the 'SubstituteClassTeacherResponse' model.",
+  "type": "object",
+  "properties": {
+    "Class": {
+      "$ref": "#/components/schemas/SubstituteTeacherClass",
+      "description": "Contains information about the class that is being assigned a substitute teacher."
+    }
+  }
+}

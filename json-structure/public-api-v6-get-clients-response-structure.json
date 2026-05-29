@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-clients-response-structure.json",
+  "name": "GetClientsResponse",
+  "description": "Implementation of the 'GetClientsResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination properties to use."
+    },
+    "Clients": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ClientWithSuspensionInfo"
+      },
+      "description": "The requested clients.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

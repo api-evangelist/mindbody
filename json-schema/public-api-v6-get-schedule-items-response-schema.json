@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-schedule-items-response-schema.json",
+  "title": "GetScheduleItemsResponse",
+  "description": "Implementation of the 'GetScheduleItemsResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "StaffMembers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Staff"
+      },
+      "description": "Contains information about staff members with schedule items.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

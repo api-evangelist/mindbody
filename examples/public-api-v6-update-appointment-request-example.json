@@ -1,0 +1,18 @@
+{
+  "AppointmentId": 123456,
+  "EndDateTime": "2026-05-28T14:30:00Z",
+  "Execute": "example-value",
+  "GenderPreference": "example-value",
+  "Notes": "Example note for Mindbody Public API.",
+  "PartnerExternalId": "example-value",
+  "ProviderId": "example-value",
+  "ResourceIds": [
+    1
+  ],
+  "SendEmail": true,
+  "SessionTypeId": 123456,
+  "StaffId": 123456,
+  "StartDateTime": "2026-05-28T14:30:00Z",
+  "ApplyPayment": true,
+  "Test": true
+}

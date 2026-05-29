@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-add-appointment-add-on-response-structure.json",
+  "name": "AddAppointmentAddOnResponse",
+  "description": "Implementation of the 'AddAppointmentAddOnResponse' model.",
+  "type": "object",
+  "properties": {
+    "AppointmentId": {
+      "type": "int32",
+      "description": "This is the id of the main appointment we added on to",
+      "example": 123456
+    },
+    "AddOnAppointmentId": {
+      "type": "int32",
+      "description": "This is the id for the newly created add-on appointment",
+      "example": 123456
+    }
+  }
+}

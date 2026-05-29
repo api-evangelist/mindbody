@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-sub-category-schema.json",
+  "title": "SubCategory",
+  "description": "Implementation of the 'SubCategory' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The Id of the subcategory.",
+      "example": 123456
+    },
+    "SubCategoryName": {
+      "type": "string",
+      "description": "The name of the subcategory.",
+      "example": "example-value"
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the subcategory is active.",
+      "example": true
+    }
+  }
+}

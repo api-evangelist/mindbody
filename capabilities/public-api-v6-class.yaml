@@ -1,0 +1,1431 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Mindbody Public API v6 \u2014 Class"
+  description: "Class \u2014 16 operations. Lead operation: Mindbody To Find Class Descriptions Associated with **scheduled Classes**, Pass. Self-contained Naftiko capability covering one Mindbody business\
+    \ surface."
+  tags:
+  - Mindbody
+  - Mindbody Public API v6
+  - Class
+  created: '2026-05-28'
+  modified: '2026-05-28'
+binds:
+- namespace: env
+  keys:
+    MINDBODY_API_KEY: MINDBODY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: public-api-v6-class
+    baseUri: https://api.mindbodyonline.com
+    description: "Mindbody Public API v6 \u2014 Class business capability. Self-contained, no shared references."
+    authentication:
+      type: apikey
+      key: API-Key
+      value: '{{env.MINDBODY_API_KEY}}'
+      placement: header
+    resources:
+    - name: class-classdescriptions
+      path: /class/classdescriptions
+      operations:
+      - name: getClassDescriptions
+        method: GET
+        description: Mindbody To Find Class Descriptions Associated with **scheduled Classes**, Pass
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.classDescriptionId
+          in: query
+          type: integer
+          required: false
+          description: The ID of the requested client.
+        - name: request.endClassDateTime
+          in: query
+          type: string
+          required: false
+          description: Filters the results to class descriptions for scheduled classes that happen before the given date and time.
+        - name: request.includeInactive
+          in: query
+          type: boolean
+          required: false
+          description: Includes inactive class descriptions, defaulting to true. When set to false, it filters out inactive class descriptions.
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.locationId
+          in: query
+          type: integer
+          required: false
+          description: Filters results to classes descriptions for schedule classes as the given location.
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.programIds
+          in: query
+          type: array
+          required: false
+          description: A list of requested program IDs.
+        - name: request.staffId
+          in: query
+          type: integer
+          required: false
+          description: Filters results to class descriptions for scheduled classes taught by the given staff member.
+        - name: request.startClassDateTime
+          in: query
+          type: string
+          required: false
+          description: Filters the results to class descriptions for scheduled classes that happen on or after the given date and time.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: class-classes
+      path: /class/classes
+      operations:
+      - name: getClasses
+        method: GET
+        description: Mindbody Get Scheduled Classes
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.classDescriptionIds
+          in: query
+          type: array
+          required: false
+          description: The requested class description IDs.
+        - name: request.classIds
+          in: query
+          type: array
+          required: false
+          description: The requested class IDs.
+        - name: request.classScheduleIds
+          in: query
+          type: array
+          required: false
+          description: The requested classSchedule Ids.
+        - name: request.clientId
+          in: query
+          type: string
+          required: false
+          description: The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials.
+        - name: request.endDateTime
+          in: query
+          type: string
+          required: false
+          description: "The requested end date for filtering. NOTE: ClassDate does not take Class Time into consideration. <br />Default: **today\u2019s date**"
+        - name: request.hideCanceledClasses
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, canceled classes are removed from the response.<br /> When `false`, canceled classes are included in the response.<br /> Default: **false**'
+        - name: request.lastModifiedDate
+          in: query
+          type: string
+          required: false
+          description: When included in the request, only records modified on or after the `LastModifiedDate` specified are included in the response.
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.locationIds
+          in: query
+          type: array
+          required: false
+          description: A list of location IDs on which to base the search.
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.programIds
+          in: query
+          type: array
+          required: false
+          description: A list of program IDs on which to base the search.
+        - name: request.schedulingWindow
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, classes outside scheduling window are removed from the response.<br /> When `false`, classes are included in the response, regardless of the scheduling window.<br />
+            Default: **false**'
+        - name: request.semesterIds
+          in: query
+          type: array
+          required: false
+          description: A list of semester IDs on which to base the search.
+        - name: request.sessionTypeIds
+          in: query
+          type: array
+          required: false
+          description: A list of session type IDs on which to base the search.
+        - name: request.staffIds
+          in: query
+          type: array
+          required: false
+          description: The requested IDs of the teaching staff members.
+        - name: request.startDateTime
+          in: query
+          type: string
+          required: false
+          description: "The requested start date for filtering. This also determines what you will see for the \u2018BookingWindow\u2019 StartDateTime in the response. For example, if you pass a StartDateTime\
+            \ that is on OR before the BookingWindow \u2018Open\u2019 days of the class, you will retrieve the actual \u2018StartDateTime\u2019 for the Booking"
+        - name: request.uniqueClientId
+          in: query
+          type: integer
+          required: false
+          description: 'The unique ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. Note: you need to
+            provide the ''UniqueClientId'' OR the ''ClientId''. If both are provided, the ''UniqueClientId'' takes precedence.'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: class-classschedules
+      path: /class/classschedules
+      operations:
+      - name: getClassSchedules
+        method: GET
+        description: Mindbody Get Class Schedules
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.classScheduleIds
+          in: query
+          type: array
+          required: false
+          description: 'The class schedule IDs. <br />Default: **all**'
+        - name: request.endDate
+          in: query
+          type: string
+          required: false
+          description: 'The end date of the range. Return any active enrollments that occur on or before this day. <br />Default: **StartDate**'
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.locationIds
+          in: query
+          type: array
+          required: false
+          description: 'The location IDs. <br />Default: **all**'
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.programIds
+          in: query
+          type: array
+          required: false
+          description: 'The program IDs. <br />Default: **all**'
+        - name: request.sessionTypeIds
+          in: query
+          type: array
+          required: false
+          description: 'The session type IDs. <br />Default: **all**'
+        - name: request.staffIds
+          in: query
+          type: array
+          required: false
+          description: 'The staff IDs. <br />Default: **all**'
+        - name: request.startDate
+          in: query
+          type: string
+          required: false
+          description: "The start date of the range. Return any active enrollments that occur on or after this day. <br />Default: **today\u2019s date**"
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: class-classvisits
+      path: /class/classvisits
+      operations:
+      - name: getClassVisits
+        method: GET
+        description: Mindbody Returns a List of Visits That Contain Information for a Specified
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: request.classID
+          in: query
+          type: integer
+          required: true
+          description: The class ID.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.lastModifiedDate
+          in: query
+          type: string
+          required: false
+          description: When included in the request, only records modified on or after the `LastModifiedDate` specified are included in the response.
+        - name: request.useSiteSettingsStaffName
+          in: query
+          type: boolean
+          required: false
+          description: When `true`, the staff DisplayName will be populated based on site-level settings. When `false` or omitted, the staff DisplayName will contain only the FirstName.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: class-courses
+      path: /class/courses
+      operations:
+      - name: getCourses
+        method: GET
+        description: Mindbody This Endpoint Will Provide All the Data Related to Courses Depending
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: getCoursesRequest.courseIDs
+          in: query
+          type: array
+          required: false
+          description: Return only courses that are available for the specified CourseIds.
+        - name: getCoursesRequest.endDate
+          in: query
+          type: string
+          required: false
+          description: The end date range. Any active courses that are on or before this day. <br />(optional) Defaults to StartDate.
+        - name: getCoursesRequest.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: getCoursesRequest.locationIDs
+          in: query
+          type: array
+          required: false
+          description: Return only courses that are available for the specified LocationIds.
+        - name: getCoursesRequest.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: getCoursesRequest.programIDs
+          in: query
+          type: array
+          required: false
+          description: Return only courses that are available for the specified ProgramIds.
+        - name: getCoursesRequest.semesterIDs
+          in: query
+          type: array
+          required: false
+          description: Return only courses that are available for the specified SemesterIds.
+        - name: getCoursesRequest.staffIDs
+          in: query
+          type: array
+          required: false
+          description: Return only courses that are available for the specified StaffIds.
+        - name: getCoursesRequest.startDate
+          in: query
+          type: string
+          required: false
+          description: The start date range. Any active courses that are on or after this day. <br />(optional) Defaults to today.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: class-semesters
+      path: /class/semesters
+      operations:
+      - name: getSemesters
+        method: GET
+        description: Mindbody This Endpoint Retrieves the Business Class Semesters
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.active
+          in: query
+          type: boolean
+          required: false
+          description: 'When true, the response only contains semesters which are activated. When false, only deactivated semesters are returned. Default: **All semesters**'
+        - name: request.endDate
+          in: query
+          type: string
+          required: false
+          description: 'The end date for the range. All semesters that are on or before this day. Default: **StartDate**'
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.semesterIDs
+          in: query
+          type: array
+          required: false
+          description: The requested semester IDs.
+        - name: request.startDate
+          in: query
+          type: string
+          required: false
+          description: "The start date for the range. All semesters that are on or after this day. Default: **today\u2019s date**"
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: class-waitlistentries
+      path: /class/waitlistentries
+      operations:
+      - name: getWaitlistEntries
+        method: GET
+        description: Mindbody Returns a List of Waiting List Entries for a Specified Class Schedule
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.classIds
+          in: query
+          type: array
+          required: false
+          description: 'The requested class IDs. If a class ID is present, the request automatically disregards any class schedule IDs in the request. <br /> Either `ClassScheduleIds`, `ClientIds`, `WaitlistEntryIds`,
+            or `ClassIds` is required; the others become optional.<br /> Default: **all ClassIds**'
+        - name: request.classScheduleIds
+          in: query
+          type: array
+          required: false
+          description: 'The requested class schedule IDs. If a class ID is present, the request automatically disregards any class schedule IDs in the request.<br /> Either `ClassScheduleIds`, `ClientIds`,
+            `WaitlistEntryIds`, or `ClassIds` is required; the others become optional.<br /> Default: **all ClassScheduleIds**'
+        - name: request.clientIds
+          in: query
+          type: array
+          required: false
+          description: 'The requested client IDs.<br /> Either `ClassScheduleIds`, `ClientIds`, `WaitlistEntryIds`, or `ClassIds` is required; the others become optional.<br /> Default: **all ClientIds**'
+        - name: request.hidePastEntries
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, indicates that past waiting list entries are hidden from clients.<br /> When `false`, indicates that past entries are not hidden from clients.<br /> Default: **false**'
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.waitlistEntryIds
+          in: query
+          type: array
+          required: false
+          description: 'The requested waiting list entry IDs.<br /> Either `ClassScheduleIds`, `ClientIds`, `WaitlistEntryIds`, or `ClassIds` is required; the others become optional.<br /> Default: **all
+            WaitlistEntryIds**'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: class-addclassschedule
+      path: /class/addclassschedule
+      operations:
+      - name: addClassSchedule
+        method: POST
+        description: Mindbody This Endpoint Adds a Class Schedule. for a Single Day Schedule, the
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: class-addclienttoclass
+      path: /class/addclienttoclass
+      operations:
+      - name: addClientToClass
+        method: POST
+        description: Mindbody This Endpoint Adds a Client to a Class or to a Class Waiting List. to
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: class-cancelsingleclass
+      path: /class/cancelsingleclass
+      operations:
+      - name: cancelSingleClass
+        method: POST
+        description: Mindbody This Endpoint Will Cancel a Single Class from Studio
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: class-removeclientfromclass
+      path: /class/removeclientfromclass
+      operations:
+      - name: removeClientFromClass
+        method: POST
+        description: Mindbody Remove a Client from a Class
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: class-removeclientsfromclasses
+      path: /class/removeclientsfromclasses
+      operations:
+      - name: removeClientsFromClasses
+        method: POST
+        description: Mindbody This Endpoint Can Be Utilized for Removing Multiple Clients from
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: class-removefromwaitlist
+      path: /class/removefromwaitlist
+      operations:
+      - name: removeFromWaitlist
+        method: POST
+        description: Mindbody This Endpoint Does Not Return a Response. if a Call to This Endpoint
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: request.waitlistEntryIds
+          in: query
+          type: array
+          required: true
+          description: A list of `WaitlistEntryIds` to remove from the waiting list.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: class-substituteclassteacher
+      path: /class/substituteclassteacher
+      operations:
+      - name: substituteClassTeacher
+        method: POST
+        description: Mindbody Substitute a Class Teacher
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: class-updateclassschedule
+      path: /class/updateclassschedule
+      operations:
+      - name: updateClassSchedule
+        method: POST
+        description: Mindbody This Endpoint Updates a Class Schedule
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: class-updateclassschedulenotes-class-schedule-id
+      path: /class/updateclassschedulenotes/{classScheduleId}
+      operations:
+      - name: updateClassScheduleNotes
+        method: PATCH
+        description: Mindbody This Endpoint Updates the Notes of Class Instances Based on the
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: classScheduleId
+          in: path
+          type: integer
+          required: true
+          description: The request template parameter.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: public-api-v6-class-rest
+    port: 8080
+    description: "REST adapter for Mindbody Public API v6 \u2014 Class. One Spectral-compliant resource per consumed operation, prefixed with /v1."
+    resources:
+    - path: /v1/class/classdescriptions
+      name: v1-class-classdescriptions
+      description: REST surface for /v1/class/classdescriptions.
+      operations:
+      - method: GET
+        name: getClassDescriptions
+        description: Mindbody To Find Class Descriptions Associated with **scheduled Classes**, Pass
+        call: public-api-v6-class.getClassDescriptions
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.classDescriptionId: rest.request.classDescriptionId
+          request.endClassDateTime: rest.request.endClassDateTime
+          request.includeInactive: rest.request.includeInactive
+          request.limit: rest.request.limit
+          request.locationId: rest.request.locationId
+          request.offset: rest.request.offset
+          request.programIds: rest.request.programIds
+          request.staffId: rest.request.staffId
+          request.startClassDateTime: rest.request.startClassDateTime
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/class/classes
+      name: v1-class-classes
+      description: REST surface for /v1/class/classes.
+      operations:
+      - method: GET
+        name: getClasses
+        description: Mindbody Get Scheduled Classes
+        call: public-api-v6-class.getClasses
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.classDescriptionIds: rest.request.classDescriptionIds
+          request.classIds: rest.request.classIds
+          request.classScheduleIds: rest.request.classScheduleIds
+          request.clientId: rest.request.clientId
+          request.endDateTime: rest.request.endDateTime
+          request.hideCanceledClasses: rest.request.hideCanceledClasses
+          request.lastModifiedDate: rest.request.lastModifiedDate
+          request.limit: rest.request.limit
+          request.locationIds: rest.request.locationIds
+          request.offset: rest.request.offset
+          request.programIds: rest.request.programIds
+          request.schedulingWindow: rest.request.schedulingWindow
+          request.semesterIds: rest.request.semesterIds
+          request.sessionTypeIds: rest.request.sessionTypeIds
+          request.staffIds: rest.request.staffIds
+          request.startDateTime: rest.request.startDateTime
+          request.uniqueClientId: rest.request.uniqueClientId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/class/classschedules
+      name: v1-class-classschedules
+      description: REST surface for /v1/class/classschedules.
+      operations:
+      - method: GET
+        name: getClassSchedules
+        description: Mindbody Get Class Schedules
+        call: public-api-v6-class.getClassSchedules
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.classScheduleIds: rest.request.classScheduleIds
+          request.endDate: rest.request.endDate
+          request.limit: rest.request.limit
+          request.locationIds: rest.request.locationIds
+          request.offset: rest.request.offset
+          request.programIds: rest.request.programIds
+          request.sessionTypeIds: rest.request.sessionTypeIds
+          request.staffIds: rest.request.staffIds
+          request.startDate: rest.request.startDate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/class/classvisits
+      name: v1-class-classvisits
+      description: REST surface for /v1/class/classvisits.
+      operations:
+      - method: GET
+        name: getClassVisits
+        description: Mindbody Returns a List of Visits That Contain Information for a Specified
+        call: public-api-v6-class.getClassVisits
+        with:
+          version: rest.version
+          request.classID: rest.request.classID
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.lastModifiedDate: rest.request.lastModifiedDate
+          request.useSiteSettingsStaffName: rest.request.useSiteSettingsStaffName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/class/courses
+      name: v1-class-courses
+      description: REST surface for /v1/class/courses.
+      operations:
+      - method: GET
+        name: getCourses
+        description: Mindbody This Endpoint Will Provide All the Data Related to Courses Depending
+        call: public-api-v6-class.getCourses
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          getCoursesRequest.courseIDs: rest.getCoursesRequest.courseIDs
+          getCoursesRequest.endDate: rest.getCoursesRequest.endDate
+          getCoursesRequest.limit: rest.getCoursesRequest.limit
+          getCoursesRequest.locationIDs: rest.getCoursesRequest.locationIDs
+          getCoursesRequest.offset: rest.getCoursesRequest.offset
+          getCoursesRequest.programIDs: rest.getCoursesRequest.programIDs
+          getCoursesRequest.semesterIDs: rest.getCoursesRequest.semesterIDs
+          getCoursesRequest.staffIDs: rest.getCoursesRequest.staffIDs
+          getCoursesRequest.startDate: rest.getCoursesRequest.startDate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/class/semesters
+      name: v1-class-semesters
+      description: REST surface for /v1/class/semesters.
+      operations:
+      - method: GET
+        name: getSemesters
+        description: Mindbody This Endpoint Retrieves the Business Class Semesters
+        call: public-api-v6-class.getSemesters
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.active: rest.request.active
+          request.endDate: rest.request.endDate
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+          request.semesterIDs: rest.request.semesterIDs
+          request.startDate: rest.request.startDate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/class/waitlistentries
+      name: v1-class-waitlistentries
+      description: REST surface for /v1/class/waitlistentries.
+      operations:
+      - method: GET
+        name: getWaitlistEntries
+        description: Mindbody Returns a List of Waiting List Entries for a Specified Class Schedule
+        call: public-api-v6-class.getWaitlistEntries
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.classIds: rest.request.classIds
+          request.classScheduleIds: rest.request.classScheduleIds
+          request.clientIds: rest.request.clientIds
+          request.hidePastEntries: rest.request.hidePastEntries
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+          request.waitlistEntryIds: rest.request.waitlistEntryIds
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/class/addclassschedule
+      name: v1-class-addclassschedule
+      description: REST surface for /v1/class/addclassschedule.
+      operations:
+      - method: POST
+        name: addClassSchedule
+        description: Mindbody This Endpoint Adds a Class Schedule. for a Single Day Schedule, the
+        call: public-api-v6-class.addClassSchedule
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/class/addclienttoclass
+      name: v1-class-addclienttoclass
+      description: REST surface for /v1/class/addclienttoclass.
+      operations:
+      - method: POST
+        name: addClientToClass
+        description: Mindbody This Endpoint Adds a Client to a Class or to a Class Waiting List. to
+        call: public-api-v6-class.addClientToClass
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/class/cancelsingleclass
+      name: v1-class-cancelsingleclass
+      description: REST surface for /v1/class/cancelsingleclass.
+      operations:
+      - method: POST
+        name: cancelSingleClass
+        description: Mindbody This Endpoint Will Cancel a Single Class from Studio
+        call: public-api-v6-class.cancelSingleClass
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/class/removeclientfromclass
+      name: v1-class-removeclientfromclass
+      description: REST surface for /v1/class/removeclientfromclass.
+      operations:
+      - method: POST
+        name: removeClientFromClass
+        description: Mindbody Remove a Client from a Class
+        call: public-api-v6-class.removeClientFromClass
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/class/removeclientsfromclasses
+      name: v1-class-removeclientsfromclasses
+      description: REST surface for /v1/class/removeclientsfromclasses.
+      operations:
+      - method: POST
+        name: removeClientsFromClasses
+        description: Mindbody This Endpoint Can Be Utilized for Removing Multiple Clients from
+        call: public-api-v6-class.removeClientsFromClasses
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/class/removefromwaitlist
+      name: v1-class-removefromwaitlist
+      description: REST surface for /v1/class/removefromwaitlist.
+      operations:
+      - method: POST
+        name: removeFromWaitlist
+        description: Mindbody This Endpoint Does Not Return a Response. if a Call to This Endpoint
+        call: public-api-v6-class.removeFromWaitlist
+        with:
+          version: rest.version
+          request.waitlistEntryIds: rest.request.waitlistEntryIds
+          siteId: rest.siteId
+          authorization: rest.authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/class/substituteclassteacher
+      name: v1-class-substituteclassteacher
+      description: REST surface for /v1/class/substituteclassteacher.
+      operations:
+      - method: POST
+        name: substituteClassTeacher
+        description: Mindbody Substitute a Class Teacher
+        call: public-api-v6-class.substituteClassTeacher
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/class/updateclassschedule
+      name: v1-class-updateclassschedule
+      description: REST surface for /v1/class/updateclassschedule.
+      operations:
+      - method: POST
+        name: updateClassSchedule
+        description: Mindbody This Endpoint Updates a Class Schedule
+        call: public-api-v6-class.updateClassSchedule
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/class/updateclassschedulenotes/{class-schedule-id}
+      name: v1-class-updateclassschedulenotes-class-schedule-id
+      description: REST surface for /v1/class/updateclassschedulenotes/{class-schedule-id}.
+      operations:
+      - method: PATCH
+        name: updateClassScheduleNotes
+        description: Mindbody This Endpoint Updates the Notes of Class Instances Based on the
+        call: public-api-v6-class.updateClassScheduleNotes
+        with:
+          version: rest.version
+          classScheduleId: rest.classScheduleId
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: public-api-v6-class-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for Mindbody Public API v6 \u2014 Class. One tool per consumed operation, routed inline through this capability's consumes block."
+    tools:
+    - name: find-class-descriptions-associated-**scheduled
+      description: Mindbody To Find Class Descriptions Associated with **scheduled Classes**, Pass
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-class.getClassDescriptions
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.classDescriptionId: tools.request.classDescriptionId
+        request.endClassDateTime: tools.request.endClassDateTime
+        request.includeInactive: tools.request.includeInactive
+        request.limit: tools.request.limit
+        request.locationId: tools.request.locationId
+        request.offset: tools.request.offset
+        request.programIds: tools.request.programIds
+        request.staffId: tools.request.staffId
+        request.startClassDateTime: tools.request.startClassDateTime
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-scheduled-classes
+      description: Mindbody Get Scheduled Classes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-class.getClasses
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.classDescriptionIds: tools.request.classDescriptionIds
+        request.classIds: tools.request.classIds
+        request.classScheduleIds: tools.request.classScheduleIds
+        request.clientId: tools.request.clientId
+        request.endDateTime: tools.request.endDateTime
+        request.hideCanceledClasses: tools.request.hideCanceledClasses
+        request.lastModifiedDate: tools.request.lastModifiedDate
+        request.limit: tools.request.limit
+        request.locationIds: tools.request.locationIds
+        request.offset: tools.request.offset
+        request.programIds: tools.request.programIds
+        request.schedulingWindow: tools.request.schedulingWindow
+        request.semesterIds: tools.request.semesterIds
+        request.sessionTypeIds: tools.request.sessionTypeIds
+        request.staffIds: tools.request.staffIds
+        request.startDateTime: tools.request.startDateTime
+        request.uniqueClientId: tools.request.uniqueClientId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-class-schedules
+      description: Mindbody Get Class Schedules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-class.getClassSchedules
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.classScheduleIds: tools.request.classScheduleIds
+        request.endDate: tools.request.endDate
+        request.limit: tools.request.limit
+        request.locationIds: tools.request.locationIds
+        request.offset: tools.request.offset
+        request.programIds: tools.request.programIds
+        request.sessionTypeIds: tools.request.sessionTypeIds
+        request.staffIds: tools.request.staffIds
+        request.startDate: tools.request.startDate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-list-visits-that-contain
+      description: Mindbody Returns a List of Visits That Contain Information for a Specified
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-class.getClassVisits
+      with:
+        version: tools.version
+        request.classID: tools.request.classID
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.lastModifiedDate: tools.request.lastModifiedDate
+        request.useSiteSettingsStaffName: tools.request.useSiteSettingsStaffName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-will-provide-all
+      description: Mindbody This Endpoint Will Provide All the Data Related to Courses Depending
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-class.getCourses
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        getCoursesRequest.courseIDs: tools.getCoursesRequest.courseIDs
+        getCoursesRequest.endDate: tools.getCoursesRequest.endDate
+        getCoursesRequest.limit: tools.getCoursesRequest.limit
+        getCoursesRequest.locationIDs: tools.getCoursesRequest.locationIDs
+        getCoursesRequest.offset: tools.getCoursesRequest.offset
+        getCoursesRequest.programIDs: tools.getCoursesRequest.programIDs
+        getCoursesRequest.semesterIDs: tools.getCoursesRequest.semesterIDs
+        getCoursesRequest.staffIDs: tools.getCoursesRequest.staffIDs
+        getCoursesRequest.startDate: tools.getCoursesRequest.startDate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-retrieves-business-class
+      description: Mindbody This Endpoint Retrieves the Business Class Semesters
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-class.getSemesters
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.active: tools.request.active
+        request.endDate: tools.request.endDate
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+        request.semesterIDs: tools.request.semesterIDs
+        request.startDate: tools.request.startDate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-list-waiting-list-entries
+      description: Mindbody Returns a List of Waiting List Entries for a Specified Class Schedule
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-class.getWaitlistEntries
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.classIds: tools.request.classIds
+        request.classScheduleIds: tools.request.classScheduleIds
+        request.clientIds: tools.request.clientIds
+        request.hidePastEntries: tools.request.hidePastEntries
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+        request.waitlistEntryIds: tools.request.waitlistEntryIds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-adds-class-schedule.
+      description: Mindbody This Endpoint Adds a Class Schedule. for a Single Day Schedule, the
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-class.addClassSchedule
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-adds-client-class
+      description: Mindbody This Endpoint Adds a Client to a Class or to a Class Waiting List. to
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: public-api-v6-class.addClientToClass
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-will-cancel-single
+      description: Mindbody This Endpoint Will Cancel a Single Class from Studio
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-class.cancelSingleClass
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-client-class
+      description: Mindbody Remove a Client from a Class
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-class.removeClientFromClass
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-can-be-utilized
+      description: Mindbody This Endpoint Can Be Utilized for Removing Multiple Clients from
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-class.removeClientsFromClasses
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-does-not-return
+      description: Mindbody This Endpoint Does Not Return a Response. if a Call to This Endpoint
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-class.removeFromWaitlist
+      with:
+        version: tools.version
+        request.waitlistEntryIds: tools.request.waitlistEntryIds
+        siteId: tools.siteId
+        authorization: tools.authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: substitute-class-teacher
+      description: Mindbody Substitute a Class Teacher
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-class.substituteClassTeacher
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-updates-class-schedule
+      description: Mindbody This Endpoint Updates a Class Schedule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-class.updateClassSchedule
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-updates-notes-class
+      description: Mindbody This Endpoint Updates the Notes of Class Instances Based on the
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: public-api-v6-class.updateClassScheduleNotes
+      with:
+        version: tools.version
+        classScheduleId: tools.classScheduleId
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

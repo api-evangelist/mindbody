@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-sales-response-structure.json",
+  "name": "GetSalesResponse",
+  "description": "Implementation of the 'GetSalesResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "Sales": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Sale"
+      },
+      "description": "Contains the Sale objects, each of which describes the sale and payment for a purchase event.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-cross-regional-client-association-schema.json",
+  "title": "CrossRegionalClientAssociation",
+  "description": "Implementation of the 'CrossRegionalClientAssociation' model. A client cross region association",
+  "type": "object",
+  "properties": {
+    "SiteId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the site to which the client belongs.",
+      "example": -99
+    },
+    "ClientId": {
+      "type": "string",
+      "description": "The client\u2019s RSSID.",
+      "example": "example-value"
+    },
+    "UniqueId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The client\u2019s unique ID.",
+      "example": 123456
+    },
+    "SiteIsActive": {
+      "type": "boolean",
+      "description": "Indicates if site is active",
+      "example": true
+    }
+  }
+}

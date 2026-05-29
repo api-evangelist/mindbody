@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-lead-channel-structure.json",
+  "name": "LeadChannel",
+  "description": "Implementation of the 'LeadChannel' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "The model property of type int.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "Sunset Yoga Studio"
+    },
+    "SalespipelineId": {
+      "type": "int32",
+      "description": "The model property of type int.",
+      "example": 123456
+    },
+    "UniversalCustomerId": {
+      "type": "string",
+      "description": "The model property of type uuid|str.",
+      "example": "example-value"
+    },
+    "StudioId": {
+      "type": "int32",
+      "description": "The model property of type int.",
+      "example": 123456
+    }
+  }
+}

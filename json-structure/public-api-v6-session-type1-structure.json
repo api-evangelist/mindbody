@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-session-type1-structure.json",
+  "name": "SessionType1",
+  "description": "Implementation of the 'SessionType1' model.",
+  "type": "object",
+  "properties": {
+    "Type": {
+      "$ref": "#/components/schemas/Type1Enum",
+      "description": "The model property of type Type1Enum."
+    },
+    "DefaultTimeLength": {
+      "type": "int32",
+      "description": "The model property of type int.",
+      "example": 1
+    },
+    "StaffTimeLength": {
+      "type": "int32",
+      "description": "The model property of type int.",
+      "example": 1
+    },
+    "ProgramId": {
+      "type": "int32",
+      "description": "The model property of type int.",
+      "example": 123456
+    },
+    "NumDeducted": {
+      "type": "int32",
+      "description": "The model property of type int.",
+      "example": 1
+    },
+    "Id": {
+      "type": "int32",
+      "description": "The model property of type int.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "Sunset Yoga Studio"
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "The model property of type bool.",
+      "example": true
+    },
+    "Capacity": {
+      "type": "int32",
+      "description": "The model property of type int.",
+      "example": 1
+    },
+    "ResourceRequired": {
+      "type": "boolean",
+      "description": "The model property of type bool.",
+      "example": true
+    },
+    "Category": {
+      "$ref": "#/components/schemas/ServiceTag",
+      "description": "The model property of type ServiceTag."
+    },
+    "Subcategory": {
+      "$ref": "#/components/schemas/ServiceTag",
+      "description": "The model property of type ServiceTag."
+    },
+    "OnlineDescription": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "AvailableForAddOn": {
+      "type": "boolean",
+      "description": "The model property of type bool.",
+      "example": true
+    }
+  }
+}

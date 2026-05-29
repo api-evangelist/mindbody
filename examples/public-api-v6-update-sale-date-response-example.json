@@ -1,0 +1,19 @@
+{
+  "Sale": {
+    "Id": 123456,
+    "SaleDate": "2026-05-28T14:30:00Z",
+    "SaleTime": "example-value",
+    "SaleDateTime": "2026-05-28T14:30:00Z",
+    "OriginalSaleDateTime": "2026-05-28T14:30:00Z",
+    "SalesRepId": 123456,
+    "ClientId": "example-value",
+    "RecipientClientId": 123456,
+    "PurchasedItems": [
+      {}
+    ],
+    "LocationId": 123456,
+    "Payments": [
+      {}
+    ]
+  }
+}

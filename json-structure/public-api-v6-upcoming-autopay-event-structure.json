@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-upcoming-autopay-event-structure.json",
+  "name": "UpcomingAutopayEvent",
+  "description": "Implementation of the 'UpcomingAutopayEvent' model.",
+  "type": "object",
+  "properties": {
+    "ClientContractId": {
+      "type": "int32",
+      "description": "The ID of the contract.",
+      "example": 123456
+    },
+    "ChargeAmount": {
+      "type": "double",
+      "description": "The amount charged.",
+      "example": 49.99
+    },
+    "Subtotal": {
+      "type": "double",
+      "description": "Subtotal before tax.",
+      "example": 1.0
+    },
+    "Tax": {
+      "type": "double",
+      "description": "Tax amount.",
+      "example": 1.0
+    },
+    "PaymentMethod": {
+      "$ref": "#/components/schemas/PaymentMethodEnum",
+      "description": "The payment method."
+    },
+    "ScheduleDate": {
+      "type": "datetime",
+      "description": "The date and time of the next payment.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "ProductId": {
+      "type": "int32",
+      "description": "The product id.",
+      "example": 123456
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-prospect-stages-response-structure.json",
+  "name": "GetProspectStagesResponse",
+  "description": "Implementation of the 'GetProspectStagesResponse' model. Get Prospect Stages Response Model",
+  "type": "object",
+  "properties": {
+    "ProspectStages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ProspectStage"
+      },
+      "description": "List of Prospect Stages",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

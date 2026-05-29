@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-relationships-response-schema.json",
+  "title": "GetRelationshipsResponse",
+  "description": "Implementation of the 'GetRelationshipsResponse' model. Get Relationships Response Model",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "Relationships": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Relationship"
+      },
+      "description": "A list of relationships.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

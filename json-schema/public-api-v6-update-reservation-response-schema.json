@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-update-reservation-response-schema.json",
+  "title": "UpdateReservationResponse",
+  "description": "Implementation of the 'UpdateReservationResponse' model. Contains information about the update reservation response.",
+  "type": "object",
+  "properties": {
+    "Reservation": {
+      "$ref": "#/components/schemas/Reservation",
+      "description": "Contains information about the reservation details."
+    },
+    "ResponseDetails": {
+      "$ref": "#/components/schemas/ResponseDetails",
+      "description": "Contains information about the response details, e.g. status, transactionId."
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-courses-reponse-schema.json",
+  "title": "GetCoursesReponse",
+  "description": "Implementation of the 'GetCoursesReponse' model. This is the response class for the get courses API",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "This is the pgaination response"
+    },
+    "Courses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Course"
+      },
+      "description": "This is the list course data",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-purchase-account-credit-request-structure.json",
+  "name": "PurchaseAccountCreditRequest",
+  "description": "Implementation of the 'PurchaseAccountCreditRequest' model.",
+  "type": "object",
+  "properties": {
+    "ClientId": {
+      "type": "string",
+      "description": "The ID of the location where the account credit is being sold.",
+      "example": "example-value"
+    },
+    "Test": {
+      "type": "boolean",
+      "description": "When `true`, allows you to test the request without affecting the database. When `false`, the request is carried out and the database is affected.",
+      "example": true
+    },
+    "LocationId": {
+      "type": "int32",
+      "description": "The ID of the location where the account credit is being sold.",
+      "example": 123456
+    },
+    "SendEmailReceipt": {
+      "type": "boolean",
+      "description": "When `true`, indicates that a purchase receipt email should be sent to the purchasing client, if all settings are correctly configured.<br /> When `false`, no email is sent to the purchaser.",
+      "example": true
+    },
+    "SalesRepId": {
+      "type": "int32",
+      "description": "The ID of the staff member to be marked as the sales rep for this account credit sale.",
+      "example": 123456
+    },
+    "ConsumerPresent": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the consumer is present or otherwise able to successfully negotiate an SCA challenge. It is not a good idea to have this always be false as that could very likely lead to a bank declining all transactions for the merchant. Defaults to false. Default: **false**",
+      "example": true
+    },
+    "PaymentAuthenticationCallbackUrl": {
+      "type": "string",
+      "description": "The URL consumer is redirected to if the bank requests SCA. This field is only needed if ConsumerPresent is true.",
+      "example": "https://example.mindbodyonline.com/resource/abc123"
+    },
+    "PaymentInfo": {
+      "$ref": "#/components/schemas/CheckoutPaymentInfo",
+      "description": "Contains information about the payment."
+    }
+  }
+}

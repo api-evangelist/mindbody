@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-gift-card-balance-response-structure.json",
+  "name": "GetGiftCardBalanceResponse",
+  "description": "Implementation of the 'GetGiftCardBalanceResponse' model.",
+  "type": "object",
+  "properties": {
+    "BarcodeId": {
+      "type": "string",
+      "description": "The gift card's barcode ID.",
+      "example": "example-value"
+    },
+    "RemainingBalance": {
+      "type": "double",
+      "description": "The gift card's remaining balance.",
+      "example": 49.99
+    }
+  }
+}

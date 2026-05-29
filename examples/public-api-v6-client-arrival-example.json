@@ -1,0 +1,8 @@
+{
+  "ArrivalProgramID": 1,
+  "ArrivalProgramName": "example-value",
+  "CanAccess": true,
+  "LocationsIDs": [
+    1
+  ]
+}

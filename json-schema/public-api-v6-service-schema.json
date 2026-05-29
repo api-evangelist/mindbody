@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-service-schema.json",
+  "title": "Service",
+  "description": "Implementation of the 'Service' model.",
+  "type": "object",
+  "properties": {
+    "Price": {
+      "type": "number",
+      "format": "double",
+      "description": "The cost of the pricing option when sold at a physical location.",
+      "example": 49.99
+    },
+    "OnlinePrice": {
+      "type": "number",
+      "format": "double",
+      "description": "The cost of the pricing option when sold online.",
+      "example": 49.99
+    },
+    "TaxIncluded": {
+      "type": "number",
+      "format": "double",
+      "description": "The amount of tax included in the price, if inclusive pricing is enabled.",
+      "example": 1.0
+    },
+    "ProgramId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the program that this pricing option applies to.",
+      "example": 123456
+    },
+    "TaxRate": {
+      "type": "number",
+      "format": "double",
+      "description": "The tax rate applied to the pricing option. This field is populated only when you include a `LocationID` in the request.",
+      "example": 1.0
+    },
+    "ProductId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unique ID of this pricing option. This is the `PurchasedItems[].Id` returned from GET Sales.",
+      "example": 123456
+    },
+    "Id": {
+      "type": "string",
+      "description": "The barcode ID of the pricing option. This is the `PurchasedItems[].BarcodeId` returned from GET Sales.",
+      "example": "example-value"
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the pricing option.",
+      "example": "Sunset Yoga Studio"
+    },
+    "Count": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The initial count of usages available for the pricing option.",
+      "example": 10
+    },
+    "SellOnline": {
+      "type": "boolean",
+      "description": "When true, filters to the pricing options that can be sold online. Default: *false*",
+      "example": true
+    },
+    "SaleInContractOnly": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the pricing option is allowed to be purchased in a contract or package. When `false`, indicates that the pricing option is not allowed to be purchased in a contract or package.",
+      "example": true
+    },
+    "Type": {
+      "type": "string",
+      "description": "The type of the pricing option, either Drop-in, Series, or Unlimited.",
+      "example": "example-value"
+    },
+    "ExpirationType": {
+      "type": "string",
+      "description": "The date the pricing option begins its activation, either the date of sale or the date the client first used it for a visit.",
+      "example": "example-value"
+    },
+    "ExpirationUnit": {
+      "type": "string",
+      "description": "The unit, either days or months, of `ExpirationLength`, indicating how long the pricing option is active for.",
+      "example": "example-value"
+    },
+    "ExpirationLength": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The number of days or months that the pricing option is active for.",
+      "example": 1
+    },
+    "RevenueCategory": {
+      "type": "string",
+      "description": "The revenue category of the pricing option.",
+      "example": "example-value"
+    },
+    "MembershipId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID that this pricing option grants membership to.",
+      "example": 123456
+    },
+    "SellAtLocationIds": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "description": "The location IDs where this pricing option is sold.",
+      "example": [
+        1
+      ]
+    },
+    "UseAtLocationIds": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "description": "The location IDs where this pricing option may be used.",
+      "example": [
+        1
+      ]
+    },
+    "Priority": {
+      "type": "string",
+      "description": "The priority of the pricing option, either High, Medium, or Low.",
+      "example": "example-value"
+    },
+    "IsIntroOffer": {
+      "type": "boolean",
+      "description": "Indicates if this pricing option is an introductory offer.",
+      "example": true
+    },
+    "IntroOfferType": {
+      "type": "string",
+      "description": "When `IsIntroOffer` is true, this indicates if this introductory offer may be purchased by new clients or new and existing clients.",
+      "example": "example-value"
+    },
+    "IsThirdPartyDiscountPricing": {
+      "type": "boolean",
+      "description": "Indicates whether this pricing option is sold at discounted rates by third-party services, such as ClassPass.",
+      "example": true
+    },
+    "Program": {
+      "type": "string",
+      "description": "The name of the service category the pricing option belongs to.",
+      "example": "example-value"
+    },
+    "Discontinued": {
+      "type": "boolean",
+      "description": "If the pricing option has been marked discontinued.",
+      "example": true
+    },
+    "RestrictToMembershipIds": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "description": "Restricted to members of these membership ids.",
+      "example": [
+        1
+      ]
+    },
+    "ApplyMemberDiscountsOfMembershipIds": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "description": "Discounts applied of these membership ids.",
+      "example": [
+        1
+      ]
+    }
+  }
+}

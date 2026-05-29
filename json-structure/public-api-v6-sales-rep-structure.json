@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-sales-rep-structure.json",
+  "name": "SalesRep",
+  "description": "Implementation of the 'SalesRep' model.",
+  "type": "object",
+  "properties": {
+    "FirstName": {
+      "type": "string",
+      "description": "The first name of the sales representative.",
+      "example": "Alex"
+    },
+    "Id": {
+      "type": "int32",
+      "description": "The staff ID of the sales representative.",
+      "example": 123456
+    },
+    "LastName": {
+      "type": "string",
+      "description": "The last name of the sales representative.",
+      "example": "Lane"
+    },
+    "SalesRepNumber": {
+      "type": "int32",
+      "description": "This value is the number that identifies the type of sales representative assigned to this client. One to six types of sales representatives can be assigned to a client at any given time, depending on site settings.",
+      "example": 1
+    },
+    "SalesRepNumbers": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "A list of the different types of sales representative functions assigned to this staff member.",
+      "example": [
+        1
+      ]
+    }
+  }
+}

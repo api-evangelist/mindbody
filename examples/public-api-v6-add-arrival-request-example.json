@@ -1,0 +1,7 @@
+{
+  "ClientId": "example-value",
+  "LocationId": 123456,
+  "ArrivalTypeId": 123456,
+  "LeadChannelId": 123456,
+  "Test": true
+}

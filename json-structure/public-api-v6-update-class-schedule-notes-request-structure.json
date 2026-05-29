@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-update-class-schedule-notes-request-structure.json",
+  "name": "UpdateClassScheduleNotesRequest",
+  "description": "Implementation of the 'UpdateClassScheduleNotesRequest' model. A model for requesting the updates of notes of a class schedule.",
+  "type": "object",
+  "properties": {
+    "Notes": {
+      "type": "string",
+      "description": "Gets the class notes.",
+      "example": "Example note for Mindbody Public API."
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-site-structure.json",
+  "name": "Site",
+  "description": "Implementation of the 'Site' model.",
+  "type": "object",
+  "properties": {
+    "AcceptsAmericanExpress": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this site accepts American Express cards.<br /> When `false`, indicates that this site does not accept American Express credit cards.",
+      "example": true
+    },
+    "AcceptsDiscover": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this site accepts Discover cards.<br /> When `false`, indicates that this site does not accept Discover credit cards.",
+      "example": true
+    },
+    "AcceptsMasterCard": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this site accepts MasterCard cards.<br /> When `false`, indicates that this site does not accept MasterCard credit cards.",
+      "example": true
+    },
+    "AcceptsVisa": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this site accepts Visa cards.<br /> When `false`, indicates that this site does not accept Visa credit cards.",
+      "example": true
+    },
+    "AllowsDashboardAccess": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this site allows access to its dashboard.<br /> When `false`, indicates that this site does not allow access to its dashboard.",
+      "example": true
+    },
+    "ContactEmail": {
+      "type": "string",
+      "description": "The site\u2019s email address.",
+      "example": "kinlane@example.com"
+    },
+    "Description": {
+      "type": "string",
+      "description": "A description of the site.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "Id": {
+      "type": "int32",
+      "description": "The site ID.",
+      "example": 123456
+    },
+    "LogoUrl": {
+      "type": "string",
+      "description": "The URL to the site\u2019s logo.",
+      "example": "https://example.mindbodyonline.com/resource/abc123"
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the site.",
+      "example": "Sunset Yoga Studio"
+    },
+    "PageColor1": {
+      "type": "string",
+      "description": "A hex code for a color the business owner uses in marketing. This color can be used to set a theme for an integration so that it matches the configured color-scheme for the business.",
+      "example": "example-value"
+    },
+    "PageColor2": {
+      "type": "string",
+      "description": "The hex code for a second color, to be used in the same manner as `pageColor1`.",
+      "example": "example-value"
+    },
+    "PageColor3": {
+      "type": "string",
+      "description": "The hex code for a third color, to be used in the same manner as `pageColor1`.",
+      "example": "example-value"
+    },
+    "PageColor4": {
+      "type": "string",
+      "description": "The hex code for a fourth color, to be used in the same manner as `pageColor1`.",
+      "example": "example-value"
+    },
+    "PricingLevel": {
+      "type": "string",
+      "description": "The MINDBODY pricing level for the business. Possible values are: Accelerate - The business is on MINDBODY\u2019s Accelerate pricing tier. Grow - The business is on MINDBODY\u2019s Essential pricing tier. Legacy - The business is on an older MINDBODY pricing tier that is no longer offered. Listing - The business is on an older MINDBODY pricing tier that is no longer offered. Pro - The business is on an older MINDBODY pricing tier that is no longer offered. Solo - The business is on an older MINDBODY prici",
+      "example": "example-value"
+    },
+    "SmsPackageEnabled": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the business uses SMS text messages to communicate with its clients.<br /> When `false`, indicates that the business does not use SMS text messages to communicate with its clients.",
+      "example": true
+    },
+    "TaxInclusivePrices": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the total includes tax.<br /> When `false`, indicates that the total does not include tax.",
+      "example": true
+    },
+    "CurrencyIsoCode": {
+      "type": "string",
+      "description": "The currency ISO code for the site.",
+      "example": "example-value"
+    },
+    "CountryCode": {
+      "type": "string",
+      "description": "The country code for the site.",
+      "example": "example-value"
+    },
+    "TimeZone": {
+      "type": "string",
+      "description": "The time zone the site is located in.",
+      "example": "example-value"
+    },
+    "AcceptsDirectDebit": {
+      "type": "boolean",
+      "description": "When `true`, indicates that direct debit can be used by clients at this site.<br /> When `false`, indicates that direct debit can not by used by clients at this site.",
+      "example": true
+    },
+    "LeadChannels": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/LeadChannel"
+      },
+      "description": "The list of lead channels available for a subscriber/studio.",
+      "example": [
+        {}
+      ]
+    },
+    "PerStaffPricing": {
+      "type": "boolean",
+      "description": "When `true`, indicates that per-staff pricing is enabled at this site.<br /> When `false`, indicates that per-staff pricing is not enabled at this site.",
+      "example": true
+    }
+  }
+}

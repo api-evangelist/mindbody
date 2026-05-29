@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-shopping-cart-schema.json",
+  "title": "ShoppingCart",
+  "description": "Implementation of the 'ShoppingCart' model. Represents a shopping cart.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string",
+      "description": "The shopping cart ID.",
+      "example": "example-value"
+    },
+    "CartItems": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CartItem"
+      },
+      "description": "Contains information about the items in the shopping cart.",
+      "example": [
+        {}
+      ]
+    },
+    "SubTotal": {
+      "type": "number",
+      "format": "double",
+      "description": "The cart\u2019s total cost before taxes and discounts were applied.",
+      "example": 49.99
+    },
+    "DiscountTotal": {
+      "type": "number",
+      "format": "double",
+      "description": "The monetary amount removed from the cart\u2019s total cost by applied discounts.",
+      "example": 49.99
+    },
+    "TaxTotal": {
+      "type": "number",
+      "format": "double",
+      "description": "The monetary amount paid in taxes, included in the cart\u2019s `GrandTotal`.",
+      "example": 49.99
+    },
+    "GrandTotal": {
+      "type": "number",
+      "format": "double",
+      "description": "The cart\u2019s total cost, including taxes and discounts.",
+      "example": 49.99
+    },
+    "Transactions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TransactionResponse"
+      },
+      "description": "Contains information returned from the first call to CheckoutShoppingCart.",
+      "example": [
+        {}
+      ]
+    },
+    "SaleId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the sale associated with the shopping cart.",
+      "example": 123456
+    }
+  }
+}

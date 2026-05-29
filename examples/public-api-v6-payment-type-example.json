@@ -1,0 +1,6 @@
+{
+  "Id": 123456,
+  "PaymentTypeName": "example-value",
+  "Active": true,
+  "Fee": 1.0
+}

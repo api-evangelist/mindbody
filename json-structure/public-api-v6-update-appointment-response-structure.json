@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-update-appointment-response-structure.json",
+  "name": "UpdateAppointmentResponse",
+  "description": "Implementation of the 'UpdateAppointmentResponse' model.",
+  "type": "object",
+  "properties": {
+    "Appointment": {
+      "$ref": "#/components/schemas/Appointment",
+      "description": "Contains information about the appointment."
+    }
+  }
+}

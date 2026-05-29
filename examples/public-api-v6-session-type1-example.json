@@ -1,0 +1,22 @@
+{
+  "Type": "All",
+  "DefaultTimeLength": 1,
+  "StaffTimeLength": 1,
+  "ProgramId": 123456,
+  "NumDeducted": 1,
+  "Id": 123456,
+  "Name": "Sunset Yoga Studio",
+  "Active": true,
+  "Capacity": 1,
+  "ResourceRequired": true,
+  "Category": {
+    "Id": 123456,
+    "Name": "Sunset Yoga Studio"
+  },
+  "Subcategory": {
+    "Id": 123456,
+    "Name": "Sunset Yoga Studio"
+  },
+  "OnlineDescription": "Example note for Mindbody Public API.",
+  "AvailableForAddOn": true
+}

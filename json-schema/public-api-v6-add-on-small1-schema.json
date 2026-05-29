@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-add-on-small1-schema.json",
+  "title": "AddOnSmall1",
+  "description": "Implementation of the 'AddOnSmall1' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unique ID of the appointment add on.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The Name of the appointment add on.",
+      "example": "Sunset Yoga Studio"
+    },
+    "StaffId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unique ID of the staff on appointment.",
+      "example": 123456
+    },
+    "TypeId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the session type of this appointment.",
+      "example": 123456
+    }
+  }
+}

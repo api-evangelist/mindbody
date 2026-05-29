@@ -1,0 +1,16 @@
+{
+  "Id": 123456,
+  "Test": true,
+  "AssignedToStaffId": 123456,
+  "Text": "example-value",
+  "ContactName": "example-value",
+  "FollowupByDate": "2026-05-28T14:30:00Z",
+  "ContactMethod": "example-value",
+  "IsComplete": true,
+  "Comments": [
+    {}
+  ],
+  "Types": [
+    {}
+  ]
+}

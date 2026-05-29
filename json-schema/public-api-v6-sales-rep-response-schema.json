@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-sales-rep-response-schema.json",
+  "title": "SalesRepResponse",
+  "description": "Implementation of the 'SalesRepResponse' model. This is the sales rep DTO",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unique Id of the sales rep",
+      "example": 123456
+    },
+    "FirstName": {
+      "type": "string",
+      "description": "The firstname of the sales rep",
+      "example": "Alex"
+    },
+    "LastName": {
+      "type": "string",
+      "description": "The lastname of the sales rep",
+      "example": "Lane"
+    },
+    "SalesRepNumbers": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "description": "The sales rep Ids that are assigned to the rep",
+      "example": [
+        1
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-remove-client-from-class-response-schema.json",
+  "title": "RemoveClientFromClassResponse",
+  "description": "Implementation of the 'RemoveClientFromClassResponse' model.",
+  "type": "object",
+  "properties": {
+    "Class": {
+      "$ref": "#/components/schemas/Class",
+      "description": "Contains information about the class from which the client was removed."
+    }
+  }
+}

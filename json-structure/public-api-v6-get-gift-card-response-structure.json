@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-gift-card-response-structure.json",
+  "name": "GetGiftCardResponse",
+  "description": "Implementation of the 'GetGiftCardResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "GiftCards": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/GiftCard"
+      },
+      "description": "Contains information about the gift cards.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

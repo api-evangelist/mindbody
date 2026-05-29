@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-product-structure.json",
+  "name": "Product",
+  "description": "Implementation of the 'Product' model. Represents a product.",
+  "type": "object",
+  "properties": {
+    "ProductId": {
+      "type": "int32",
+      "description": "The unique ID associated with product.",
+      "example": 123456
+    },
+    "Id": {
+      "type": "string",
+      "description": "The barcode number of the product. This is the `PurchasedItems[].BarcodeId` returned from GET Sales.",
+      "example": "example-value"
+    },
+    "CategoryId": {
+      "type": "int32",
+      "description": "The revenue category ID of the product. Use this ID when calling the GET Categories endpoint.",
+      "example": 123456
+    },
+    "SubCategoryId": {
+      "type": "int32",
+      "description": "The SubCategory ID of the product. Use this ID when calling the GET Categories endpoint.",
+      "example": 123456
+    },
+    "SecondaryCategoryId": {
+      "type": "int32",
+      "description": "The SecondaryCategory ID of the product. Use this ID when calling the GET Categories endpoint.",
+      "example": 123456
+    },
+    "Price": {
+      "type": "double",
+      "description": "The price of the product.",
+      "example": 49.99
+    },
+    "TaxIncluded": {
+      "type": "double",
+      "description": "If tax inclusive-pricing is enabled, this field shows how much tax was added to the price. To fetch this value `LocationId` must be passed as a query parameter.",
+      "example": 1.0
+    },
+    "TaxRate": {
+      "type": "double",
+      "description": "The tax rate that was applied to this purchase. To fetch this value `LocationId` must be passed as a query parameter.",
+      "example": 1.0
+    },
+    "GroupId": {
+      "type": "int32",
+      "description": "The unique ID of the product group.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the product.",
+      "example": "Sunset Yoga Studio"
+    },
+    "OnlinePrice": {
+      "type": "double",
+      "description": "The online price of the product.",
+      "example": 49.99
+    },
+    "ShortDescription": {
+      "type": "string",
+      "description": "A short text description of the product.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "LongDescription": {
+      "type": "string",
+      "description": "A long, more detailed text description of the product.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "TypeGroup": {
+      "type": "int32",
+      "description": "The Type group of the product.",
+      "example": 1
+    },
+    "SupplierId": {
+      "type": "int32",
+      "description": "The unique ID of the supplier of product.",
+      "example": 123456
+    },
+    "SupplierName": {
+      "type": "string",
+      "description": "The Supplier Name of the product.",
+      "example": "example-value"
+    },
+    "ImageURL": {
+      "type": "string",
+      "description": "The URL of the image associated with this product.",
+      "example": "example-value"
+    },
+    "Color": {
+      "$ref": "#/components/schemas/Color",
+      "description": "Contains information about color of the product."
+    },
+    "Size": {
+      "$ref": "#/components/schemas/Size",
+      "description": "Contains information about the size of the product."
+    },
+    "ManufacturerId": {
+      "type": "string",
+      "description": "The ID number attributed to the product by the manufacturer.",
+      "example": "example-value"
+    }
+  }
+}

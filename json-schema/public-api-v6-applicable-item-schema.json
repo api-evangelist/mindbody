@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-applicable-item-schema.json",
+  "title": "ApplicableItem",
+  "description": "Implementation of the 'ApplicableItem' model. Item that will be applied to a promo code",
+  "type": "object",
+  "properties": {
+    "Type": {
+      "type": "string",
+      "description": "Type of a promo code The promotional item type. Possible values are: * ServiceCategory * RevenueCategory * Supplier * Item",
+      "example": "example-value"
+    },
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The promotional item ID.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The promotional item name.",
+      "example": "Sunset Yoga Studio"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-update-client-service-request-structure.json",
+  "name": "UpdateClientServiceRequest",
+  "description": "Implementation of the 'UpdateClientServiceRequest' model.",
+  "type": "object",
+  "properties": {
+    "ServiceId": {
+      "type": "int32",
+      "description": "The ID of the service to update.",
+      "example": 123456
+    },
+    "ActiveDate": {
+      "type": "datetime",
+      "description": "The date that the service became active.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "ExpirationDate": {
+      "type": "datetime",
+      "description": "The date that the service is to expire.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Count": {
+      "type": "int32",
+      "description": "The number of client service sessions to update.",
+      "example": 10
+    },
+    "Test": {
+      "type": "boolean",
+      "description": "When `true`, indicates that input information is to be validated, but not committed.<br /> When `false` or omitted, the database is affected.<br /> Default: **false**",
+      "example": true
+    }
+  }
+}

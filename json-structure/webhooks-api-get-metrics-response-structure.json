@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/webhooks-api-get-metrics-response-structure.json",
+  "name": "GetMetricsResponse",
+  "description": "Implementation of the 'GetMetricsResponse' model. A wrapper for returning subscription metrics to API users",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Metric"
+      },
+      "description": "Contains the metrics for the passed subscription",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

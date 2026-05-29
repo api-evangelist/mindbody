@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-custom-client-fields-response-structure.json",
+  "name": "GetCustomClientFieldsResponse",
+  "description": "Implementation of the 'GetCustomClientFieldsResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "CustomClientFields": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CustomClientField"
+      },
+      "description": "Contains information about the available custom client fields.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

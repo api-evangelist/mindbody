@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-client-suspension-info-structure.json",
+  "name": "ClientSuspensionInfo",
+  "description": "Implementation of the 'ClientSuspensionInfo' model. A Client DTO with Suspension Information",
+  "type": "object",
+  "properties": {
+    "BookingSuspended": {
+      "type": "boolean",
+      "description": "When 'true', indicates that the client is suspended from booking",
+      "example": true
+    },
+    "SuspensionStartDate": {
+      "type": "string",
+      "description": "Indicates the Date that BookingSuspension starts 'YYYY-MM-DD'",
+      "example": "example-value"
+    },
+    "SuspensionEndDate": {
+      "type": "string",
+      "description": "Indicates the Date that BookingSuspension ends 'YYYY-MM-DD'",
+      "example": "example-value"
+    }
+  }
+}

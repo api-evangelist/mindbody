@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-status1-enum-structure.json",
+  "name": "Status1Enum",
+  "description": "Status1Enum enumeration.",
+  "type": "string",
+  "enum": [
+    "Booked",
+    "Completed",
+    "Confirmed",
+    "Arrived",
+    "NoShow",
+    "Cancelled",
+    "LateCancelled"
+  ]
+}

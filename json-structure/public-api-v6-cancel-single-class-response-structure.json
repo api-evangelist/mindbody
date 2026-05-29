@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-cancel-single-class-response-structure.json",
+  "name": "CancelSingleClassResponse",
+  "description": "Implementation of the 'CancelSingleClassResponse' model.",
+  "type": "object",
+  "properties": {
+    "Class": {
+      "$ref": "#/components/schemas/Class",
+      "description": "A resulting class."
+    }
+  }
+}

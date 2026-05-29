@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-create-reservation-response-structure.json",
+  "name": "CreateReservationResponse",
+  "description": "Implementation of the 'CreateReservationResponse' model. Contains information about the create reservation response.",
+  "type": "object",
+  "properties": {
+    "Reservation": {
+      "$ref": "#/components/schemas/Reservation",
+      "description": "Contains information about the reservation details."
+    },
+    "ResponseDetails": {
+      "$ref": "#/components/schemas/ResponseDetails",
+      "description": "Contains information about the response details, e.g. status, transactionId."
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-client-reward-transaction-schema.json",
+  "title": "ClientRewardTransaction",
+  "description": "Implementation of the 'ClientRewardTransaction' model. Contains information about the transaction details.",
+  "type": "object",
+  "properties": {
+    "ActionDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time when the points were earned or redeemed in the site local time zone.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Action": {
+      "$ref": "#/components/schemas/Action11Enum",
+      "description": "Indicates if rewards were earned or redeemed."
+    },
+    "Source": {
+      "type": "string",
+      "description": "The source of the reward transaction.",
+      "example": "example-value"
+    },
+    "SourceID": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unique identifier in the MINDBODY system for the **Source**.",
+      "example": 1
+    },
+    "ExpirationDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time when earned points expire. This is calculated based on site and client rewards settings. This date will be in the site local time zone and may be **null**.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Points": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The amount of points the client earned or redeemed.",
+      "example": 1
+    }
+  }
+}

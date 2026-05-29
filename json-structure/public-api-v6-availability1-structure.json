@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-availability1-structure.json",
+  "name": "Availability1",
+  "description": "Implementation of the 'Availability1' model. The availability of a specific staff",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "Id of the availability",
+      "example": 123456
+    },
+    "Staff": {
+      "$ref": "#/components/schemas/Staff1",
+      "description": "Availabilities staff."
+    },
+    "SessionType": {
+      "$ref": "#/components/schemas/SessionType1",
+      "description": "Availabilities session type."
+    },
+    "Programs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Program1"
+      },
+      "description": "Availabilities program list.",
+      "example": [
+        {}
+      ]
+    },
+    "StartDateTime": {
+      "type": "datetime",
+      "description": "Availabilities start date and time.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EndDateTime": {
+      "type": "datetime",
+      "description": "Availabilities end date and time.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "BookableEndDateTime": {
+      "type": "datetime",
+      "description": "Availabilities bookable end date and time.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Location": {
+      "$ref": "#/components/schemas/Location1",
+      "description": "Availabilities location."
+    },
+    "PrepTime": {
+      "type": "int32",
+      "description": "Appointment prep time",
+      "example": 1
+    },
+    "FinishTime": {
+      "type": "int32",
+      "description": "Appointment finish time",
+      "example": 1
+    },
+    "IsMasked": {
+      "type": "boolean",
+      "description": "The model property of type bool.",
+      "example": true
+    },
+    "ShowPublic": {
+      "type": "boolean",
+      "description": "The model property of type bool.",
+      "example": true
+    },
+    "ResourceAvailabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ResourceAvailability1"
+      },
+      "description": "List of resource availabilities that can be booked with this session type.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

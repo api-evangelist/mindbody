@@ -1,0 +1,20 @@
+{
+  "Id": 123456,
+  "LocationIds": [
+    1
+  ],
+  "Description": "Example note for Mindbody Public API.",
+  "EditableByConsumer": true,
+  "CardValue": 1.0,
+  "SalePrice": 49.99,
+  "SoldOnline": true,
+  "MembershipRestrictionIds": [
+    1
+  ],
+  "GiftCardTerms": "example-value",
+  "ContactInfo": "example-value",
+  "DisplayLogo": true,
+  "Layouts": [
+    {}
+  ]
+}

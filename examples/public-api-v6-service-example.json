@@ -1,0 +1,37 @@
+{
+  "Price": 49.99,
+  "OnlinePrice": 49.99,
+  "TaxIncluded": 1.0,
+  "ProgramId": 123456,
+  "TaxRate": 1.0,
+  "ProductId": 123456,
+  "Id": "example-value",
+  "Name": "Sunset Yoga Studio",
+  "Count": 10,
+  "SellOnline": true,
+  "SaleInContractOnly": true,
+  "Type": "example-value",
+  "ExpirationType": "example-value",
+  "ExpirationUnit": "example-value",
+  "ExpirationLength": 1,
+  "RevenueCategory": "example-value",
+  "MembershipId": 123456,
+  "SellAtLocationIds": [
+    1
+  ],
+  "UseAtLocationIds": [
+    1
+  ],
+  "Priority": "example-value",
+  "IsIntroOffer": true,
+  "IntroOfferType": "example-value",
+  "IsThirdPartyDiscountPricing": true,
+  "Program": "example-value",
+  "Discontinued": true,
+  "RestrictToMembershipIds": [
+    1
+  ],
+  "ApplyMemberDiscountsOfMembershipIds": [
+    1
+  ]
+}

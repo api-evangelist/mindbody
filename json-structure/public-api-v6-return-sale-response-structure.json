@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-return-sale-response-structure.json",
+  "name": "ReturnSaleResponse",
+  "description": "Implementation of the 'ReturnSaleResponse' model. ReturnSaleResponse",
+  "type": "object",
+  "properties": {
+    "ReturnSaleID": {
+      "type": "int32",
+      "description": "The returned sale ID",
+      "example": 1
+    },
+    "TrainerID": {
+      "type": "int32",
+      "description": "The trainer ID who returned the sale",
+      "example": 1
+    },
+    "Amount": {
+      "type": "double",
+      "description": "The returned amount",
+      "example": 49.99
+    }
+  }
+}

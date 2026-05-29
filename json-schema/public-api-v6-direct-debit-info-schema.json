@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-direct-debit-info-schema.json",
+  "title": "DirectDebitInfo",
+  "description": "Implementation of the 'DirectDebitInfo' model.",
+  "type": "object",
+  "properties": {
+    "NameOnAccount": {
+      "type": "string",
+      "description": "The name on the bank account.",
+      "example": "example-value"
+    },
+    "RoutingNumber": {
+      "type": "string",
+      "description": "The routing number for the bank.",
+      "example": "example-value"
+    },
+    "AccountNumber": {
+      "type": "string",
+      "description": "The last four of the bank account number.",
+      "example": "example-value"
+    },
+    "AccountType": {
+      "type": "string",
+      "description": "The account type. Possible values: * Checking * Savings",
+      "example": "example-value"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/webhooks-api-push-api-error-structure.json",
+  "name": "PushApiError",
+  "description": "Implementation of the 'PushApiError' model. An error returned by the push API for application errors",
+  "type": "object",
+  "properties": {
+    "errorCode": {
+      "type": "int32",
+      "description": "A unique ID for the returned error code",
+      "example": 1
+    },
+    "errorMessage": {
+      "type": "string",
+      "description": "A message indicating what went wrong",
+      "example": "example-value"
+    },
+    "errorType": {
+      "type": "string",
+      "description": "A category/type associated with the error",
+      "example": "example-value"
+    }
+  }
+}

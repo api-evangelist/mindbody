@@ -1,0 +1,125 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "mb": "https://api.mindbodyonline.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "CreateSubscriptionRequest": "mb:CreateSubscriptionRequest",
+    "CreateSubscriptionResponse": "mb:CreateSubscriptionResponse",
+    "DeactivateSubscriptionResponse": "mb:DeactivateSubscriptionResponse",
+    "GetMetricsResponse": "mb:GetMetricsResponse",
+    "GetSubscriptionsResponse": "mb:GetSubscriptionsResponse",
+    "Metric": "mb:Metric",
+    "PatchSubscriptionRequest": "mb:PatchSubscriptionRequest",
+    "PushApiError": "mb:PushApiError",
+    "PushApiResultCreateSubscriptionResponse": "mb:PushApiResultCreateSubscriptionResponse",
+    "PushApiResultDeactivateSubscriptionResponse": "mb:PushApiResultDeactivateSubscriptionResponse",
+    "PushApiResultGetSubscriptionsResponse": "mb:PushApiResultGetSubscriptionsResponse",
+    "PushApiResultSubscription": "mb:PushApiResultSubscription",
+    "Subscription": "mb:Subscription",
+    "eventIds": {
+      "@id": "mb:eventIds",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "eventSchemaVersion": {
+      "@id": "mb:eventSchemaVersion",
+      "@type": "xsd:double"
+    },
+    "referenceId": {
+      "@id": "mb:referenceId",
+      "@type": "xsd:string"
+    },
+    "webhookUrl": {
+      "@id": "mb:webhookUrl",
+      "@type": "xsd:string"
+    },
+    "messageSignatureKey": {
+      "@id": "mb:messageSignatureKey",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "mb:status",
+      "@type": "xsd:string"
+    },
+    "statusChangeDate": {
+      "@id": "mb:statusChangeDate",
+      "@type": "xsd:dateTime"
+    },
+    "statusChangeMessage": {
+      "@id": "mb:statusChangeMessage",
+      "@type": "xsd:string"
+    },
+    "statusChangeUser": {
+      "@id": "mb:statusChangeUser",
+      "@type": "xsd:string"
+    },
+    "subscriptionCreationDateTime": {
+      "@id": "mb:subscriptionCreationDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "subscriptionId": {
+      "@id": "mb:subscriptionId",
+      "@type": "xsd:string"
+    },
+    "deactivationDateTime": {
+      "@id": "mb:deactivationDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "message": {
+      "@id": "mb:message",
+      "@type": "xsd:string"
+    },
+    "items": {
+      "@id": "mb:items",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "creationDateTime": {
+      "@id": "mb:creationDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "messagesAttempted": {
+      "@id": "mb:messagesAttempted",
+      "@type": "xsd:integer"
+    },
+    "messagesDelivered": {
+      "@id": "mb:messagesDelivered",
+      "@type": "xsd:integer"
+    },
+    "messagesFailed": {
+      "@id": "mb:messagesFailed",
+      "@type": "xsd:integer"
+    },
+    "messagesUndelivered": {
+      "@id": "mb:messagesUndelivered",
+      "@type": "xsd:integer"
+    },
+    "errorCode": {
+      "@id": "mb:errorCode",
+      "@type": "xsd:integer"
+    },
+    "errorMessage": {
+      "@id": "mb:errorMessage",
+      "@type": "xsd:string"
+    },
+    "errorType": {
+      "@id": "mb:errorType",
+      "@type": "xsd:string"
+    },
+    "errorInformation": {
+      "@id": "mb:errorInformation",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "isSuccess": {
+      "@id": "mb:isSuccess",
+      "@type": "xsd:boolean"
+    },
+    "value": {
+      "@id": "mb:value",
+      "@type": "@id"
+    }
+  }
+}

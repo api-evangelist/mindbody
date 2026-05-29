@@ -1,0 +1,9 @@
+{
+  "AmountPaid": 49.99,
+  "ClientId": "example-value",
+  "SaleId": 123456,
+  "EmailReceipt": true,
+  "PaymentProcessingFailures": [
+    {}
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-resource-schema.json",
+  "title": "Resource",
+  "description": "Implementation of the 'Resource' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The model property of type int.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "Sunset Yoga Studio"
+    }
+  }
+}

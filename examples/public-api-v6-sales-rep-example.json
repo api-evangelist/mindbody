@@ -1,0 +1,9 @@
+{
+  "FirstName": "Alex",
+  "Id": 123456,
+  "LastName": "Lane",
+  "SalesRepNumber": 1,
+  "SalesRepNumbers": [
+    1
+  ]
+}

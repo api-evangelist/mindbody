@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-course-structure.json",
+  "name": "Course",
+  "description": "Implementation of the 'Course' model. A course.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "The course ID.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The course name.",
+      "example": "Sunset Yoga Studio"
+    },
+    "Description": {
+      "type": "string",
+      "description": "A description of the course.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "Notes": {
+      "type": "string",
+      "description": "Any notes that have been written about the course.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "StartDate": {
+      "type": "datetime",
+      "description": "Date and time that the course starts.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EndDate": {
+      "type": "datetime",
+      "description": "Date and time that the course ends.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Location": {
+      "$ref": "#/components/schemas/Location",
+      "description": "Contains information about the location."
+    },
+    "Organizer": {
+      "$ref": "#/components/schemas/Staff",
+      "description": "Contains information about the staff member in charge of organizing the event."
+    },
+    "Program": {
+      "$ref": "#/components/schemas/Program",
+      "description": "Contains information about the service category to which the course belongs."
+    },
+    "ImageUrl": {
+      "type": "string",
+      "description": "The URL of the image associated with this course, if one exists.",
+      "example": "https://example.mindbodyonline.com/resource/abc123"
+    }
+  }
+}

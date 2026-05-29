@@ -1,0 +1,19 @@
+{
+  "TransactionId": 123456,
+  "SaleId": 123456,
+  "ClientId": 123456,
+  "Amount": 49.99,
+  "Settled": true,
+  "Status": "Active",
+  "TransactionTime": "2026-05-28T14:30:00Z",
+  "AuthTime": "2026-05-28T14:30:00Z",
+  "LocationId": 123456,
+  "MerchantId": "example-value",
+  "TerminalId": "example-value",
+  "CardExpirationMonth": "example-value",
+  "CardExpirationYear": "example-value",
+  "CCLastFour": "example-value",
+  "CardType": "example-value",
+  "CCSwiped": true,
+  "ACHLastFour": "example-value"
+}

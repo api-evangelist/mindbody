@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-client-arrival-schema.json",
+  "title": "ClientArrival",
+  "description": "Implementation of the 'ClientArrival' model.",
+  "type": "object",
+  "properties": {
+    "ArrivalProgramID": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Arrival program id",
+      "example": 1
+    },
+    "ArrivalProgramName": {
+      "type": "string",
+      "description": "Arrival program name",
+      "example": "example-value"
+    },
+    "CanAccess": {
+      "type": "boolean",
+      "description": "Property to check client can access arrival service.",
+      "example": true
+    },
+    "LocationsIDs": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "description": "List of locations where arrival service can availed",
+      "example": [
+        1
+      ]
+    }
+  }
+}

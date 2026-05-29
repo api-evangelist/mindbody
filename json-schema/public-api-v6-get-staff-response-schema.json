@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-staff-response-schema.json",
+  "title": "GetStaffResponse",
+  "description": "Implementation of the 'GetStaffResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "The model property of type PaginationResponse."
+    },
+    "StaffMembers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Staff"
+      },
+      "description": "A list of staff members. See Staff for a description of the 'Staff' information.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

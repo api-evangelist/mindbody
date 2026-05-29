@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-update-class-enrollment-schedule-request-schema.json",
+  "title": "UpdateClassEnrollmentScheduleRequest",
+  "description": "Implementation of the 'UpdateClassEnrollmentScheduleRequest' model.",
+  "type": "object",
+  "properties": {
+    "ClassId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The class id, a block of schedules",
+      "example": 123456
+    },
+    "ClassDescriptionId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Used only internally, overridden if sent",
+      "example": 123456
+    },
+    "LocationId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The location where the class is taking place",
+      "example": 123456
+    },
+    "StartDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Class start time (use null for TBD)",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EndDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Class end time (ignored if StartTime is null)",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "StartTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Class start time (use null for TBD)",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EndTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Class end time (ignored if StartTime is null)",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "DaySunday": {
+      "type": "boolean",
+      "description": "(optional) - If the class occurs on Sunday (ignored if EndDate is null)",
+      "example": true
+    },
+    "DayMonday": {
+      "type": "boolean",
+      "description": "(optional) - If the class occurs on Monday (ignored if EndDate is null)",
+      "example": true
+    },
+    "DayTuesday": {
+      "type": "boolean",
+      "description": "(optional) - If the class occurs on Tuesday (ignored if EndDate is null)",
+      "example": true
+    },
+    "DayWednesday": {
+      "type": "boolean",
+      "description": "(optional) - If the class occurs on Wednesday (ignored if EndDate is null)",
+      "example": true
+    },
+    "DayThursday": {
+      "type": "boolean",
+      "description": "(optional) - If the class occurs on Thursday (ignored if EndDate is null)",
+      "example": true
+    },
+    "DayFriday": {
+      "type": "boolean",
+      "description": "(optional) - If the class occurs on Friday (ignored if EndDate is null)",
+      "example": true
+    },
+    "DaySaturday": {
+      "type": "boolean",
+      "description": "(optional) - If the class occurs on Saturday (ignored if EndDate is null",
+      "example": true
+    },
+    "StaffId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The staff member teaching the class",
+      "example": 123456
+    },
+    "StaffPayRate": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The staff pay rate",
+      "example": 1
+    },
+    "ResourceId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "(optional) - The room where the class is taking place",
+      "example": 123456
+    },
+    "MaxCapacity": {
+      "type": "integer",
+      "format": "int32",
+      "description": "How many people can attend",
+      "example": 1
+    },
+    "WebCapacity": {
+      "type": "integer",
+      "format": "int32",
+      "description": "How many people can signup online (if 0 clients cannot signup online)",
+      "example": 1
+    },
+    "WaitlistCapacity": {
+      "type": "integer",
+      "format": "int32",
+      "description": "One of: PaymentRequired, BookAndPayLater, Free",
+      "example": 1
+    },
+    "BookingStatus": {
+      "type": "string",
+      "description": "One of: PaymentRequired, BookAndPayLater, Free",
+      "example": "Active"
+    },
+    "AllowOpenEnrollment": {
+      "type": "boolean",
+      "description": "Allow clients to choose which sessions they'd like to sign up for",
+      "example": true
+    },
+    "AllowDateForwardEnrollment": {
+      "type": "boolean",
+      "description": "Allow booking after the enrollment has started",
+      "example": true
+    },
+    "RetainScheduleChanges": {
+      "type": "boolean",
+      "description": "Whether or not to retain manual schedule changes within the date range",
+      "example": true
+    }
+  }
+}

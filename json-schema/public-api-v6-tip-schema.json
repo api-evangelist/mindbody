@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-tip-schema.json",
+  "title": "Tip",
+  "description": "Implementation of the 'Tip' model.",
+  "type": "object",
+  "properties": {
+    "StaffId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the staff member the tip is for.",
+      "example": 123456
+    },
+    "SaleId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The sale\u2019s ID associated with the tip.",
+      "example": 123456
+    },
+    "SaleDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time when the tip was given.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Earnings": {
+      "type": "number",
+      "format": "double",
+      "description": "The amount tipped to the staff member.",
+      "example": 1.0
+    }
+  }
+}

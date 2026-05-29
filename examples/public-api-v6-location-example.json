@@ -1,0 +1,31 @@
+{
+  "AdditionalImageURLs": [
+    "example-value"
+  ],
+  "Address": "123 Market St",
+  "Address2": "123 Market St",
+  "Amenities": [
+    {}
+  ],
+  "BusinessDescription": "Example note for Mindbody Public API.",
+  "City": "San Francisco",
+  "Description": "Example note for Mindbody Public API.",
+  "HasClasses": true,
+  "Id": 123456,
+  "Latitude": 1.0,
+  "Longitude": 1.0,
+  "Name": "Sunset Yoga Studio",
+  "Phone": "+15551234567",
+  "PhoneExtension": "example-value",
+  "PostalCode": "94110",
+  "SiteID": 1,
+  "StateProvCode": "example-value",
+  "Tax1": 1.0,
+  "Tax2": 1.0,
+  "Tax3": 1.0,
+  "Tax4": 1.0,
+  "Tax5": 1.0,
+  "TotalNumberOfRatings": 1,
+  "AverageRating": 1.0,
+  "TotalNumberOfDeals": 1
+}

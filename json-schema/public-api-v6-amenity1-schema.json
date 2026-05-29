@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-amenity1-schema.json",
+  "title": "Amenity1",
+  "description": "Implementation of the 'Amenity1' model. A specific amenity at a location",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The identifying ID of the amenity.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the amenity (e.g. \"Lockers\" or \"Food/Drink\").",
+      "example": "Sunset Yoga Studio"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-booking-window-schema.json",
+  "title": "BookingWindow",
+  "description": "Implementation of the 'BookingWindow' model. The booking window for registration",
+  "type": "object",
+  "properties": {
+    "StartDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time that the booking window opens; that is, the first day of sales.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EndDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time that the booking window closes; that is, the last day of sales.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "DailyStartTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time that the booking window opens; that is, the time that the store opens.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "DailyEndTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time that the booking window closes; that is, the time that the store closes.",
+      "example": "2026-05-28T14:30:00Z"
+    }
+  }
+}

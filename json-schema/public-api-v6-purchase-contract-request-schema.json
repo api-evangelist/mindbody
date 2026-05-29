@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-purchase-contract-request-schema.json",
+  "title": "PurchaseContractRequest",
+  "description": "Implementation of the 'PurchaseContractRequest' model.",
+  "type": "object",
+  "properties": {
+    "ContractId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the contract being purchased.",
+      "example": 123456
+    },
+    "Test": {
+      "type": "boolean",
+      "description": "When `true`, the Public API validates input information, but does not commit it, so no client data is affected.<br /> When `false` or omitted, the transaction is committed, and client data is affected.<br /> Default: **false**",
+      "example": true
+    },
+    "LocationId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the location where the client is purchasing the contract; used for AutoPays.",
+      "example": 123456
+    },
+    "ClientId": {
+      "type": "string",
+      "description": "The ID of the client. Note that this is not the same as the client\u2019s unique ID.",
+      "example": "example-value"
+    },
+    "UniqueClientId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unique ID of the client. Note: you need to provide the 'UniqueClientId' OR the 'ClientId'. If both are provided, the 'UniqueClientId' takes precedence.",
+      "example": 123456
+    },
+    "StartDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date that the contract starts.<br /> Default: **today\u2019s date**",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "FirstPaymentOccurs": {
+      "type": "string",
+      "description": "The date on which the first payment is to occur. Possible values: * Instant * `StartDate`",
+      "example": "example-value"
+    },
+    "ClientSignature": {
+      "type": "string",
+      "description": "A representation of the client\u2019s signature. This value can take the form of Base64-encoded byte array. The file type should be PNG. The picture of the client\u2019s signature is uploaded and viewable from the Client Documents page in the Core Business Mode software. The title of the document is:<br /> clientContractSignature-{uniquePurchasedClientContractID}-{contract Name}-{contractStartDate}.{fileType}",
+      "example": "example-value"
+    },
+    "PromotionCode": {
+      "type": "string",
+      "description": "A promotion code, if one applies. Promotion codes are applied to items that are both marked as pay now in a contract and are discounted by the promotion code. If a pay now item is an autopay item, its autopay price is the price at the time of checkout, so, if a promotion code was applied, all autopays are scheduled using that discounted price.",
+      "example": "example-value"
+    },
+    "PromotionCodes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Promotion codes, if they apply. Promotion codes are applied to items that are both marked as pay now in a contract and are discounted by the promotion code. If a pay now item is an autopay item, its autopay price is the price at the time of checkout, so, if a promotion code was applied, all autopays are scheduled using that discounted price.",
+      "example": [
+        "example-value"
+      ]
+    },
+    "CreditCardInfo": {
+      "$ref": "#/components/schemas/CreditCardInfo",
+      "description": "Contains credit card payment information.<br /> This is only required if `StoredCardInfo` is not passed and both `UseDirectDebit` and `UseAccountCredit` are `false`."
+    },
+    "StoredCardInfo": {
+      "$ref": "#/components/schemas/StoredCardInfo",
+      "description": "Contains information about the stored credit card payment.<br /> This is only required if `CreditCardInfo` is not passed and both `UseDirectDebit` and `UseAccountCredit` and are `false`."
+    },
+    "SendNotifications": {
+      "type": "boolean",
+      "description": "When `true`, indicates that email and SMS notifications should be sent to the client after purchase.<br /> Default: **true**",
+      "example": true
+    },
+    "SalesRepId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the staff member to be marked as the sales rep for this contract sale.",
+      "example": 123456
+    },
+    "UseDirectDebit": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the direct debit information stored on the client's account is to be used to pay for the contract.<br /> This is only required if both `CreditCardInfo` and `StoredCardInfo` are not passed and `UseAccountCredit` is false.<br /> Default: **false**",
+      "example": true
+    },
+    "UseAccountCredit": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the account credit of the client's account is to be used to pay for the contract.<br /> This is only required if both `CreditCardInfo` and `StoredCardInfo` are not passed and `UseDirectDebit` is false. <br /> Default: **false**",
+      "example": true
+    },
+    "ConsumerPresent": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the consumer is present or otherwise able to successfully negotiate an SCA challenge. It is not a good idea to have this always be false as that could very likely lead to a bank declining all transactions for the merchant. Defaults to **false**.",
+      "example": true
+    },
+    "PaymentAuthenticationCallbackUrl": {
+      "type": "string",
+      "description": "The URL consumer is redirected to if the bank requests SCA. This field is only needed if ConsumerPresent is true.",
+      "example": "https://example.mindbodyonline.com/resource/abc123"
+    },
+    "ProrateDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional, date to prorate contract",
+      "example": "2026-05-28T14:30:00Z"
+    }
+  }
+}

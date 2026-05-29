@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-stored-card-info-schema.json",
+  "title": "StoredCardInfo",
+  "description": "Implementation of the 'StoredCardInfo' model.",
+  "type": "object",
+  "properties": {
+    "LastFour": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    }
+  }
+}

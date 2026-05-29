@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-pagination-structure.json",
+  "name": "Pagination",
+  "description": "Implementation of the 'Pagination' model. Contains information about the pagination used.",
+  "type": "object",
+  "properties": {
+    "PageNumber": {
+      "type": "int32",
+      "description": "Page number of results in dataset.",
+      "example": 1
+    },
+    "PageSize": {
+      "type": "int32",
+      "description": "Number of results returned in this response.",
+      "example": 1
+    },
+    "TotalResultCount": {
+      "type": "int32",
+      "description": "Total number of results in dataset.",
+      "example": 10
+    },
+    "TotalPageCount": {
+      "type": "int32",
+      "description": "Total number of page in dataset.",
+      "example": 10
+    }
+  }
+}

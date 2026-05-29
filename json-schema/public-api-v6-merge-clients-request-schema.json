@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-merge-clients-request-schema.json",
+  "title": "MergeClientsRequest",
+  "description": "Implementation of the 'MergeClientsRequest' model. Request for clients/mergeclients",
+  "type": "object",
+  "properties": {
+    "SourceClientId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The client that will be merged into TargetClientId",
+      "example": 123456
+    },
+    "TargetClientId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The client that will remain",
+      "example": 123456
+    }
+  }
+}

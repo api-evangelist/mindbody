@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-reservation-schema.json",
+  "title": "Reservation",
+  "description": "Implementation of the 'Reservation' model. Contains information about the reservation.",
+  "type": "object",
+  "properties": {
+    "ReservationId": {
+      "type": "string",
+      "description": "The unique reservation ID.",
+      "example": "example-value"
+    },
+    "ReservationExternalId": {
+      "type": "string",
+      "description": "The unique reservation external ID.",
+      "example": "example-value"
+    },
+    "ClassId": {
+      "type": "string",
+      "description": "The unique class ID.",
+      "example": "example-value"
+    },
+    "ClassExternalId": {
+      "type": "string",
+      "description": "The unique class external ID.",
+      "example": "example-value"
+    },
+    "MemberExternalId": {
+      "type": "string",
+      "description": "The unique member external ID.",
+      "example": "example-value"
+    },
+    "ReservationType": {
+      "type": "string",
+      "description": "Contains information about the reservation type.",
+      "example": "example-value"
+    },
+    "Spots": {
+      "$ref": "#/components/schemas/Spot",
+      "description": "Contains information about the spot details."
+    },
+    "IsConfirmed": {
+      "type": "boolean",
+      "description": "Boolean value whether it is confirmed.",
+      "example": true
+    },
+    "ConfirmationDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Contains information about the confirmation date.",
+      "example": "2026-05-28T14:30:00Z"
+    }
+  }
+}

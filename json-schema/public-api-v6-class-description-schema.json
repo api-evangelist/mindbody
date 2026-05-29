@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-class-description-schema.json",
+  "title": "ClassDescription",
+  "description": "Implementation of the 'ClassDescription' model. Represents a class definition. The class meets at the start time, goes until the end time.",
+  "type": "object",
+  "properties": {
+    "Active": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the business can assign this class description to new class schedules.<br /> When `false`, indicates that the business cannot assign this class description to new class schedules.",
+      "example": true
+    },
+    "Description": {
+      "type": "string",
+      "description": "The long version of the class description.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The class description's ID.",
+      "example": 123456
+    },
+    "ImageURL": {
+      "type": "string",
+      "description": "The class description's image URL, if any. If it does not exist, nothing is returned.",
+      "example": "example-value"
+    },
+    "LastUpdated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date this class description was last modified.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Level": {
+      "$ref": "#/components/schemas/Level",
+      "description": "The level information about this class."
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of this class description.",
+      "example": "Sunset Yoga Studio"
+    },
+    "Notes": {
+      "type": "string",
+      "description": "Any notes about the class description.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "Prereq": {
+      "type": "string",
+      "description": "Any prerequisites for the class.",
+      "example": "example-value"
+    },
+    "Program": {
+      "$ref": "#/components/schemas/Program",
+      "description": "Contains information about the class description's program."
+    },
+    "SessionType": {
+      "$ref": "#/components/schemas/SessionType",
+      "description": "Contains information about the class description's session type."
+    },
+    "Category": {
+      "type": "string",
+      "description": "The category of this class description.",
+      "example": "example-value"
+    },
+    "CategoryId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The category ID of this class description.",
+      "example": 123456
+    },
+    "Subcategory": {
+      "type": "string",
+      "description": "The subcategory of this class description.",
+      "example": "example-value"
+    },
+    "SubcategoryId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The subcategory ID of this class description.",
+      "example": 123456
+    }
+  }
+}

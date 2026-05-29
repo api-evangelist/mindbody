@@ -1,0 +1,29 @@
+{
+  "Contract": {
+    "PayerClientId": 123456,
+    "AgreementDate": "2026-05-28T14:30:00Z",
+    "AutopayStatus": "Active",
+    "AutoRenewing": true,
+    "FirstAutoPay": 1.0,
+    "LastAutoPay": 1.0,
+    "NormalAutoPay": 1.0,
+    "IsMonthToMonth": true,
+    "AutoRenewClientContractID": 1,
+    "ContractText": "example-value",
+    "ContractAutoRenewed": true,
+    "ContractName": "example-value",
+    "EndDate": "2026-05-28T14:30:00Z",
+    "Id": 123456,
+    "OriginationLocationId": 123456,
+    "StartDate": "2026-05-28T14:30:00Z",
+    "SiteId": -99,
+    "UpcomingAutopayEvents": [
+      {}
+    ],
+    "ContractID": 1,
+    "TerminationDate": "2026-05-28T14:30:00Z",
+    "MinimumCommitmentValue": 1,
+    "MinimumCommitmentUnit": "Weeks",
+    "MinimumCommitmentEndDate": "2026-05-28T14:30:00Z"
+  }
+}

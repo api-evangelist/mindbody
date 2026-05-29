@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-semesters-response-structure.json",
+  "name": "GetSemestersResponse",
+  "description": "Implementation of the 'GetSemestersResponse' model. Get Semesters Response Model",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "Semesters": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Semester"
+      },
+      "description": "Contains the Semester objects, each of which describes the semesters for a site.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

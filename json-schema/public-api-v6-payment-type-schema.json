@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-payment-type-schema.json",
+  "title": "PaymentType",
+  "description": "Implementation of the 'PaymentType' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The Payment Type Id used for api calls.",
+      "example": 123456
+    },
+    "PaymentTypeName": {
+      "type": "string",
+      "description": "Payment Type Name",
+      "example": "example-value"
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "Check if Payment type is active.",
+      "example": true
+    },
+    "Fee": {
+      "type": "number",
+      "format": "double",
+      "description": "Payment type fee.",
+      "example": 1.0
+    }
+  }
+}

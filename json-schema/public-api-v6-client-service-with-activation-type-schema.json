@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-client-service-with-activation-type-schema.json",
+  "title": "ClientServiceWithActivationType",
+  "description": "Implementation of the 'ClientServiceWithActivationType' model. Represents a pricing option (service) on a client's account, including activation behavior details. This model extends ClientService to include additional fields that describe how and when the pricing option becomes active for use. For more information about pricing option activation, see the following support articles: - [How to change a pricing option activation date set to begin on the client's first visit](https://support.mindbodyonline.com/s/article/203268693-How-do-I-adju st-a-pricing-option-that-activates-on-the-date-of-client-s-first-visit-to-c over-a-visit-before-its-activation-date) - [How to set offset activation dates for contracts](https://support.mindbodyonline.com/s/article/Offset-Activation) - [How do I expire or terminate an unused pricing option that activates on the date of the first visit](https://support.mindbodyonline.com/s/article/How-do-I-expire-termina te-an-unused-pricing-option-that-activates-on-d",
+  "type": "object",
+  "properties": {
+    "ActivationType": {
+      "$ref": "#/components/schemas/ActivationTypeEnum",
+      "description": "Specifies how this pricing option is configured to activate. This value reflects the activation behavior defined in the Core system when the pricing option was created. Use this field to determine whether the ActiveDate represents the purchase date or a future date pending the client's first visit. Possible values: - OnFirstVisit: The pricing option activates on the client's first visit (check-in) after purchase. The ActiveDate is set to the date of that first visit. Until the client checks in, "
+    },
+    "CannotPayForClassesBeforeActivation": {
+      "type": "boolean",
+      "description": "Indicates whether the site enforces activation date restrictions for booking. This value reflects the site-level setting \"EnforceActivationDates\" (also known as \"Check Activation Dates\") for the subscriber identified by SiteId. When integrating with booking workflows, use this field in conjunction with ActivationType to determine if a pricing option can be applied for a booking: - true: The site enforces activation dates. The client cannot use this pricing option to pay for classes or appointmen",
+      "example": true
+    },
+    "ActiveDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date that this pricing option became active and could be used to pay for services.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Count": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The number of service sessions this pricing option contained when first purchased.",
+      "example": 10
+    },
+    "Current": {
+      "type": "boolean",
+      "description": "When `true`, there are service sessions remaining on the pricing option that can be used pay for the current session.<br /> When `false`, the client cannot use this pricing option to pay for other services.",
+      "example": true
+    },
+    "ExpirationDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date when the pricing option expires and can no longer be used to pay for services, even if unused service sessions remain on the option; expressed as UTC.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unique ID assigned to this pricing option, specific to when it was purchased by the client.",
+      "example": 123456
+    },
+    "ProductId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unique ID of this pricing option, not specific to any client's purchase of it.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of this pricing option.",
+      "example": "Sunset Yoga Studio"
+    },
+    "PaymentDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date on which the client paid for this pricing option.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Program": {
+      "$ref": "#/components/schemas/Program",
+      "description": "Contains information about the service category this service falls under."
+    },
+    "Remaining": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The number of service sessions remaining in the pricing option that can still be used.",
+      "example": 1
+    },
+    "SiteId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the subscriber site associated with this pricing option.",
+      "example": -99
+    },
+    "Action": {
+      "$ref": "#/components/schemas/Action1Enum",
+      "description": "The action taken."
+    },
+    "ClientID": {
+      "type": "string",
+      "description": "The Client ID assigned to this pricing option, specific to when it was purchased by the client.",
+      "example": "example-value"
+    },
+    "Returned": {
+      "type": "boolean",
+      "description": "Identification for purchased service is returned or not.",
+      "example": true
+    }
+  }
+}

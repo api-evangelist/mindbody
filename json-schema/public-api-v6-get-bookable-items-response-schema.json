@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-bookable-items-response-schema.json",
+  "title": "GetBookableItemsResponse",
+  "description": "Implementation of the 'GetBookableItemsResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "Availabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Availability"
+      },
+      "description": "Contains information about the availabilities for appointment booking.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

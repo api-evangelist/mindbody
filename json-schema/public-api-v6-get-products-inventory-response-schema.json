@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-products-inventory-response-schema.json",
+  "title": "GetProductsInventoryResponse",
+  "description": "Implementation of the 'GetProductsInventoryResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "ProductsInventory": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ProductsInventory"
+      },
+      "description": "Contains information about the products inventory.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

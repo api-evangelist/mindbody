@@ -1,0 +1,12 @@
+{
+  "ClientId": "example-value",
+  "ClassScheduleId": 123456,
+  "EnrollDateForward": "2026-05-28T14:30:00Z",
+  "EnrollOpen": [
+    "2026-05-28T14:30:00Z"
+  ],
+  "Test": true,
+  "SendEmail": true,
+  "Waitlist": true,
+  "WaitlistEntryId": 123456
+}

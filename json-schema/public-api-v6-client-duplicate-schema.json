@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-client-duplicate-schema.json",
+  "title": "ClientDuplicate",
+  "description": "Implementation of the 'ClientDuplicate' model. A client record that is considered a duplicate based on matching of the client's first name, last name, AND email fields",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string",
+      "description": "The client\u2019s ID, as configured by the business owner. This is the client\u2019s barcode ID if the business owner assigns barcodes to clients. This ID is used throughout the Public API for client-related Public API calls. When used in a POST `UpdateClient` request, the `Id` is used to identify the client for the update.",
+      "example": "example-value"
+    },
+    "UniqueId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The client\u2019s system-generated ID at the business. This value cannot be changed by business owners and is always unique across all clients at the business. This ID is not widely used in the Public API, but can be used by your application to uniquely identify clients.",
+      "example": 123456
+    },
+    "FirstName": {
+      "type": "string",
+      "description": "The client\u2019s first name.",
+      "example": "Alex"
+    },
+    "LastName": {
+      "type": "string",
+      "description": "The client\u2019s last name.",
+      "example": "Lane"
+    },
+    "Email": {
+      "type": "string",
+      "description": "The client\u2019s email address.",
+      "example": "kinlane@example.com"
+    }
+  }
+}

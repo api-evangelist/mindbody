@@ -1,0 +1,23 @@
+{
+  "ClientId": "example-value",
+  "LocationId": 123456,
+  "SessionTypeId": 123456,
+  "StaffId": 123456,
+  "StartDateTime": "2026-05-28T14:30:00Z",
+  "ApplyPayment": true,
+  "Duration": 1,
+  "EndDateTime": "2026-05-28T14:30:00Z",
+  "GenderPreference": "example-value",
+  "Notes": "Example note for Mindbody Public API.",
+  "ProviderId": "example-value",
+  "ResourceIds": [
+    1
+  ],
+  "SendEmail": true,
+  "StaffRequested": true,
+  "Test": true,
+  "IsWaitlist": true,
+  "IsRequest": true,
+  "PartnerExternalId": "example-value",
+  "AddAppointmentRequestId": 123456
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-copy-credit-card-request-schema.json",
+  "title": "CopyCreditCardRequest",
+  "description": "Implementation of the 'CopyCreditCardRequest' model. crosssite/copycreditcard",
+  "type": "object",
+  "properties": {
+    "SourceSiteId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The siteId of the source clientId.",
+      "example": 123456
+    },
+    "SourceClientId": {
+      "type": "string",
+      "description": "The clientId at the source siteId.",
+      "example": "example-value"
+    },
+    "SourceUniqueClientId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unique clidnetId at the source siteId.",
+      "example": 123456
+    },
+    "TargetSiteId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The siteId of the target clientId.",
+      "example": 123456
+    },
+    "TargetClientId": {
+      "type": "string",
+      "description": "The clientId at the target siteId.",
+      "example": "example-value"
+    },
+    "TargetUniqueClientId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unique clidnetId at the target siteId.",
+      "example": 123456
+    }
+  }
+}

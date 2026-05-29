@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-visit-with-waitlist-info-schema.json",
+  "title": "VisitWithWaitlistInfo",
+  "description": "Implementation of the 'VisitWithWaitlistInfo' model. A Visit DTO with Waitlist Information",
+  "type": "object",
+  "properties": {
+    "WaitlistInfo": {
+      "$ref": "#/components/schemas/VisitWaitlistInfo",
+      "description": "Contains information about the visit waitlist info."
+    },
+    "AppointmentId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The appointment\u2019s ID.",
+      "example": 123456
+    },
+    "AppointmentGenderPreference": {
+      "$ref": "#/components/schemas/AppointmentGenderPreferenceEnum",
+      "description": "The gender of staff member with whom the client prefers to book appointments. Possible values are: * Female - Indicates that the client prefers to book appointments with female staff members. * Male - Indicates that the client prefers to book appointments with male staff members. * None - Indicates that the client does not have a staff member gender preference."
+    },
+    "AppointmentStatus": {
+      "$ref": "#/components/schemas/AppointmentStatusEnum",
+      "description": "The status of the appointment."
+    },
+    "ClassId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The class ID that was used to retrieve the visits.",
+      "example": 123456
+    },
+    "ClientId": {
+      "type": "string",
+      "description": "The ID of the client associated with the visit.",
+      "example": "example-value"
+    },
+    "ClientPhotoUrl": {
+      "type": "string",
+      "description": "PhotoUrl for the client",
+      "example": "https://example.mindbodyonline.com/resource/abc123"
+    },
+    "ClientUniqueId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unique ID of the client associated with the visit.",
+      "example": 123456
+    },
+    "StartDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time this class is scheduled to start.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EndDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the visit ends. The Public API returns UTC dates and times. For example, a class that occurs on June 25th, 2018 at 2:15PM (EST) appears as \u201c2018-06-25T19:15:00Z\u201d because EST is five hours behind UTC. Date time pairs always return in the format YYYY-MM-DDTHH:mm:ssZ.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the visit.",
+      "example": 123456
+    },
+    "LastModifiedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When included in the request, only records modified on or after the specified `LastModifiedDate` are included in the response. The Public API returns UTC dates and times. For example, a class that occurs on June 25th, 2018 at 2:15PM (EST) appears as \u201c2018-06-25T19:15:00Z\u201d because EST is five hours behind UTC. Date time pairs always return in the format YYYY-MM-DDTHH:mm:ssZ.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "LateCancelled": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the class has been `LateCancelled`.<br /> When `false`, indicates that the class has not been `LateCancelled`.",
+      "example": true
+    },
+    "SiteId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the business where the visit is booked.",
+      "example": -99
+    },
+    "LocationId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the location where the visit took place or is to take place.",
+      "example": 123456
+    },
+    "MakeUp": {
+      "type": "boolean",
+      "description": "When `true`, the client can make up this session and a session is not deducted from the pricing option that was used to sign the client into the enrollment. When the client has the make-up session, a session is automatically removed from a pricing option that matches the service category of the enrollment and is within the same date range of the missed session.<br /> When `false`, the client cannot make up this session. See [Enrollments: Make-ups](https://support.mindbodyonline.com/s/article/203",
+      "example": true
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the class.",
+      "example": "Sunset Yoga Studio"
+    },
+    "ServiceId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unique ID assigned to this pricing option when it was purchased by the client.",
+      "example": 123456
+    },
+    "ServiceName": {
+      "type": "string",
+      "description": "The name of the pricing option at the site where it was purchased.",
+      "example": "example-value"
+    },
+    "Service": {
+      "$ref": "#/components/schemas/ClientService",
+      "description": "The details of the pricing option at the site where it was purchased."
+    },
+    "ProductId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the pricing option at the site where it was purchased.",
+      "example": 123456
+    },
+    "SignedIn": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the client has been signed in.<br /> When `false`, indicates that the client has not been signed in.",
+      "example": true
+    },
+    "StaffId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the staff member who is teaching the class.",
+      "example": 123456
+    },
+    "WebSignup": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the client signed up online.<br /> When `false`, indicates that the client was signed up by a staff member.",
+      "example": true
+    },
+    "Action": {
+      "$ref": "#/components/schemas/Action1Enum",
+      "description": "The action taken."
+    },
+    "Missed": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the class has been `Missed`.<br /> When `false`, indicates that the class has not been `Missed`.",
+      "example": true
+    },
+    "VisitType": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Indicates the Id of visit type.",
+      "example": 1
+    },
+    "TypeGroup": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Indicates the Id of type group.",
+      "example": 1
+    },
+    "TypeTaken": {
+      "type": "string",
+      "description": "Indicates the service type taken.",
+      "example": "example-value"
+    }
+  }
+}

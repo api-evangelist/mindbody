@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-payment-types-response-structure.json",
+  "name": "GetPaymentTypesResponse",
+  "description": "Implementation of the 'GetPaymentTypesResponse' model. Get Payment Types Response Model",
+  "type": "object",
+  "properties": {
+    "PaymentTypes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PaymentType"
+      },
+      "description": "The requested payment types.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

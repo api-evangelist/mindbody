@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-written-class-schedules-info-schema.json",
+  "title": "WrittenClassSchedulesInfo",
+  "description": "Implementation of the 'WrittenClassSchedulesInfo' model.",
+  "type": "object",
+  "properties": {
+    "ClassId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ClassScheduleId.",
+      "example": 123456
+    },
+    "ClassInstanceIds": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "description": "The individual ClassIds of the enrollment schedule.",
+      "example": [
+        1
+      ]
+    }
+  }
+}

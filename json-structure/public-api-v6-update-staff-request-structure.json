@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-update-staff-request-structure.json",
+  "name": "UpdateStaffRequest",
+  "description": "Implementation of the 'UpdateStaffRequest' model.",
+  "type": "object",
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "description": "The unique ID of the staff member.",
+      "example": 1
+    },
+    "FirstName": {
+      "type": "string",
+      "description": "The staff member first name. You must specify a first name when you add a staff member.",
+      "example": "Alex"
+    },
+    "LastName": {
+      "type": "string",
+      "description": "The staff member last name. You must specify a last name when you add a staff member.",
+      "example": "Lane"
+    },
+    "Email": {
+      "type": "string",
+      "description": "The staff member\u2019s email address.",
+      "example": "kinlane@example.com"
+    },
+    "IsMale": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member is male. When `false`, indicates that the staff member is female.",
+      "example": true
+    },
+    "HomePhone": {
+      "type": "string",
+      "description": "The staff member\u2019s home phone number.",
+      "example": "+15551234567"
+    },
+    "WorkPhone": {
+      "type": "string",
+      "description": "The staff member\u2019s work phone number.",
+      "example": "+15551234567"
+    },
+    "MobilePhone": {
+      "type": "string",
+      "description": "The staff member\u2019s mobile phone number.",
+      "example": "+15551234567"
+    },
+    "Bio": {
+      "type": "string",
+      "description": "The staff member\u2019s biography. This string contains HTML.",
+      "example": "example-value"
+    },
+    "Address": {
+      "type": "string",
+      "description": "The first line of the staff member street address",
+      "example": "123 Market St"
+    },
+    "Address2": {
+      "type": "string",
+      "description": "The second line of the staff member street address, if needed.",
+      "example": "123 Market St"
+    },
+    "City": {
+      "type": "string",
+      "description": "The staff member\u2019s city.",
+      "example": "San Francisco"
+    },
+    "State": {
+      "type": "string",
+      "description": "The staff member\u2019s state.",
+      "example": "CA"
+    },
+    "Country": {
+      "type": "string",
+      "description": "The staff member\u2019s country.",
+      "example": "US"
+    },
+    "PostalCode": {
+      "type": "string",
+      "description": "The staff member\u2019s postal code.",
+      "example": "94110"
+    },
+    "ClassAssistant": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member can be a class assistant.",
+      "example": true
+    },
+    "ClassAssistant2": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member can be a class assistant.",
+      "example": true
+    },
+    "IndependentContractor": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member is an independent contractor. When `false`, indicates that the staff member is not an independent contractor.",
+      "example": true
+    },
+    "AppointmentInstructor": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member offers appointments.<br /> When `false`, indicates that the staff member does not offer appointments.",
+      "example": true
+    },
+    "AlwaysAllowDoubleBooking": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member can be scheduled for overlapping services.<br /> When `false`, indicates that the staff member does not offer appointments.",
+      "example": true
+    },
+    "ClassTeacher": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member can teach classes. When `false`, indicates that the staff member cannot teach classes.",
+      "example": true
+    },
+    "EmploymentStart": {
+      "type": "datetime",
+      "description": "The start date of employment",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EmploymentEnd": {
+      "type": "datetime",
+      "description": "The end date of employment",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "SortOrder": {
+      "type": "int32",
+      "description": "If configured by the business owner, this field determines a staff member\u2019s weight when sorting. Use this field to sort staff members on your interface.",
+      "example": 1
+    },
+    "ProviderIDs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "A list of providerIDs for the staff. In the US it is one per staff and is numeric, otherwise it can be a list and is alpha-numeric for more information see <a href=\" https://support.mindbodyonline.com/s/article/204075743-Provider-IDs ?language=en_US\" target=\"blank\">Provider IDs</a>",
+      "example": [
+        "example-value"
+      ]
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "Indicates if the staff member is active. Staff member cannot be deactivated if they have future classes or appointments.",
+      "example": true
+    },
+    "Notes": {
+      "type": "string",
+      "description": "Staff Member Private Notes",
+      "example": "Example note for Mindbody Public API."
+    },
+    "EmpID": {
+      "type": "string",
+      "description": "The custom staff ID assigned to the staff member.",
+      "example": "example-value"
+    }
+  }
+}

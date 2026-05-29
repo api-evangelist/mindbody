@@ -1,0 +1,28 @@
+{
+  "GenderPreference": "example-value",
+  "Duration": 1,
+  "ProviderId": "example-value",
+  "Id": 123456,
+  "Status": "Booked",
+  "StartDateTime": "2026-05-28T14:30:00Z",
+  "EndDateTime": "2026-05-28T14:30:00Z",
+  "Notes": "Example note for Mindbody Public API.",
+  "PartnerExternalId": "example-value",
+  "StaffRequested": true,
+  "ProgramId": 123456,
+  "WaitlistEntryId": 123456,
+  "SessionTypeId": 123456,
+  "LocationId": 123456,
+  "StaffId": 123456,
+  "ClientId": "example-value",
+  "FirstAppointment": true,
+  "ClientServiceId": 123456,
+  "Resources": [
+    {}
+  ],
+  "AddOns": [
+    {}
+  ],
+  "IsWaitlist": true,
+  "OnlineDescription": "Example note for Mindbody Public API."
+}

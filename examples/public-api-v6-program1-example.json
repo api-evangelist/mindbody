@@ -1,0 +1,18 @@
+{
+  "CancelOffset": 10,
+  "Id": 123456,
+  "Name": "Sunset Yoga Studio",
+  "ScheduleType": "All",
+  "ContentFormat": "InPerson",
+  "OnlineBookingDisabled": true,
+  "ScheduleOffset": 10,
+  "ScheduleOffsetEnd": 10,
+  "PricingRelationships": {
+    "PaysFor": [
+      1
+    ],
+    "PaidBy": [
+      1
+    ]
+  }
+}

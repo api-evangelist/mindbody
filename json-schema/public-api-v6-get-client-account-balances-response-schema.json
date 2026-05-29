@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-client-account-balances-response-schema.json",
+  "title": "GetClientAccountBalancesResponse",
+  "description": "Implementation of the 'GetClientAccountBalancesResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "Clients": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Client"
+      },
+      "description": "A list of clients.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

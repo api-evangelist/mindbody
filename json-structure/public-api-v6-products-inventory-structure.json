@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-products-inventory-structure.json",
+  "name": "ProductsInventory",
+  "description": "Implementation of the 'ProductsInventory' model.",
+  "type": "object",
+  "properties": {
+    "ProductId": {
+      "type": "int32",
+      "description": "A ProductId of the product.",
+      "example": 123456
+    },
+    "BarcodeId": {
+      "type": "string",
+      "description": "The Id is barcode Id of the product.",
+      "example": "example-value"
+    },
+    "LocationId": {
+      "type": "int32",
+      "description": "The LocationId of the product.",
+      "example": 123456
+    },
+    "UnitsLogged": {
+      "type": "int32",
+      "description": "UnitsLogged of the product.",
+      "example": 1
+    },
+    "UnitsSold": {
+      "type": "int32",
+      "description": "UnitsSold of the product.",
+      "example": 1
+    },
+    "UnitsInStock": {
+      "type": "int32",
+      "description": "The units in stock of the product",
+      "example": 1
+    },
+    "ReorderLevel": {
+      "type": "int32",
+      "description": "ReorderLevel of the product.",
+      "example": 1
+    },
+    "MaxLevel": {
+      "type": "int32",
+      "description": "MaxLevel of the product.",
+      "example": 1
+    },
+    "CreatedDateTimeUTC": {
+      "type": "datetime",
+      "description": "CreatedDateTimeUTC of the product.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "ModifiedDateTimeUTC": {
+      "type": "datetime",
+      "description": "ModifiedDateTimeUTC of the product.",
+      "example": "2026-05-28T14:30:00Z"
+    }
+  }
+}

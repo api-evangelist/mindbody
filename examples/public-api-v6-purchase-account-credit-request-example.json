@@ -1,0 +1,13 @@
+{
+  "ClientId": "example-value",
+  "Test": true,
+  "LocationId": 123456,
+  "SendEmailReceipt": true,
+  "SalesRepId": 123456,
+  "ConsumerPresent": true,
+  "PaymentAuthenticationCallbackUrl": "https://example.mindbodyonline.com/resource/abc123",
+  "PaymentInfo": {
+    "Type": "example-value",
+    "Metadata": "example-value"
+  }
+}

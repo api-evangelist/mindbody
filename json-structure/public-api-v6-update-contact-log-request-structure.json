@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-update-contact-log-request-structure.json",
+  "name": "UpdateContactLogRequest",
+  "description": "Implementation of the 'UpdateContactLogRequest' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "The ID of the contact log being updated.",
+      "example": 123456
+    },
+    "Test": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this is a test request and no data is inserted into the subscriber\u2019s database.<br /> When `false`, the database is updated.",
+      "example": true
+    },
+    "AssignedToStaffId": {
+      "type": "int32",
+      "description": "The ID of the staff member to whom the contact log is now being assigned.",
+      "example": 123456
+    },
+    "Text": {
+      "type": "string",
+      "description": "The contact log\u2019s new text.",
+      "example": "example-value"
+    },
+    "ContactName": {
+      "type": "string",
+      "description": "The name of the new person to be contacted by the assigned staff member.",
+      "example": "example-value"
+    },
+    "FollowupByDate": {
+      "type": "datetime",
+      "description": "The new date by which the assigned staff member should complete this contact log.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "ContactMethod": {
+      "type": "string",
+      "description": "The new method by which the client wants to be contacted.",
+      "example": "example-value"
+    },
+    "IsComplete": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the contact log is complete. When `false`, indicates the contact log isn\u2019t complete.",
+      "example": true
+    },
+    "Comments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/UpdateContactLogComment"
+      },
+      "description": "Contains information about the comments being updated or added to the contact log. Comments that have an ID of `0` are added to the contact log.",
+      "example": [
+        {}
+      ]
+    },
+    "Types": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/UpdateContactLogType"
+      },
+      "description": "Contains information about the contact logs types being assigned to the contact log, in addition to the contact log types that are already assigned.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

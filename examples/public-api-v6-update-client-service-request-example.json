@@ -1,0 +1,7 @@
+{
+  "ServiceId": 123456,
+  "ActiveDate": "2026-05-28T14:30:00Z",
+  "ExpirationDate": "2026-05-28T14:30:00Z",
+  "Count": 10,
+  "Test": true
+}

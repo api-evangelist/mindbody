@@ -1,0 +1,9 @@
+{
+  "ClassId": 123456,
+  "ClientId": "example-value",
+  "UniqueClientId": 123456,
+  "Test": true,
+  "SendEmail": true,
+  "LateCancel": true,
+  "VisitId": 123456
+}

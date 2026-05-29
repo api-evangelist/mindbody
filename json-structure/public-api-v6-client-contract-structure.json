@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-client-contract-structure.json",
+  "name": "ClientContract",
+  "description": "Implementation of the 'ClientContract' model. A client contract.",
+  "type": "object",
+  "properties": {
+    "PayerClientId": {
+      "type": "int32",
+      "description": "The ID of the client who holds the contract.",
+      "example": 123456
+    },
+    "AgreementDate": {
+      "type": "datetime",
+      "description": "The date on which the contract was signed.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "AutopayStatus": {
+      "$ref": "#/components/schemas/AutopayStatusEnum",
+      "description": "The status of the client\u2019s autopay."
+    },
+    "AutoRenewing": {
+      "type": "boolean",
+      "description": "Determines if the contract is auto-renewing.",
+      "example": true
+    },
+    "FirstAutoPay": {
+      "type": "double",
+      "description": "The amount of the first autopay transaction.",
+      "example": 1.0
+    },
+    "LastAutoPay": {
+      "type": "double",
+      "description": "The amount of the last autopay transaction.",
+      "example": 1.0
+    },
+    "NormalAutoPay": {
+      "type": "double",
+      "description": "The amount of the normal recurring autopay transaction.",
+      "example": 1.0
+    },
+    "IsMonthToMonth": {
+      "type": "boolean",
+      "description": "Indicates if the contract renews on a month-to-month basis.",
+      "example": true
+    },
+    "AutoRenewClientContractID": {
+      "type": "int32",
+      "description": "The ID of the contract that this one auto-renews from.",
+      "example": 1
+    },
+    "ContractText": {
+      "type": "string",
+      "description": "The full text of the contract.",
+      "example": "example-value"
+    },
+    "ContractAutoRenewed": {
+      "type": "boolean",
+      "description": "Indicates whether the contract was auto-renewed from a previous one.",
+      "example": true
+    },
+    "ContractName": {
+      "type": "string",
+      "description": "The name of the contract.",
+      "example": "example-value"
+    },
+    "EndDate": {
+      "type": "datetime",
+      "description": "The date that the contract expires.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Id": {
+      "type": "int32",
+      "description": "The unique ID of the sale of the contract. Each time a contract is sold, this ID increases sequentially.",
+      "example": 123456
+    },
+    "OriginationLocationId": {
+      "type": "int32",
+      "description": "The ID of the location where the contract was issued.",
+      "example": 123456
+    },
+    "StartDate": {
+      "type": "datetime",
+      "description": "The date that the contract became active.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "SiteId": {
+      "type": "int32",
+      "description": "The ID of the site where the contract was issued.",
+      "example": -99
+    },
+    "UpcomingAutopayEvents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/UpcomingAutopayEvent"
+      },
+      "description": "Contains details of the autopay events.",
+      "example": [
+        {}
+      ]
+    },
+    "ContractID": {
+      "type": "int32",
+      "description": "The ID of the contract.",
+      "example": 1
+    },
+    "TerminationDate": {
+      "type": "datetime",
+      "description": "The date that the contract was terminated.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "MinimumCommitmentValue": {
+      "type": "int32",
+      "description": "Minimum commitment value.",
+      "example": 1
+    },
+    "MinimumCommitmentUnit": {
+      "$ref": "#/components/schemas/MinimumCommitmentUnitEnum",
+      "description": "Minimum commitment unit type."
+    },
+    "MinimumCommitmentEndDate": {
+      "type": "datetime",
+      "description": "The earliest date a contract termination can take effect if a minimum commitment applies. This represents the last day the client is obligated to remain on the contract. Returned even if the commitment has already been fulfilled.",
+      "example": "2026-05-28T14:30:00Z"
+    }
+  }
+}

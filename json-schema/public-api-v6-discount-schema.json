@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-discount-schema.json",
+  "title": "Discount",
+  "description": "Implementation of the 'Discount' model. Discount for a promo code",
+  "type": "object",
+  "properties": {
+    "Type": {
+      "type": "string",
+      "description": "Type of discount percentage/amount",
+      "example": "example-value"
+    },
+    "Amount": {
+      "type": "number",
+      "format": "double",
+      "description": "Amount of discount",
+      "example": 49.99
+    }
+  }
+}

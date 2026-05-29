@@ -1,0 +1,28 @@
+{
+  "Items": [
+    {}
+  ],
+  "Payments": [
+    {}
+  ],
+  "CartId": "example-value",
+  "ClientId": "example-value",
+  "UniqueClientId": 123456,
+  "PayerClientId": "example-value",
+  "UniquePayerClientId": 123456,
+  "Test": true,
+  "InStore": true,
+  "CalculateTax": true,
+  "PromotionCode": "example-value",
+  "SendEmail": true,
+  "LocationId": 123456,
+  "Image": "example-value",
+  "ImageFileName": "example-value",
+  "ConsumerPresent": true,
+  "PaymentAuthenticationCallbackUrl": "https://example.mindbodyonline.com/resource/abc123",
+  "TransactionIds": [
+    1
+  ],
+  "IsBillingPostalCodeRequired": true,
+  "EnforceLocationRestrictions": true
+}

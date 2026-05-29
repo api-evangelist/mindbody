@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-deactivate-promo-code-request-schema.json",
+  "title": "DeactivatePromoCodeRequest",
+  "description": "Implementation of the 'DeactivatePromoCodeRequest' model.",
+  "type": "object",
+  "properties": {
+    "PromotionId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The promocodeID",
+      "example": 123456
+    }
+  }
+}

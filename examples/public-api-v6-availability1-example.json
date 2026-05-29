@@ -1,0 +1,160 @@
+{
+  "Id": 123456,
+  "Staff": {
+    "Id": 123456,
+    "FirstName": "Alex",
+    "LastName": "Lane",
+    "DisplayName": "example-value",
+    "Email": "kinlane@example.com",
+    "Bio": "example-value",
+    "Address": "123 Market St",
+    "Address2": "123 Market St",
+    "City": "San Francisco",
+    "State": "CA",
+    "PostalCode": "94110",
+    "ForeignZip": "example-value",
+    "Country": "US",
+    "WorkPhone": "+15551234567",
+    "HomePhone": "+15551234567",
+    "CellPhone": "+15551234567",
+    "Active": true,
+    "IsSystem": true,
+    "SmodeId": 123456,
+    "AppointmentTrn": true,
+    "AlwaysAllowDoubleBooking": true,
+    "IndependentContractor": true,
+    "ImageUrl": "https://example.mindbodyonline.com/resource/abc123",
+    "IsMale": true,
+    "ReservationTrn": true,
+    "SortOrder": 1,
+    "MultiLocationPermission": true,
+    "Name": "Sunset Yoga Studio",
+    "ProviderIDs": [
+      "example-value"
+    ],
+    "StaffSettings": {
+      "UseStaffNicknames": true,
+      "ShowStaffLastNamesOnSchedules": true
+    },
+    "Rep": true,
+    "Rep2": true,
+    "Rep3": true,
+    "Rep4": true,
+    "Rep5": true,
+    "Rep6": true,
+    "Assistant": true,
+    "Assistant2": true,
+    "EmploymentStart": "2026-05-28T14:30:00Z",
+    "EmploymentEnd": "2026-05-28T14:30:00Z",
+    "EmpID": "example-value",
+    "Appointments": [
+      {}
+    ],
+    "Unavailabilities": [
+      {}
+    ],
+    "Availabilities": [
+      {}
+    ],
+    "LoginLocations": [
+      {}
+    ]
+  },
+  "SessionType": {
+    "Type": "All",
+    "DefaultTimeLength": 1,
+    "StaffTimeLength": 1,
+    "ProgramId": 123456,
+    "NumDeducted": 1,
+    "Id": 123456,
+    "Name": "Sunset Yoga Studio",
+    "Active": true,
+    "Capacity": 1,
+    "ResourceRequired": true,
+    "Category": {
+      "Id": 123456,
+      "Name": "Sunset Yoga Studio"
+    },
+    "Subcategory": {
+      "Id": 123456,
+      "Name": "Sunset Yoga Studio"
+    },
+    "OnlineDescription": "Example note for Mindbody Public API.",
+    "AvailableForAddOn": true
+  },
+  "Programs": [
+    {}
+  ],
+  "StartDateTime": "2026-05-28T14:30:00Z",
+  "EndDateTime": "2026-05-28T14:30:00Z",
+  "BookableEndDateTime": "2026-05-28T14:30:00Z",
+  "Location": {
+    "BusinessId": 123456,
+    "SiteId": -99,
+    "BusinessDescription": "Example note for Mindbody Public API.",
+    "AdditionalImageURLs": [
+      "example-value"
+    ],
+    "FacilitySquareFeet": 1,
+    "ProSpaFinderSite": true,
+    "HasClasses": true,
+    "PhoneExtension": "example-value",
+    "Action": "None",
+    "Id": 123456,
+    "Name": "Sunset Yoga Studio",
+    "Address": "123 Market St",
+    "Address2": "123 Market St",
+    "Tax1": 1.0,
+    "Tax2": 1.0,
+    "Tax3": 1.0,
+    "Tax4": 1.0,
+    "Tax5": 1.0,
+    "Phone": "+15551234567",
+    "City": "San Francisco",
+    "StateProvCode": "example-value",
+    "PostalCode": "94110",
+    "Latitude": 1.0,
+    "Longitude": 1.0,
+    "DistanceInMiles": 1.0,
+    "ImageURL": "example-value",
+    "Description": "Example note for Mindbody Public API.",
+    "HasSite": true,
+    "CanBook": true,
+    "NumberTreatmentRooms": 1,
+    "Active": true,
+    "InvActive": true,
+    "WsShow": true,
+    "Email": "kinlane@example.com",
+    "ContactName": "example-value",
+    "ShipAddress": "123 Market St",
+    "ShipState": "example-value",
+    "ShipPostal": "example-value",
+    "ShipPhone": "+15551234567",
+    "ShipPOC": "example-value",
+    "TaxGrouping": true,
+    "LabelTax1": "example-value",
+    "LabelTax2": "example-value",
+    "LabelTax3": "example-value",
+    "LabelTax4": "example-value",
+    "LabelTax5": "example-value",
+    "WAC": true,
+    "ShipAddress2": "123 Market St",
+    "MasterLocId": 123456,
+    "StreetAddress": "123 Market St",
+    "Country": "US",
+    "Ext": "example-value",
+    "Amenities": [
+      {}
+    ],
+    "TotalNumberOfDeals": 1,
+    "TotalNumberOfRatings": 1,
+    "AverageRating": 1.0
+  },
+  "PrepTime": 1,
+  "FinishTime": 1,
+  "IsMasked": true,
+  "ShowPublic": true,
+  "ResourceAvailabilities": [
+    {}
+  ]
+}

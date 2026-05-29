@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-update-contact-log-type-schema.json",
+  "title": "UpdateContactLogType",
+  "description": "Implementation of the 'UpdateContactLogType' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the contact log type to update the subtypes of.",
+      "example": 123456
+    },
+    "SubTypes": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "description": "The subtype IDs that are to be added to the contact log.",
+      "example": [
+        1
+      ]
+    }
+  }
+}

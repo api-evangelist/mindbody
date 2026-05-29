@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-m0-culture-neutral-public-key-token-b77a5c561934e089-structure.json",
+  "name": "M0CultureNeutralPublicKeyTokenB77a5c561934e089",
+  "description": "Implementation of the '0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]' model.",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "value": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "The model property of type List[str].",
+      "example": [
+        "example-value"
+      ]
+    }
+  }
+}

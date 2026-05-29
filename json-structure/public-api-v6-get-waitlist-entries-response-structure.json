@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-waitlist-entries-response-structure.json",
+  "name": "GetWaitlistEntriesResponse",
+  "description": "Implementation of the 'GetWaitlistEntriesResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "WaitlistEntries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/WaitlistEntry"
+      },
+      "description": "Contains information about the waiting list entries.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

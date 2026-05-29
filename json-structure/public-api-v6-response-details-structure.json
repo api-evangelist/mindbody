@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-response-details-structure.json",
+  "name": "ResponseDetails",
+  "description": "Implementation of the 'ResponseDetails' model. Contains information about the response message detail.",
+  "type": "object",
+  "properties": {
+    "Status": {
+      "type": "string",
+      "description": "Contains information about the response status.",
+      "example": "Active"
+    },
+    "TransactionId": {
+      "type": "string",
+      "description": "The unique transaction ID.",
+      "example": "example-value"
+    },
+    "Message": {
+      "type": "string",
+      "description": "Contains information about the response message detail.",
+      "example": "example-value"
+    }
+  }
+}

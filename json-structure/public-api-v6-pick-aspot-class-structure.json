@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-pick-aspot-class-structure.json",
+  "name": "PickASpotClass",
+  "description": "Implementation of the 'PickASpotClass' model. Contains information about the PickASpot classes.",
+  "type": "object",
+  "properties": {
+    "SiteId": {
+      "type": "int32",
+      "description": "The unique ID of the Site.",
+      "example": -99
+    },
+    "LocationId": {
+      "type": "int32",
+      "description": "The unique ID of the Location.",
+      "example": 123456
+    },
+    "ClassId": {
+      "type": "string",
+      "description": "The unique ID of the Class.",
+      "example": "example-value"
+    },
+    "ClassExternalId": {
+      "type": "string",
+      "description": "The unique Class external ID.",
+      "example": "example-value"
+    },
+    "ClassName": {
+      "type": "string",
+      "description": "Contains the class name.",
+      "example": "example-value"
+    },
+    "ClassStartTime": {
+      "type": "datetime",
+      "description": "Class start time.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "ClassEndTime": {
+      "type": "datetime",
+      "description": "Class end time.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "ClassMaximumCapacity": {
+      "type": "int32",
+      "description": "Contains information about the Class maximum capacity.",
+      "example": 1
+    },
+    "RoomId": {
+      "type": "string",
+      "description": "The unique Room ID.",
+      "example": "example-value"
+    },
+    "Spots": {
+      "$ref": "#/components/schemas/Spot",
+      "description": "Contains information about the spot detail."
+    },
+    "Reservations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Reservation"
+      },
+      "description": "Contains information about the reservation collection.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

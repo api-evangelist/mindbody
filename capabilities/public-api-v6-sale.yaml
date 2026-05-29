@@ -1,0 +1,1974 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Mindbody Public API v6 \u2014 Sale"
+  description: "Sale \u2014 25 operations. Lead operation: Mindbody Gets a List of Card Types That the Site Accepts. You Can Also Use `GET. Self-contained Naftiko capability covering one Mindbody business\
+    \ surface."
+  tags:
+  - Mindbody
+  - Mindbody Public API v6
+  - Sale
+  created: '2026-05-28'
+  modified: '2026-05-28'
+binds:
+- namespace: env
+  keys:
+    MINDBODY_API_KEY: MINDBODY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: public-api-v6-sale
+    baseUri: https://api.mindbodyonline.com
+    description: "Mindbody Public API v6 \u2014 Sale business capability. Self-contained, no shared references."
+    authentication:
+      type: apikey
+      key: API-Key
+      value: '{{env.MINDBODY_API_KEY}}'
+      placement: header
+    resources:
+    - name: sale-acceptedcardtypes
+      path: /sale/acceptedcardtypes
+      operations:
+      - name: getAcceptedCardTypes
+        method: GET
+        description: Mindbody Gets a List of Card Types That the Site Accepts. You Can Also Use `GET
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-alternativepaymentmethods
+      path: /sale/alternativepaymentmethods
+      operations:
+      - name: getAlternativePaymentMethods
+        method: GET
+        description: Mindbody Get Alternative and Local Payment Methods That Are Allowed for a Site
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.clientId
+          in: query
+          type: string
+          required: false
+          description: The client ID
+        - name: request.locationId
+          in: query
+          type: integer
+          required: false
+          description: 'The location ID Default: **null** (Online store location)'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-contracts
+      path: /sale/contracts
+      operations:
+      - name: getContracts
+        method: GET
+        description: Mindbody Returns the Contracts and Autopay Options That Are Available on a
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: request.locationId
+          in: query
+          type: integer
+          required: true
+          description: The ID of the location that has the requested contracts and AutoPay options.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.contractIds
+          in: query
+          type: array
+          required: false
+          description: When included, the response only contains details about the specified contract IDs.
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.promoCode
+          in: query
+          type: string
+          required: false
+          description: PromoCode to apply
+        - name: request.soldOnline
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, the response only contains details about contracts and AutoPay options that can be sold online. When `false`, all contracts are returned. Default: **false**'
+        - name: request.uniqueClientId
+          in: query
+          type: integer
+          required: false
+          description: The ID of the client.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-custompaymentmethods
+      path: /sale/custompaymentmethods
+      operations:
+      - name: getCustomPaymentMethods
+        method: GET
+        description: Mindbody Get Payment Methods That Can Be Used to Pay for Sales at a Site
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-giftcardbalance
+      path: /sale/giftcardbalance
+      operations:
+      - name: getGiftCardBalance
+        method: GET
+        description: "Mindbody Returns a Gift Card\u2019s Remaining Balance"
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: barcodeId
+          in: query
+          type: string
+          required: false
+          description: The barcode ID of the gift card for which you want the balance.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-giftcards
+      path: /sale/giftcards
+      operations:
+      - name: getGiftCards
+        method: GET
+        description: Mindbody Returns Information About Gift Cards That Can Be Purchased
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.ids
+          in: query
+          type: array
+          required: false
+          description: 'Filters the results to the requested gift card IDs.<br /> Default: **all** gift cards.'
+        - name: request.includeCustomLayouts
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, includes custom gift card layouts.<br /> When `false`, includes only system layouts. Default: **false**'
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.locationId
+          in: query
+          type: integer
+          required: false
+          description: When included, returns gift cards that are sold at the provided location ID.
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.soldOnline
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, only returns gift cards that are sold online.<br /> Default: **false**'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-packages
+      path: /sale/packages
+      operations:
+      - name: getPackages
+        method: GET
+        description: Mindbody A Package is Typically Used to Combine Multiple Services And/or
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.locationId
+          in: query
+          type: integer
+          required: false
+          description: 'The location ID to use to determine the tax for the products that this request returns.<br /> Default: **online store**'
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.packageIds
+          in: query
+          type: array
+          required: false
+          description: A list of the packages IDs to filter by.
+        - name: request.sellOnline
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, only returns products that can be sold online.<br /> When `false`, all products are returned.<br /> Default: **false**'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-products
+      path: /sale/products
+      operations:
+      - name: getProducts
+        method: GET
+        description: Mindbody Get Retail Products Available for Purchase at a Site
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.categoryIds
+          in: query
+          type: array
+          required: false
+          description: A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.locationId
+          in: query
+          type: integer
+          required: false
+          description: 'The location ID to use to determine the tax for the products that this request returns.<br /> Default: **online store**'
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.productIds
+          in: query
+          type: array
+          required: false
+          description: The barcode number of the product to be filter by.
+        - name: request.searchText
+          in: query
+          type: string
+          required: false
+          description: A search filter, used for searching by term.
+        - name: request.secondaryCategoryIds
+          in: query
+          type: array
+          required: false
+          description: A list of secondary categories to filter by. Use this ID when calling the GET Categories endpoint.
+        - name: request.sellOnline
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, only products that can be sold online are returned.<br /> When `false`, all products are returned.<br /> Default: **false**'
+        - name: request.subCategoryIds
+          in: query
+          type: array
+          required: false
+          description: A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateProducts
+        method: PUT
+        description: Mindbody Update Retail Products Available for Purchase at a Site
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-productsinventory
+      path: /sale/productsinventory
+      operations:
+      - name: getProductsInventory
+        method: GET
+        description: Mindbody Get Retail Products Inventory Data Available at a Site
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.barcodeIds
+          in: query
+          type: array
+          required: false
+          description: When included, the response only contains details about the specified Barcode Ids.
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.locationIds
+          in: query
+          type: array
+          required: false
+          description: When included, the response only contains details about the specified location Ids.
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.productIds
+          in: query
+          type: array
+          required: false
+          description: When included, the response only contains details about the specified product Ids.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-purchasecontractstatus
+      path: /sale/purchasecontractstatus
+      operations:
+      - name: getPurchaseContractStatus
+        method: GET
+        description: Mindbody Fetches the Status of an Initiate Purchase Contract Given AccessToken
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: accessToken
+          in: query
+          type: string
+          required: true
+          description: The request query parameter.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-sales
+      path: /sale/sales
+      operations:
+      - name: getSales
+        method: GET
+        description: Mindbody Get Sales Completed at a Site
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.endSaleDateTime
+          in: query
+          type: string
+          required: false
+          description: Filters results to sales that happened before this date and time.
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.paymentMethodId
+          in: query
+          type: integer
+          required: false
+          description: Filters results to sales paid for by the given payment method ID which indicates payment method(s) (i.e. cash, VISA, AMEX, Check, etc.).
+        - name: request.saleId
+          in: query
+          type: integer
+          required: false
+          description: The sale ID associated with the particular item. It Filters results to the requested sale ID.
+        - name: request.startSaleDateTime
+          in: query
+          type: string
+          required: false
+          description: Filters results to sales that happened after this date and time.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-services
+      path: /sale/services
+      operations:
+      - name: getServices
+        method: GET
+        description: Mindbody Get Pricing Options Available for Purchase at a Site
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.classId
+          in: query
+          type: integer
+          required: false
+          description: Filters to the pricing options for the specified class ID.
+        - name: request.classScheduleId
+          in: query
+          type: integer
+          required: false
+          description: Filters to the pricing options for the specified class schedule ID.
+        - name: request.hideRelatedPrograms
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, indicates that pricing options of related programs are omitted from the response.<br /> Default: **false**'
+        - name: request.includeDiscontinued
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, indicates that the filtered pricing option list includes discontinued pricing options.<br /> Default: **false**'
+        - name: request.includeSaleInContractOnly
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, indicates that the filtered pricing option list includes sale in contract only pricing options.<br /> Default: **false**'
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.locationId
+          in: query
+          type: integer
+          required: false
+          description: When specified, for each returned pricing option, `TaxRate` and `TaxIncluded` are calculated according to the specified location. Note that this does not filter results to only services
+            provided at the given location, and for locations where Value-Added Tax (VAT) rules apply, the `TaxRate` is set to
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.programIds
+          in: query
+          type: array
+          required: false
+          description: Filters to pricing options with the specified program IDs.
+        - name: request.sellOnline
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, filters the pricing options to display only those available for online purchase. This parameter is only applicable in Business Mode (when a staff authentication header
+            is included) and ignored in Consumer Mode (when no authentication header is passed). <br />Default: `false` (for staff '
+        - name: request.serviceIds
+          in: query
+          type: array
+          required: false
+          description: Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the `PurchasedItems[].Id` returned from GET
+            Sales.
+        - name: request.sessionTypeIds
+          in: query
+          type: array
+          required: false
+          description: Filters to the pricing options with the specified session types IDs.
+        - name: request.staffId
+          in: query
+          type: integer
+          required: false
+          description: Sets `Price` and `OnlinePrice` to the particular pricing of a specific staff member, if allowed by the business.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateServices
+        method: PUT
+        description: Mindbody Update Unit Price and Online Price of Provided Services
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-transactions
+      path: /sale/transactions
+      operations:
+      - name: getTransactions
+        method: GET
+        description: Mindbody This Endpoint Returns a List of Transaction Details of Processed Sales
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.clientId
+          in: query
+          type: integer
+          required: false
+          description: Filters results to the requested client ID.
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.locationId
+          in: query
+          type: integer
+          required: false
+          description: Filters the transaction results with the ID number associated with the location of the sale.
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.saleId
+          in: query
+          type: integer
+          required: false
+          description: Filters the transaction results with the ID number associated with the sale.
+        - name: request.status
+          in: query
+          type: string
+          required: false
+          description: Filters the transaction results by the estimated transaction status.
+        - name: request.transactionEndDateTime
+          in: query
+          type: string
+          required: false
+          description: "Filters the transaction results that happpened before this date and time. Default: **today\u2019s date**"
+        - name: request.transactionId
+          in: query
+          type: integer
+          required: false
+          description: Filters the transaction results with the ID number generated when the sale is processed.
+        - name: request.transactionStartDateTime
+          in: query
+          type: string
+          required: false
+          description: "Filters the transaction results that happpened after this date and time. Default: **today\u2019s date**"
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-checkoutshoppingcart
+      path: /sale/checkoutshoppingcart
+      operations:
+      - name: checkoutShoppingCart
+        method: POST
+        description: Mindbody This Endpoint Provides a Wide Range of Functionality. for Example, You
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-completecheckoutshoppingcart
+      path: /sale/completecheckoutshoppingcart
+      operations:
+      - name: completeCheckoutShoppingCartUsingAlternativePayments
+        method: POST
+        description: Mindbody This Endpoint Complements the InitiateCheckoutShoppintCart Endpoint
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-initiatecheckoutshoppingcart
+      path: /sale/initiatecheckoutshoppingcart
+      operations:
+      - name: initiateCheckoutShoppingCartUsingAlternativePayments
+        method: POST
+        description: Mindbody This Endpoint Provides a Wide Range of Functionality. for Example, You
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-initiatepurchasecontract
+      path: /sale/initiatepurchasecontract
+      operations:
+      - name: initiatePurchaseContractUsingAlternativePayments
+        method: POST
+        description: Mindbody Allows a Client to Sign Up for a Contract or Autopay Using the
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-purchaseaccountcredit
+      path: /sale/purchaseaccountcredit
+      operations:
+      - name: purchaseAccountCredit
+        method: POST
+        description: Mindbody Allows a Client to Purchase Account Credit from a Business
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-purchasecontract
+      path: /sale/purchasecontract
+      operations:
+      - name: purchaseContract
+        method: POST
+        description: Mindbody Allows a Client to Sign Up for a Contract or Autopay Using the
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-purchasegiftcard
+      path: /sale/purchasegiftcard
+      operations:
+      - name: purchaseGiftCard
+        method: POST
+        description: Mindbody Allows a Client to Purchase a Gift Card from a Business in a Variety
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-returnsale
+      path: /sale/returnsale
+      operations:
+      - name: returnSale
+        method: POST
+        description: Mindbody Return a Comped Sale for a Specified Sale ID in Business Mode. the
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-updateproductprice
+      path: /sale/updateproductprice
+      operations:
+      - name: updateProductPrice
+        method: POST
+        description: Mindbody This Endpoint Updates the Retail Price and an Online Price for a
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sale-updatesaledate
+      path: /sale/updatesaledate
+      operations:
+      - name: updateSaleDate
+        method: PUT
+        description: Mindbody This Endpoint Updates the SaleDate and Returns the Details of the Sale
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: public-api-v6-sale-rest
+    port: 8080
+    description: "REST adapter for Mindbody Public API v6 \u2014 Sale. One Spectral-compliant resource per consumed operation, prefixed with /v1."
+    resources:
+    - path: /v1/sale/acceptedcardtypes
+      name: v1-sale-acceptedcardtypes
+      description: REST surface for /v1/sale/acceptedcardtypes.
+      operations:
+      - method: GET
+        name: getAcceptedCardTypes
+        description: Mindbody Gets a List of Card Types That the Site Accepts. You Can Also Use `GET
+        call: public-api-v6-sale.getAcceptedCardTypes
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/alternativepaymentmethods
+      name: v1-sale-alternativepaymentmethods
+      description: REST surface for /v1/sale/alternativepaymentmethods.
+      operations:
+      - method: GET
+        name: getAlternativePaymentMethods
+        description: Mindbody Get Alternative and Local Payment Methods That Are Allowed for a Site
+        call: public-api-v6-sale.getAlternativePaymentMethods
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.clientId: rest.request.clientId
+          request.locationId: rest.request.locationId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/contracts
+      name: v1-sale-contracts
+      description: REST surface for /v1/sale/contracts.
+      operations:
+      - method: GET
+        name: getContracts
+        description: Mindbody Returns the Contracts and Autopay Options That Are Available on a
+        call: public-api-v6-sale.getContracts
+        with:
+          version: rest.version
+          request.locationId: rest.request.locationId
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.contractIds: rest.request.contractIds
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+          request.promoCode: rest.request.promoCode
+          request.soldOnline: rest.request.soldOnline
+          request.uniqueClientId: rest.request.uniqueClientId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/custompaymentmethods
+      name: v1-sale-custompaymentmethods
+      description: REST surface for /v1/sale/custompaymentmethods.
+      operations:
+      - method: GET
+        name: getCustomPaymentMethods
+        description: Mindbody Get Payment Methods That Can Be Used to Pay for Sales at a Site
+        call: public-api-v6-sale.getCustomPaymentMethods
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/giftcardbalance
+      name: v1-sale-giftcardbalance
+      description: REST surface for /v1/sale/giftcardbalance.
+      operations:
+      - method: GET
+        name: getGiftCardBalance
+        description: "Mindbody Returns a Gift Card\u2019s Remaining Balance"
+        call: public-api-v6-sale.getGiftCardBalance
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          barcodeId: rest.barcodeId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/giftcards
+      name: v1-sale-giftcards
+      description: REST surface for /v1/sale/giftcards.
+      operations:
+      - method: GET
+        name: getGiftCards
+        description: Mindbody Returns Information About Gift Cards That Can Be Purchased
+        call: public-api-v6-sale.getGiftCards
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.ids: rest.request.ids
+          request.includeCustomLayouts: rest.request.includeCustomLayouts
+          request.limit: rest.request.limit
+          request.locationId: rest.request.locationId
+          request.offset: rest.request.offset
+          request.soldOnline: rest.request.soldOnline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/packages
+      name: v1-sale-packages
+      description: REST surface for /v1/sale/packages.
+      operations:
+      - method: GET
+        name: getPackages
+        description: Mindbody A Package is Typically Used to Combine Multiple Services And/or
+        call: public-api-v6-sale.getPackages
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.limit: rest.request.limit
+          request.locationId: rest.request.locationId
+          request.offset: rest.request.offset
+          request.packageIds: rest.request.packageIds
+          request.sellOnline: rest.request.sellOnline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/products
+      name: v1-sale-products
+      description: REST surface for /v1/sale/products.
+      operations:
+      - method: GET
+        name: getProducts
+        description: Mindbody Get Retail Products Available for Purchase at a Site
+        call: public-api-v6-sale.getProducts
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.categoryIds: rest.request.categoryIds
+          request.limit: rest.request.limit
+          request.locationId: rest.request.locationId
+          request.offset: rest.request.offset
+          request.productIds: rest.request.productIds
+          request.searchText: rest.request.searchText
+          request.secondaryCategoryIds: rest.request.secondaryCategoryIds
+          request.sellOnline: rest.request.sellOnline
+          request.subCategoryIds: rest.request.subCategoryIds
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateProducts
+        description: Mindbody Update Retail Products Available for Purchase at a Site
+        call: public-api-v6-sale.updateProducts
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/productsinventory
+      name: v1-sale-productsinventory
+      description: REST surface for /v1/sale/productsinventory.
+      operations:
+      - method: GET
+        name: getProductsInventory
+        description: Mindbody Get Retail Products Inventory Data Available at a Site
+        call: public-api-v6-sale.getProductsInventory
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.barcodeIds: rest.request.barcodeIds
+          request.limit: rest.request.limit
+          request.locationIds: rest.request.locationIds
+          request.offset: rest.request.offset
+          request.productIds: rest.request.productIds
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/purchasecontractstatus
+      name: v1-sale-purchasecontractstatus
+      description: REST surface for /v1/sale/purchasecontractstatus.
+      operations:
+      - method: GET
+        name: getPurchaseContractStatus
+        description: Mindbody Fetches the Status of an Initiate Purchase Contract Given AccessToken
+        call: public-api-v6-sale.getPurchaseContractStatus
+        with:
+          version: rest.version
+          accessToken: rest.accessToken
+          siteId: rest.siteId
+          authorization: rest.authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/sales
+      name: v1-sale-sales
+      description: REST surface for /v1/sale/sales.
+      operations:
+      - method: GET
+        name: getSales
+        description: Mindbody Get Sales Completed at a Site
+        call: public-api-v6-sale.getSales
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.endSaleDateTime: rest.request.endSaleDateTime
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+          request.paymentMethodId: rest.request.paymentMethodId
+          request.saleId: rest.request.saleId
+          request.startSaleDateTime: rest.request.startSaleDateTime
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/services
+      name: v1-sale-services
+      description: REST surface for /v1/sale/services.
+      operations:
+      - method: GET
+        name: getServices
+        description: Mindbody Get Pricing Options Available for Purchase at a Site
+        call: public-api-v6-sale.getServices
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.classId: rest.request.classId
+          request.classScheduleId: rest.request.classScheduleId
+          request.hideRelatedPrograms: rest.request.hideRelatedPrograms
+          request.includeDiscontinued: rest.request.includeDiscontinued
+          request.includeSaleInContractOnly: rest.request.includeSaleInContractOnly
+          request.limit: rest.request.limit
+          request.locationId: rest.request.locationId
+          request.offset: rest.request.offset
+          request.programIds: rest.request.programIds
+          request.sellOnline: rest.request.sellOnline
+          request.serviceIds: rest.request.serviceIds
+          request.sessionTypeIds: rest.request.sessionTypeIds
+          request.staffId: rest.request.staffId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateServices
+        description: Mindbody Update Unit Price and Online Price of Provided Services
+        call: public-api-v6-sale.updateServices
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/transactions
+      name: v1-sale-transactions
+      description: REST surface for /v1/sale/transactions.
+      operations:
+      - method: GET
+        name: getTransactions
+        description: Mindbody This Endpoint Returns a List of Transaction Details of Processed Sales
+        call: public-api-v6-sale.getTransactions
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.clientId: rest.request.clientId
+          request.limit: rest.request.limit
+          request.locationId: rest.request.locationId
+          request.offset: rest.request.offset
+          request.saleId: rest.request.saleId
+          request.status: rest.request.status
+          request.transactionEndDateTime: rest.request.transactionEndDateTime
+          request.transactionId: rest.request.transactionId
+          request.transactionStartDateTime: rest.request.transactionStartDateTime
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/checkoutshoppingcart
+      name: v1-sale-checkoutshoppingcart
+      description: REST surface for /v1/sale/checkoutshoppingcart.
+      operations:
+      - method: POST
+        name: checkoutShoppingCart
+        description: Mindbody This Endpoint Provides a Wide Range of Functionality. for Example, You
+        call: public-api-v6-sale.checkoutShoppingCart
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/completecheckoutshoppingcart
+      name: v1-sale-completecheckoutshoppingcart
+      description: REST surface for /v1/sale/completecheckoutshoppingcart.
+      operations:
+      - method: POST
+        name: completeCheckoutShoppingCartUsingAlternativePayments
+        description: Mindbody This Endpoint Complements the InitiateCheckoutShoppintCart Endpoint
+        call: public-api-v6-sale.completeCheckoutShoppingCartUsingAlternativePayments
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/initiatecheckoutshoppingcart
+      name: v1-sale-initiatecheckoutshoppingcart
+      description: REST surface for /v1/sale/initiatecheckoutshoppingcart.
+      operations:
+      - method: POST
+        name: initiateCheckoutShoppingCartUsingAlternativePayments
+        description: Mindbody This Endpoint Provides a Wide Range of Functionality. for Example, You
+        call: public-api-v6-sale.initiateCheckoutShoppingCartUsingAlternativePayments
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/initiatepurchasecontract
+      name: v1-sale-initiatepurchasecontract
+      description: REST surface for /v1/sale/initiatepurchasecontract.
+      operations:
+      - method: POST
+        name: initiatePurchaseContractUsingAlternativePayments
+        description: Mindbody Allows a Client to Sign Up for a Contract or Autopay Using the
+        call: public-api-v6-sale.initiatePurchaseContractUsingAlternativePayments
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/purchaseaccountcredit
+      name: v1-sale-purchaseaccountcredit
+      description: REST surface for /v1/sale/purchaseaccountcredit.
+      operations:
+      - method: POST
+        name: purchaseAccountCredit
+        description: Mindbody Allows a Client to Purchase Account Credit from a Business
+        call: public-api-v6-sale.purchaseAccountCredit
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/purchasecontract
+      name: v1-sale-purchasecontract
+      description: REST surface for /v1/sale/purchasecontract.
+      operations:
+      - method: POST
+        name: purchaseContract
+        description: Mindbody Allows a Client to Sign Up for a Contract or Autopay Using the
+        call: public-api-v6-sale.purchaseContract
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/purchasegiftcard
+      name: v1-sale-purchasegiftcard
+      description: REST surface for /v1/sale/purchasegiftcard.
+      operations:
+      - method: POST
+        name: purchaseGiftCard
+        description: Mindbody Allows a Client to Purchase a Gift Card from a Business in a Variety
+        call: public-api-v6-sale.purchaseGiftCard
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/returnsale
+      name: v1-sale-returnsale
+      description: REST surface for /v1/sale/returnsale.
+      operations:
+      - method: POST
+        name: returnSale
+        description: Mindbody Return a Comped Sale for a Specified Sale ID in Business Mode. the
+        call: public-api-v6-sale.returnSale
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/updateproductprice
+      name: v1-sale-updateproductprice
+      description: REST surface for /v1/sale/updateproductprice.
+      operations:
+      - method: POST
+        name: updateProductPrice
+        description: Mindbody This Endpoint Updates the Retail Price and an Online Price for a
+        call: public-api-v6-sale.updateProductPrice
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sale/updatesaledate
+      name: v1-sale-updatesaledate
+      description: REST surface for /v1/sale/updatesaledate.
+      operations:
+      - method: PUT
+        name: updateSaleDate
+        description: Mindbody This Endpoint Updates the SaleDate and Returns the Details of the Sale
+        call: public-api-v6-sale.updateSaleDate
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: public-api-v6-sale-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for Mindbody Public API v6 \u2014 Sale. One tool per consumed operation, routed inline through this capability's consumes block."
+    tools:
+    - name: gets-list-card-types-that
+      description: Mindbody Gets a List of Card Types That the Site Accepts. You Can Also Use `GET
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-sale.getAcceptedCardTypes
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-alternative-local-payment-methods
+      description: Mindbody Get Alternative and Local Payment Methods That Are Allowed for a Site
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-sale.getAlternativePaymentMethods
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.clientId: tools.request.clientId
+        request.locationId: tools.request.locationId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-contracts-autopay-options-that
+      description: Mindbody Returns the Contracts and Autopay Options That Are Available on a
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-sale.getContracts
+      with:
+        version: tools.version
+        request.locationId: tools.request.locationId
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.contractIds: tools.request.contractIds
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+        request.promoCode: tools.request.promoCode
+        request.soldOnline: tools.request.soldOnline
+        request.uniqueClientId: tools.request.uniqueClientId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-payment-methods-that-can
+      description: Mindbody Get Payment Methods That Can Be Used to Pay for Sales at a Site
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-sale.getCustomPaymentMethods
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: "returns-gift-card\u2019s-remaining-balance"
+      description: "Mindbody Returns a Gift Card\u2019s Remaining Balance"
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-sale.getGiftCardBalance
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        barcodeId: tools.barcodeId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-information-about-gift-cards
+      description: Mindbody Returns Information About Gift Cards That Can Be Purchased
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-sale.getGiftCards
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.ids: tools.request.ids
+        request.includeCustomLayouts: tools.request.includeCustomLayouts
+        request.limit: tools.request.limit
+        request.locationId: tools.request.locationId
+        request.offset: tools.request.offset
+        request.soldOnline: tools.request.soldOnline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: package-is-typically-used-combine
+      description: Mindbody A Package is Typically Used to Combine Multiple Services And/or
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-sale.getPackages
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.limit: tools.request.limit
+        request.locationId: tools.request.locationId
+        request.offset: tools.request.offset
+        request.packageIds: tools.request.packageIds
+        request.sellOnline: tools.request.sellOnline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-retail-products-available-purchase
+      description: Mindbody Get Retail Products Available for Purchase at a Site
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-sale.getProducts
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.categoryIds: tools.request.categoryIds
+        request.limit: tools.request.limit
+        request.locationId: tools.request.locationId
+        request.offset: tools.request.offset
+        request.productIds: tools.request.productIds
+        request.searchText: tools.request.searchText
+        request.secondaryCategoryIds: tools.request.secondaryCategoryIds
+        request.sellOnline: tools.request.sellOnline
+        request.subCategoryIds: tools.request.subCategoryIds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-retail-products-available-purchase
+      description: Mindbody Update Retail Products Available for Purchase at a Site
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: public-api-v6-sale.updateProducts
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-retail-products-inventory-data
+      description: Mindbody Get Retail Products Inventory Data Available at a Site
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-sale.getProductsInventory
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.barcodeIds: tools.request.barcodeIds
+        request.limit: tools.request.limit
+        request.locationIds: tools.request.locationIds
+        request.offset: tools.request.offset
+        request.productIds: tools.request.productIds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fetches-status-initiate-purchase-contract
+      description: Mindbody Fetches the Status of an Initiate Purchase Contract Given AccessToken
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-sale.getPurchaseContractStatus
+      with:
+        version: tools.version
+        accessToken: tools.accessToken
+        siteId: tools.siteId
+        authorization: tools.authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-sales-completed-site
+      description: Mindbody Get Sales Completed at a Site
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-sale.getSales
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.endSaleDateTime: tools.request.endSaleDateTime
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+        request.paymentMethodId: tools.request.paymentMethodId
+        request.saleId: tools.request.saleId
+        request.startSaleDateTime: tools.request.startSaleDateTime
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-pricing-options-available-purchase
+      description: Mindbody Get Pricing Options Available for Purchase at a Site
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-sale.getServices
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.classId: tools.request.classId
+        request.classScheduleId: tools.request.classScheduleId
+        request.hideRelatedPrograms: tools.request.hideRelatedPrograms
+        request.includeDiscontinued: tools.request.includeDiscontinued
+        request.includeSaleInContractOnly: tools.request.includeSaleInContractOnly
+        request.limit: tools.request.limit
+        request.locationId: tools.request.locationId
+        request.offset: tools.request.offset
+        request.programIds: tools.request.programIds
+        request.sellOnline: tools.request.sellOnline
+        request.serviceIds: tools.request.serviceIds
+        request.sessionTypeIds: tools.request.sessionTypeIds
+        request.staffId: tools.request.staffId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-unit-price-online-price
+      description: Mindbody Update Unit Price and Online Price of Provided Services
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: public-api-v6-sale.updateServices
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-returns-list-transaction
+      description: Mindbody This Endpoint Returns a List of Transaction Details of Processed Sales
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-sale.getTransactions
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.clientId: tools.request.clientId
+        request.limit: tools.request.limit
+        request.locationId: tools.request.locationId
+        request.offset: tools.request.offset
+        request.saleId: tools.request.saleId
+        request.status: tools.request.status
+        request.transactionEndDateTime: tools.request.transactionEndDateTime
+        request.transactionId: tools.request.transactionId
+        request.transactionStartDateTime: tools.request.transactionStartDateTime
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-provides-wide-range
+      description: Mindbody This Endpoint Provides a Wide Range of Functionality. for Example, You
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-sale.checkoutShoppingCart
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-complements-initiatecheckoutshoppintcart-endpoint
+      description: Mindbody This Endpoint Complements the InitiateCheckoutShoppintCart Endpoint
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: public-api-v6-sale.completeCheckoutShoppingCartUsingAlternativePayments
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-provides-wide-range-2
+      description: Mindbody This Endpoint Provides a Wide Range of Functionality. for Example, You
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-sale.initiateCheckoutShoppingCartUsingAlternativePayments
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: allows-client-sign-up-contract
+      description: Mindbody Allows a Client to Sign Up for a Contract or Autopay Using the
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-sale.initiatePurchaseContractUsingAlternativePayments
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: allows-client-purchase-account-credit
+      description: Mindbody Allows a Client to Purchase Account Credit from a Business
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-sale.purchaseAccountCredit
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: allows-client-sign-up-contract-2
+      description: Mindbody Allows a Client to Sign Up for a Contract or Autopay Using the
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-sale.purchaseContract
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: allows-client-purchase-gift-card
+      description: Mindbody Allows a Client to Purchase a Gift Card from a Business in a Variety
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-sale.purchaseGiftCard
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: return-comped-sale-specified-sale
+      description: Mindbody Return a Comped Sale for a Specified Sale ID in Business Mode. the
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-sale.returnSale
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-updates-retail-price
+      description: Mindbody This Endpoint Updates the Retail Price and an Online Price for a
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-sale.updateProductPrice
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-updates-saledate-returns
+      description: Mindbody This Endpoint Updates the SaleDate and Returns the Details of the Sale
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: public-api-v6-sale.updateSaleDate
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

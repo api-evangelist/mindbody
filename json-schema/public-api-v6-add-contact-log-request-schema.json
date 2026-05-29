@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-add-contact-log-request-schema.json",
+  "title": "AddContactLogRequest",
+  "description": "Implementation of the 'AddContactLogRequest' model.",
+  "type": "object",
+  "properties": {
+    "ClientId": {
+      "type": "string",
+      "description": "The ID of the client whose contact log is being added.",
+      "example": "example-value"
+    },
+    "ContactMethod": {
+      "type": "string",
+      "description": "How the client wants to be contacted.",
+      "example": "example-value"
+    },
+    "AssignedToStaffId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the staff member to whom the contact log is assigned.",
+      "example": 123456
+    },
+    "Text": {
+      "type": "string",
+      "description": "The body of the contact log.",
+      "example": "example-value"
+    },
+    "FollowupByDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date by which the assigned staff member should complete this contact log.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "ContactName": {
+      "type": "string",
+      "description": "The name of the person to be contacted by the assigned staff member.",
+      "example": "example-value"
+    },
+    "IsComplete": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the contact log is complete. When `false`, indicates the contact log isn\u2019t complete.",
+      "example": true
+    },
+    "Comments": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Any comments on the contact log.",
+      "example": [
+        "Example note for Mindbody Public API."
+      ]
+    },
+    "Types": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AddContactLogType"
+      },
+      "description": "The contact log types used to tag this contact log.",
+      "example": [
+        {}
+      ]
+    },
+    "Test": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this is a test request and no data is inserted into the subscriber\u2019s database.<br /> When `false`, the database is updated.",
+      "example": true
+    }
+  }
+}

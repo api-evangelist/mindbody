@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-client-arrival-structure.json",
+  "name": "ClientArrival",
+  "description": "Implementation of the 'ClientArrival' model.",
+  "type": "object",
+  "properties": {
+    "ArrivalProgramID": {
+      "type": "int32",
+      "description": "Arrival program id",
+      "example": 1
+    },
+    "ArrivalProgramName": {
+      "type": "string",
+      "description": "Arrival program name",
+      "example": "example-value"
+    },
+    "CanAccess": {
+      "type": "boolean",
+      "description": "Property to check client can access arrival service.",
+      "example": true
+    },
+    "LocationsIDs": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "List of locations where arrival service can availed",
+      "example": [
+        1
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "SourceSiteId": 123456,
+  "SourceClientId": "example-value",
+  "SourceUniqueClientId": 123456,
+  "TargetSiteId": 123456,
+  "TargetClientId": "example-value",
+  "TargetUniqueClientId": 123456
+}

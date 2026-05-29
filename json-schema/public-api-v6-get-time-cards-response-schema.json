@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-time-cards-response-schema.json",
+  "title": "GetTimeCardsResponse",
+  "description": "Implementation of the 'GetTimeCardsResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "TimeCards": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TimeCardEvent"
+      },
+      "description": "Information about time card entries, ordered by staff ID.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

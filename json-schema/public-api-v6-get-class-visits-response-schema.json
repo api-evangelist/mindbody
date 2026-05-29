@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-class-visits-response-schema.json",
+  "title": "GetClassVisitsResponse",
+  "description": "Implementation of the 'GetClassVisitsResponse' model.",
+  "type": "object",
+  "properties": {
+    "Class": {
+      "$ref": "#/components/schemas/Class",
+      "description": "Contains class and booking information."
+    }
+  }
+}

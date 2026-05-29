@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-add-arrival-response-structure.json",
+  "name": "AddArrivalResponse",
+  "description": "Implementation of the 'AddArrivalResponse' model.",
+  "type": "object",
+  "properties": {
+    "ArrivalAdded": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the arrival was added to the database.",
+      "example": true
+    },
+    "ClientService": {
+      "$ref": "#/components/schemas/ClientService",
+      "description": "Contains information about the pricing option being used to pay for the client\u2019s current service session."
+    }
+  }
+}

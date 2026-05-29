@@ -1,0 +1,20 @@
+{
+  "Code": "example-value",
+  "Name": "Sunset Yoga Studio",
+  "Active": true,
+  "Discount": {
+    "Type": "example-value",
+    "Amount": 49.99
+  },
+  "ActivationDate": "2026-05-28T14:30:00Z",
+  "ExpirationDate": "2026-05-28T14:30:00Z",
+  "MaxUses": 1,
+  "DaysAfterCloseDate": 1,
+  "AllowOnline": true,
+  "DaysValid": [
+    "example-value"
+  ],
+  "ApplicableItems": [
+    {}
+  ]
+}

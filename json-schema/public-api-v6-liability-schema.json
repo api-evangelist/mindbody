@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-liability-schema.json",
+  "title": "Liability",
+  "description": "Implementation of the 'Liability' model.",
+  "type": "object",
+  "properties": {
+    "AgreementDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time at which the client agreed to the liability waiver for the business.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "IsReleased": {
+      "type": "boolean",
+      "description": "The client\u2019s liability release status.<br /> When `true`, indicates that the client has agreed to the liability release for the business.<br /> When `false`, indicates that the client has not agreed to the liability release for the business.",
+      "example": true
+    },
+    "ReleasedBy": {
+      "type": "integer",
+      "format": "int32",
+      "description": "An ID indicating who released liability for the client. If the client agreed to the liability waiver by signing into an account online, this value is `null`. If a staff member marked the waiver as signed on behalf of the client, it is the staff member\u2019s ID. `0` indicates that the business owner marked the liability waiver as signed on behalf of the client.",
+      "example": 1
+    }
+  }
+}

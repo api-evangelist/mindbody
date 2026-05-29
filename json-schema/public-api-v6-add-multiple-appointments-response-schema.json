@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-add-multiple-appointments-response-schema.json",
+  "title": "AddMultipleAppointmentsResponse",
+  "description": "Implementation of the 'AddMultipleAppointmentsResponse' model. Represents the response for adding multiple appointments.",
+  "type": "object",
+  "properties": {
+    "AddAppointmentOutcomes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AddAppointmentOutcome"
+      },
+      "description": "Contains information about the created appointments.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

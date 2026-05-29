@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-client-relationship-structure.json",
+  "name": "ClientRelationship",
+  "description": "Implementation of the 'ClientRelationship' model. A relation between two clients.",
+  "type": "object",
+  "properties": {
+    "RelatedClientId": {
+      "type": "string",
+      "description": "The RSSID of the related client.",
+      "example": "example-value"
+    },
+    "RelatedUniqueId": {
+      "type": "int32",
+      "description": "The UniqueId of the related client.",
+      "example": 123456
+    },
+    "Relationship": {
+      "$ref": "#/components/schemas/Relationship",
+      "description": "Contains details about the relationship between two clients."
+    },
+    "RelationshipName": {
+      "type": "string",
+      "description": "The name of the relationship of the related client.",
+      "example": "example-value"
+    },
+    "Delete": {
+      "type": "boolean",
+      "description": "When true, the associated relationship is removed from the client\u2019s list of relationships. This property is ignored in all other use cases. Default: *false*",
+      "example": true
+    }
+  }
+}

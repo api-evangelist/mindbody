@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-update-client-contract-autopays-request-structure.json",
+  "name": "UpdateClientContractAutopaysRequest",
+  "description": "Implementation of the 'UpdateClientContractAutopaysRequest' model.",
+  "type": "object",
+  "properties": {
+    "ClientContractId": {
+      "type": "int32",
+      "description": "Client Contract Id",
+      "example": 123456
+    },
+    "AutopayStartDate": {
+      "type": "datetime",
+      "description": "Autopay start date",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "AutopayEndDate": {
+      "type": "datetime",
+      "description": "(optional) - Indefinite if not provided",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "ProductId": {
+      "type": "int32",
+      "description": "Product Id to update (optional if contract has only one product)",
+      "example": 123456
+    },
+    "ReplaceWithProductId": {
+      "type": "int32",
+      "description": "(optional) - Replaces the product with this product",
+      "example": 123456
+    },
+    "Amount": {
+      "type": "double",
+      "description": "Overrides autopay amount or amount that would come from ProductId",
+      "example": 49.99
+    },
+    "OverwriteAllProductIDs": {
+      "type": "boolean",
+      "description": "(optional) - If true, will update autopays with any productID",
+      "example": true
+    }
+  }
+}

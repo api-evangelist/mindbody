@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/webhooks-api-metric-schema.json",
+  "title": "Metric",
+  "description": "Implementation of the 'Metric' model. Metrics for subscription",
+  "type": "object",
+  "properties": {
+    "creationDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The UTC date and time when the subscription was created.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "messagesAttempted": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The number of event notifications Mindbody attempted to deliver to the subscription `webhookUrl`, including retries.",
+      "example": 1
+    },
+    "messagesDelivered": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The number of event notifications Mindbody successfully delivered to the subscription `webhookUrl`.",
+      "example": 1
+    },
+    "messagesFailed": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The number of event notifications that Mindbody stopped trying to send after 3 hours.",
+      "example": 1
+    },
+    "messagesUndelivered": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The number of event notifications where MINDBODY received a failure response from the subscription `webhookUrl`.",
+      "example": 1
+    },
+    "status": {
+      "type": "string",
+      "description": "The subscription's current status. **Possible Values**:<br /> `PendingActivation` - The subscription is created but not receiving event notifications.To start receiving event notifications, set the subscription\u2019s status to Active using the PATCH Subscription endpoint.<br /> `Active` - The subscription is active and can receive event notifications.<br /> `DeactivatedByUser` - You deactivated the subscription.<br /> `DeactivatedByAdmin` - Mindbody deactivated your subscription.<br /> `DeactivatedT",
+      "example": "example-value"
+    },
+    "statusChangeDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The UTC date and time when the subscription `status` was last updated.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "subscriptionId": {
+      "type": "string",
+      "description": "The subscription's ID (a GUID).",
+      "example": "example-value"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-staff-permission-group-schema.json",
+  "title": "StaffPermissionGroup",
+  "description": "Implementation of the 'StaffPermissionGroup' model.",
+  "type": "object",
+  "properties": {
+    "PermissionGroupName": {
+      "type": "string",
+      "description": "The name of the permission group.",
+      "example": "example-value"
+    },
+    "IpRestricted": {
+      "type": "boolean",
+      "description": "When `true`, the staff member\u2019s permissions are restricted to specific IP addresses.<br /> When `false`, the staff member\u2019s permissions are not restricted to specific IP addresses.",
+      "example": true
+    },
+    "AllowedPermissions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AllowedPermissionEnum"
+      },
+      "description": "A list of the permissions allowed to the staff member. See [Permission Values](https://developers.mindbodyonline.com/PublicDocumentation/V 6#epermission-values) for descriptions of the possible permissions.",
+      "example": [
+        {}
+      ]
+    },
+    "DeniedPermissions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DeniedPermissionEnum"
+      },
+      "description": "A list of the permissions that the staff member is not allowed to exercise. See [Permission Values](https://developers.mindbodyonline.com/PublicDocumentation/V 6#epermission-values) for descriptions of the possible permissions.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

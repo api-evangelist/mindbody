@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-class-schedule-structure.json",
+  "name": "ClassSchedule",
+  "description": "Implementation of the 'ClassSchedule' model. Represents a single class instance. The class meets at the start time, goes until the end time.",
+  "type": "object",
+  "properties": {
+    "Classes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Class"
+      },
+      "description": "Contains information about a class.",
+      "example": [
+        {}
+      ]
+    },
+    "Clients": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Client"
+      },
+      "description": "Contains information about clients.",
+      "example": [
+        {}
+      ]
+    },
+    "Course": {
+      "$ref": "#/components/schemas/Course",
+      "description": "Contains information about the course that the enrollment is a part of."
+    },
+    "SemesterId": {
+      "type": "int32",
+      "description": "The semester ID for the enrollment (if any).",
+      "example": 123456
+    },
+    "IsAvailable": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the enrollment shows in consumer mode, has not started yet, and there is room in each class of the enrollment.<br /> When `false`, indicates that either the enrollment does not show in consumer mode, has already started, or there is no room in some classes of the enrollment.",
+      "example": true
+    },
+    "Id": {
+      "type": "int32",
+      "description": "The unique ID of the class schedule.",
+      "example": 123456
+    },
+    "ClassDescription": {
+      "$ref": "#/components/schemas/ClassDescription",
+      "description": "Contains information about the class."
+    },
+    "DaySunday": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this schedule occurs on Sundays.",
+      "example": true
+    },
+    "DayMonday": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this schedule occurs on Mondays.",
+      "example": true
+    },
+    "DayTuesday": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this schedule occurs on Tuesdays.",
+      "example": true
+    },
+    "DayWednesday": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this schedule occurs on Wednesdays.",
+      "example": true
+    },
+    "DayThursday": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this schedule occurs on Thursdays.",
+      "example": true
+    },
+    "DayFriday": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this schedule occurs on Fridays.",
+      "example": true
+    },
+    "DaySaturday": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this schedule occurs on Saturdays.",
+      "example": true
+    },
+    "AllowOpenEnrollment": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the enrollment allows booking after the enrollment has started.",
+      "example": true
+    },
+    "AllowDateForwardEnrollment": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this the enrollment shows in consumer mode, the enrollment has not started yet, and there is room in each class of the enrollment.",
+      "example": true
+    },
+    "StartTime": {
+      "type": "datetime",
+      "description": "The time this class schedule starts.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EndTime": {
+      "type": "datetime",
+      "description": "The time this class schedule ends.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "StartDate": {
+      "type": "datetime",
+      "description": "The date this class schedule starts.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EndDate": {
+      "type": "datetime",
+      "description": "The date this class schedule ends.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Staff": {
+      "$ref": "#/components/schemas/Staff",
+      "description": "Contains information about the staff member who is regularly scheduled to teach the class."
+    },
+    "Location": {
+      "$ref": "#/components/schemas/Location",
+      "description": "Contains information about the regularly scheduled location of this class."
+    },
+    "FrequencyType": {
+      "$ref": "#/components/schemas/FrequencyTypeEnum",
+      "description": "The class schedule recurrence type."
+    },
+    "FrequencyInterval": {
+      "type": "int32",
+      "description": "The interval between class schedule occurencies.",
+      "example": 1
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-add-client-to-class-response-structure.json",
+  "name": "AddClientToClassResponse",
+  "description": "Implementation of the 'AddClientToClassResponse' model.",
+  "type": "object",
+  "properties": {
+    "Visit": {
+      "$ref": "#/components/schemas/AddClientToClassVisit",
+      "description": "Contains information about the created visit."
+    }
+  }
+}

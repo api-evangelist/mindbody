@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-contract-item-schema.json",
+  "title": "ContractItem",
+  "description": "Implementation of the 'ContractItem' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string",
+      "description": "The ID of the item.",
+      "example": "example-value"
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the item.",
+      "example": "Sunset Yoga Studio"
+    },
+    "Description": {
+      "type": "string",
+      "description": "A description of the item.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "Type": {
+      "type": "string",
+      "description": "The type of the item.",
+      "example": "example-value"
+    },
+    "Price": {
+      "type": "number",
+      "format": "double",
+      "description": "The price of the item.",
+      "example": 49.99
+    },
+    "Quantity": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The quantity of the item.",
+      "example": 10
+    },
+    "OneTimeItem": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the item is charged only once.<br /> When `false`, indicates that the item is charged multiple times.",
+      "example": true
+    }
+  }
+}

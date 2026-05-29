@@ -1,0 +1,3482 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Mindbody Public API v6 \u2014 Client"
+  description: "Client \u2014 42 operations. Lead operation: Mindbody Please Note That Client Memberships with Location Restrictions Can. Self-contained Naftiko capability covering one Mindbody business\
+    \ surface."
+  tags:
+  - Mindbody
+  - Mindbody Public API v6
+  - Client
+  created: '2026-05-28'
+  modified: '2026-05-28'
+binds:
+- namespace: env
+  keys:
+    MINDBODY_API_KEY: MINDBODY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: public-api-v6-client
+    baseUri: https://api.mindbodyonline.com
+    description: "Mindbody Public API v6 \u2014 Client business capability. Self-contained, no shared references."
+    authentication:
+      type: apikey
+      key: API-Key
+      value: '{{env.MINDBODY_API_KEY}}'
+      placement: header
+    resources:
+    - name: client-activeclientmemberships
+      path: /client/activeclientmemberships
+      operations:
+      - name: getActiveClientMemberships
+        method: GET
+        description: Mindbody Please Note That Client Memberships with Location Restrictions Can
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: request.clientId
+          in: query
+          type: string
+          required: true
+          description: The ID of the client for whom memberships are returned.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.clientAssociatedSitesOffset
+          in: query
+          type: integer
+          required: false
+          description: "Used to retrieve a client\u2019s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched,\
+            \ change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use "
+        - name: request.crossRegionalLookup
+          in: query
+          type: boolean
+          required: false
+          description: "Used to retrieve a client\u2019s memberships from multiple sites within an organization. When included and set to `true`, it searches a maximum of ten sites with which this client\
+            \ is associated. When a client is associated with more than ten sites, use `ClientAssociatedSitesOffset` as many times as neede"
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.locationId
+          in: query
+          type: integer
+          required: false
+          description: Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when `CrossRegionalLookup` is `true`.
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.uniqueClientId
+          in: query
+          type: integer
+          required: false
+          description: The Unique ID of the client for whom memberships are returned. Note that UniqueClientId takes precedence over ClientId if both are provided.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-activeclientsmemberships
+      path: /client/activeclientsmemberships
+      operations:
+      - name: getActiveClientsMemberships
+        method: GET
+        description: Mindbody The Endpoint Returns a List of Memberships for Multiple Clients We
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: request.clientIds
+          in: query
+          type: array
+          required: true
+          description: 'The ID of the client for whom memberships are returned. Maximum allowed : 200.'
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.clientAssociatedSitesOffset
+          in: query
+          type: integer
+          required: false
+          description: "Used to retrieve a client\u2019s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched,\
+            \ change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use "
+        - name: request.crossRegionalLookup
+          in: query
+          type: boolean
+          required: false
+          description: "Used to retrieve a client\u2019s memberships from multiple sites within an organization. When included and set to `true`, it searches a maximum of ten sites with which this client\
+            \ is associated. When a client is associated with more than ten sites, use `ClientAssociatedSitesOffset` as many times as neede"
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.locationId
+          in: query
+          type: integer
+          required: false
+          description: Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when `CrossRegionalLookup` is `true`.
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-clientaccountbalances
+      path: /client/clientaccountbalances
+      operations:
+      - name: getClientAccountBalances
+        method: GET
+        description: Mindbody Get Account Balance Information for One or More Client(s)
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: request.clientIds
+          in: query
+          type: array
+          required: true
+          description: The list of clients IDs for which you want account balances.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.balanceDate
+          in: query
+          type: string
+          required: false
+          description: 'The date you want a balance relative to. Default: **the current date**'
+        - name: request.classId
+          in: query
+          type: integer
+          required: false
+          description: The class ID of the event for which you want a balance.
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-clientcompleteinfo
+      path: /client/clientcompleteinfo
+      operations:
+      - name: getClientCompleteInfo
+        method: GET
+        description: Mindbody This Endpoint Returns Complete Client Information Along with List of
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: request.clientId
+          in: query
+          type: string
+          required: true
+          description: Filters results to client with these ID.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: consumer-identity-token
+          in: header
+          type: string
+          required: false
+          description: A consumers authorization token to replace the need of clientId in the request.
+        - name: request.clientAssociatedSitesOffset
+          in: query
+          type: integer
+          required: false
+          description: "Used to retrieve a client\u2019s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are\
+            \ searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can "
+        - name: request.crossRegionalLookup
+          in: query
+          type: boolean
+          required: false
+          description: Used to retrieve a clients pricing options from multiple sites within an organization.When included and set to `true`, it searches a maximum of ten sites with which this client is
+            associated.When a client is associated with more than ten sites, use `ClientAssociatedSitesOffset` as many times as need
+        - name: request.endDate
+          in: query
+          type: string
+          required: false
+          description: "Filters results to pricing options that are purchased on or before this date. Default: **today\u2019s date**."
+        - name: request.excludeInactiveSites
+          in: query
+          type: boolean
+          required: false
+          description: 'When this flag is set to `true`, will exclude inactive sites from the response Default: **false**'
+        - name: request.requiredClientData
+          in: query
+          type: array
+          required: false
+          description: Used to retrieve list of purchased services, contract details, membership details and arrival programs for a specific client. Default `ClientServices`, `ClientContracts`, `ClientMemberships`
+            and `ClientArrivals` will be returned when `RequiredClientDatais` not set. When `RequiredClientData` is set t
+        - name: request.showActiveOnly
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, includes active services only. Set this field to `true` when trying to determine if a client has a service that can pay for a class or appointment. Default: **false**'
+        - name: request.startDate
+          in: query
+          type: string
+          required: false
+          description: "Filters results to pricing options that are purchased on or after this date. Default: **today\u2019s date**."
+        - name: request.uniqueClientId
+          in: query
+          type: integer
+          required: false
+          description: The unique ID of the client who is viewing this class list.
+        - name: request.useActivateDate
+          in: query
+          type: boolean
+          required: false
+          description: 'When this flag is set to `true`, the date filtering will use activate date to filter the pricing options. When this flag is set to `false`, the date filtering will use purchase date
+            to filter the pricing options. Default: **false**'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-clientcontracts
+      path: /client/clientcontracts
+      operations:
+      - name: getClientContracts
+        method: GET
+        description: Mindbody Get Contracts That a Client Has Purchased
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: request.clientId
+          in: query
+          type: string
+          required: true
+          description: The ID of the client (RssId).
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.clientAssociatedSitesOffset
+          in: query
+          type: integer
+          required: false
+          description: "Determines how many sites are skipped over when retrieving a client\u2019s cross regional contracts. Used when a client ID is linked to more than ten sites in an organization. Only\
+            \ a maximum of ten site databases are queried when this call is made and `CrossRegionalLookup` is set to `true`. To change whi"
+        - name: request.crossRegionalLookup
+          in: query
+          type: boolean
+          required: false
+          description: "When `true`, indicates that the requesting client\u2019s cross regional contracts are returned, if any.<br /> When `false`, indicates that cross regional contracts are not returned."
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.uniqueClientId
+          in: query
+          type: integer
+          required: false
+          description: The unique ID of the requested client.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-clientdirectdebitinfo
+      path: /client/clientdirectdebitinfo
+      operations:
+      - name: getDirectDebitInfo
+        method: GET
+        description: Mindbody This Endpoint Returns Direct Debit Info Stored on a Client's Account
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: clientId
+          in: query
+          type: string
+          required: false
+          description: The ID of the client.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteDirectDebitInfo
+        method: DELETE
+        description: "Mindbody This Endpoint Deletes Direct Debit Info from a Client\u2019s Account. This"
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: clientId
+          in: query
+          type: string
+          required: false
+          description: The ID of the client.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-clientduplicates
+      path: /client/clientduplicates
+      operations:
+      - name: getClientDuplicates
+        method: GET
+        description: Mindbody This Endpoint Gets Client Records That Would Be Considered Duplicates
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.email
+          in: query
+          type: string
+          required: false
+          description: The client email to match on when searching for duplicates.
+        - name: request.firstName
+          in: query
+          type: string
+          required: false
+          description: The client first name to match on when searching for duplicates.
+        - name: request.lastName
+          in: query
+          type: string
+          required: false
+          description: The client last name to match on when searching for duplicates.
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-clientformulanotes
+      path: /client/clientformulanotes
+      operations:
+      - name: getClientFormulaNotes
+        method: GET
+        description: 'Mindbody ***QueryParams***: Enables to Retrieve Cross Regional Formula Notes'
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.appointmentId
+          in: query
+          type: integer
+          required: false
+          description: The appointment ID of an appointment in the studio specified in the header of the request.
+        - name: request.clientId
+          in: query
+          type: string
+          required: false
+          description: The client ID of the client whose formula notes are being requested.
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-clientindexes
+      path: /client/clientindexes
+      operations:
+      - name: getClientIndexes
+        method: GET
+        description: Mindbody Client Indexes Are Used to Analyze Client Demographics. a Business
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.requiredOnly
+          in: query
+          type: boolean
+          required: false
+          description: When `true`, filters the results to only indexes that are required on creation.<br /> When `false` or omitted, returns all of the client indexes.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-clientpurchases
+      path: /client/clientpurchases
+      operations:
+      - name: getClientPurchases
+        method: GET
+        description: Mindbody Gets a List of Purchases Made by a Specific Client
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: request.clientId
+          in: query
+          type: string
+          required: true
+          description: The ID of the client you are querying for purchases.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.endDate
+          in: query
+          type: string
+          required: false
+          description: 'Filters results to purchases made before this timestamp.<br /> Default: **end of today**'
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.saleId
+          in: query
+          type: integer
+          required: false
+          description: Filters results to the single record associated with this ID.
+        - name: request.startDate
+          in: query
+          type: string
+          required: false
+          description: 'Filters results to purchases made on or after this timestamp.<br /> Default: **now**'
+        - name: request.uniqueClientId
+          in: query
+          type: integer
+          required: false
+          description: The unique ID of the requested client.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-clientreferraltypes
+      path: /client/clientreferraltypes
+      operations:
+      - name: getClientReferralTypes
+        method: GET
+        description: Mindbody Gets a List of Referral Types. Referral Types Are Options That New
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.includeInactive
+          in: query
+          type: boolean
+          required: false
+          description: When `true`, filters the results to include subtypes and inactive referral types.<br /> When `false`, includes no subtypes and only active types. Default:**false**
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-clientrewards
+      path: /client/clientrewards
+      operations:
+      - name: getClientRewards
+        method: GET
+        description: Mindbody Gets the Client Rewards
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: request.clientId
+          in: query
+          type: string
+          required: true
+          description: The ID of the client.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.endDate
+          in: query
+          type: string
+          required: false
+          description: 'The end date of transaction. Default: **StartDate**'
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.startDate
+          in: query
+          type: string
+          required: false
+          description: 'The start date of transaction. Default: **today**'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateClientRewards
+        method: POST
+        description: Mindbody Earns or Redeems Rewards Points for a Given Client, Based on Site
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-clients
+      path: /client/clients
+      operations:
+      - name: getClients
+        method: GET
+        description: Mindbody This Endpoint Requires Staff User Credentials. This Endpoint Supports
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.clientIDs
+          in: query
+          type: array
+          required: false
+          description: "The requested client IDs. Default: **all IDs** that the authenticated user\u2019s access level allows.<br /> Note: You can fetch information for maximum 20 clients at once."
+        - name: request.includeInactive
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, indicates the results to include active and inactive clients.<br /> When `false`, indicates that only those clients who are marked as active should be returned. Default:
+            **false**'
+        - name: request.isProspect
+          in: query
+          type: boolean
+          required: false
+          description: When `true`, filters the results to include only those clients marked as prospects for the business.<br /> When `false`, indicates that only those clients who are not marked prospects
+            should be returned.
+        - name: request.lastModifiedDate
+          in: query
+          type: string
+          required: false
+          description: Filters the results to include only the clients that have been modified on or after this date.
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.searchText
+          in: query
+          type: string
+          required: false
+          description: Text to use in the search. Can include FirstName, LastName, and Email. Note that user credentials must be provided.
+        - name: request.uniqueIds
+          in: query
+          type: array
+          required: false
+          description: "Filters results to clients with these `UniqueIDs`. This parameter cannot be used with `ClientIDs` or `SearchText`. Default: **all UniqueIDs** that the authenticated user\u2019s access\
+            \ level allows."
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-clientschedule
+      path: /client/clientschedule
+      operations:
+      - name: getClientSchedule
+        method: GET
+        description: Mindbody This Endpoint Can Be Utilized to Retrieve Scheduled Visits Which is
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.clientAssociatedSitesOffset
+          in: query
+          type: integer
+          required: false
+          description: The number of sites to skip when returning the site associated with a client.
+        - name: request.clientId
+          in: query
+          type: string
+          required: false
+          description: The ID of the requested client.
+        - name: request.crossRegionalLookup
+          in: query
+          type: boolean
+          required: false
+          description: When `true`, indicates that past and scheduled client visits across all sites in the region are returned. When `false`, indicates that only visits at the current site are returned.
+        - name: request.endDate
+          in: query
+          type: string
+          required: false
+          description: "The date past which class visits are not returned. Default is today\u2019s date"
+        - name: request.includeWaitlistEntries
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, waitlist entries are included in the response. When `false`, waitlist entries are removed from the response. Default: **false**'
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.startDate
+          in: query
+          type: string
+          required: false
+          description: The date before which class visits are not returned. Default is the end date
+        - name: request.uniqueClientId
+          in: query
+          type: integer
+          required: false
+          description: 'The unique ID of the requested client. Note: you need to provide the ''UniqueClientId'' OR the ''ClientId''. If both are provided, the ''UniqueClientId'' takes precedence.'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-clientservices
+      path: /client/clientservices
+      operations:
+      - name: getClientServices
+        method: GET
+        description: Mindbody Get Pricing Options That a Client Has Purchased
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.classId
+          in: query
+          type: integer
+          required: false
+          description: Filters results to only those pricing options that can be used to pay for this class.
+        - name: request.classScheduleID
+          in: query
+          type: array
+          required: false
+          description: Filters results to pricing options which are associated with one of the ClassScheduleIDs
+        - name: request.clientAssociatedSitesOffset
+          in: query
+          type: integer
+          required: false
+          description: "Used to retrieve a client\u2019s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are\
+            \ searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can "
+        - name: request.clientId
+          in: query
+          type: string
+          required: false
+          description: "The ID of the client to query. The results are a list of pricing options that the client has purchased. Note that \u201Cservice\u201D and \u201Cpricing option\u201D are synonymous\
+            \ in this section of the documentation."
+        - name: request.clientIds
+          in: query
+          type: array
+          required: false
+          description: The IDs of the clients to query. The results are a list of pricing options that the clients have purchased. ClientId parameter takes priority over ClientIds due to backward compatibility.
+            So if you want to use ClientIds, then ClientId needs to be empty. Either of ClientId or ClientIds need to be spe
+        - name: request.crossRegionalLookup
+          in: query
+          type: boolean
+          required: false
+          description: "Used to retrieve a client\u2019s pricing options from multiple sites within an organization. When included and set to `true`, it searches a maximum of ten sites with which this client\
+            \ is associated. When a client is associated with more than ten sites, use `ClientAssociatedSitesOffset` as many times as n"
+        - name: request.endDate
+          in: query
+          type: string
+          required: false
+          description: "Filters results to pricing options that are purchased on or before this date. Default: **today\u2019s date**"
+        - name: request.excludeInactiveSites
+          in: query
+          type: boolean
+          required: false
+          description: 'When this flag is set to `true`, will exclude inactive sites from the response. Default: **false**'
+        - name: request.ignoreCrossRegionalSiteLimit
+          in: query
+          type: boolean
+          required: false
+          description: "Used to specify if the number of cross regional sites used to search for client\u2019s pricing options should be ignored. Default: **false**"
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.locationIds
+          in: query
+          type: array
+          required: false
+          description: Filters results to pricing options that can be used at the listed location IDs.
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.programIds
+          in: query
+          type: array
+          required: false
+          description: Filters results to pricing options that belong to one of the given program IDs.
+        - name: request.sessionTypeId
+          in: query
+          type: integer
+          required: false
+          description: Filters results to pricing options that will pay for the given session type ID. Use this to find pricing options that will pay for a specific appointment type.
+        - name: request.showActiveOnly
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, includes active services only. Default: **false**'
+        - name: request.startDate
+          in: query
+          type: string
+          required: false
+          description: "Filters results to pricing options that are purchased on or after this date. Default: **today\u2019s date**"
+        - name: request.uniqueClientId
+          in: query
+          type: integer
+          required: false
+          description: The unique ID of the client to query. Note that UniqueClientId takes precedence over ClientId.
+        - name: request.uniqueClientIds
+          in: query
+          type: array
+          required: false
+          description: The Unique IDs of the clients to query. Note that UniqueClientIds collection takes precedence over ClientIds collection.
+        - name: request.useActivateDate
+          in: query
+          type: boolean
+          required: false
+          description: 'When this flag is set to `true`, the date filtering will use activate date to filter the pricing options. When this flag is set to `false`, the date filtering will use purchase date
+            to filter the pricing options. Default: **false**'
+        - name: request.visitCount
+          in: query
+          type: integer
+          required: false
+          description: A filter on the minimum number of visits a service can pay for.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-clientvisits
+      path: /client/clientvisits
+      operations:
+      - name: getClientVisits
+        method: GET
+        description: Mindbody Gets the Client Visits for a Specific Client
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.clientAssociatedSitesOffset
+          in: query
+          type: integer
+          required: false
+          description: The number of sites to skip when returning the site associated with a client.
+        - name: request.clientId
+          in: query
+          type: string
+          required: false
+          description: The ID of the requested client.
+        - name: request.crossRegionalLookup
+          in: query
+          type: boolean
+          required: false
+          description: When `true`, indicates that past and scheduled client visits across all sites in the region are returned.<br /> When `false`, indicates that only visits at the current site are returned.
+        - name: request.endDate
+          in: query
+          type: string
+          required: false
+          description: 'The date past which class visits are not returned. Default: **today''s date**'
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.order
+          in: query
+          type: string
+          required: false
+          description: The sort order for the results.<br /> When `desc`, results are returned in descending order (newest first).<br /> When `asc`, results are returned in ascending order (oldest first).
+        - name: request.startDate
+          in: query
+          type: string
+          required: false
+          description: 'The date before which class visits are not returned. Default: **the end date**'
+        - name: request.uniqueClientId
+          in: query
+          type: integer
+          required: false
+          description: 'The unique ID of the requested client. Note: you need to provide the ''UniqueClientId'' OR the ''ClientId''. If both are provided, the ''UniqueClientId'' takes precedence.'
+        - name: request.unpaidsOnly
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, indicates that only visits that have not been paid for are returned.<br /> When `false`, indicates that all visits are returned, regardless of whether they have been
+            paid for.<br /> Default: **false**'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-contactlogs
+      path: /client/contactlogs
+      operations:
+      - name: getContactLogs
+        method: GET
+        description: Mindbody This Endpoint Contains a Variety of Filters That Can Return Not Just
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: request.clientId
+          in: query
+          type: string
+          required: true
+          description: The ID of the client whose contact logs are being requested.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.endDate
+          in: query
+          type: string
+          required: false
+          description: 'Filters the results to contact logs created before this date.<br /> Default: **the start date**'
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.showSystemGenerated
+          in: query
+          type: boolean
+          required: false
+          description: 'When `true`, system-generated contact logs are returned in the results.<br /> Default: **false**'
+        - name: request.staffIds
+          in: query
+          type: array
+          required: false
+          description: Filters the results to return contact logs assigned to one or more staff IDs.
+        - name: request.startDate
+          in: query
+          type: string
+          required: false
+          description: 'Filters the results to contact logs created on or after this date.<br /> Default: **the current date**'
+        - name: request.subtypeIds
+          in: query
+          type: array
+          required: false
+          description: Filters the results to contact logs assigned one or more of these subtype IDs.
+        - name: request.typeIds
+          in: query
+          type: array
+          required: false
+          description: Filters the results to contact logs assigned one or more of these type IDs.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-contactlogtypes
+      path: /client/contactlogtypes
+      operations:
+      - name: getContactLogTypes
+        method: GET
+        description: Mindbody This Endpoint Contains a Variety of Filters That Can Return Not Just
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.contactLogTypeId
+          in: query
+          type: integer
+          required: false
+          description: "The requested ContactLogType ID. Default: **all** IDs that the authenticated user\u2019s access level allows."
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-crossregionalclientassociations
+      path: /client/crossregionalclientassociations
+      operations:
+      - name: getCrossRegionalClientAssociations
+        method: GET
+        description: Mindbody Returns a List of Sites That a Particular Client ID (also Referred to
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.clientId
+          in: query
+          type: string
+          required: false
+          description: "Looks up the cross regional associations by the client\u2019s ID."
+        - name: request.email
+          in: query
+          type: string
+          required: false
+          description: "Looks up the cross regional associations by the client\u2019s email address."
+        - name: request.excludeInactiveSites
+          in: query
+          type: boolean
+          required: false
+          description: Used to exclude inactive and deleted sites from the results. When this flag is set to `true`, client profiles associated with inactive and deleted sites are not getting returned.
+            When this flag is set to `false`,client profiles associated with inactive and deleted sites are getting returned. Default
+        - name: request.firstName
+          in: query
+          type: string
+          required: false
+          description: First name (used for email queries)
+        - name: request.lastName
+          in: query
+          type: string
+          required: false
+          description: Last name (used for email queries)
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        - name: request.uniqueClientId
+          in: query
+          type: integer
+          required: false
+          description: "Looks up the cross regional associations by the unique client\u2019s ID. Note: you need to provide the 'UniqueClientId' OR the 'ClientId' OR the 'Email'. 'UniqueClientId' takes precedence\
+            \ when provided. If not, but both 'ClientId' and 'Email' are provided, 'ClientId' is used by default."
+        - name: request.v2
+          in: query
+          type: boolean
+          required: false
+          description: Use newer method
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-customclientfields
+      path: /client/customclientfields
+      operations:
+      - name: getCustomClientFields
+        method: GET
+        description: Mindbody Get a Site's Configured Custom Client Fields
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-requiredclientfields
+      path: /client/requiredclientfields
+      operations:
+      - name: getRequiredClientFields
+        method: GET
+        description: Mindbody Gets the List of Fields That a New Client Has to Fill Out in Business
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-addarrival
+      path: /client/addarrival
+      operations:
+      - name: addArrival
+        method: POST
+        description: Mindbody Marks a Client as Arrived for a Specified Location. a Staff User Token
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-addclient
+      path: /client/addclient
+      operations:
+      - name: addClient
+        method: POST
+        description: Mindbody Starting the Week of May 11th, 2020 All Versions of the Public API
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-addclientdirectdebitinfo
+      path: /client/addclientdirectdebitinfo
+      operations:
+      - name: addClientDirectDebitInfo
+        method: POST
+        description: "Mindbody This Endpoint Adds Direct Debit Info to a Client\u2019s Account. This"
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-addclientformulanote
+      path: /client/addclientformulanote
+      operations:
+      - name: addFormulaNote
+        method: POST
+        description: Mindbody This Endpoint Adds a Formula Note for a Specified Client or Specified
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-addcontactlog
+      path: /client/addcontactlog
+      operations:
+      - name: addContactLog
+        method: POST
+        description: Mindbody Add a Contact Log to a Client's Account
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-mergeclients
+      path: /client/mergeclients
+      operations:
+      - name: mergeClient
+        method: POST
+        description: Mindbody This Endpoint Helps to Merge Clients
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-sendautoemail
+      path: /client/sendautoemail
+      operations:
+      - name: sendAutoEmail
+        method: POST
+        description: Mindbody This Endpoint Requires Staff User Credentials
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-sendpasswordresetemail
+      path: /client/sendpasswordresetemail
+      operations:
+      - name: sendPasswordResetEmail
+        method: POST
+        description: Mindbody Send a Password Reset Email to a Client
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-suspendcontract
+      path: /client/suspendcontract
+      operations:
+      - name: suspendContract
+        method: POST
+        description: Mindbody Suspend Client Contract
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-terminatecontract
+      path: /client/terminatecontract
+      operations:
+      - name: terminateContract
+        method: POST
+        description: Mindbody This Endpoint Terminates a Client Contract. This Endpoint Requires
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-updateclient
+      path: /client/updateclient
+      operations:
+      - name: updateClient
+        method: POST
+        description: Mindbody Starting the Week of May 11th, 2020 All Versions of the Public API
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-updateclientcontractautopays
+      path: /client/updateclientcontractautopays
+      operations:
+      - name: updateClientContractAutopays
+        method: POST
+        description: Mindbody This Endpoint Can Be Used to Update the Amount And/or the Item of a
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-updateclientservice
+      path: /client/updateclientservice
+      operations:
+      - name: updateClientService
+        method: POST
+        description: Mindbody Updates the Active Date And/or Expiration Date of a Client Pricing
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-updateclientvisit
+      path: /client/updateclientvisit
+      operations:
+      - name: updateClientVisit
+        method: POST
+        description: Mindbody Updates the Status of the Specified Visit
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-updatecontactlog
+      path: /client/updatecontactlog
+      operations:
+      - name: updateContactLog
+        method: POST
+        description: Mindbody Update a Contact Log on a Client's Account
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-uploadclientdocument
+      path: /client/uploadclientdocument
+      operations:
+      - name: uploadClientDocument
+        method: POST
+        description: Mindbody Uploads a Document File for a Specific Client. Returns a String
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-uploadclientphoto
+      path: /client/uploadclientphoto
+      operations:
+      - name: uploadClientPhoto
+        method: POST
+        description: "Mindbody Uploads a Client\u2019s Profile Photo. the Maximum File Size is 4 MB and"
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-clientformulanote
+      path: /client/clientformulanote
+      operations:
+      - name: deleteClientFormulaNote
+        method: DELETE
+        description: Mindbody This Endpoint Deletes an Existing Formula Note. a Staff User Token
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: request.clientId
+          in: query
+          type: string
+          required: true
+          description: The client ID of the client whose formula note needs to be deleted.
+        - name: request.formulaNoteId
+          in: query
+          type: integer
+          required: true
+          description: The formula note ID for the note to be deleted.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to include, defaults to 100
+        - name: request.offset
+          in: query
+          type: integer
+          required: false
+          description: Page offset, defaults to 0.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: client-deletecontactlog
+      path: /client/deletecontactlog
+      operations:
+      - name: deleteContactLog
+        method: DELETE
+        description: Mindbody This Endpoint Deletes Contactlog of Client. This Endpoint Requires
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: request.clientId
+          in: query
+          type: string
+          required: true
+          description: The client ID of the client whose Contact Log is being deleted.
+        - name: request.contactLogId
+          in: query
+          type: integer
+          required: true
+          description: The Contact Log ID.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: request.test
+          in: query
+          type: boolean
+          required: false
+          description: "When `true`, indicates that this is a test request and no data is inserted into the subscriber\u2019s database. When `false`, the database is updated."
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: public-api-v6-client-rest
+    port: 8080
+    description: "REST adapter for Mindbody Public API v6 \u2014 Client. One Spectral-compliant resource per consumed operation, prefixed with /v1."
+    resources:
+    - path: /v1/client/activeclientmemberships
+      name: v1-client-activeclientmemberships
+      description: REST surface for /v1/client/activeclientmemberships.
+      operations:
+      - method: GET
+        name: getActiveClientMemberships
+        description: Mindbody Please Note That Client Memberships with Location Restrictions Can
+        call: public-api-v6-client.getActiveClientMemberships
+        with:
+          version: rest.version
+          request.clientId: rest.request.clientId
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.clientAssociatedSitesOffset: rest.request.clientAssociatedSitesOffset
+          request.crossRegionalLookup: rest.request.crossRegionalLookup
+          request.limit: rest.request.limit
+          request.locationId: rest.request.locationId
+          request.offset: rest.request.offset
+          request.uniqueClientId: rest.request.uniqueClientId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/activeclientsmemberships
+      name: v1-client-activeclientsmemberships
+      description: REST surface for /v1/client/activeclientsmemberships.
+      operations:
+      - method: GET
+        name: getActiveClientsMemberships
+        description: Mindbody The Endpoint Returns a List of Memberships for Multiple Clients We
+        call: public-api-v6-client.getActiveClientsMemberships
+        with:
+          version: rest.version
+          request.clientIds: rest.request.clientIds
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.clientAssociatedSitesOffset: rest.request.clientAssociatedSitesOffset
+          request.crossRegionalLookup: rest.request.crossRegionalLookup
+          request.limit: rest.request.limit
+          request.locationId: rest.request.locationId
+          request.offset: rest.request.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/clientaccountbalances
+      name: v1-client-clientaccountbalances
+      description: REST surface for /v1/client/clientaccountbalances.
+      operations:
+      - method: GET
+        name: getClientAccountBalances
+        description: Mindbody Get Account Balance Information for One or More Client(s)
+        call: public-api-v6-client.getClientAccountBalances
+        with:
+          version: rest.version
+          request.clientIds: rest.request.clientIds
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.balanceDate: rest.request.balanceDate
+          request.classId: rest.request.classId
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/clientcompleteinfo
+      name: v1-client-clientcompleteinfo
+      description: REST surface for /v1/client/clientcompleteinfo.
+      operations:
+      - method: GET
+        name: getClientCompleteInfo
+        description: Mindbody This Endpoint Returns Complete Client Information Along with List of
+        call: public-api-v6-client.getClientCompleteInfo
+        with:
+          version: rest.version
+          request.clientId: rest.request.clientId
+          siteId: rest.siteId
+          authorization: rest.authorization
+          consumer-identity-token: rest.consumer-identity-token
+          request.clientAssociatedSitesOffset: rest.request.clientAssociatedSitesOffset
+          request.crossRegionalLookup: rest.request.crossRegionalLookup
+          request.endDate: rest.request.endDate
+          request.excludeInactiveSites: rest.request.excludeInactiveSites
+          request.requiredClientData: rest.request.requiredClientData
+          request.showActiveOnly: rest.request.showActiveOnly
+          request.startDate: rest.request.startDate
+          request.uniqueClientId: rest.request.uniqueClientId
+          request.useActivateDate: rest.request.useActivateDate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/clientcontracts
+      name: v1-client-clientcontracts
+      description: REST surface for /v1/client/clientcontracts.
+      operations:
+      - method: GET
+        name: getClientContracts
+        description: Mindbody Get Contracts That a Client Has Purchased
+        call: public-api-v6-client.getClientContracts
+        with:
+          version: rest.version
+          request.clientId: rest.request.clientId
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.clientAssociatedSitesOffset: rest.request.clientAssociatedSitesOffset
+          request.crossRegionalLookup: rest.request.crossRegionalLookup
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+          request.uniqueClientId: rest.request.uniqueClientId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/clientdirectdebitinfo
+      name: v1-client-clientdirectdebitinfo
+      description: REST surface for /v1/client/clientdirectdebitinfo.
+      operations:
+      - method: GET
+        name: getDirectDebitInfo
+        description: Mindbody This Endpoint Returns Direct Debit Info Stored on a Client's Account
+        call: public-api-v6-client.getDirectDebitInfo
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          clientId: rest.clientId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteDirectDebitInfo
+        description: "Mindbody This Endpoint Deletes Direct Debit Info from a Client\u2019s Account. This"
+        call: public-api-v6-client.deleteDirectDebitInfo
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          clientId: rest.clientId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/clientduplicates
+      name: v1-client-clientduplicates
+      description: REST surface for /v1/client/clientduplicates.
+      operations:
+      - method: GET
+        name: getClientDuplicates
+        description: Mindbody This Endpoint Gets Client Records That Would Be Considered Duplicates
+        call: public-api-v6-client.getClientDuplicates
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.email: rest.request.email
+          request.firstName: rest.request.firstName
+          request.lastName: rest.request.lastName
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/clientformulanotes
+      name: v1-client-clientformulanotes
+      description: REST surface for /v1/client/clientformulanotes.
+      operations:
+      - method: GET
+        name: getClientFormulaNotes
+        description: 'Mindbody ***QueryParams***: Enables to Retrieve Cross Regional Formula Notes'
+        call: public-api-v6-client.getClientFormulaNotes
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.appointmentId: rest.request.appointmentId
+          request.clientId: rest.request.clientId
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/clientindexes
+      name: v1-client-clientindexes
+      description: REST surface for /v1/client/clientindexes.
+      operations:
+      - method: GET
+        name: getClientIndexes
+        description: Mindbody Client Indexes Are Used to Analyze Client Demographics. a Business
+        call: public-api-v6-client.getClientIndexes
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.requiredOnly: rest.request.requiredOnly
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/clientpurchases
+      name: v1-client-clientpurchases
+      description: REST surface for /v1/client/clientpurchases.
+      operations:
+      - method: GET
+        name: getClientPurchases
+        description: Mindbody Gets a List of Purchases Made by a Specific Client
+        call: public-api-v6-client.getClientPurchases
+        with:
+          version: rest.version
+          request.clientId: rest.request.clientId
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.endDate: rest.request.endDate
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+          request.saleId: rest.request.saleId
+          request.startDate: rest.request.startDate
+          request.uniqueClientId: rest.request.uniqueClientId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/clientreferraltypes
+      name: v1-client-clientreferraltypes
+      description: REST surface for /v1/client/clientreferraltypes.
+      operations:
+      - method: GET
+        name: getClientReferralTypes
+        description: Mindbody Gets a List of Referral Types. Referral Types Are Options That New
+        call: public-api-v6-client.getClientReferralTypes
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.includeInactive: rest.request.includeInactive
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/clientrewards
+      name: v1-client-clientrewards
+      description: REST surface for /v1/client/clientrewards.
+      operations:
+      - method: GET
+        name: getClientRewards
+        description: Mindbody Gets the Client Rewards
+        call: public-api-v6-client.getClientRewards
+        with:
+          version: rest.version
+          request.clientId: rest.request.clientId
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.endDate: rest.request.endDate
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+          request.startDate: rest.request.startDate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: updateClientRewards
+        description: Mindbody Earns or Redeems Rewards Points for a Given Client, Based on Site
+        call: public-api-v6-client.updateClientRewards
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/clients
+      name: v1-client-clients
+      description: REST surface for /v1/client/clients.
+      operations:
+      - method: GET
+        name: getClients
+        description: Mindbody This Endpoint Requires Staff User Credentials. This Endpoint Supports
+        call: public-api-v6-client.getClients
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.clientIDs: rest.request.clientIDs
+          request.includeInactive: rest.request.includeInactive
+          request.isProspect: rest.request.isProspect
+          request.lastModifiedDate: rest.request.lastModifiedDate
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+          request.searchText: rest.request.searchText
+          request.uniqueIds: rest.request.uniqueIds
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/clientschedule
+      name: v1-client-clientschedule
+      description: REST surface for /v1/client/clientschedule.
+      operations:
+      - method: GET
+        name: getClientSchedule
+        description: Mindbody This Endpoint Can Be Utilized to Retrieve Scheduled Visits Which is
+        call: public-api-v6-client.getClientSchedule
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.clientAssociatedSitesOffset: rest.request.clientAssociatedSitesOffset
+          request.clientId: rest.request.clientId
+          request.crossRegionalLookup: rest.request.crossRegionalLookup
+          request.endDate: rest.request.endDate
+          request.includeWaitlistEntries: rest.request.includeWaitlistEntries
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+          request.startDate: rest.request.startDate
+          request.uniqueClientId: rest.request.uniqueClientId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/clientservices
+      name: v1-client-clientservices
+      description: REST surface for /v1/client/clientservices.
+      operations:
+      - method: GET
+        name: getClientServices
+        description: Mindbody Get Pricing Options That a Client Has Purchased
+        call: public-api-v6-client.getClientServices
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.classId: rest.request.classId
+          request.classScheduleID: rest.request.classScheduleID
+          request.clientAssociatedSitesOffset: rest.request.clientAssociatedSitesOffset
+          request.clientId: rest.request.clientId
+          request.clientIds: rest.request.clientIds
+          request.crossRegionalLookup: rest.request.crossRegionalLookup
+          request.endDate: rest.request.endDate
+          request.excludeInactiveSites: rest.request.excludeInactiveSites
+          request.ignoreCrossRegionalSiteLimit: rest.request.ignoreCrossRegionalSiteLimit
+          request.limit: rest.request.limit
+          request.locationIds: rest.request.locationIds
+          request.offset: rest.request.offset
+          request.programIds: rest.request.programIds
+          request.sessionTypeId: rest.request.sessionTypeId
+          request.showActiveOnly: rest.request.showActiveOnly
+          request.startDate: rest.request.startDate
+          request.uniqueClientId: rest.request.uniqueClientId
+          request.uniqueClientIds: rest.request.uniqueClientIds
+          request.useActivateDate: rest.request.useActivateDate
+          request.visitCount: rest.request.visitCount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/clientvisits
+      name: v1-client-clientvisits
+      description: REST surface for /v1/client/clientvisits.
+      operations:
+      - method: GET
+        name: getClientVisits
+        description: Mindbody Gets the Client Visits for a Specific Client
+        call: public-api-v6-client.getClientVisits
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.clientAssociatedSitesOffset: rest.request.clientAssociatedSitesOffset
+          request.clientId: rest.request.clientId
+          request.crossRegionalLookup: rest.request.crossRegionalLookup
+          request.endDate: rest.request.endDate
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+          request.order: rest.request.order
+          request.startDate: rest.request.startDate
+          request.uniqueClientId: rest.request.uniqueClientId
+          request.unpaidsOnly: rest.request.unpaidsOnly
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/contactlogs
+      name: v1-client-contactlogs
+      description: REST surface for /v1/client/contactlogs.
+      operations:
+      - method: GET
+        name: getContactLogs
+        description: Mindbody This Endpoint Contains a Variety of Filters That Can Return Not Just
+        call: public-api-v6-client.getContactLogs
+        with:
+          version: rest.version
+          request.clientId: rest.request.clientId
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.endDate: rest.request.endDate
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+          request.showSystemGenerated: rest.request.showSystemGenerated
+          request.staffIds: rest.request.staffIds
+          request.startDate: rest.request.startDate
+          request.subtypeIds: rest.request.subtypeIds
+          request.typeIds: rest.request.typeIds
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/contactlogtypes
+      name: v1-client-contactlogtypes
+      description: REST surface for /v1/client/contactlogtypes.
+      operations:
+      - method: GET
+        name: getContactLogTypes
+        description: Mindbody This Endpoint Contains a Variety of Filters That Can Return Not Just
+        call: public-api-v6-client.getContactLogTypes
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.contactLogTypeId: rest.request.contactLogTypeId
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/crossregionalclientassociations
+      name: v1-client-crossregionalclientassociations
+      description: REST surface for /v1/client/crossregionalclientassociations.
+      operations:
+      - method: GET
+        name: getCrossRegionalClientAssociations
+        description: Mindbody Returns a List of Sites That a Particular Client ID (also Referred to
+        call: public-api-v6-client.getCrossRegionalClientAssociations
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.clientId: rest.request.clientId
+          request.email: rest.request.email
+          request.excludeInactiveSites: rest.request.excludeInactiveSites
+          request.firstName: rest.request.firstName
+          request.lastName: rest.request.lastName
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+          request.uniqueClientId: rest.request.uniqueClientId
+          request.v2: rest.request.v2
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/customclientfields
+      name: v1-client-customclientfields
+      description: REST surface for /v1/client/customclientfields.
+      operations:
+      - method: GET
+        name: getCustomClientFields
+        description: Mindbody Get a Site's Configured Custom Client Fields
+        call: public-api-v6-client.getCustomClientFields
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/requiredclientfields
+      name: v1-client-requiredclientfields
+      description: REST surface for /v1/client/requiredclientfields.
+      operations:
+      - method: GET
+        name: getRequiredClientFields
+        description: Mindbody Gets the List of Fields That a New Client Has to Fill Out in Business
+        call: public-api-v6-client.getRequiredClientFields
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/addarrival
+      name: v1-client-addarrival
+      description: REST surface for /v1/client/addarrival.
+      operations:
+      - method: POST
+        name: addArrival
+        description: Mindbody Marks a Client as Arrived for a Specified Location. a Staff User Token
+        call: public-api-v6-client.addArrival
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/addclient
+      name: v1-client-addclient
+      description: REST surface for /v1/client/addclient.
+      operations:
+      - method: POST
+        name: addClient
+        description: Mindbody Starting the Week of May 11th, 2020 All Versions of the Public API
+        call: public-api-v6-client.addClient
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/addclientdirectdebitinfo
+      name: v1-client-addclientdirectdebitinfo
+      description: REST surface for /v1/client/addclientdirectdebitinfo.
+      operations:
+      - method: POST
+        name: addClientDirectDebitInfo
+        description: "Mindbody This Endpoint Adds Direct Debit Info to a Client\u2019s Account. This"
+        call: public-api-v6-client.addClientDirectDebitInfo
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/addclientformulanote
+      name: v1-client-addclientformulanote
+      description: REST surface for /v1/client/addclientformulanote.
+      operations:
+      - method: POST
+        name: addFormulaNote
+        description: Mindbody This Endpoint Adds a Formula Note for a Specified Client or Specified
+        call: public-api-v6-client.addFormulaNote
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/addcontactlog
+      name: v1-client-addcontactlog
+      description: REST surface for /v1/client/addcontactlog.
+      operations:
+      - method: POST
+        name: addContactLog
+        description: Mindbody Add a Contact Log to a Client's Account
+        call: public-api-v6-client.addContactLog
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/mergeclients
+      name: v1-client-mergeclients
+      description: REST surface for /v1/client/mergeclients.
+      operations:
+      - method: POST
+        name: mergeClient
+        description: Mindbody This Endpoint Helps to Merge Clients
+        call: public-api-v6-client.mergeClient
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/sendautoemail
+      name: v1-client-sendautoemail
+      description: REST surface for /v1/client/sendautoemail.
+      operations:
+      - method: POST
+        name: sendAutoEmail
+        description: Mindbody This Endpoint Requires Staff User Credentials
+        call: public-api-v6-client.sendAutoEmail
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/sendpasswordresetemail
+      name: v1-client-sendpasswordresetemail
+      description: REST surface for /v1/client/sendpasswordresetemail.
+      operations:
+      - method: POST
+        name: sendPasswordResetEmail
+        description: Mindbody Send a Password Reset Email to a Client
+        call: public-api-v6-client.sendPasswordResetEmail
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/suspendcontract
+      name: v1-client-suspendcontract
+      description: REST surface for /v1/client/suspendcontract.
+      operations:
+      - method: POST
+        name: suspendContract
+        description: Mindbody Suspend Client Contract
+        call: public-api-v6-client.suspendContract
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/terminatecontract
+      name: v1-client-terminatecontract
+      description: REST surface for /v1/client/terminatecontract.
+      operations:
+      - method: POST
+        name: terminateContract
+        description: Mindbody This Endpoint Terminates a Client Contract. This Endpoint Requires
+        call: public-api-v6-client.terminateContract
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/updateclient
+      name: v1-client-updateclient
+      description: REST surface for /v1/client/updateclient.
+      operations:
+      - method: POST
+        name: updateClient
+        description: Mindbody Starting the Week of May 11th, 2020 All Versions of the Public API
+        call: public-api-v6-client.updateClient
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/updateclientcontractautopays
+      name: v1-client-updateclientcontractautopays
+      description: REST surface for /v1/client/updateclientcontractautopays.
+      operations:
+      - method: POST
+        name: updateClientContractAutopays
+        description: Mindbody This Endpoint Can Be Used to Update the Amount And/or the Item of a
+        call: public-api-v6-client.updateClientContractAutopays
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/updateclientservice
+      name: v1-client-updateclientservice
+      description: REST surface for /v1/client/updateclientservice.
+      operations:
+      - method: POST
+        name: updateClientService
+        description: Mindbody Updates the Active Date And/or Expiration Date of a Client Pricing
+        call: public-api-v6-client.updateClientService
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/updateclientvisit
+      name: v1-client-updateclientvisit
+      description: REST surface for /v1/client/updateclientvisit.
+      operations:
+      - method: POST
+        name: updateClientVisit
+        description: Mindbody Updates the Status of the Specified Visit
+        call: public-api-v6-client.updateClientVisit
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/updatecontactlog
+      name: v1-client-updatecontactlog
+      description: REST surface for /v1/client/updatecontactlog.
+      operations:
+      - method: POST
+        name: updateContactLog
+        description: Mindbody Update a Contact Log on a Client's Account
+        call: public-api-v6-client.updateContactLog
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/uploadclientdocument
+      name: v1-client-uploadclientdocument
+      description: REST surface for /v1/client/uploadclientdocument.
+      operations:
+      - method: POST
+        name: uploadClientDocument
+        description: Mindbody Uploads a Document File for a Specific Client. Returns a String
+        call: public-api-v6-client.uploadClientDocument
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/uploadclientphoto
+      name: v1-client-uploadclientphoto
+      description: REST surface for /v1/client/uploadclientphoto.
+      operations:
+      - method: POST
+        name: uploadClientPhoto
+        description: "Mindbody Uploads a Client\u2019s Profile Photo. the Maximum File Size is 4 MB and"
+        call: public-api-v6-client.uploadClientPhoto
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/clientformulanote
+      name: v1-client-clientformulanote
+      description: REST surface for /v1/client/clientformulanote.
+      operations:
+      - method: DELETE
+        name: deleteClientFormulaNote
+        description: Mindbody This Endpoint Deletes an Existing Formula Note. a Staff User Token
+        call: public-api-v6-client.deleteClientFormulaNote
+        with:
+          version: rest.version
+          request.clientId: rest.request.clientId
+          request.formulaNoteId: rest.request.formulaNoteId
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.limit: rest.request.limit
+          request.offset: rest.request.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/client/deletecontactlog
+      name: v1-client-deletecontactlog
+      description: REST surface for /v1/client/deletecontactlog.
+      operations:
+      - method: DELETE
+        name: deleteContactLog
+        description: Mindbody This Endpoint Deletes Contactlog of Client. This Endpoint Requires
+        call: public-api-v6-client.deleteContactLog
+        with:
+          version: rest.version
+          request.clientId: rest.request.clientId
+          request.contactLogId: rest.request.contactLogId
+          siteId: rest.siteId
+          authorization: rest.authorization
+          request.test: rest.request.test
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: public-api-v6-client-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for Mindbody Public API v6 \u2014 Client. One tool per consumed operation, routed inline through this capability's consumes block."
+    tools:
+    - name: please-note-that-client-memberships
+      description: Mindbody Please Note That Client Memberships with Location Restrictions Can
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getActiveClientMemberships
+      with:
+        version: tools.version
+        request.clientId: tools.request.clientId
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.clientAssociatedSitesOffset: tools.request.clientAssociatedSitesOffset
+        request.crossRegionalLookup: tools.request.crossRegionalLookup
+        request.limit: tools.request.limit
+        request.locationId: tools.request.locationId
+        request.offset: tools.request.offset
+        request.uniqueClientId: tools.request.uniqueClientId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: endpoint-returns-list-memberships-multiple
+      description: Mindbody The Endpoint Returns a List of Memberships for Multiple Clients We
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getActiveClientsMemberships
+      with:
+        version: tools.version
+        request.clientIds: tools.request.clientIds
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.clientAssociatedSitesOffset: tools.request.clientAssociatedSitesOffset
+        request.crossRegionalLookup: tools.request.crossRegionalLookup
+        request.limit: tools.request.limit
+        request.locationId: tools.request.locationId
+        request.offset: tools.request.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-account-balance-information-one
+      description: Mindbody Get Account Balance Information for One or More Client(s)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getClientAccountBalances
+      with:
+        version: tools.version
+        request.clientIds: tools.request.clientIds
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.balanceDate: tools.request.balanceDate
+        request.classId: tools.request.classId
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-returns-complete-client
+      description: Mindbody This Endpoint Returns Complete Client Information Along with List of
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getClientCompleteInfo
+      with:
+        version: tools.version
+        request.clientId: tools.request.clientId
+        siteId: tools.siteId
+        authorization: tools.authorization
+        consumer-identity-token: tools.consumer-identity-token
+        request.clientAssociatedSitesOffset: tools.request.clientAssociatedSitesOffset
+        request.crossRegionalLookup: tools.request.crossRegionalLookup
+        request.endDate: tools.request.endDate
+        request.excludeInactiveSites: tools.request.excludeInactiveSites
+        request.requiredClientData: tools.request.requiredClientData
+        request.showActiveOnly: tools.request.showActiveOnly
+        request.startDate: tools.request.startDate
+        request.uniqueClientId: tools.request.uniqueClientId
+        request.useActivateDate: tools.request.useActivateDate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-contracts-that-client-has
+      description: Mindbody Get Contracts That a Client Has Purchased
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getClientContracts
+      with:
+        version: tools.version
+        request.clientId: tools.request.clientId
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.clientAssociatedSitesOffset: tools.request.clientAssociatedSitesOffset
+        request.crossRegionalLookup: tools.request.crossRegionalLookup
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+        request.uniqueClientId: tools.request.uniqueClientId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-returns-direct-debit
+      description: Mindbody This Endpoint Returns Direct Debit Info Stored on a Client's Account
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getDirectDebitInfo
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        clientId: tools.clientId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-deletes-direct-debit
+      description: "Mindbody This Endpoint Deletes Direct Debit Info from a Client\u2019s Account. This"
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: public-api-v6-client.deleteDirectDebitInfo
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        clientId: tools.clientId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-gets-client-records
+      description: Mindbody This Endpoint Gets Client Records That Would Be Considered Duplicates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getClientDuplicates
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.email: tools.request.email
+        request.firstName: tools.request.firstName
+        request.lastName: tools.request.lastName
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: '***queryparams***:-enables-retrieve-cross-regional'
+      description: 'Mindbody ***QueryParams***: Enables to Retrieve Cross Regional Formula Notes'
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getClientFormulaNotes
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.appointmentId: tools.request.appointmentId
+        request.clientId: tools.request.clientId
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-indexes-are-used-analyze
+      description: Mindbody Client Indexes Are Used to Analyze Client Demographics. a Business
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getClientIndexes
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.requiredOnly: tools.request.requiredOnly
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gets-list-purchases-made-specific
+      description: Mindbody Gets a List of Purchases Made by a Specific Client
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getClientPurchases
+      with:
+        version: tools.version
+        request.clientId: tools.request.clientId
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.endDate: tools.request.endDate
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+        request.saleId: tools.request.saleId
+        request.startDate: tools.request.startDate
+        request.uniqueClientId: tools.request.uniqueClientId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gets-list-referral-types.-referral
+      description: Mindbody Gets a List of Referral Types. Referral Types Are Options That New
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getClientReferralTypes
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.includeInactive: tools.request.includeInactive
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gets-client-rewards
+      description: Mindbody Gets the Client Rewards
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getClientRewards
+      with:
+        version: tools.version
+        request.clientId: tools.request.clientId
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.endDate: tools.request.endDate
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+        request.startDate: tools.request.startDate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: earns-redeems-rewards-points-given
+      description: Mindbody Earns or Redeems Rewards Points for a Given Client, Based on Site
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-client.updateClientRewards
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-requires-staff-user
+      description: Mindbody This Endpoint Requires Staff User Credentials. This Endpoint Supports
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getClients
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.clientIDs: tools.request.clientIDs
+        request.includeInactive: tools.request.includeInactive
+        request.isProspect: tools.request.isProspect
+        request.lastModifiedDate: tools.request.lastModifiedDate
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+        request.searchText: tools.request.searchText
+        request.uniqueIds: tools.request.uniqueIds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-can-be-utilized
+      description: Mindbody This Endpoint Can Be Utilized to Retrieve Scheduled Visits Which is
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getClientSchedule
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.clientAssociatedSitesOffset: tools.request.clientAssociatedSitesOffset
+        request.clientId: tools.request.clientId
+        request.crossRegionalLookup: tools.request.crossRegionalLookup
+        request.endDate: tools.request.endDate
+        request.includeWaitlistEntries: tools.request.includeWaitlistEntries
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+        request.startDate: tools.request.startDate
+        request.uniqueClientId: tools.request.uniqueClientId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-pricing-options-that-client
+      description: Mindbody Get Pricing Options That a Client Has Purchased
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getClientServices
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.classId: tools.request.classId
+        request.classScheduleID: tools.request.classScheduleID
+        request.clientAssociatedSitesOffset: tools.request.clientAssociatedSitesOffset
+        request.clientId: tools.request.clientId
+        request.clientIds: tools.request.clientIds
+        request.crossRegionalLookup: tools.request.crossRegionalLookup
+        request.endDate: tools.request.endDate
+        request.excludeInactiveSites: tools.request.excludeInactiveSites
+        request.ignoreCrossRegionalSiteLimit: tools.request.ignoreCrossRegionalSiteLimit
+        request.limit: tools.request.limit
+        request.locationIds: tools.request.locationIds
+        request.offset: tools.request.offset
+        request.programIds: tools.request.programIds
+        request.sessionTypeId: tools.request.sessionTypeId
+        request.showActiveOnly: tools.request.showActiveOnly
+        request.startDate: tools.request.startDate
+        request.uniqueClientId: tools.request.uniqueClientId
+        request.uniqueClientIds: tools.request.uniqueClientIds
+        request.useActivateDate: tools.request.useActivateDate
+        request.visitCount: tools.request.visitCount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gets-client-visits-specific-client
+      description: Mindbody Gets the Client Visits for a Specific Client
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getClientVisits
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.clientAssociatedSitesOffset: tools.request.clientAssociatedSitesOffset
+        request.clientId: tools.request.clientId
+        request.crossRegionalLookup: tools.request.crossRegionalLookup
+        request.endDate: tools.request.endDate
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+        request.order: tools.request.order
+        request.startDate: tools.request.startDate
+        request.uniqueClientId: tools.request.uniqueClientId
+        request.unpaidsOnly: tools.request.unpaidsOnly
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-contains-variety-filters
+      description: Mindbody This Endpoint Contains a Variety of Filters That Can Return Not Just
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getContactLogs
+      with:
+        version: tools.version
+        request.clientId: tools.request.clientId
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.endDate: tools.request.endDate
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+        request.showSystemGenerated: tools.request.showSystemGenerated
+        request.staffIds: tools.request.staffIds
+        request.startDate: tools.request.startDate
+        request.subtypeIds: tools.request.subtypeIds
+        request.typeIds: tools.request.typeIds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-contains-variety-filters-2
+      description: Mindbody This Endpoint Contains a Variety of Filters That Can Return Not Just
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getContactLogTypes
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.contactLogTypeId: tools.request.contactLogTypeId
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-list-sites-that-particular
+      description: Mindbody Returns a List of Sites That a Particular Client ID (also Referred to
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getCrossRegionalClientAssociations
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.clientId: tools.request.clientId
+        request.email: tools.request.email
+        request.excludeInactiveSites: tools.request.excludeInactiveSites
+        request.firstName: tools.request.firstName
+        request.lastName: tools.request.lastName
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+        request.uniqueClientId: tools.request.uniqueClientId
+        request.v2: tools.request.v2
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-site's-configured-custom-client
+      description: Mindbody Get a Site's Configured Custom Client Fields
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getCustomClientFields
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gets-list-fields-that-new
+      description: Mindbody Gets the List of Fields That a New Client Has to Fill Out in Business
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-api-v6-client.getRequiredClientFields
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: marks-client-arrived-specified-location.
+      description: Mindbody Marks a Client as Arrived for a Specified Location. a Staff User Token
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-client.addArrival
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: starting-week-may-11th,-2020
+      description: Mindbody Starting the Week of May 11th, 2020 All Versions of the Public API
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-client.addClient
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-adds-direct-debit
+      description: "Mindbody This Endpoint Adds Direct Debit Info to a Client\u2019s Account. This"
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-client.addClientDirectDebitInfo
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-adds-formula-note
+      description: Mindbody This Endpoint Adds a Formula Note for a Specified Client or Specified
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-client.addFormulaNote
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-contact-log-client's-account
+      description: Mindbody Add a Contact Log to a Client's Account
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-client.addContactLog
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-helps-merge-clients
+      description: Mindbody This Endpoint Helps to Merge Clients
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-client.mergeClient
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-requires-staff-user-2
+      description: Mindbody This Endpoint Requires Staff User Credentials
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-client.sendAutoEmail
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: send-password-reset-email-client
+      description: Mindbody Send a Password Reset Email to a Client
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-client.sendPasswordResetEmail
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: suspend-client-contract
+      description: Mindbody Suspend Client Contract
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-client.suspendContract
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-terminates-client-contract.
+      description: Mindbody This Endpoint Terminates a Client Contract. This Endpoint Requires
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-client.terminateContract
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: starting-week-may-11th,-2020-2
+      description: Mindbody Starting the Week of May 11th, 2020 All Versions of the Public API
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-client.updateClient
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-can-be-used
+      description: Mindbody This Endpoint Can Be Used to Update the Amount And/or the Item of a
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-client.updateClientContractAutopays
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updates-active-date-and/or-expiration
+      description: Mindbody Updates the Active Date And/or Expiration Date of a Client Pricing
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-client.updateClientService
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updates-status-specified-visit
+      description: Mindbody Updates the Status of the Specified Visit
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-client.updateClientVisit
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-contact-log-client's-account
+      description: Mindbody Update a Contact Log on a Client's Account
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-client.updateContactLog
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: uploads-document-file-specific-client.
+      description: Mindbody Uploads a Document File for a Specific Client. Returns a String
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-client.uploadClientDocument
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: "uploads-client\u2019s-profile-photo.-maximum"
+      description: "Mindbody Uploads a Client\u2019s Profile Photo. the Maximum File Size is 4 MB and"
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-client.uploadClientPhoto
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-deletes-existing-formula
+      description: Mindbody This Endpoint Deletes an Existing Formula Note. a Staff User Token
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: public-api-v6-client.deleteClientFormulaNote
+      with:
+        version: tools.version
+        request.clientId: tools.request.clientId
+        request.formulaNoteId: tools.request.formulaNoteId
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.limit: tools.request.limit
+        request.offset: tools.request.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: this-endpoint-deletes-contactlog-client.
+      description: Mindbody This Endpoint Deletes Contactlog of Client. This Endpoint Requires
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: public-api-v6-client.deleteContactLog
+      with:
+        version: tools.version
+        request.clientId: tools.request.clientId
+        request.contactLogId: tools.request.contactLogId
+        siteId: tools.siteId
+        authorization: tools.authorization
+        request.test: tools.request.test
+      outputParameters:
+      - type: object
+        mapping: $.

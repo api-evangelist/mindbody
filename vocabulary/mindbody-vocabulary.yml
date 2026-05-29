@@ -1,0 +1,420 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: Mindbody
+  description: >-
+    Unified vocabulary for the Mindbody developer surface. Captures both the
+    operational dimension (148 Public API v6 REST operations plus the
+    Webhooks API control plane) and the capability dimension (13 self-contained
+    Naftiko capabilities exposing REST and MCP adapters). The vocabulary maps
+    fitness-and-wellness business resources — sites, locations, classes,
+    appointments, clients, staff, sales, and payroll — to the operations and
+    workflows that act on them.
+  created: "2026-05-28"
+  modified: "2026-05-28"
+
+# OPERATIONAL DIMENSION (from OpenAPI)
+operational:
+  apis:
+    - name: Mindbody Public API v6
+      namespace: public-api-v6
+      version: "6.0"
+      baseUrl: https://api.mindbodyonline.com
+      status: active
+    - name: Mindbody Webhooks API
+      namespace: webhooks-api
+      version: "1.0"
+      baseUrl: https://push-api.mindbodyonline.com
+      status: active
+
+  resources:
+    - name: Appointment
+      api: public-api-v6
+      actions: [list, get, add, update, delete]
+      description: One-on-one staff appointments — bookings, availability, add-ons, schedule items.
+    - name: Class
+      api: public-api-v6
+      actions: [list, get, add, update, remove, cancel]
+      description: Group classes — schedules, descriptions, visits, bookings, waitlists, substitutes.
+    - name: Client
+      api: public-api-v6
+      actions: [list, get, add, update, search, send, validate, return, upsert]
+      description: Member/client records — profiles, contracts, services, contact logs, formula notes, payments.
+    - name: Cross Site
+      api: public-api-v6
+      actions: [get]
+      description: Discover the sites a client account is associated with across Mindbody's network.
+    - name: Enrollment
+      api: public-api-v6
+      actions: [list, get, add, update]
+      description: Course/workshop enrollments — schedules, rosters, client placements.
+    - name: Payroll
+      api: public-api-v6
+      actions: [list, get]
+      description: Staff payroll detail — class pay, time clock, commissions.
+    - name: Pick A Spot
+      api: public-api-v6
+      actions: [list, get, add, update, remove]
+      description: Class spot/seat assignment for reservation flows.
+    - name: Sale
+      api: public-api-v6
+      actions: [list, get, add, update, checkout, return, void, validate]
+      description: Point-of-sale — products, services, contracts, gift cards, custom payments, returns.
+    - name: Site
+      api: public-api-v6
+      actions: [list, get, update]
+      description: Studio/business metadata — locations, programs, session types, resources, sites, products.
+    - name: Staff
+      api: public-api-v6
+      actions: [list, get, add, update, delete]
+      description: Staff/instructor records — schedules, availability, permissions, photos.
+    - name: User Token
+      api: public-api-v6
+      actions: [issue, validate, remove]
+      description: Staff and client OAuth bearer tokens for delegated calls.
+    - name: Subscription
+      api: webhooks-api
+      actions: [list, get, add, update, delete]
+      description: Webhook event subscription lifecycle — register, activate, deactivate, rotate.
+    - name: Metric
+      api: webhooks-api
+      actions: [get]
+      description: Delivery telemetry — attempted, delivered, undelivered, failed messages per subscription.
+
+  actions:
+    - name: list
+      pattern: read
+      httpMethods: [GET]
+      description: Return a paginated collection of resources filtered by request parameters.
+    - name: get
+      pattern: read
+      httpMethods: [GET]
+      description: Retrieve a single resource or detail view.
+    - name: add
+      pattern: write
+      httpMethods: [POST]
+      description: Create a new resource. Mindbody often uses POST /addXxx style verbs in path.
+    - name: update
+      pattern: write
+      httpMethods: [POST, PUT, PATCH]
+      description: Mutate an existing resource. Public API v6 prefers POST /updateXxx; Webhooks API uses PATCH.
+    - name: delete
+      pattern: destructive
+      httpMethods: [DELETE]
+      description: Remove or cancel a resource.
+    - name: send
+      pattern: write
+      httpMethods: [POST]
+      description: Send a contact log, password reset, or test webhook.
+    - name: validate
+      pattern: read
+      httpMethods: [POST]
+      description: Validate input or token without mutating state.
+    - name: checkout
+      pattern: write
+      httpMethods: [POST]
+      description: Finalize a sale, applying pricing options and recording payments.
+
+  schemas:
+    core:
+      - Client
+      - Site
+      - Location
+      - Staff
+      - Appointment
+      - Class
+      - ClassSchedule
+      - Sale
+      - PurchasedItem
+      - PaymentMethod
+      - Resource
+      - Program
+      - SessionType
+    membership:
+      - ClientMembership
+      - Contract
+      - Service
+      - PricingOption
+      - GiftCard
+    scheduling:
+      - ClassDescription
+      - Availability
+      - ScheduleItem
+      - StaffAppointment
+      - BookableItem
+      - WaitlistEntry
+    pos:
+      - SaleItem
+      - SalePayment
+      - CustomPaymentMethod
+      - Product
+      - ReturnSale
+    webhooks:
+      - SubscriptionPostRequest
+      - SubscriptionPostResponse
+      - SubscriptionPatchRequest
+      - GetMetricsResponse
+
+  parameters:
+    pagination:
+      - request.limit
+      - request.offset
+    identifiers:
+      - SiteId
+      - ClientId
+      - StaffId
+      - LocationId
+      - AppointmentId
+      - ClassId
+      - SessionTypeId
+    filters:
+      - request.startDate
+      - request.endDate
+      - request.startTime
+      - request.endTime
+      - request.clientIds
+      - request.staffIds
+      - request.sessionTypeIds
+      - request.scheduleType
+
+  enums:
+    schedule:
+      - ScheduleType: [Appointment, Class, Enrollment, OnlineStore]
+    sale:
+      - PaymentMethodType: [Cash, Check, CreditCard, GiftCard, Account, CustomPayment]
+    appointment:
+      - AppointmentStatus: [Scheduled, Completed, Cancelled, NoShow, LateCancel]
+    class:
+      - BookingStatus: [Booked, Waitlisted, Confirmed, Cancelled, LateCancelled, NoShow]
+    client:
+      - GenderEnum: [Male, Female, NonBinary, PreferNotToSay]
+      - ActionEnum: [Added, Updated, Failed, Removed]
+
+  authentication:
+    - scheme: ApiKeyAuth
+      type: apiKey
+      header: API-Key
+      apis: [public-api-v6, webhooks-api]
+      description: Mindbody-issued back-end API key required on every request.
+    - scheme: OAuth2
+      type: oauth2
+      flow: authorizationCode
+      authorizationUrl: https://signin.mindbodyonline.com/connect/authorize
+      tokenUrl: https://signin.mindbodyonline.com/connect/token
+      scopes:
+        - openid
+        - profile
+        - email
+        - offline_access
+        - Mindbody.Api.Public.v6
+      apis: [public-api-v6]
+      description: OpenID Connect bearer token for endpoints that act on behalf of staff/client users.
+    - scheme: SiteIdHeader
+      type: custom
+      header: SiteId
+      apis: [public-api-v6]
+      description: Studio/business identifier accompanying every Public API request.
+
+# CAPABILITY DIMENSION (from Naftiko)
+capability:
+  workflows:
+    - name: Appointment
+      file: capabilities/public-api-v6-appointment.yaml
+      api: public-api-v6
+      tools: 17
+      personas: [Studio Front Desk, Booking Bot]
+      domains: [Scheduling, Wellness]
+    - name: Class
+      file: capabilities/public-api-v6-class.yaml
+      api: public-api-v6
+      tools: 16
+      personas: [Studio Front Desk, Class Manager, Member]
+      domains: [Scheduling, Fitness]
+    - name: Client
+      file: capabilities/public-api-v6-client.yaml
+      api: public-api-v6
+      tools: 42
+      personas: [CRM Operator, Front Desk, Marketing Automation]
+      domains: [Client Management, Membership]
+    - name: Cross Site
+      file: capabilities/public-api-v6-cross-site.yaml
+      api: public-api-v6
+      tools: 1
+      personas: [Network Admin]
+      domains: [Identity]
+    - name: Enrollment
+      file: capabilities/public-api-v6-enrollment.yaml
+      api: public-api-v6
+      tools: 4
+      personas: [Course Coordinator]
+      domains: [Programs]
+    - name: Payroll
+      file: capabilities/public-api-v6-payroll.yaml
+      api: public-api-v6
+      tools: 4
+      personas: [Studio Owner, Finance]
+      domains: [Operations, Finance]
+    - name: Pick A Spot
+      file: capabilities/public-api-v6-pick-a-spot.yaml
+      api: public-api-v6
+      tools: 6
+      personas: [Studio Front Desk, Member]
+      domains: [Scheduling]
+    - name: Sale
+      file: capabilities/public-api-v6-sale.yaml
+      api: public-api-v6
+      tools: 25
+      personas: [POS Cashier, Membership Sales, Finance]
+      domains: [Commerce, Membership]
+    - name: Site
+      file: capabilities/public-api-v6-site.yaml
+      api: public-api-v6
+      tools: 20
+      personas: [Site Admin, Integration Engineer]
+      domains: [Configuration]
+    - name: Staff
+      file: capabilities/public-api-v6-staff.yaml
+      api: public-api-v6
+      tools: 10
+      personas: [Studio Owner, HR]
+      domains: [People]
+    - name: User Token
+      file: capabilities/public-api-v6-user-token.yaml
+      api: public-api-v6
+      tools: 3
+      personas: [Integration Engineer]
+      domains: [Identity]
+    - name: Subscriptions
+      file: capabilities/webhooks-api-subscriptions.yaml
+      api: webhooks-api
+      tools: 5
+      personas: [Integration Engineer, Platform Operator]
+      domains: [Eventing]
+    - name: Metrics
+      file: capabilities/webhooks-api-metrics.yaml
+      api: webhooks-api
+      tools: 1
+      personas: [Platform Operator]
+      domains: [Eventing, Observability]
+
+  personas:
+    - id: studio-front-desk
+      name: Studio Front Desk
+      description: Front-of-house staff booking appointments and classes, taking payments, checking in members.
+      workflows: [Appointment, Class, Pick A Spot, Client]
+    - id: studio-owner
+      name: Studio Owner
+      description: Operator monitoring revenue, staff payroll, and site configuration.
+      workflows: [Payroll, Staff, Site, Sale]
+    - id: pos-cashier
+      name: POS Cashier
+      description: Rings up retail and membership sales, applies pricing options, handles returns.
+      workflows: [Sale, Client]
+    - id: integration-engineer
+      name: Integration Engineer
+      description: Builds partner integrations using API keys, OAuth, and webhook subscriptions.
+      workflows: [User Token, Subscriptions, Site]
+    - id: marketing-automation
+      name: Marketing Automation
+      description: Syncs client data and sales events into CRM/marketing tooling.
+      workflows: [Client, Sale, Subscriptions]
+    - id: course-coordinator
+      name: Course Coordinator
+      description: Manages workshop/course enrollment schedules and rosters.
+      workflows: [Enrollment]
+    - id: platform-operator
+      name: Platform Operator
+      description: Monitors webhook delivery health and platform-level metrics.
+      workflows: [Subscriptions, Metrics]
+
+  domains:
+    - name: Scheduling
+      description: Booking surfaces — appointments, classes, enrollments, spot reservations.
+    - name: Commerce
+      description: Point-of-sale, contracts, gift cards, returns.
+    - name: Membership
+      description: Client memberships, services, pricing options.
+    - name: Client Management
+      description: Client records, contact logs, formula notes, communications preferences.
+    - name: People
+      description: Staff records and permissions.
+    - name: Configuration
+      description: Site/location/program/session-type metadata.
+    - name: Identity
+      description: Cross-site lookup and OAuth token management.
+    - name: Eventing
+      description: Webhook subscription lifecycle and delivery observability.
+    - name: Finance
+      description: Payroll and sales reporting surfaces.
+    - name: Observability
+      description: Delivery metrics and platform health.
+
+  namespaces:
+    - consumed: public-api-v6-appointment
+      restExposed: public-api-v6-appointment-rest
+      mcpExposed: public-api-v6-appointment-mcp
+      ports: { rest: 8080, mcp: 9090 }
+    - consumed: public-api-v6-client
+      restExposed: public-api-v6-client-rest
+      mcpExposed: public-api-v6-client-mcp
+      ports: { rest: 8080, mcp: 9090 }
+    - consumed: public-api-v6-sale
+      restExposed: public-api-v6-sale-rest
+      mcpExposed: public-api-v6-sale-mcp
+      ports: { rest: 8080, mcp: 9090 }
+    - consumed: webhooks-api-subscriptions
+      restExposed: webhooks-api-subscriptions-rest
+      mcpExposed: webhooks-api-subscriptions-mcp
+      ports: { rest: 8080, mcp: 9090 }
+
+  binds:
+    - var: MINDBODY_API_KEY
+      description: Mindbody-issued back-end API key for the Public API.
+      workflows: [Appointment, Class, Client, Cross Site, Enrollment, Payroll, Pick A Spot, Sale, Site, Staff, User Token]
+    - var: MINDBODY_WEBHOOKS_API_KEY
+      description: Webhooks-specific API key issued via the Mindbody Webhooks Developer Portal.
+      workflows: [Subscriptions, Metrics]
+
+# CROSS-REFERENCE
+crossReference:
+  - resource: Client
+    operations:
+      - getClients
+      - addClient
+      - updateClient
+      - getClientContracts
+      - getClientServices
+    workflows: [Client]
+    personas: [Studio Front Desk, CRM Operator, Marketing Automation]
+  - resource: Appointment
+    operations:
+      - getStaffAppointments
+      - getBookableItems
+      - addAppointment
+      - updateAppointment
+    workflows: [Appointment]
+    personas: [Studio Front Desk, Booking Bot]
+  - resource: Class
+    operations:
+      - getClasses
+      - getClassDescriptions
+      - addClientToClass
+      - removeClientFromClass
+    workflows: [Class]
+    personas: [Studio Front Desk, Class Manager, Member]
+  - resource: Sale
+    operations:
+      - checkoutShoppingCart
+      - getSales
+      - returnSale
+      - getServices
+    workflows: [Sale]
+    personas: [POS Cashier, Finance]
+  - resource: Subscription
+    operations:
+      - createSubscription
+      - getSubscriptions
+      - patchSubscription
+      - deactivateSubscription
+    workflows: [Subscriptions]
+    personas: [Integration Engineer, Platform Operator]

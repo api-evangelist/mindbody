@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-staff-appointments-response-schema.json",
+  "title": "GetStaffAppointmentsResponse",
+  "description": "Implementation of the 'GetStaffAppointmentsResponse' model. Get Staff Appointments Response Model",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "Appointments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Appointment"
+      },
+      "description": "Contains information about appointments and their details.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-client-schedule-response-structure.json",
+  "name": "GetClientScheduleResponse",
+  "description": "Implementation of the 'GetClientScheduleResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "Visits": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/VisitWithWaitlistInfo"
+      },
+      "description": "Contains information about client visits including waitlist entries info",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

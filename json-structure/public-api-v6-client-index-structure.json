@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-client-index-structure.json",
+  "name": "ClientIndex",
+  "description": "Implementation of the 'ClientIndex' model. A client index.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "The unique ID of the client index.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the client index.",
+      "example": "Sunset Yoga Studio"
+    },
+    "RequiredBusinessMode": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the index is required when creating profiles in business mode.",
+      "example": true
+    },
+    "RequiredConsumerMode": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the index is required when creating profiles in consumer mode.",
+      "example": true
+    },
+    "Values": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ClientIndexValue"
+      },
+      "description": "Contains a list with a single object representing the index value assigned to the client index.",
+      "example": [
+        {}
+      ]
+    },
+    "Action": {
+      "$ref": "#/components/schemas/Action8Enum",
+      "description": "The action performed on this object."
+    }
+  }
+}

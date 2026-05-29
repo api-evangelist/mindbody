@@ -1,0 +1,9 @@
+{
+  "Id": "example-value",
+  "Name": "Sunset Yoga Studio",
+  "Description": "Example note for Mindbody Public API.",
+  "Type": "example-value",
+  "Price": 49.99,
+  "Quantity": 10,
+  "OneTimeItem": true
+}

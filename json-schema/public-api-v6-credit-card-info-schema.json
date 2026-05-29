@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-credit-card-info-schema.json",
+  "title": "CreditCardInfo",
+  "description": "Implementation of the 'CreditCardInfo' model. Information about an individual credit card",
+  "type": "object",
+  "properties": {
+    "CreditCardNumber": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "ExpMonth": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "ExpYear": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "BillingName": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "BillingAddress": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "123 Market St"
+    },
+    "BillingCity": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "BillingState": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "BillingPostalCode": {
+      "type": "string",
+      "description": "The model property of type str.",
+      "example": "example-value"
+    },
+    "SaveInfo": {
+      "type": "boolean",
+      "description": "The model property of type bool.",
+      "example": true
+    },
+    "CardId": {
+      "type": "string",
+      "description": "Card Id of a stored instruments card",
+      "example": "example-value"
+    },
+    "CVV": {
+      "type": "string",
+      "description": "CVV of the card",
+      "example": "example-value"
+    }
+  }
+}

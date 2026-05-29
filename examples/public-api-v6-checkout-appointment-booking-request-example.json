@@ -1,0 +1,11 @@
+{
+  "StaffId": 123456,
+  "LocationId": 123456,
+  "SessionTypeId": 123456,
+  "Resources": [
+    {}
+  ],
+  "StartDateTime": "2026-05-28T14:30:00Z",
+  "EndDateTime": "2026-05-28T14:30:00Z",
+  "ProviderId": "example-value"
+}

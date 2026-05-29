@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-copy-credit-card-response-schema.json",
+  "title": "CopyCreditCardResponse",
+  "description": "Implementation of the 'CopyCreditCardResponse' model. crosssite/copycreditcard",
+  "type": "object",
+  "properties": {
+    "CopiedFrom": {
+      "$ref": "#/components/schemas/CopyCreditCardResponseClient",
+      "description": "Copied from"
+    },
+    "CopiedTo": {
+      "$ref": "#/components/schemas/CopyCreditCardResponseClient",
+      "description": "Copied To"
+    }
+  }
+}

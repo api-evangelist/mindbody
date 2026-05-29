@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-resource-availability1-structure.json",
+  "name": "ResourceAvailability1",
+  "description": "Implementation of the 'ResourceAvailability1' model. An availability of a resource",
+  "type": "object",
+  "properties": {
+    "ResourceId": {
+      "type": "int32",
+      "description": "Id",
+      "example": 123456
+    },
+    "StartDateTime": {
+      "type": "datetime",
+      "description": "Starts",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EndDateTime": {
+      "type": "datetime",
+      "description": "Ends",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "SessionTypeIds": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "List of SessionTypeIds that this availability is restricted to. If empty, no restrictions.",
+      "example": [
+        1
+      ]
+    },
+    "ProgramIds": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "List of ProgramIds that this availability is restricted to. If empty, no restrictions.",
+      "example": [
+        1
+      ]
+    }
+  }
+}

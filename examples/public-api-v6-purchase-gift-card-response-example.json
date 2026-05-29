@@ -1,0 +1,15 @@
+{
+  "BarcodeId": "example-value",
+  "Value": 1.0,
+  "AmountPaid": 49.99,
+  "FromName": "example-value",
+  "LayoutId": 123456,
+  "EmailReceipt": true,
+  "PurchaserClientId": "example-value",
+  "PurchaserEmail": "kinlane@example.com",
+  "RecipientEmail": "kinlane@example.com",
+  "SaleId": 123456,
+  "PaymentProcessingFailures": [
+    {}
+  ]
+}

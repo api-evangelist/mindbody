@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-add-staff-response-structure.json",
+  "name": "AddStaffResponse",
+  "description": "Implementation of the 'AddStaffResponse' model.",
+  "type": "object",
+  "properties": {
+    "Staff": {
+      "$ref": "#/components/schemas/Staff",
+      "description": "Contains information about the staff"
+    }
+  }
+}

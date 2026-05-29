@@ -1,0 +1,222 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-staff-schema.json",
+  "title": "Staff",
+  "description": "Implementation of the 'Staff' model. The Staff",
+  "type": "object",
+  "properties": {
+    "Address": {
+      "type": "string",
+      "description": "The address of the staff member who is teaching the class.",
+      "example": "123 Market St"
+    },
+    "AppointmentInstructor": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member offers appointments.<br /> When `false`, indicates that the staff member does not offer appointments.",
+      "example": true
+    },
+    "AlwaysAllowDoubleBooking": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member can be scheduled for overlapping services.<br /> When `false`, indicates that the staff can only be scheduled for one service at a time in any given time-frame.",
+      "example": true
+    },
+    "Bio": {
+      "type": "string",
+      "description": "The staff member\u2019s biography. This string contains HTML.",
+      "example": "example-value"
+    },
+    "City": {
+      "type": "string",
+      "description": "The staff member\u2019s city.",
+      "example": "San Francisco"
+    },
+    "Country": {
+      "type": "string",
+      "description": "The staff member\u2019s country.",
+      "example": "US"
+    },
+    "Email": {
+      "type": "string",
+      "description": "The staff member\u2019s email address.",
+      "example": "kinlane@example.com"
+    },
+    "FirstName": {
+      "type": "string",
+      "description": "The staff member\u2019s first name.",
+      "example": "Alex"
+    },
+    "DisplayName": {
+      "type": "string",
+      "description": "The staff member\u2019s Nickname.",
+      "example": "example-value"
+    },
+    "HomePhone": {
+      "type": "string",
+      "description": "The staff member\u2019s home phone number.",
+      "example": "+15551234567"
+    },
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID assigned to the staff member.",
+      "example": 123456
+    },
+    "IndependentContractor": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member is an independent contractor. When `false`, indicates that the staff member is not an independent contractor.",
+      "example": true
+    },
+    "IsMale": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member is male. When `false`, indicates that the staff member is female.",
+      "example": true
+    },
+    "LastName": {
+      "type": "string",
+      "description": "The staff member\u2019s last name.",
+      "example": "Lane"
+    },
+    "MobilePhone": {
+      "type": "string",
+      "description": "The staff member\u2019s mobile phone number.",
+      "example": "+15551234567"
+    },
+    "Name": {
+      "type": "string",
+      "description": "The staff member\u2019s name.",
+      "example": "Sunset Yoga Studio"
+    },
+    "PostalCode": {
+      "type": "string",
+      "description": "The staff member\u2019s postal code.",
+      "example": "94110"
+    },
+    "ClassTeacher": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member can teach classes. When `false`, indicates that the staff member cannot teach classes.",
+      "example": true
+    },
+    "SortOrder": {
+      "type": "integer",
+      "format": "int32",
+      "description": "If configured by the business owner, this field determines a staff member\u2019s weight when sorting. Use this field to sort staff members on your interface.",
+      "example": 1
+    },
+    "State": {
+      "type": "string",
+      "description": "The staff member\u2019s state.",
+      "example": "CA"
+    },
+    "WorkPhone": {
+      "type": "string",
+      "description": "The staff member\u2019s work phone number.",
+      "example": "+15551234567"
+    },
+    "ImageUrl": {
+      "type": "string",
+      "description": "The URL of the staff member\u2019s image, if one has been uploaded.",
+      "example": "https://example.mindbodyonline.com/resource/abc123"
+    },
+    "ClassAssistant": {
+      "type": "boolean",
+      "description": "Is the staff an assistant",
+      "example": true
+    },
+    "ClassAssistant2": {
+      "type": "boolean",
+      "description": "Is the staff an assistant2",
+      "example": true
+    },
+    "EmploymentStart": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The start date of employment",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EmploymentEnd": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The end date of employment",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "ProviderIDs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "A list of ProviderIds for the staff.",
+      "example": [
+        "example-value"
+      ]
+    },
+    "Rep": {
+      "type": "boolean",
+      "description": "return true if staff is sales Rep 1 else false.",
+      "example": true
+    },
+    "Rep2": {
+      "type": "boolean",
+      "description": "return true if staff is sales Rep 2 else false.",
+      "example": true
+    },
+    "Rep3": {
+      "type": "boolean",
+      "description": "return true if staff is sales Rep 3 else false.",
+      "example": true
+    },
+    "Rep4": {
+      "type": "boolean",
+      "description": "return true if staff is sales Rep 4 else false.",
+      "example": true
+    },
+    "Rep5": {
+      "type": "boolean",
+      "description": "return true if staff is sales Rep 5 else false.",
+      "example": true
+    },
+    "Rep6": {
+      "type": "boolean",
+      "description": "return true if staff is sales Rep 6 else false.",
+      "example": true
+    },
+    "StaffSettings": {
+      "$ref": "#/components/schemas/StaffSetting",
+      "description": "This object contains the staff settings."
+    },
+    "Appointments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Appointment"
+      },
+      "description": "A list of appointments for the staff.",
+      "example": [
+        {}
+      ]
+    },
+    "Unavailabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Unavailability"
+      },
+      "description": "A list of unavailabilities for the staff.",
+      "example": [
+        {}
+      ]
+    },
+    "Availabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Availability"
+      },
+      "description": "A list of availabilities for the staff.",
+      "example": [
+        {}
+      ]
+    },
+    "EmpID": {
+      "type": "string",
+      "description": "The EmpID assigned to the staff member.",
+      "example": "example-value"
+    }
+  }
+}

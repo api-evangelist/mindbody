@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-update-client-visit-request-structure.json",
+  "name": "UpdateClientVisitRequest",
+  "description": "Implementation of the 'UpdateClientVisitRequest' model.",
+  "type": "object",
+  "properties": {
+    "VisitId": {
+      "type": "int32",
+      "description": "The ID of the visit to be updated.",
+      "example": 123456
+    },
+    "Makeup": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the visit is eligible to be made up.",
+      "example": true
+    },
+    "SignedIn": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the client has signed in for the visit.",
+      "example": true
+    },
+    "ClientServiceId": {
+      "type": "int32",
+      "description": "The ID of the service to assign to the visit.",
+      "example": 123456
+    },
+    "Execute": {
+      "type": "string",
+      "description": "The execute code used to update this visit. Possible values are: * Cancel * Latecancel * Unlatecancel",
+      "example": "example-value"
+    },
+    "Test": {
+      "type": "boolean",
+      "description": "When `true`, indicates that test mode is enabled. When test mode is enabled, input information is validated, but not committed.<br /> Default: **false**",
+      "example": true
+    },
+    "SendEmail": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the client should be sent an email for cancellations. Note that email is not sent unless the client has an email address and automatic emails have been set up correctly.<br /> Default: **false**",
+      "example": true
+    }
+  }
+}

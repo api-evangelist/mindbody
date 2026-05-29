@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-purchase-contract-response-structure.json",
+  "name": "PurchaseContractResponse",
+  "description": "Implementation of the 'PurchaseContractResponse' model. Response model for POST PurchaseContract endpoint",
+  "type": "object",
+  "properties": {
+    "ClientId": {
+      "type": "string",
+      "description": "The ID of the client who is purchasing the contract.",
+      "example": "example-value"
+    },
+    "UniqueClientId": {
+      "type": "int32",
+      "description": "The Unique ID of the client who is purchasing the contract.",
+      "example": 123456
+    },
+    "LocationId": {
+      "type": "int32",
+      "description": "The ID of the location where the contract is being purchased.",
+      "example": 123456
+    },
+    "ContractId": {
+      "type": "int32",
+      "description": "The ID of the general contract being purchased.",
+      "example": 123456
+    },
+    "ClientContractId": {
+      "type": "int32",
+      "description": "The ID of the specific contract being purchased by this specific client, not to be confused with the `ContractId`, which refers to a general contract that the business offers.",
+      "example": 123456
+    },
+    "Totals": {
+      "$ref": "#/components/schemas/PurchaseContractResponseTotals",
+      "description": "Purchase totals"
+    },
+    "PaymentProcessingFailures": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PaymentProcessingFailure"
+      },
+      "description": "Contains information only if SCA challenge is indicated.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

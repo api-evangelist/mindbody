@@ -1,0 +1,37 @@
+{
+  "ContractId": 123456,
+  "Test": true,
+  "LocationId": 123456,
+  "ClientId": "example-value",
+  "UniqueClientId": 123456,
+  "StartDate": "2026-05-28T14:30:00Z",
+  "FirstPaymentOccurs": "example-value",
+  "ClientSignature": "example-value",
+  "PromotionCode": "example-value",
+  "PromotionCodes": [
+    "example-value"
+  ],
+  "CreditCardInfo": {
+    "CreditCardNumber": "example-value",
+    "ExpMonth": "example-value",
+    "ExpYear": "example-value",
+    "BillingName": "example-value",
+    "BillingAddress": "123 Market St",
+    "BillingCity": "example-value",
+    "BillingState": "example-value",
+    "BillingPostalCode": "example-value",
+    "SaveInfo": true,
+    "CardId": "example-value",
+    "CVV": "example-value"
+  },
+  "StoredCardInfo": {
+    "LastFour": "example-value"
+  },
+  "SendNotifications": true,
+  "SalesRepId": 123456,
+  "UseDirectDebit": true,
+  "UseAccountCredit": true,
+  "ConsumerPresent": true,
+  "PaymentAuthenticationCallbackUrl": "https://example.mindbodyonline.com/resource/abc123",
+  "ProrateDate": "2026-05-28T14:30:00Z"
+}

@@ -1,0 +1,27 @@
+{
+  "ClientService": {
+    "ActiveDate": "2026-05-28T14:30:00Z",
+    "Count": 10,
+    "Current": true,
+    "ExpirationDate": "2026-05-28T14:30:00Z",
+    "Id": 123456,
+    "ProductId": 123456,
+    "Name": "Sunset Yoga Studio",
+    "PaymentDate": "2026-05-28T14:30:00Z",
+    "Program": {
+      "Id": 123456,
+      "Name": "Sunset Yoga Studio",
+      "ScheduleType": null,
+      "CancelOffset": 10,
+      "ContentFormats": [
+        "example-value"
+      ],
+      "PricingRelationships": null
+    },
+    "Remaining": 1,
+    "SiteId": -99,
+    "Action": "None",
+    "ClientID": "example-value",
+    "Returned": true
+  }
+}

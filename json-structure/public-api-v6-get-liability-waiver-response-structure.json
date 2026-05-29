@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-liability-waiver-response-structure.json",
+  "name": "GetLiabilityWaiverResponse",
+  "description": "Implementation of the 'GetLiabilityWaiverResponse' model.",
+  "type": "object",
+  "properties": {
+    "LiabilityWaiver": {
+      "type": "string",
+      "description": "Contains Liability Waiver text for a site",
+      "example": "example-value"
+    }
+  }
+}

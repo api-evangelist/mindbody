@@ -1,0 +1,14 @@
+{
+  "ClientId": "example-value",
+  "ContractId": 123456,
+  "PaymentMethodId": 123456,
+  "Test": true,
+  "LocationId": 123456,
+  "PromotionCode": "example-value",
+  "PromotionCodes": [
+    "example-value"
+  ],
+  "SendNotifications": true,
+  "SalesRepId": 123456,
+  "PaymentAuthenticationCallbackUrl": "https://example.mindbodyonline.com/resource/abc123"
+}

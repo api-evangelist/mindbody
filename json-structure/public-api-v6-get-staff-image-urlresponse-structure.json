@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-staff-image-urlresponse-structure.json",
+  "name": "GetStaffImageURLResponse",
+  "description": "Implementation of the 'GetStaffImageURLResponse' model. A response object returned from the GetStaffImgURL API.",
+  "type": "object",
+  "properties": {
+    "ImageURL": {
+      "type": "string",
+      "description": "A staff member's image URL.",
+      "example": "example-value"
+    },
+    "MobileImageURL": {
+      "type": "string",
+      "description": "A staff member's mobile image URL.",
+      "example": "example-value"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-add-multiple-appointments-response-structure.json",
+  "name": "AddMultipleAppointmentsResponse",
+  "description": "Implementation of the 'AddMultipleAppointmentsResponse' model. Represents the response for adding multiple appointments.",
+  "type": "object",
+  "properties": {
+    "AddAppointmentOutcomes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AddAppointmentOutcome"
+      },
+      "description": "Contains information about the created appointments.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

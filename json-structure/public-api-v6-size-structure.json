@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-size-structure.json",
+  "name": "Size",
+  "description": "Implementation of the 'Size' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "The unique ID of the product size.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the size of product.",
+      "example": "Sunset Yoga Studio"
+    }
+  }
+}

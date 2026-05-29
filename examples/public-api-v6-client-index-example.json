@@ -1,0 +1,10 @@
+{
+  "Id": 123456,
+  "Name": "Sunset Yoga Studio",
+  "RequiredBusinessMode": true,
+  "RequiredConsumerMode": true,
+  "Values": [
+    {}
+  ],
+  "Action": "None"
+}

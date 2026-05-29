@@ -1,0 +1,9 @@
+{
+  "StaffId": 123456,
+  "Task": "example-value",
+  "TimeIn": "2026-05-28T14:30:00Z",
+  "TimeOut": "2026-05-28T14:30:00Z",
+  "Hours": 1.0,
+  "HourlyRate": 1.0,
+  "Earnings": 1.0
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-sales-reps-response-schema.json",
+  "title": "GetSalesRepsResponse",
+  "description": "Implementation of the 'GetSalesRepsResponse' model. This is the response class for the get sales reps API",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "SalesReps": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SalesRepResponse"
+      },
+      "description": "This the list of sales reps and their details",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

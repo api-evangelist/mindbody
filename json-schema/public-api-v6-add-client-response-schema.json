@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-add-client-response-schema.json",
+  "title": "AddClientResponse",
+  "description": "Implementation of the 'AddClientResponse' model.",
+  "type": "object",
+  "properties": {
+    "Client": {
+      "$ref": "#/components/schemas/Client",
+      "description": "Contains information about the client."
+    }
+  }
+}

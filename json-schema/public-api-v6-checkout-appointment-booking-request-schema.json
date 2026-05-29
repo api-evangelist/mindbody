@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-checkout-appointment-booking-request-schema.json",
+  "title": "CheckoutAppointmentBookingRequest",
+  "description": "Implementation of the 'CheckoutAppointmentBookingRequest' model.",
+  "type": "object",
+  "properties": {
+    "StaffId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the staff member who is to provide the service being booked.",
+      "example": 123456
+    },
+    "LocationId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the location where the appointment is to take place.",
+      "example": 123456
+    },
+    "SessionTypeId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the session type of this appointment.",
+      "example": 123456
+    },
+    "Resources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ResourceSlim"
+      },
+      "description": "Contains information about the resources to be used for the appointment.",
+      "example": [
+        {}
+      ]
+    },
+    "StartDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time that the appointment is to start in the business\u2019 timezone. This value must be passed in the format yyyy-mm-ddThh:mm:ss.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EndDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time that the appointment is to end in the business\u2019 timezone. This value must be passed in the format yyyy-mm-ddThh:mm:ss.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "ProviderId": {
+      "type": "string",
+      "description": "The National Provider Identifier (NPI) of the staff member who is to provide the service. For an explanation of Provider IDs, see [Provider IDs](https://support.mindbodyonline.com/s/article/204075743-Provide r-IDs?language=en_US).",
+      "example": "example-value"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-packages-response-structure.json",
+  "name": "GetPackagesResponse",
+  "description": "Implementation of the 'GetPackagesResponse' model.",
+  "type": "object",
+  "properties": {
+    "Packages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Package"
+      },
+      "description": "Contains information about the resulting packages.",
+      "example": [
+        {}
+      ]
+    },
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    }
+  }
+}

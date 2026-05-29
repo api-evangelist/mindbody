@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-prospect-stage-structure.json",
+  "name": "ProspectStage",
+  "description": "Implementation of the 'ProspectStage' model.",
+  "type": "object",
+  "properties": {
+    "Active": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the client is a prospect at the business and has not yet purchased any of the business pricing options. When `false`, indicates that the client has already purchased at least one pricing option from the business.",
+      "example": true
+    },
+    "Description": {
+      "type": "string",
+      "description": "A description of the prospect stage.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "Id": {
+      "type": "int32",
+      "description": "The ID of the prospect stage assigned to the client.",
+      "example": 123456
+    }
+  }
+}

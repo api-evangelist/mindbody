@@ -1,0 +1,102 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Mindbody Public API v6 \u2014 Cross Site"
+  description: "Cross Site \u2014 1 operations. Lead operation: Mindbody Copies the Credit Card Information from One Client to Another,. Self-contained Naftiko capability covering one Mindbody business\
+    \ surface."
+  tags:
+  - Mindbody
+  - Mindbody Public API v6
+  - Cross Site
+  created: '2026-05-28'
+  modified: '2026-05-28'
+binds:
+- namespace: env
+  keys:
+    MINDBODY_API_KEY: MINDBODY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: public-api-v6-cross-site
+    baseUri: https://api.mindbodyonline.com
+    description: "Mindbody Public API v6 \u2014 Cross Site business capability. Self-contained, no shared references."
+    authentication:
+      type: apikey
+      key: API-Key
+      value: '{{env.MINDBODY_API_KEY}}'
+      placement: header
+    resources:
+    - name: cross-site-copycreditcard
+      path: /crossSite/copycreditcard
+      operations:
+      - name: copyCreditCard
+        method: POST
+        description: Mindbody Copies the Credit Card Information from One Client to Another,
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: version of the api.
+        - name: siteId
+          in: header
+          type: string
+          required: true
+          description: ID of the site from which to pull data.
+        - name: authorization
+          in: header
+          type: string
+          required: false
+          description: A staff user authorization token.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: JSON request body.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: public-api-v6-cross-site-rest
+    port: 8080
+    description: "REST adapter for Mindbody Public API v6 \u2014 Cross Site. One Spectral-compliant resource per consumed operation, prefixed with /v1."
+    resources:
+    - path: /v1/cross-site/copycreditcard
+      name: v1-cross-site-copycreditcard
+      description: REST surface for /v1/cross-site/copycreditcard.
+      operations:
+      - method: POST
+        name: copyCreditCard
+        description: Mindbody Copies the Credit Card Information from One Client to Another,
+        call: public-api-v6-cross-site.copyCreditCard
+        with:
+          version: rest.version
+          siteId: rest.siteId
+          authorization: rest.authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: public-api-v6-cross-site-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for Mindbody Public API v6 \u2014 Cross Site. One tool per consumed operation, routed inline through this capability's consumes block."
+    tools:
+    - name: copies-credit-card-information-one
+      description: Mindbody Copies the Credit Card Information from One Client to Another,
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-api-v6-cross-site.copyCreditCard
+      with:
+        version: tools.version
+        siteId: tools.siteId
+        authorization: tools.authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

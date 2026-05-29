@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-initiate-purchase-contract-request-schema.json",
+  "title": "InitiatePurchaseContractRequest",
+  "description": "Implementation of the 'InitiatePurchaseContractRequest' model. Request to initiate a purchase contract.",
+  "type": "object",
+  "properties": {
+    "ClientId": {
+      "type": "string",
+      "description": "The ID of the client. Note that this is not the same as the client\u2019s unique ID.",
+      "example": "example-value"
+    },
+    "ContractId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the contract being purchased.",
+      "example": 123456
+    },
+    "PaymentMethodId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The type of alternative payment. Possible values are: * 997 - Indicates that the payment method is iDEAL. * 801 - Indicates that the payment method is Apple Pay.",
+      "example": 123456
+    },
+    "Test": {
+      "type": "boolean",
+      "description": "When `true`, the Public API validates input information, but does not commit it, so no client data is affected.<br /> When `false` or omitted, the transaction is committed, and client data is affected.<br /> This endpoint DOES NOT support the `Test` parameter.<br /> Default: **false**",
+      "example": true
+    },
+    "LocationId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the location where the client is purchasing the contract; used for AutoPays. If no location ID is supplied, it defaults to the online store, represented by a null value. Default: **null** (Online store location)",
+      "example": 123456
+    },
+    "PromotionCode": {
+      "type": "string",
+      "description": "A promotion code, if one applies. Promotion codes are applied to items that are both marked as pay now in a contract and are discounted by the promotion code. If a pay now item is an autopay item, its autopay price is the price at the time of checkout, so, if a promotion code was applied, all autopays are scheduled using that discounted price.",
+      "example": "example-value"
+    },
+    "PromotionCodes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Promotion codes, if they apply. Promotion codes are applied to items that are both marked as pay now in a contract and are discounted by the promotion code. If a pay now item is an autopay item, its autopay price is the price at the time of checkout, so, if a promotion code was applied, all autopays are scheduled using that discounted price.",
+      "example": [
+        "example-value"
+      ]
+    },
+    "SendNotifications": {
+      "type": "boolean",
+      "description": "When `true`, indicates that email and SMS notifications should be sent to the client after purchase.<br /> Default: **true**",
+      "example": true
+    },
+    "SalesRepId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the staff member to be marked as the sales rep for this contract sale.",
+      "example": 123456
+    },
+    "PaymentAuthenticationCallbackUrl": {
+      "type": "string",
+      "description": "The URL consumer is redirected to after the payment.",
+      "example": "https://example.mindbodyonline.com/resource/abc123"
+    }
+  }
+}

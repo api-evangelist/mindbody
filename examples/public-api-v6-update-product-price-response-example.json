@@ -1,0 +1,30 @@
+{
+  "Product": {
+    "ProductId": 123456,
+    "Id": "example-value",
+    "CategoryId": 123456,
+    "SubCategoryId": 123456,
+    "SecondaryCategoryId": 123456,
+    "Price": 49.99,
+    "TaxIncluded": 1.0,
+    "TaxRate": 1.0,
+    "GroupId": 123456,
+    "Name": "Sunset Yoga Studio",
+    "OnlinePrice": 49.99,
+    "ShortDescription": "Example note for Mindbody Public API.",
+    "LongDescription": "Example note for Mindbody Public API.",
+    "TypeGroup": 1,
+    "SupplierId": 123456,
+    "SupplierName": "example-value",
+    "ImageURL": "example-value",
+    "Color": {
+      "Id": 123456,
+      "Name": "Sunset Yoga Studio"
+    },
+    "Size": {
+      "Id": 123456,
+      "Name": "Sunset Yoga Studio"
+    },
+    "ManufacturerId": "example-value"
+  }
+}

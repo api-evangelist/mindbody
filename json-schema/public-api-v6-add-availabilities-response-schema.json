@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-add-availabilities-response-schema.json",
+  "title": "AddAvailabilitiesResponse",
+  "description": "Implementation of the 'AddAvailabilitiesResponse' model. Add Availabilities Response Model",
+  "type": "object",
+  "properties": {
+    "StaffMembers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Staff1"
+      },
+      "description": "Contains information about the staff.",
+      "example": [
+        {}
+      ]
+    },
+    "Errors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ApiError1"
+      },
+      "description": "Contains information about the error.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

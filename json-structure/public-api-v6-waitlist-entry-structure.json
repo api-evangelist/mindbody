@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-waitlist-entry-structure.json",
+  "name": "WaitlistEntry",
+  "description": "Implementation of the 'WaitlistEntry' model.",
+  "type": "object",
+  "properties": {
+    "ClassDate": {
+      "type": "datetime",
+      "description": "The date of the class or enrollment.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "ClassId": {
+      "type": "int32",
+      "description": "The ID of the class or enrollment.",
+      "example": 123456
+    },
+    "ClassSchedule": {
+      "$ref": "#/components/schemas/ClassSchedule",
+      "description": "Contains information about the class schedule for this waiting list entry."
+    },
+    "Client": {
+      "$ref": "#/components/schemas/Client",
+      "description": "Contains information about the requested client who is on the waiting list."
+    },
+    "EnrollmentDateForward": {
+      "type": "datetime",
+      "description": "If the waiting list entry was created for an enrollment, this is the date on or after which the client can be added to the enrollment from the waitlist.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Id": {
+      "type": "int32",
+      "description": "The ID of the waiting list entry.",
+      "example": 123456
+    },
+    "RequestDateTime": {
+      "type": "datetime",
+      "description": "The date and time that the request to be on the waiting list was made.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "VisitRefNo": {
+      "type": "int32",
+      "description": "The ID of the visit that is associated with the waiting list entry.",
+      "example": 1
+    },
+    "Web": {
+      "type": "boolean",
+      "description": "If `true`, the entry on the waiting list was requested online.<br /> If `false`, the entry on the waiting list was requested off-line, for example in person or by phone.",
+      "example": true
+    }
+  }
+}

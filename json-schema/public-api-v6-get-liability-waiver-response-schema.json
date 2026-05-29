@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-liability-waiver-response-schema.json",
+  "title": "GetLiabilityWaiverResponse",
+  "description": "Implementation of the 'GetLiabilityWaiverResponse' model.",
+  "type": "object",
+  "properties": {
+    "LiabilityWaiver": {
+      "type": "string",
+      "description": "Contains Liability Waiver text for a site",
+      "example": "example-value"
+    }
+  }
+}

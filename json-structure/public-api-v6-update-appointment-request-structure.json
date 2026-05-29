@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-update-appointment-request-structure.json",
+  "name": "UpdateAppointmentRequest",
+  "description": "Implementation of the 'UpdateAppointmentRequest' model.",
+  "type": "object",
+  "properties": {
+    "AppointmentId": {
+      "type": "int32",
+      "description": "A unique ID for the appointment.",
+      "example": 123456
+    },
+    "EndDateTime": {
+      "type": "datetime",
+      "description": "The end date and time of the new appointment. <br />Default: **StartDateTime**, offset by the staff member\u2019s default appointment duration.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Execute": {
+      "type": "string",
+      "description": "The action taken to add this appointment. Possible values are: confirm, unconfirm, arrive, unarrive, cancel, latecancel, complete.",
+      "example": "example-value"
+    },
+    "GenderPreference": {
+      "type": "string",
+      "description": "The client\u2019s service provider gender preference.",
+      "example": "example-value"
+    },
+    "Notes": {
+      "type": "string",
+      "description": "Any general notes about this appointment.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "PartnerExternalId": {
+      "type": "string",
+      "description": "Optional external key for api partners.",
+      "example": "example-value"
+    },
+    "ProviderId": {
+      "type": "string",
+      "description": "If a user has Complementary and Alternative Medicine features enabled, this parameter assigns a provider ID to the appointment.",
+      "example": "example-value"
+    },
+    "ResourceIds": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "A list of resource IDs to associate with the new appointment.",
+      "example": [
+        1
+      ]
+    },
+    "SendEmail": {
+      "type": "boolean",
+      "description": "Whether to send client an email for cancellations. An email is sent only if the client has an email address and automatic emails have been set up. <br />Default: **false**",
+      "example": true
+    },
+    "SessionTypeId": {
+      "type": "int32",
+      "description": "The session type associated with the new appointment.",
+      "example": 123456
+    },
+    "StaffId": {
+      "type": "int32",
+      "description": "The ID of the staff member who is adding the new appointment.",
+      "example": 123456
+    },
+    "StartDateTime": {
+      "type": "datetime",
+      "description": "The start date and time of the new appointment.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "ApplyPayment": {
+      "type": "boolean",
+      "description": "When `true`, appointment will be updated with a current applicable client service from the clients account. <br />Default: **false**",
+      "example": true
+    },
+    "Test": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the method is to be validated, but no new appointment data is added. <br />Default: **false**",
+      "example": true
+    }
+  }
+}

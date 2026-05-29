@@ -1,0 +1,9 @@
+{
+  "ClientContractId": 123456,
+  "AutopayStartDate": "2026-05-28T14:30:00Z",
+  "AutopayEndDate": "2026-05-28T14:30:00Z",
+  "ProductId": 123456,
+  "ReplaceWithProductId": 123456,
+  "Amount": 49.99,
+  "OverwriteAllProductIDs": true
+}

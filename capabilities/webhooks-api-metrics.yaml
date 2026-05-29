@@ -1,0 +1,71 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Mindbody Webhooks API \u2014 Metrics"
+  description: "Metrics \u2014 1 operations. Lead operation: Mindbody This Endpoint Gets Metrics for All the Subscriptions Associated with. Self-contained Naftiko capability covering one Mindbody business\
+    \ surface."
+  tags:
+  - Mindbody
+  - Mindbody Webhooks API
+  - Metrics
+  created: '2026-05-28'
+  modified: '2026-05-28'
+binds:
+- namespace: env
+  keys:
+    MINDBODY_WEBHOOKS_API_KEY: MINDBODY_WEBHOOKS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: webhooks-api-metrics
+    baseUri: https://push-api.mindbodyonline.com
+    description: "Mindbody Webhooks API \u2014 Metrics business capability. Self-contained, no shared references."
+    authentication:
+      type: apikey
+      key: API-Key
+      value: '{{env.MINDBODY_WEBHOOKS_API_KEY}}'
+      placement: header
+    resources:
+    - name: metrics
+      path: /metrics
+      operations:
+      - name: getMetrics
+        method: GET
+        description: Mindbody This Endpoint Gets Metrics for All the Subscriptions Associated with
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: webhooks-api-metrics-rest
+    port: 8080
+    description: "REST adapter for Mindbody Webhooks API \u2014 Metrics. One Spectral-compliant resource per consumed operation, prefixed with /v1."
+    resources:
+    - path: /v1/metrics
+      name: v1-metrics
+      description: REST surface for /v1/metrics.
+      operations:
+      - method: GET
+        name: getMetrics
+        description: Mindbody This Endpoint Gets Metrics for All the Subscriptions Associated with
+        call: webhooks-api-metrics.getMetrics
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: webhooks-api-metrics-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for Mindbody Webhooks API \u2014 Metrics. One tool per consumed operation, routed inline through this capability's consumes block."
+    tools:
+    - name: this-endpoint-gets-metrics-all
+      description: Mindbody This Endpoint Gets Metrics for All the Subscriptions Associated with
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: webhooks-api-metrics.getMetrics
+      outputParameters:
+      - type: object
+        mapping: $.

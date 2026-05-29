@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-resource-availabilities-response-structure.json",
+  "name": "GetResourceAvailabilitiesResponse",
+  "description": "Implementation of the 'GetResourceAvailabilitiesResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "ResourceAvailabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ResourceAvailability"
+      },
+      "description": "Contains information about resources as the business.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

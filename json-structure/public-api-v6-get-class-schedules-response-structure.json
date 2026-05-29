@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-class-schedules-response-structure.json",
+  "name": "GetClassSchedulesResponse",
+  "description": "Implementation of the 'GetClassSchedulesResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "ClassSchedules": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ClassSchedule"
+      },
+      "description": "Contains information about the class schedules.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

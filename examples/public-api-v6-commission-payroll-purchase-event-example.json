@@ -1,0 +1,11 @@
+{
+  "StaffId": 123456,
+  "SaleDateTime": "2026-05-28T14:30:00Z",
+  "SaleId": 123456,
+  "SaleType": "example-value",
+  "ProductId": 123456,
+  "EarningsDetails": [
+    {}
+  ],
+  "Earnings": 1.0
+}

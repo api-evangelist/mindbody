@@ -1,0 +1,27 @@
+{
+  "AcceptsAmericanExpress": true,
+  "AcceptsDiscover": true,
+  "AcceptsMasterCard": true,
+  "AcceptsVisa": true,
+  "AllowsDashboardAccess": true,
+  "ContactEmail": "kinlane@example.com",
+  "Description": "Example note for Mindbody Public API.",
+  "Id": 123456,
+  "LogoUrl": "https://example.mindbodyonline.com/resource/abc123",
+  "Name": "Sunset Yoga Studio",
+  "PageColor1": "example-value",
+  "PageColor2": "example-value",
+  "PageColor3": "example-value",
+  "PageColor4": "example-value",
+  "PricingLevel": "example-value",
+  "SmsPackageEnabled": true,
+  "TaxInclusivePrices": true,
+  "CurrencyIsoCode": "example-value",
+  "CountryCode": "example-value",
+  "TimeZone": "example-value",
+  "AcceptsDirectDebit": true,
+  "LeadChannels": [
+    {}
+  ],
+  "PerStaffPricing": true
+}

@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-contract-structure.json",
+  "name": "Contract",
+  "description": "Implementation of the 'Contract' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "The contract\u2019s ID at the subscriber\u2019s business.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the contract.",
+      "example": "Sunset Yoga Studio"
+    },
+    "Description": {
+      "type": "string",
+      "description": "A description of the contract.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "AssignsMembershipId": {
+      "type": "int32",
+      "description": "The ID of the membership that was assigned to the client when the client signed up for a contract.",
+      "example": 123456
+    },
+    "AssignsMembershipName": {
+      "type": "string",
+      "description": "The name of the membership that was assigned to the client when the client signed up for this contract.",
+      "example": "example-value"
+    },
+    "SoldOnline": {
+      "type": "boolean",
+      "description": "When `true`, indicates that this membership is intended to be shown to clients in client experiences.<br /> When `false`, this contract should only be shown to staff members.",
+      "example": true
+    },
+    "ContractItems": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ContractItem"
+      },
+      "description": "Contains information about the items in the contract.",
+      "example": [
+        {}
+      ]
+    },
+    "IntroOffer": {
+      "type": "string",
+      "description": "Defines whether this contract is treated as an introductory offer. If this is an introductory offer, then clients are always charged a set number of times rather than month to month, using their AutoPays. Possible values are: * None * NewConsumer * NewAndReturningConsumer",
+      "example": "example-value"
+    },
+    "AutopaySchedule": {
+      "$ref": "#/components/schemas/AutopaySchedule",
+      "description": "Contains information about the AutoPay schedule. This parameter is null if `AutopayTriggerType` has a value of `PricingOptionRunsOutOrExpires`."
+    },
+    "NumberOfAutopays": {
+      "type": "int32",
+      "description": "The number of times that the AutoPay is to be run. This value is null if `FrequencyType` is `MonthToMonth`.",
+      "example": 1
+    },
+    "AutopayTriggerType": {
+      "type": "string",
+      "description": "Defines whether the AutoPay, if applicable to this contract, runs on a set schedule or when the pricing option runs out or expires. Possible values are: * OnSetSchedule * PricingOptionRunsOutOrExpires",
+      "example": "example-value"
+    },
+    "ActionUponCompletionOfAutopays": {
+      "type": "string",
+      "description": "The renewal action to be taken when this AutoPay is completed. Possible values are: * ContractExpires * ContractAutomaticallyRenews",
+      "example": "example-value"
+    },
+    "ClientsChargedOn": {
+      "type": "string",
+      "description": "The value that indicates when clients are charged. Possible values are: * OnSaleDate * FirstOfTheMonth * FifteenthOfTheMonth * LastDayOfTheMonth * FirstOrFifteenthOfTheMonth * FirstOrSixteenthOfTheMonth * FifteenthOrEndOfTheMonth * SpecificDate",
+      "example": "example-value"
+    },
+    "ClientsChargedOnSpecificDate": {
+      "type": "datetime",
+      "description": "If `ClientsChargedOn` is defined as a specific date, this property holds the value of that date. Otherwise, this property is null.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "DiscountAmount": {
+      "type": "double",
+      "description": "The calculated discount applied to the items in this contract.",
+      "example": 49.99
+    },
+    "DepositAmount": {
+      "type": "double",
+      "description": "The amount of the deposit required for this contract.",
+      "example": 49.99
+    },
+    "FirstAutopayFree": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the first payment for the AutoPay is free.",
+      "example": true
+    },
+    "LastAutopayFree": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the last payment for the AutoPay is free.",
+      "example": true
+    },
+    "ClientTerminateOnline": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the client can terminate this contract on the Internet.",
+      "example": true
+    },
+    "MembershipTypeRestrictions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/MembershipTypeRestriction"
+      },
+      "description": "Contains information about the memberships that can purchase this contract. If null, then no membership restrictions exist, and anyone can purchase the contract.",
+      "example": [
+        {}
+      ]
+    },
+    "LocationPurchaseRestrictionIds": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "The IDs of the locations where this contract may be sold. If there are no restrictions, this value is null.",
+      "example": [
+        1
+      ]
+    },
+    "LocationPurchaseRestrictionNames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Location names where the contract may be purchased. If this value is null, there are no restrictions.",
+      "example": [
+        "example-value"
+      ]
+    },
+    "AgreementTerms": {
+      "type": "string",
+      "description": "Business-defined terms and conditions for the contract.",
+      "example": "example-value"
+    },
+    "RequiresElectronicConfirmation": {
+      "type": "boolean",
+      "description": "When `true`, clients who purchase the contract are prompted to agree to the terms of the contract the next time that they log in.",
+      "example": true
+    },
+    "AutopayEnabled": {
+      "type": "boolean",
+      "description": "When `true`, this contract establishes an AutoPay on the client\u2019s account.",
+      "example": true
+    },
+    "FirstPaymentAmountSubtotal": {
+      "type": "double",
+      "description": "The subtotal of the amount that the client is to be charged when signing up for the contract.",
+      "example": 49.99
+    },
+    "FirstPaymentAmountTax": {
+      "type": "double",
+      "description": "The amount of tax that the client is to be charged when signing up for the contract.",
+      "example": 49.99
+    },
+    "FirstPaymentAmountTotal": {
+      "type": "double",
+      "description": "The total amount that the client is to be charged when signing up for the contract.",
+      "example": 49.99
+    },
+    "RecurringPaymentAmountSubtotal": {
+      "type": "double",
+      "description": "The subtotal amount that the client is to be charged on an ongoing basis.",
+      "example": 49.99
+    },
+    "RecurringPaymentAmountTax": {
+      "type": "double",
+      "description": "The amount of tax the client is to be charged on an ongoing basis.",
+      "example": 49.99
+    },
+    "RecurringPaymentAmountTotal": {
+      "type": "double",
+      "description": "The total amount that the client is to be charged on an ongoing basis.",
+      "example": 49.99
+    },
+    "TotalContractAmountSubtotal": {
+      "type": "double",
+      "description": "The subtotal amount that the client is to be charged over the lifespan of the contract.",
+      "example": 49.99
+    },
+    "TotalContractAmountTax": {
+      "type": "double",
+      "description": "The total amount of tax the client is to be charged over the lifespan of the contract.",
+      "example": 49.99
+    },
+    "TotalContractAmountTotal": {
+      "type": "double",
+      "description": "The total amount the client is to be charged over the lifespan of the contract.",
+      "example": 49.99
+    },
+    "PromoPaymentAmountSubtotal": {
+      "type": "double",
+      "description": "Subtotal promotional period",
+      "example": 49.99
+    },
+    "PromoPaymentAmountTax": {
+      "type": "double",
+      "description": "Taxes of promotional period",
+      "example": 49.99
+    },
+    "PromoPaymentAmountTotal": {
+      "type": "double",
+      "description": "Total of promotional period",
+      "example": 49.99
+    },
+    "NumberOfPromoAutopays": {
+      "type": "int32",
+      "description": "Number of times that the AutoPay runs under the promotional period",
+      "example": 1
+    }
+  }
+}

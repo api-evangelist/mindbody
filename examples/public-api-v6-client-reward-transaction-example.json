@@ -1,0 +1,8 @@
+{
+  "ActionDateTime": "2026-05-28T14:30:00Z",
+  "Action": "Earned",
+  "Source": "example-value",
+  "SourceID": 1,
+  "ExpirationDateTime": "2026-05-28T14:30:00Z",
+  "Points": 1
+}

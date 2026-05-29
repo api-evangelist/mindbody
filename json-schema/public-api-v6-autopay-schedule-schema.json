@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-autopay-schedule-schema.json",
+  "title": "AutopaySchedule",
+  "description": "Implementation of the 'AutopaySchedule' model.",
+  "type": "object",
+  "properties": {
+    "FrequencyType": {
+      "type": "string",
+      "description": "Defines how often clients are charged. Possible values are: * SetNumberOfAutopays * MonthToMonth",
+      "example": "example-value"
+    },
+    "FrequencyValue": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The interval of AutoPay frequency, combined with `FrequencyTimeUnit`. This value is null if `FrequencyType` is `MonthToMonth`.",
+      "example": 1
+    },
+    "FrequencyTimeUnit": {
+      "type": "string",
+      "description": "Defines the time unit that sets how often to run the AutoPay, combined with `FrequencyValue`. This value is null if `FrequencyType` is `MonthToMonth`. Possible values are: * Weekly * Monthly * Yearly",
+      "example": "example-value"
+    }
+  }
+}

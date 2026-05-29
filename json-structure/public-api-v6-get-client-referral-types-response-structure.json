@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-client-referral-types-response-structure.json",
+  "name": "GetClientReferralTypesResponse",
+  "description": "Implementation of the 'GetClientReferralTypesResponse' model.",
+  "type": "object",
+  "properties": {
+    "ReferralTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "The list of available referral types.",
+      "example": [
+        "example-value"
+      ]
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-add-client-to-enrollment-request-schema.json",
+  "title": "AddClientToEnrollmentRequest",
+  "description": "Implementation of the 'AddClientToEnrollmentRequest' model. Add Client To Enrollment Request Model",
+  "type": "object",
+  "properties": {
+    "ClientId": {
+      "type": "string",
+      "description": "The client IDs of the clients to add to the specified enrollments.",
+      "example": "example-value"
+    },
+    "ClassScheduleId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The class schedule IDs of the enrollments to add the clients to. The ClassScheduleId can be found in GetEnrollments as the EnrollmentId.",
+      "example": 123456
+    },
+    "EnrollDateForward": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Enroll the clients from this date forward. `EnrollDateForward` takes priority over open enrollment. Default: **null**",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EnrollOpen": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "description": "Enroll for selected dates.",
+      "example": [
+        "2026-05-28T14:30:00Z"
+      ]
+    },
+    "Test": {
+      "type": "boolean",
+      "description": "When `true`, input information is validated, but not committed.<br /> Default: **false**",
+      "example": true
+    },
+    "SendEmail": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the client should be sent an email. An email is only sent if the client has an email address and automatic emails have been set up. <br /> Default: **false**",
+      "example": true
+    },
+    "Waitlist": {
+      "type": "boolean",
+      "description": "When `true`, the client is added to a specific enrollments waiting list. Default: **false**",
+      "example": true
+    },
+    "WaitlistEntryId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The waiting list entry to add. Used to add a client to an enrollment from a waiting list entry.",
+      "example": 123456
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-assign-staff-session-type-response-schema.json",
+  "title": "AssignStaffSessionTypeResponse",
+  "description": "Implementation of the 'AssignStaffSessionTypeResponse' model.",
+  "type": "object",
+  "properties": {
+    "StaffId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Staff member assigned to the session type",
+      "example": 123456
+    },
+    "SessionTypeId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The session type the staff member is assigned to",
+      "example": 123456
+    },
+    "PayRateType": {
+      "type": "string",
+      "description": "The pay rate type name Can be: \"Flat\", \"Percent\", or \"No Pay\"",
+      "example": "example-value"
+    },
+    "PayRateAmount": {
+      "type": "number",
+      "format": "double",
+      "description": "The pay rate amount. It is interpreted based on the value of PayRateTypeId",
+      "example": 49.99
+    },
+    "TimeLength": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The staff specific amount of time that a session of this type typically lasts.",
+      "example": 1
+    },
+    "PrepTime": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Prep time in minutes",
+      "example": 1
+    },
+    "FinishTime": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Finish time in minutes",
+      "example": 1
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "Whether this association is active",
+      "example": true
+    }
+  }
+}

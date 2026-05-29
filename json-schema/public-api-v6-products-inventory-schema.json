@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-products-inventory-schema.json",
+  "title": "ProductsInventory",
+  "description": "Implementation of the 'ProductsInventory' model.",
+  "type": "object",
+  "properties": {
+    "ProductId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "A ProductId of the product.",
+      "example": 123456
+    },
+    "BarcodeId": {
+      "type": "string",
+      "description": "The Id is barcode Id of the product.",
+      "example": "example-value"
+    },
+    "LocationId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The LocationId of the product.",
+      "example": 123456
+    },
+    "UnitsLogged": {
+      "type": "integer",
+      "format": "int32",
+      "description": "UnitsLogged of the product.",
+      "example": 1
+    },
+    "UnitsSold": {
+      "type": "integer",
+      "format": "int32",
+      "description": "UnitsSold of the product.",
+      "example": 1
+    },
+    "UnitsInStock": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The units in stock of the product",
+      "example": 1
+    },
+    "ReorderLevel": {
+      "type": "integer",
+      "format": "int32",
+      "description": "ReorderLevel of the product.",
+      "example": 1
+    },
+    "MaxLevel": {
+      "type": "integer",
+      "format": "int32",
+      "description": "MaxLevel of the product.",
+      "example": 1
+    },
+    "CreatedDateTimeUTC": {
+      "type": "string",
+      "format": "date-time",
+      "description": "CreatedDateTimeUTC of the product.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "ModifiedDateTimeUTC": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ModifiedDateTimeUTC of the product.",
+      "example": "2026-05-28T14:30:00Z"
+    }
+  }
+}

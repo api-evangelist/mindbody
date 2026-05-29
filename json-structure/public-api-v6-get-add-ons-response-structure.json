@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-add-ons-response-structure.json",
+  "name": "GetAddOnsResponse",
+  "description": "Implementation of the 'GetAddOnsResponse' model. Get AddOns Response Model",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "AddOns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AppointmentAddOn"
+      },
+      "description": "A list of available add-ons.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

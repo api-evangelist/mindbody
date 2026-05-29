@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-checkout-shopping-cart-response-schema.json",
+  "title": "CheckoutShoppingCartResponse",
+  "description": "Implementation of the 'CheckoutShoppingCartResponse' model. The API Response model for Checkout Shopping Cart APIs",
+  "type": "object",
+  "properties": {
+    "ShoppingCart": {
+      "$ref": "#/components/schemas/ShoppingCart",
+      "description": "Contains information about the shopping cart."
+    },
+    "Classes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Class"
+      },
+      "description": "Contains information about the classes.",
+      "example": [
+        {}
+      ]
+    },
+    "Appointments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Appointment"
+      },
+      "description": "Contains information about the appointments.",
+      "example": [
+        {}
+      ]
+    },
+    "Enrollments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ClassSchedule"
+      },
+      "description": "Contains information about enrollment class schedules.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-checkout-payment-info-structure.json",
+  "name": "CheckoutPaymentInfo",
+  "description": "Implementation of the 'CheckoutPaymentInfo' model.",
+  "type": "object",
+  "properties": {
+    "Type": {
+      "type": "string",
+      "description": "The type of payment. Possible values are: * CreditCard - Indicates that this payment item is a credit card. * StoredCard - Indicates that this payment item is a credit card stored on the client\u2019s account. * DirectDebit - Indicates that this payment item is a direct debit. * EncryptedTrackData - Indicates that this payment item is a swiped credit card. * TrackData - Indicates that this payment item is a swiped credit card. * DebitAccount - Indicates that funds should be debited from the client\u2019s ",
+      "example": "example-value"
+    },
+    "Metadata": {
+      "type": "string",
+      "description": "Contains information about the cart\u2019s payments. Possible values vary according to the Type property, as below: * CreditCard Keys - amount, creditCardNumber, expMonth, expYear, cvv, billingName, billingAddress, billingCity, billingState, billingPostalCode, saveInfo, cardId * StoredCard Keys - amount, lastFour * DirectDebit Keys - amount * EncryptedTrackData Keys - amount, trackData * TrackData Keys - amount, trackData * DebitAccount Keys - amount * Custom Keys - amount, id * Comp Keys - amount * ",
+      "example": "example-value"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-gender-option-schema.json",
+  "title": "GenderOption",
+  "description": "Implementation of the 'GenderOption' model. A gender option available at a site",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The id of the gender option.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The value that describes this gender option.",
+      "example": "Sunset Yoga Studio"
+    },
+    "IsActive": {
+      "type": "boolean",
+      "description": "When `true`, this indicates that the gender option is active and may be assigned to a client.",
+      "example": true
+    },
+    "IsDefault": {
+      "type": "boolean",
+      "description": "When true, this indicates that this is the default gender option at the site.",
+      "example": true
+    }
+  }
+}

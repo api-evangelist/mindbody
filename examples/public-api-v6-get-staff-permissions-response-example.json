@@ -1,0 +1,12 @@
+{
+  "UserGroup": {
+    "PermissionGroupName": "example-value",
+    "IpRestricted": true,
+    "AllowedPermissions": [
+      {}
+    ],
+    "DeniedPermissions": [
+      {}
+    ]
+  }
+}

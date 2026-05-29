@@ -1,0 +1,6 @@
+{
+  "ClassID": 1,
+  "HideCancel": true,
+  "SendClientEmail": true,
+  "SendStaffEmail": true
+}

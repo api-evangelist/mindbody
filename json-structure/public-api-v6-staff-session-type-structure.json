@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-staff-session-type-structure.json",
+  "name": "StaffSessionType",
+  "description": "Implementation of the 'StaffSessionType' model.",
+  "type": "object",
+  "properties": {
+    "StaffId": {
+      "type": "int32",
+      "description": "The staff member Id",
+      "example": 123456
+    },
+    "Type": {
+      "$ref": "#/components/schemas/Type2Enum",
+      "description": "Contains the class description session type."
+    },
+    "Id": {
+      "type": "int32",
+      "description": "This session type\u2019s unique Id.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of this session type.",
+      "example": "Sunset Yoga Studio"
+    },
+    "NumDeducted": {
+      "type": "int32",
+      "description": "The number of sessions that this session type deducts from the pricing option used to pay for this type of session.",
+      "example": 1
+    },
+    "ProgramId": {
+      "type": "int32",
+      "description": "This session type\u2019s service category Id.",
+      "example": 123456
+    },
+    "Category": {
+      "type": "string",
+      "description": "This session type\u2019s category.",
+      "example": "example-value"
+    },
+    "CategoryId": {
+      "type": "int32",
+      "description": "This session type\u2019s category Id.",
+      "example": 123456
+    },
+    "Subcategory": {
+      "type": "string",
+      "description": "This session type\u2019s subcategory.",
+      "example": "example-value"
+    },
+    "SubcategoryId": {
+      "type": "int32",
+      "description": "This session type\u2019s subcategory Id.",
+      "example": 123456
+    },
+    "TimeLength": {
+      "type": "int32",
+      "description": "The model property of type int.",
+      "example": 1
+    },
+    "PrepTime": {
+      "type": "int32",
+      "description": "Prep time in minutes",
+      "example": 1
+    },
+    "FinishTime": {
+      "type": "int32",
+      "description": "Finish time in minutes",
+      "example": 1
+    },
+    "PayRateType": {
+      "type": "string",
+      "description": "The pay rate type",
+      "example": "example-value"
+    },
+    "PayRateAmount": {
+      "type": "double",
+      "description": "The pay rate amount",
+      "example": 49.99
+    }
+  }
+}

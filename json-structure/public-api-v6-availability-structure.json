@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-availability-structure.json",
+  "name": "Availability",
+  "description": "Implementation of the 'Availability' model. A staff availability entry",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "The ID of the availability.",
+      "example": 123456
+    },
+    "Staff": {
+      "$ref": "#/components/schemas/Staff",
+      "description": "Contains information about staff members."
+    },
+    "SessionType": {
+      "$ref": "#/components/schemas/SessionType",
+      "description": "Contains information about the types of sessions."
+    },
+    "Programs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Program"
+      },
+      "description": "Contains information about the programs.",
+      "example": [
+        {}
+      ]
+    },
+    "StartDateTime": {
+      "type": "datetime",
+      "description": "The date and time the availability starts in the site local time zone.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EndDateTime": {
+      "type": "datetime",
+      "description": "The date and time the availability ends in the site local time zone.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "BookableEndDateTime": {
+      "type": "datetime",
+      "description": "The time of day that the last appointment can start in the site local time zone.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Location": {
+      "$ref": "#/components/schemas/Location",
+      "description": "Contains information about the location."
+    },
+    "PrepTime": {
+      "type": "int32",
+      "description": "Prep time in minutes",
+      "example": 1
+    },
+    "FinishTime": {
+      "type": "int32",
+      "description": "Finish time in minutes",
+      "example": 1
+    },
+    "IsMasked": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the staff member's name for availabilty is masked. When `false`, indicates that the staff member's name for availabilty is not masked.",
+      "example": true
+    },
+    "ShowPublic": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the schedule is shown to the clients. When `false`, indicates that the schedule is hidden from the clients.",
+      "example": true
+    },
+    "ResourceAvailabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ResourceAvailability"
+      },
+      "description": "Contains information about resources availability for the specified session type.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

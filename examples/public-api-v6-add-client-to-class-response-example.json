@@ -1,0 +1,27 @@
+{
+  "Visit": {
+    "AppointmentId": 123456,
+    "AppointmentGenderPreference": "None",
+    "AppointmentStatus": "None",
+    "ClassId": 123456,
+    "ClientId": "example-value",
+    "StartDateTime": "2026-05-28T14:30:00Z",
+    "EndDateTime": "2026-05-28T14:30:00Z",
+    "Id": 123456,
+    "LastModifiedDateTime": "2026-05-28T14:30:00Z",
+    "LateCancelled": true,
+    "LocationId": 123456,
+    "MakeUp": true,
+    "Name": "Sunset Yoga Studio",
+    "ServiceId": 123456,
+    "ServiceName": "example-value",
+    "ProductId": 123456,
+    "SignedIn": true,
+    "StaffId": 123456,
+    "WebSignup": true,
+    "Action": "None",
+    "CrossRegionalBookingPerformed": true,
+    "SiteId": -99,
+    "WaitlistEntryId": 123456
+  }
+}

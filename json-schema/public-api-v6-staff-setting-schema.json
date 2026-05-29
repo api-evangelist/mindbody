@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-staff-setting-schema.json",
+  "title": "StaffSetting",
+  "description": "Implementation of the 'StaffSetting' model. contains the information about the staff settings.",
+  "type": "object",
+  "properties": {
+    "UseStaffNicknames": {
+      "type": "boolean",
+      "description": "When `true`, `DisplayName` of the staff will be displayed. When `false`, `DisplayName` will be displayed as null.",
+      "example": true
+    },
+    "ShowStaffLastNamesOnSchedules": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the Name contains both the `FirstName` and `LastName` of the staff. When `false`, indicates that the Name contains only the `FirstName` of the staff.",
+      "example": true
+    }
+  }
+}

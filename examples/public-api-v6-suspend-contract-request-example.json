@@ -1,0 +1,11 @@
+{
+  "ClientId": "example-value",
+  "ClientContractId": 123456,
+  "SuspensionType": "example-value",
+  "SuspensionStart": "2026-05-28T14:30:00Z",
+  "Duration": 1,
+  "DurationUnit": 1,
+  "OpenEnded": true,
+  "SuspensionNotes": "Example note for Mindbody Public API.",
+  "SuspensionFee": 1.0
+}

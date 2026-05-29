@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-terminate-contract-request-schema.json",
+  "title": "TerminateContractRequest",
+  "description": "Implementation of the 'TerminateContractRequest' model.",
+  "type": "object",
+  "properties": {
+    "ClientId": {
+      "type": "string",
+      "description": "The ID of the client. NOTE: this should be the PayerClientId (from GET ClientContracts and/or GET ClientCompleteInfo), which is the ID of the client who holds the contract.",
+      "example": "example-value"
+    },
+    "ClientContractId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The unique ID of the sale of the contract",
+      "example": 123456
+    },
+    "TerminationDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The contract termination date.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "TerminationCode": {
+      "type": "string",
+      "description": "ex. Illness, Injury, Moving, BreakingContract (Note this can be customized by each studio).",
+      "example": "example-value"
+    },
+    "TerminationComments": {
+      "type": "string",
+      "description": "The comments for terminating a contract.",
+      "example": "Example note for Mindbody Public API."
+    }
+  }
+}

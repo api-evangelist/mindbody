@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-purchase-contract-response-totals-structure.json",
+  "name": "PurchaseContractResponseTotals",
+  "description": "Implementation of the 'PurchaseContractResponseTotals' model. Totals for the purchase",
+  "type": "object",
+  "properties": {
+    "Total": {
+      "type": "double",
+      "description": "Total payment amount",
+      "example": 49.99
+    },
+    "SubTotal": {
+      "type": "double",
+      "description": "Sub total. For VAT, sum of asking prices (include taxes, excludes discounts). For non vat, excludes taxes and discounts.",
+      "example": 49.99
+    },
+    "Discount": {
+      "type": "double",
+      "description": "Discount",
+      "example": 1.0
+    },
+    "Tax": {
+      "type": "double",
+      "description": "Tax",
+      "example": 1.0
+    }
+  }
+}

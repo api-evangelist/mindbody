@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-programs-response-structure.json",
+  "name": "GetProgramsResponse",
+  "description": "Implementation of the 'GetProgramsResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "Programs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Program"
+      },
+      "description": "Contains information about the programs.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

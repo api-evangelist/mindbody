@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-membership-structure.json",
+  "name": "Membership",
+  "description": "Implementation of the 'Membership' model.",
+  "type": "object",
+  "properties": {
+    "MembershipId": {
+      "type": "int32",
+      "description": "The membership id.",
+      "example": 123456
+    },
+    "MembershipName": {
+      "type": "string",
+      "description": "The membership name.",
+      "example": "example-value"
+    },
+    "Priority": {
+      "type": "int32",
+      "description": "The priority/sort order.",
+      "example": 1
+    },
+    "MemberRetailDiscount": {
+      "type": "double",
+      "description": "The membership discount for retail as a percentage.",
+      "example": 1.0
+    },
+    "MemberServiceDiscount": {
+      "type": "double",
+      "description": "The membership discount for services as a percentage.",
+      "example": 1.0
+    },
+    "AllowClientsToScheduleUnpaid": {
+      "type": "boolean",
+      "description": "Allow clients in this membership to schedule unpaid.",
+      "example": true
+    },
+    "OnlineBookingRestrictedToMembersOnly": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ProgramMembership"
+      },
+      "description": "List of programs that are restricted to clients in this membership only.",
+      "example": [
+        {}
+      ]
+    },
+    "DayOfMonthSchedulingOpensForNextMonth": {
+      "type": "int32",
+      "description": "Day of month scheduling opens for next month. Unrestricted is a null value.",
+      "example": 1
+    },
+    "RestrictSelfSignInToMembersOnly": {
+      "type": "boolean",
+      "description": "Restrict self sign in to members only.",
+      "example": true
+    },
+    "AllowMembersToBookAppointmentsWithoutPaying": {
+      "type": "boolean",
+      "description": "Allow members to book appointments without paying.",
+      "example": true
+    },
+    "AllowMembersToPurchaseNonMembersServices": {
+      "type": "boolean",
+      "description": "Allow members to purchase non-members services.",
+      "example": true
+    },
+    "AllowMembersToPurchaseNonMembersProducts": {
+      "type": "boolean",
+      "description": "Allow members to purchase non-members products.",
+      "example": true
+    },
+    "IsActive": {
+      "type": "boolean",
+      "description": "Indicates if the membership is active.",
+      "example": true
+    },
+    "EarlyAccessDaysBeforeSchedulingWindow": {
+      "type": "int32",
+      "description": "Number of days before the scheduling window that members with this membership get early access.",
+      "example": 1
+    }
+  }
+}

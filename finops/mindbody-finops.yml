@@ -1,0 +1,152 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Mindbody
+providerId: mindbody
+created: '2026-05-28'
+modified: '2026-05-28'
+reconciled: true
+
+tags:
+  - FinOps
+  - FOCUS
+  - Fitness
+  - Wellness
+  - Booking
+  - SaaS
+
+description: >-
+  FOCUS-aligned FinOps for Mindbody — per-location monthly subscription plus
+  metered API usage overage, payment-transaction fees, SMS messaging fees, and
+  add-on charges (mobile app, marketplace discovery). API integration cost lives
+  on top of the underlying business subscription.
+
+sources:
+  - https://www.mindbodyonline.com/business/pricing
+  - https://developers.mindbodyonline.com/resources/faqs
+  - https://focus.finops.org/focus-specification/v1-3/
+
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+
+publisherName: 'Mindbody, Inc.'
+serviceCategory: Business Management SaaS
+
+billingModel:
+  pricingCategory: Tiered Subscription + Pay-As-You-Go
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Tax
+    - Refund
+    - Credit
+
+focusColumns:
+  ServiceName: Mindbody Public API v6
+  ServiceCategory: Business Management SaaS
+  ServiceSubcategory: Fitness, Wellness, and Beauty Studio Operations
+  ProviderName: Mindbody
+  PublisherName: 'Mindbody, Inc.'
+  InvoiceIssuerName: 'Mindbody, Inc.'
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  RegionId: US
+
+meters:
+  - name: software_subscription
+    unit: location-month
+    aggregation: count
+    dimensions:
+      - plan_tier   # Starter, Accelerate, Ultimate
+      - location_id
+      - region
+  - name: api_calls_live
+    unit: request
+    aggregation: sum
+    dimensions:
+      - api_key_id
+      - site_id
+      - environment   # live
+      - endpoint_group   # Appointment, Class, Client, Sale, Site, Staff, ...
+  - name: api_calls_sandbox
+    unit: request
+    aggregation: sum
+    dimensions:
+      - api_key_id
+      - site_id
+      - environment   # sandbox
+  - name: payment_transactions
+    unit: transaction
+    aggregation: sum
+    dimensions:
+      - card_brand
+      - payment_method   # CreditCard, GiftCard, Account, CustomPayment
+      - site_id
+  - name: payment_volume
+    unit: USD
+    aggregation: sum
+    dimensions:
+      - card_brand
+      - payment_method
+      - site_id
+  - name: sms_messages
+    unit: message
+    aggregation: sum
+    dimensions:
+      - destination_country
+      - message_type   # transactional, marketing
+      - site_id
+  - name: webhook_deliveries
+    unit: delivery
+    aggregation: sum
+    dimensions:
+      - subscription_id
+      - event_id
+      - delivery_status   # delivered, undelivered, failed
+  - name: marketplace_discovery_fees
+    unit: booking
+    aggregation: sum
+    dimensions:
+      - channel   # Mindbody marketplace, ClassPass, etc.
+      - site_id
+  - name: add_on_subscriptions
+    unit: month
+    aggregation: count
+    dimensions:
+      - addon_name   # branded mobile app, advanced messaging, etc.
+      - site_id
+
+principles:
+  - name: Visibility
+    description: >-
+      Pull live API usage from the Mindbody Developer Portal's per-key usage view
+      and the Webhooks API GET /api/v1/metrics endpoint (messagesAttempted,
+      messagesDelivered, messagesUndelivered, messagesFailed). Cross-reference
+      with the business-side reporting endpoints (Public API Site/Sale)
+      to attribute spend to studios and channels.
+  - name: Allocation
+    description: >-
+      Allocate cost by API-Key, SiteId, and integration partner. Use SiteId
+      headers to bucket usage per Mindbody business; tag API keys per integration
+      partner in your own metadata to roll usage up to product lines.
+  - name: Optimization
+    description: >-
+      Stay within the free 1,000-call-per-key-per-day quota by caching reference
+      data (Sites, Programs, Session Types, Class Descriptions, Staff) and
+      subscribing to webhooks for state changes instead of polling. Batch
+      operations (addMultipleAppointments, checkoutShoppingCart) reduce request
+      count vs. per-record API calls. For high-volume partners, request additional
+      sites or per-site keys so the daily quota scales horizontally.
+  - name: Accountability
+    description: >-
+      Assign a partner owner per Mindbody API key and per webhook subscription.
+      Set alerts when daily Public API calls approach 800 (80% of free quota) or
+      when webhook deliveries shift toward 'undelivered'. Owners must reactivate
+      auto-deactivated webhook subscriptions and respond to email failure
+      notifications within one business day.

@@ -1,0 +1,20 @@
+{
+  "errorInformation": [
+    {}
+  ],
+  "isSuccess": true,
+  "value": {
+    "eventIds": [
+      "example-value"
+    ],
+    "eventSchemaVersion": 1.0,
+    "referenceId": "example-value",
+    "status": "example-value",
+    "statusChangeDate": "2026-05-28T14:30:00Z",
+    "statusChangeMessage": "example-value",
+    "statusChangeUser": "example-value",
+    "subscriptionCreationDateTime": "2026-05-28T14:30:00Z",
+    "subscriptionId": "example-value",
+    "webhookUrl": "https://example.mindbodyonline.com/resource/abc123"
+  }
+}

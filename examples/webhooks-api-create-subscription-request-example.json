@@ -1,0 +1,8 @@
+{
+  "eventIds": [
+    "example-value"
+  ],
+  "eventSchemaVersion": 1.0,
+  "referenceId": "example-value",
+  "webhookUrl": "https://example.mindbodyonline.com/resource/abc123"
+}

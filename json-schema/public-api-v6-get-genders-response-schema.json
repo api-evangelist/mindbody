@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-genders-response-schema.json",
+  "title": "GetGendersResponse",
+  "description": "Implementation of the 'GetGendersResponse' model.",
+  "type": "object",
+  "properties": {
+    "GenderOptions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/GenderOption"
+      },
+      "description": "A list of the gender options and their properties at the site",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "ApplyPayment": true,
+  "AppointmentId": 123456,
+  "SessionTypeId": 123456,
+  "StaffId": 123456,
+  "Test": true
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-sale-payment-structure.json",
+  "name": "SalePayment",
+  "description": "Implementation of the 'SalePayment' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "A unique identifier for this payment.",
+      "example": 123456
+    },
+    "Amount": {
+      "type": "double",
+      "description": "The total amount of sales that were made on the sale date, including all payment methods that were used and taxes that were collected.",
+      "example": 49.99
+    },
+    "Method": {
+      "type": "int32",
+      "description": "The method used to make this payment.",
+      "example": 1
+    },
+    "Type": {
+      "type": "string",
+      "description": "The payment method type used for the client\u2019s purchase.",
+      "example": "example-value"
+    },
+    "Notes": {
+      "type": "string",
+      "description": "Payment notes that are entered under the selected payment method in the Retail screen before completing the sale.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "TransactionId": {
+      "type": "int32",
+      "description": "The ID of transaction. Use this ID when calling the GET Transactions endpoint.",
+      "example": 123456
+    }
+  }
+}

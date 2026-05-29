@@ -1,0 +1,11 @@
+{
+  "TokenType": "example-value",
+  "AccessToken": "example-value",
+  "Expires": "2026-05-28T14:30:00Z",
+  "User": {
+    "Id": 123456,
+    "FirstName": "Alex",
+    "LastName": "Lane",
+    "Type": "example-value"
+  }
+}

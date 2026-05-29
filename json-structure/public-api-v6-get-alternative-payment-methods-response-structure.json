@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-alternative-payment-methods-response-structure.json",
+  "name": "GetAlternativePaymentMethodsResponse",
+  "description": "Implementation of the 'GetAlternativePaymentMethodsResponse' model. Response for the GetAlternativePaymentMethods method.",
+  "type": "object",
+  "properties": {
+    "PaymentMethods": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AlternativePaymentMethod"
+      },
+      "description": "Contains information about the alternative payment methods.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

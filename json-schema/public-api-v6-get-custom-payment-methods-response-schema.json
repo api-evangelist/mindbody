@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-custom-payment-methods-response-schema.json",
+  "title": "GetCustomPaymentMethodsResponse",
+  "description": "Implementation of the 'GetCustomPaymentMethodsResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "PaymentMethods": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CustomPaymentMethod"
+      },
+      "description": "Contains information about the custom payment methods.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

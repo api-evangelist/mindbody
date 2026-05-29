@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-cross-regional-client-associations-response-structure.json",
+  "name": "GetCrossRegionalClientAssociationsResponse",
+  "description": "Implementation of the 'GetCrossRegionalClientAssociationsResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "CrossRegionalClientAssociations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CrossRegionalClientAssociation"
+      },
+      "description": "Contains information about the client\u2019s cross regional associations.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

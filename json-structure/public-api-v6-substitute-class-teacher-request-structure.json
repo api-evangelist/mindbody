@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-substitute-class-teacher-request-structure.json",
+  "name": "SubstituteClassTeacherRequest",
+  "description": "Implementation of the 'SubstituteClassTeacherRequest' model.",
+  "type": "object",
+  "properties": {
+    "ClassId": {
+      "type": "int32",
+      "description": "The ID of the class to which a substitute teacher needs to be assigned.",
+      "example": 123456
+    },
+    "StaffId": {
+      "type": "int32",
+      "description": "The staff ID of the teacher to substitute.",
+      "example": 123456
+    },
+    "OverrideConflicts": {
+      "type": "boolean",
+      "description": "When `true`, overrides any conflicts in the schedule.",
+      "example": true
+    },
+    "SendClientEmail": {
+      "type": "boolean",
+      "description": "When `true`, sends the client an automatic email about the substitution, if the client has opted to receive email.",
+      "example": true
+    },
+    "SendOriginalTeacherEmail": {
+      "type": "boolean",
+      "description": "When `true`, sends the originally scheduled teacher an automatic email about the substitution.",
+      "example": true
+    },
+    "SendSubstituteTeacherEmail": {
+      "type": "boolean",
+      "description": "When `true`, sends the substituted teacher an automatic email about the substitution.",
+      "example": true
+    }
+  }
+}

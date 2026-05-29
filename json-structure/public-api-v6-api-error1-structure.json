@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-api-error1-structure.json",
+  "name": "ApiError1",
+  "description": "Implementation of the 'ApiError1' model.",
+  "type": "object",
+  "properties": {
+    "Message": {
+      "type": "string",
+      "description": "The text of the message. Each message is specific to the error that caused it. For example, if the the error type is `InvalidFileFormat`, the message could say \"The photo you attempted to upload is not a supported file type.\"",
+      "example": "example-value"
+    },
+    "Code": {
+      "type": "string",
+      "description": "The type of error that occurred, for example, `ClientNotFound` or `InvalidClassId`.",
+      "example": "example-value"
+    }
+  }
+}

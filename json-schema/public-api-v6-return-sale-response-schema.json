@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-return-sale-response-schema.json",
+  "title": "ReturnSaleResponse",
+  "description": "Implementation of the 'ReturnSaleResponse' model. ReturnSaleResponse",
+  "type": "object",
+  "properties": {
+    "ReturnSaleID": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The returned sale ID",
+      "example": 1
+    },
+    "TrainerID": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The trainer ID who returned the sale",
+      "example": 1
+    },
+    "Amount": {
+      "type": "number",
+      "format": "double",
+      "description": "The returned amount",
+      "example": 49.99
+    }
+  }
+}

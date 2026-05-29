@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-checkout-alternative-payment-info-structure.json",
+  "name": "CheckoutAlternativePaymentInfo",
+  "description": "Implementation of the 'CheckoutAlternativePaymentInfo' model. Request object to capture Alternative Payment information.",
+  "type": "object",
+  "properties": {
+    "PaymentMethodId": {
+      "type": "int32",
+      "description": "The type of alternative payment. Possible values are: * 997 - Indicates that this payment item is iDEAL. * 801 - Indicates that this payment item is Apple Pay.",
+      "example": 123456
+    },
+    "Amount": {
+      "type": "double",
+      "description": "The amount to be paid",
+      "example": 49.99
+    }
+  }
+}

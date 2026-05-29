@@ -1,0 +1,7 @@
+{
+  "Id": 123456,
+  "StaffId": 123456,
+  "StartDateTime": "2026-05-28T14:30:00Z",
+  "EndDateTime": "2026-05-28T14:30:00Z",
+  "Description": "Example note for Mindbody Public API."
+}

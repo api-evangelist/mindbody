@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-add-appointment-outcome-schema.json",
+  "title": "AddAppointmentOutcome",
+  "description": "Implementation of the 'AddAppointmentOutcome' model. Contains information about an appointment creation outcome.",
+  "type": "object",
+  "properties": {
+    "Appointment": {
+      "$ref": "#/components/schemas/Appointment",
+      "description": "The appointment details if created."
+    },
+    "Error": {
+      "$ref": "#/components/schemas/ApiError",
+      "description": "The error message if the appointment creation failed."
+    },
+    "Request": {
+      "$ref": "#/components/schemas/AddAppointmentRequest",
+      "description": "The request details for the appointment creation."
+    }
+  }
+}

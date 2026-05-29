@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-client-visits-response-schema.json",
+  "title": "GetClientVisitsResponse",
+  "description": "Implementation of the 'GetClientVisitsResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "Visits": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Visit"
+      },
+      "description": "Contains information about client visits.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

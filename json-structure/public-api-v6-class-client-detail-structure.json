@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-class-client-detail-structure.json",
+  "name": "ClassClientDetail",
+  "description": "Implementation of the 'ClassClientDetail' model. Class Client Detail Object",
+  "type": "object",
+  "properties": {
+    "ClientIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "The RSSID of the clients to remove from the specified classes.",
+      "example": [
+        "example-value"
+      ]
+    },
+    "ClassId": {
+      "type": "int32",
+      "description": "The ID of the classes that you want to remove the clients from.",
+      "example": 123456
+    }
+  }
+}

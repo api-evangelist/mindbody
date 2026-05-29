@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-unavailability1-schema.json",
+  "title": "Unavailability1",
+  "description": "Implementation of the 'Unavailability1' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Unavailabiltity ID.",
+      "example": 123456
+    },
+    "StartDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Start of the unavailability.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EndDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "End of the unavailability.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "Description": {
+      "type": "string",
+      "description": "Description of the unavailability.",
+      "example": "Example note for Mindbody Public API."
+    }
+  }
+}

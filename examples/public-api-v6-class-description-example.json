@@ -1,0 +1,51 @@
+{
+  "Active": true,
+  "Description": "Example note for Mindbody Public API.",
+  "Id": 123456,
+  "ImageURL": "example-value",
+  "LastUpdated": "2026-05-28T14:30:00Z",
+  "Level": {
+    "Id": 123456,
+    "Name": "Sunset Yoga Studio",
+    "Description": "Example note for Mindbody Public API."
+  },
+  "Name": "Sunset Yoga Studio",
+  "Notes": "Example note for Mindbody Public API.",
+  "Prereq": "example-value",
+  "Program": {
+    "Id": 123456,
+    "Name": "Sunset Yoga Studio",
+    "ScheduleType": "All",
+    "CancelOffset": 10,
+    "ContentFormats": [
+      "example-value"
+    ],
+    "PricingRelationships": {
+      "PaysFor": [
+        1
+      ],
+      "PaidBy": [
+        1
+      ]
+    }
+  },
+  "SessionType": {
+    "Type": "All",
+    "DefaultTimeLength": 1,
+    "StaffTimeLength": 1,
+    "Id": 123456,
+    "Name": "Sunset Yoga Studio",
+    "OnlineDescription": "Example note for Mindbody Public API.",
+    "NumDeducted": 1,
+    "ProgramId": 123456,
+    "Category": "example-value",
+    "CategoryId": 123456,
+    "Subcategory": "example-value",
+    "SubcategoryId": 123456,
+    "AvailableForAddOn": true
+  },
+  "Category": "example-value",
+  "CategoryId": 123456,
+  "Subcategory": "example-value",
+  "SubcategoryId": 123456
+}

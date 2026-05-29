@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-prospect-stages-response-schema.json",
+  "title": "GetProspectStagesResponse",
+  "description": "Implementation of the 'GetProspectStagesResponse' model. Get Prospect Stages Response Model",
+  "type": "object",
+  "properties": {
+    "ProspectStages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ProspectStage"
+      },
+      "description": "List of Prospect Stages",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-upload-client-photo-request-structure.json",
+  "name": "UploadClientPhotoRequest",
+  "description": "Implementation of the 'UploadClientPhotoRequest' model.",
+  "type": "object",
+  "properties": {
+    "Bytes": {
+      "type": "string",
+      "description": "A Base64-encoded string representation of the image\u2019s byte array.",
+      "example": "example-value"
+    },
+    "ClientId": {
+      "type": "string",
+      "description": "The RSSID of the client for whom the photo is to be uploaded.",
+      "example": "example-value"
+    }
+  }
+}

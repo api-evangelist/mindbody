@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-contact-log-type-structure.json",
+  "name": "ContactLogType",
+  "description": "Implementation of the 'ContactLogType' model. A contact log type.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "The Id of the contactlog Type.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the contactlog Type.",
+      "example": "Sunset Yoga Studio"
+    },
+    "SubTypes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ContactLogSubType"
+      },
+      "description": "Contains the SubType objects, each of which describes the subtypes for a contactlog Type.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

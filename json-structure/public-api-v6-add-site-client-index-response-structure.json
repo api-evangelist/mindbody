@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-add-site-client-index-response-structure.json",
+  "name": "AddSiteClientIndexResponse",
+  "description": "Implementation of the 'AddSiteClientIndexResponse' model.",
+  "type": "object",
+  "properties": {
+    "ClientIndexID": {
+      "type": "int32",
+      "description": "ID of the client index.",
+      "example": 1
+    },
+    "ClientIndexName": {
+      "type": "string",
+      "description": "The name of the client index.",
+      "example": "example-value"
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "Indicates if Client Index is Active",
+      "example": true
+    },
+    "ShowOnNewClient": {
+      "type": "boolean",
+      "description": "Indicates if Client Index is shown on a new client profile",
+      "example": true
+    },
+    "ShowOnEnrollmentRoster": {
+      "type": "boolean",
+      "description": "Indicates if Client Index is shown on Enrollement Roster",
+      "example": true
+    },
+    "EditOnEnrollmentRoster": {
+      "type": "boolean",
+      "description": "Indicates if Client Index can be edited on Enrollement Roster",
+      "example": true
+    },
+    "SortOrder": {
+      "type": "int32",
+      "description": "Indicates sort order",
+      "example": 1
+    },
+    "ShowInConsumerMode": {
+      "type": "boolean",
+      "description": "Indicates if Client Index is shown in consumer mode.",
+      "example": true
+    },
+    "RequiredConsumerMode": {
+      "type": "boolean",
+      "description": "Indicates if the index is required when creating profiles in consumer mode.",
+      "example": true
+    },
+    "RequiredBizMode": {
+      "type": "boolean",
+      "description": "Indicates if the index is required when creating profiles in business mode.",
+      "example": true
+    }
+  }
+}

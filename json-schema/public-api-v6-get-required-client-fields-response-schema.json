@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-required-client-fields-response-schema.json",
+  "title": "GetRequiredClientFieldsResponse",
+  "description": "Implementation of the 'GetRequiredClientFieldsResponse' model.",
+  "type": "object",
+  "properties": {
+    "RequiredClientFields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "A list of strings that maps to the client fields that are required by the site.",
+      "example": [
+        "example-value"
+      ]
+    }
+  }
+}

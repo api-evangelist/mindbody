@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-payment-method-enum-structure.json",
+  "name": "PaymentMethodEnum",
+  "description": "PaymentMethodEnum enumeration.",
+  "type": "string",
+  "enum": [
+    "Other",
+    "CreditCard",
+    "DebitAccount",
+    "ACH"
+  ]
+}

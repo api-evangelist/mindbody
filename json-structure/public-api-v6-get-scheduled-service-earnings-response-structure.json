@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-scheduled-service-earnings-response-structure.json",
+  "name": "GetScheduledServiceEarningsResponse",
+  "description": "Implementation of the 'GetScheduledServiceEarningsResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "ScheduledServiceEarnings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ScheduledServiceEarningsEvent"
+      },
+      "description": "Contains the class payroll events.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

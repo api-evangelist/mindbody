@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-user-structure.json",
+  "name": "User",
+  "description": "Implementation of the 'User' model.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "int32",
+      "description": "The user\u2019s ID at the business. This is always 0 for Admin and Owner type users.",
+      "example": 123456
+    },
+    "FirstName": {
+      "type": "string",
+      "description": "The user\u2019s first name.",
+      "example": "Alex"
+    },
+    "LastName": {
+      "type": "string",
+      "description": "The user\u2019s last name.",
+      "example": "Lane"
+    },
+    "Type": {
+      "type": "string",
+      "description": "The user\u2019s type. Possible values are: * Staff * Owner * Admin",
+      "example": "example-value"
+    }
+  }
+}

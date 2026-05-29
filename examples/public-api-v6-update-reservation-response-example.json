@@ -1,0 +1,28 @@
+{
+  "Reservation": {
+    "ReservationId": "example-value",
+    "ReservationExternalId": "example-value",
+    "ClassId": "example-value",
+    "ClassExternalId": "example-value",
+    "MemberExternalId": "example-value",
+    "ReservationType": "example-value",
+    "Spots": {
+      "ReservedSpotNumbers": [
+        1
+      ],
+      "AvailableSpotNumbers": [
+        1
+      ],
+      "UnavailableSpotNumbers": [
+        1
+      ]
+    },
+    "IsConfirmed": true,
+    "ConfirmationDate": "2026-05-28T14:30:00Z"
+  },
+  "ResponseDetails": {
+    "Status": "Active",
+    "TransactionId": "example-value",
+    "Message": "example-value"
+  }
+}

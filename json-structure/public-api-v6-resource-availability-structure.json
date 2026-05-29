@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-resource-availability-structure.json",
+  "name": "ResourceAvailability",
+  "description": "Implementation of the 'ResourceAvailability' model. An availability of a resource",
+  "type": "object",
+  "properties": {
+    "ResourceId": {
+      "type": "int32",
+      "description": "Id",
+      "example": 123456
+    },
+    "StartDateTime": {
+      "type": "datetime",
+      "description": "Starts",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EndDateTime": {
+      "type": "datetime",
+      "description": "Ends",
+      "example": "2026-05-28T14:30:00Z"
+    }
+  }
+}

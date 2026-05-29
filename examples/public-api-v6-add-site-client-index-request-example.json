@@ -1,0 +1,11 @@
+{
+  "ClientIndexName": "example-value",
+  "Active": true,
+  "ShowOnNewClient": true,
+  "ShowOnEnrollmentRoster": true,
+  "EditOnEnrollmentRoster": true,
+  "SortOrder": 1,
+  "ShowInConsumerMode": true,
+  "RequiredConsumerMode": true,
+  "RequiredBizMode": true
+}

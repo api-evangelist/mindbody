@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-commission-payroll-purchase-event-structure.json",
+  "name": "CommissionPayrollPurchaseEvent",
+  "description": "Implementation of the 'CommissionPayrollPurchaseEvent' model.",
+  "type": "object",
+  "properties": {
+    "StaffId": {
+      "type": "int32",
+      "description": "The ID of the staff member who earned commissions.",
+      "example": 123456
+    },
+    "SaleDateTime": {
+      "type": "datetime",
+      "description": "The date and time when the sale occurred.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "SaleId": {
+      "type": "int32",
+      "description": "The sale\u2019s ID.",
+      "example": 123456
+    },
+    "SaleType": {
+      "type": "string",
+      "description": "The Sales type. When this is \"Purchase\" indicates that this sale paid commission to a staff. When this is \"Return\"",
+      "example": "example-value"
+    },
+    "ProductId": {
+      "type": "int32",
+      "description": "The product ID of the item for which the staff earned commissions.",
+      "example": 123456
+    },
+    "EarningsDetails": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CommissionDetail"
+      },
+      "description": "Contains information about which commissions the staff earned for this item.",
+      "example": [
+        {}
+      ]
+    },
+    "Earnings": {
+      "type": "double",
+      "description": "The total commissions earned by the staff for this item.",
+      "example": 1.0
+    }
+  }
+}

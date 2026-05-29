@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-get-commissions-response-schema.json",
+  "title": "GetCommissionsResponse",
+  "description": "Implementation of the 'GetCommissionsResponse' model.",
+  "type": "object",
+  "properties": {
+    "PaginationResponse": {
+      "$ref": "#/components/schemas/PaginationResponse",
+      "description": "Contains information about the pagination used."
+    },
+    "Commissions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CommissionPayrollPurchaseEvent"
+      },
+      "description": "Contains information about commissions earned by staff for sales within the given date range. Results are ordered by `SaleId`, then by `StaffId`.",
+      "example": [
+        {}
+      ]
+    }
+  }
+}

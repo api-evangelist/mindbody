@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-alternative-payment-method-schema.json",
+  "title": "AlternativePaymentMethod",
+  "description": "Implementation of the 'AlternativePaymentMethod' model. DTO object for alternative payment methods.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the alternative payment method.",
+      "example": 123456
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the alternative payment method.",
+      "example": "Sunset Yoga Studio"
+    }
+  }
+}

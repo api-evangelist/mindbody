@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-update-staff-response-schema.json",
+  "title": "UpdateStaffResponse",
+  "description": "Implementation of the 'UpdateStaffResponse' model.",
+  "type": "object",
+  "properties": {
+    "Staff": {
+      "$ref": "#/components/schemas/Staff",
+      "description": "Contains information about the staff"
+    }
+  }
+}

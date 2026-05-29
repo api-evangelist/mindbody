@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-gift-card-layout-schema.json",
+  "title": "GiftCardLayout",
+  "description": "Implementation of the 'GiftCardLayout' model. Gift card layout",
+  "type": "object",
+  "properties": {
+    "LayoutId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the layout.",
+      "example": 123456
+    },
+    "LayoutName": {
+      "type": "string",
+      "description": "The name of the layout.",
+      "example": "example-value"
+    },
+    "LayoutUrl": {
+      "type": "string",
+      "description": "The URL of the layout.",
+      "example": "https://example.mindbodyonline.com/resource/abc123"
+    }
+  }
+}

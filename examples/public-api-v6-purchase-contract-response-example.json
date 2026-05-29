@@ -1,0 +1,16 @@
+{
+  "ClientId": "example-value",
+  "UniqueClientId": 123456,
+  "LocationId": 123456,
+  "ContractId": 123456,
+  "ClientContractId": 123456,
+  "Totals": {
+    "Total": 49.99,
+    "SubTotal": 49.99,
+    "Discount": 1.0,
+    "Tax": 1.0
+  },
+  "PaymentProcessingFailures": [
+    {}
+  ]
+}

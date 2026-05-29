@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-visit-waitlist-info-schema.json",
+  "title": "VisitWaitlistInfo",
+  "description": "Implementation of the 'VisitWaitlistInfo' model. A Visit DTO with Waitlist Information",
+  "type": "object",
+  "properties": {
+    "WaitlistId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "waitlist entry Id",
+      "example": 123456
+    },
+    "WaitlistOrderNumber": {
+      "type": "integer",
+      "format": "int32",
+      "description": "order of the waitlist entry",
+      "example": 1
+    }
+  }
+}

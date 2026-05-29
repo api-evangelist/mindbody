@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-add-availabilities-request-schema.json",
+  "title": "AddAvailabilitiesRequest",
+  "description": "Implementation of the 'AddAvailabilitiesRequest' model.",
+  "type": "object",
+  "properties": {
+    "Test": {
+      "type": "boolean",
+      "description": "When `true`, the request ensures that its parameters are valid without affecting real data. When `false`, the request performs as intended and may affect live client data. (optional) Defaults to false.",
+      "example": true
+    },
+    "LocationID": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Location of availability. <br />Not used when IsUnavailable is `true`.",
+      "example": 1
+    },
+    "StaffIDs": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "description": "A list of requested staff IDs.<br /> (optional) Defaults to staff ID of user credentials. Use 0 for all.",
+      "example": [
+        1
+      ]
+    },
+    "ProgramIDs": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "description": "A list of program IDs.<br /> (optional) Defaults to all. <br />Not used when IsUnavailable is true.",
+      "example": [
+        1
+      ]
+    },
+    "StartDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The start date and time of the new availabilities or unavailabilities.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "EndDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The end date and time of the new availabilities or unavailabilities.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "DaysOfWeek": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DaysOfWeekEnum"
+      },
+      "description": "The days of the week to set.<br /> (optional) Defaults to all.",
+      "example": [
+        {}
+      ]
+    },
+    "UnavailableDescription": {
+      "type": "string",
+      "description": "Description of unavalability. <br />Only used when IsUnavailable is true.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "IsUnavailable": {
+      "type": "boolean",
+      "description": "When `true`, indicates that unavailability is getting added. When `false`, indicates that availability is getting added. Default: **false**",
+      "example": true
+    },
+    "PublicDisplay": {
+      "$ref": "#/components/schemas/PublicDisplay1Enum",
+      "description": "Sets the public display of the availability.<br /><ul><li>Show</li><li>Mask</li><li>Hide</li></ul> (optional) Defaults to Show."
+    }
+  }
+}

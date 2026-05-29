@@ -1,0 +1,8 @@
+{
+  "ClassId": 123456,
+  "StaffId": 123456,
+  "OverrideConflicts": true,
+  "SendClientEmail": true,
+  "SendOriginalTeacherEmail": true,
+  "SendSubstituteTeacherEmail": true
+}

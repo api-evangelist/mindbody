@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-suspend-contract-response-schema.json",
+  "title": "SuspendContractResponse",
+  "description": "Implementation of the 'SuspendContractResponse' model.",
+  "type": "object",
+  "properties": {
+    "Contract": {
+      "$ref": "#/components/schemas/ClientContract",
+      "description": "Contains information about client contract."
+    }
+  }
+}

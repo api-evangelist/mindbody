@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-pagination-response-schema.json",
+  "title": "PaginationResponse",
+  "description": "Implementation of the 'PaginationResponse' model. Contains information about the pagination to use.",
+  "type": "object",
+  "properties": {
+    "RequestedLimit": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Limit from pagination request",
+      "example": 10
+    },
+    "RequestedOffset": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Offset from pagination request",
+      "example": 10
+    },
+    "PageSize": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Number of results returned in this response",
+      "example": 1
+    },
+    "TotalResults": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Total number of results in dataset",
+      "example": 1
+    }
+  }
+}

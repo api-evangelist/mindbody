@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-appointment-option-schema.json",
+  "title": "AppointmentOption",
+  "description": "Implementation of the 'AppointmentOption' model. An appointment option name/value pair",
+  "type": "object",
+  "properties": {
+    "DisplayName": {
+      "type": "string",
+      "description": "The name displayed for this appointment option.",
+      "example": "example-value"
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name given to this option.",
+      "example": "Sunset Yoga Studio"
+    },
+    "Value": {
+      "type": "string",
+      "description": "The value of the option.",
+      "example": "example-value"
+    },
+    "Type": {
+      "type": "string",
+      "description": "The data type of the option value.",
+      "example": "example-value"
+    }
+  }
+}

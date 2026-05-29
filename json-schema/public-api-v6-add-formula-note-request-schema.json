@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-add-formula-note-request-schema.json",
+  "title": "AddFormulaNoteRequest",
+  "description": "Implementation of the 'AddFormulaNoteRequest' model.",
+  "type": "object",
+  "properties": {
+    "ClientId": {
+      "type": "string",
+      "description": "The ID of the client who needs to have a formula note added.",
+      "example": "example-value"
+    },
+    "Note": {
+      "type": "string",
+      "description": "The new formula note text.",
+      "example": "example-value"
+    },
+    "AppointmentId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The appointment ID that the formula note is related to.",
+      "example": 123456
+    }
+  }
+}

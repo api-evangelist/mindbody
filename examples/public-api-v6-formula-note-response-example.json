@@ -1,0 +1,12 @@
+{
+  "Id": 123456,
+  "ClientId": "example-value",
+  "AppointmentId": 123456,
+  "EntryDate": "2026-05-28T14:30:00Z",
+  "Note": "example-value",
+  "SiteId": -99,
+  "SiteName": "example-value",
+  "StaffFirstName": "example-value",
+  "StaffLastName": "example-value",
+  "StaffDisplayName": "example-value"
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-upload-client-document-response-schema.json",
+  "title": "UploadClientDocumentResponse",
+  "description": "Implementation of the 'UploadClientDocumentResponse' model.",
+  "type": "object",
+  "properties": {
+    "FileSize": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The size of the uploaded file.",
+      "example": 1
+    },
+    "FileName": {
+      "type": "string",
+      "description": "The name of the uploaded file.",
+      "example": "example-value"
+    }
+  }
+}

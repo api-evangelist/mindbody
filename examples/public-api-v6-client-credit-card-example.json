@@ -1,0 +1,12 @@
+{
+  "Address": "123 Market St",
+  "CardHolder": "example-value",
+  "CardNumber": "example-value",
+  "CardType": "example-value",
+  "City": "San Francisco",
+  "ExpMonth": "example-value",
+  "ExpYear": "example-value",
+  "LastFour": "example-value",
+  "PostalCode": "94110",
+  "State": "CA"
+}

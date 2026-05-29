@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-update-staff-permissions-request-structure.json",
+  "name": "UpdateStaffPermissionsRequest",
+  "description": "Implementation of the 'UpdateStaffPermissionsRequest' model.",
+  "type": "object",
+  "properties": {
+    "StaffId": {
+      "type": "int32",
+      "description": "The ID of the staff member whose permission you want to change. Staff member must have a login.",
+      "example": 123456
+    },
+    "PermissionGroupName": {
+      "type": "string",
+      "description": "The name of the permission group.",
+      "example": "example-value"
+    }
+  }
+}

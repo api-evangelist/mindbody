@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-schema/public-api-v6-purchased-item-schema.json",
+  "title": "PurchasedItem",
+  "description": "Implementation of the 'PurchasedItem' model.",
+  "type": "object",
+  "properties": {
+    "SaleDetailId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID which gets assigned to the item when item is added to the cart.",
+      "example": 123456
+    },
+    "Id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the purchased item. Use this ID when calling the GET Services or GET Products endpoint.",
+      "example": 123456
+    },
+    "IsService": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the purchased item was a pricing option for a service.",
+      "example": true
+    },
+    "BarcodeId": {
+      "type": "string",
+      "description": "The barcode number of the purchased item. Use this ID when calling the GET Products endpoint.",
+      "example": "example-value"
+    },
+    "Description": {
+      "type": "string",
+      "description": "The description of the sale transaction/pricing option.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "ContractId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The contract purchased by the client. Use this ID when calling the GET Contract endpoint.",
+      "example": 123456
+    },
+    "CategoryId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The revenue category ID used for sale. Use this ID when calling the GET Categories endpoint.",
+      "example": 123456
+    },
+    "SubCategoryId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of revenue subcategory.",
+      "example": 123456
+    },
+    "UnitPrice": {
+      "type": "number",
+      "format": "double",
+      "description": "er Unit Price of the item purchased.",
+      "example": 49.99
+    },
+    "Quantity": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Quantity of the purchased item, applicable for products only. Note: Negative numbers indicate returned items.",
+      "example": 10
+    },
+    "DiscountPercent": {
+      "type": "number",
+      "format": "double",
+      "description": "The percent discount that was applied to the items subtotal.",
+      "example": 1.0
+    },
+    "DiscountAmount": {
+      "type": "number",
+      "format": "double",
+      "description": "The total discount amount that was applied to the items subtotal.",
+      "example": 49.99
+    },
+    "Tax1": {
+      "type": "number",
+      "format": "double",
+      "description": "A decimal representation of the first tax rate that was applied to the items subtotal.",
+      "example": 1.0
+    },
+    "Tax2": {
+      "type": "number",
+      "format": "double",
+      "description": "A decimal representation of the second tax rate that was applied to the items subtotal.",
+      "example": 1.0
+    },
+    "Tax3": {
+      "type": "number",
+      "format": "double",
+      "description": "A decimal representation of the third tax rate that was applied to the items subtotal.",
+      "example": 1.0
+    },
+    "Tax4": {
+      "type": "number",
+      "format": "double",
+      "description": "A decimal representation of the fourth tax rate that was applied to the items subtotal.",
+      "example": 1.0
+    },
+    "Tax5": {
+      "type": "number",
+      "format": "double",
+      "description": "A decimal representation of the fifth tax rate that was applied to the items subtotal.",
+      "example": 1.0
+    },
+    "TaxAmount": {
+      "type": "number",
+      "format": "double",
+      "description": "Total tax amount that is summation of tax1, tax2, tax3, tax4 and tax5.",
+      "example": 49.99
+    },
+    "TotalAmount": {
+      "type": "number",
+      "format": "double",
+      "description": "The items total, once discounts and/or tax was applied.",
+      "example": 49.99
+    },
+    "Notes": {
+      "type": "string",
+      "description": "Note made by the customer while purchasing item.",
+      "example": "Example note for Mindbody Public API."
+    },
+    "Returned": {
+      "type": "boolean",
+      "description": "When `true`, indicates that the purchased item is returned, `false` otherwise.",
+      "example": true
+    },
+    "PaymentRefId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The payment reference ID generated during payment of sold item.",
+      "example": 123456
+    },
+    "ExpDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The expiration date of the pricing option purchased.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "ActiveDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The activation date of pricing option purchased.",
+      "example": "2026-05-28T14:30:00Z"
+    },
+    "GiftCardBarcodeId": {
+      "type": "string",
+      "description": "Gift Card BarcodeId",
+      "example": "example-value"
+    }
+  }
+}

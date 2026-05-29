@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/json-structure/public-api-v6-get-available-dates-response-structure.json",
+  "name": "GetAvailableDatesResponse",
+  "description": "Implementation of the 'GetAvailableDatesResponse' model.",
+  "type": "object",
+  "properties": {
+    "AvailableDates": {
+      "type": "array",
+      "items": {
+        "type": "datetime"
+      },
+      "description": "A list of dates where scheduled appointment availability was found after applying request filters.",
+      "example": [
+        "2026-05-28T14:30:00Z"
+      ]
+    }
+  }
+}
