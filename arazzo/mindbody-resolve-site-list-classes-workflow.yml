@@ -1,0 +1,99 @@
+arazzo: 1.0.1
+info:
+  title: Mindbody Resolve Site and List Classes
+  summary: Resolve the activated sites for an API key and list the classes for one site.
+  description: >-
+    A discovery flow for partner integrations that operate across multiple
+    Mindbody sites. The workflow lists the sites the API key is activated for,
+    then lists the scheduled classes for the chosen site over a date range.
+    The getSites operation authenticates only with the API-Key and an optional
+    authorization token and does not take a SiteId header, while the per-site
+    class listing inlines the SiteId. Every step inlines its request so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: mindbodyApi
+  url: ../openapi/mindbody-public-api-v6-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: resolve-site-list-classes
+  summary: Resolve activated sites and list the scheduled classes for a chosen site.
+  description: >-
+    Lists the sites the API key can access, then retrieves the scheduled
+    classes for the supplied site over a date range.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - siteId
+    properties:
+      apiKey:
+        type: string
+        description: The Mindbody-issued API key sent in the API-Key header.
+      siteId:
+        type: string
+        description: The ID of the site whose classes are listed.
+      authorization:
+        type: string
+        description: A staff user authorization (OAuth bearer) token.
+      startDateTime:
+        type: string
+        description: The start of the date range used to list scheduled classes.
+      endDateTime:
+        type: string
+        description: The end of the date range used to list scheduled classes.
+  steps:
+  - stepId: listSites
+    description: >-
+      List the sites the API key is activated for. This operation does not take
+      a SiteId header.
+    operationId: getSites
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    - name: request.siteIds
+      in: query
+      value: $inputs.siteId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      sites: $response.body#/Sites
+  - stepId: listClasses
+    description: >-
+      List the scheduled class instances for the chosen site over the requested
+      date range.
+    operationId: getClasses
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    - name: request.startDateTime
+      in: query
+      value: $inputs.startDateTime
+    - name: request.endDateTime
+      in: query
+      value: $inputs.endDateTime
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      classes: $response.body#/Classes
+  outputs:
+    sites: $steps.listSites.outputs.sites
+    classes: $steps.listClasses.outputs.classes

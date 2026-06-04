@@ -1,0 +1,124 @@
+arazzo: 1.0.1
+info:
+  title: Mindbody Find Client Purchases
+  summary: Find a client and retrieve their purchase history.
+  description: >-
+    A billing and account-review flow. The workflow searches for a client by
+    search text, captures the matching client id, and retrieves the purchase
+    records associated with that client over a date range. Every step inlines
+    the Mindbody API-Key, SiteId, and staff authorization headers so the flow
+    can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: mindbodyApi
+  url: ../openapi/mindbody-public-api-v6-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: find-client-purchases
+  summary: Resolve a client and list their purchase history.
+  description: >-
+    Searches the client directory and, when a client is found, retrieves the
+    client's purchase records for the requested date range.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - siteId
+    - searchText
+    properties:
+      apiKey:
+        type: string
+        description: The Mindbody-issued API key sent in the API-Key header.
+      siteId:
+        type: string
+        description: The ID of the site from which to pull data.
+      authorization:
+        type: string
+        description: A staff user authorization (OAuth bearer) token.
+      searchText:
+        type: string
+        description: Name, email, or other text used to find the client.
+      startDate:
+        type: string
+        description: The start of the purchase history date range.
+      endDate:
+        type: string
+        description: The end of the purchase history date range.
+  steps:
+  - stepId: findClient
+    description: >-
+      Search the client directory by the supplied search text and capture the
+      first matching client id.
+    operationId: getClients
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    - name: request.searchText
+      in: query
+      value: $inputs.searchText
+    - name: request.limit
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      clientId: $response.body#/Clients/0/Id
+    onSuccess:
+    - name: clientFound
+      type: goto
+      stepId: listPurchases
+      criteria:
+      - context: $response.body
+        condition: $.Clients.length > 0
+        type: jsonpath
+    - name: clientMissing
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.Clients.length == 0
+        type: jsonpath
+  - stepId: listPurchases
+    description: >-
+      Retrieve the purchase records for the matched client over the requested
+      date range.
+    operationId: getClientPurchases
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    - name: request.clientId
+      in: query
+      value: $steps.findClient.outputs.clientId
+    - name: request.startDate
+      in: query
+      value: $inputs.startDate
+    - name: request.endDate
+      in: query
+      value: $inputs.endDate
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      purchases: $response.body#/Purchases
+  outputs:
+    clientId: $steps.findClient.outputs.clientId
+    purchases: $steps.listPurchases.outputs.purchases

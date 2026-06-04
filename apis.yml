@@ -145,6 +145,57 @@ apis:
       - type: JSON-LD
         url: json-ld/mindbody-webhooks-api-context.jsonld
 common:
+  - type: ArazzoWorkflows
+    url: arazzo/
+    workflows:
+    - url: arazzo/mindbody-add-client-book-class-workflow.yml
+      name: Mindbody Add Client and Book Class
+      summary: Create a new client, find an upcoming class, and book the client into it.
+    - url: arazzo/mindbody-book-appointment-workflow.yml
+      name: Mindbody Book Appointment
+      summary: Find bookable appointment availabilities and book an appointment into an open slot.
+    - url: arazzo/mindbody-browse-services-checkout-workflow.yml
+      name: Mindbody Browse Services and Checkout
+      summary: List sellable services, check out a cart for a client, and confirm the sale.
+    - url: arazzo/mindbody-checkout-cart-confirm-sale-workflow.yml
+      name: Mindbody Checkout Cart and Confirm Sale
+      summary: Check out a shopping cart for a client and confirm the resulting sale.
+    - url: arazzo/mindbody-client-arrival-checkin-workflow.yml
+      name: Mindbody Client Arrival Check-In
+      summary: Find a client by search text and log their arrival at a location.
+    - url: arazzo/mindbody-client-membership-review-workflow.yml
+      name: Mindbody Client Membership Review
+      summary: Find a client and review their active memberships.
+    - url: arazzo/mindbody-client-visit-history-workflow.yml
+      name: Mindbody Client Visit History
+      summary: Find a client and retrieve their visit history for a date range.
+    - url: arazzo/mindbody-enroll-client-in-program-workflow.yml
+      name: Mindbody Enroll Client in Program
+      summary: List available enrollments and add a client to a chosen enrollment.
+    - url: arazzo/mindbody-find-client-purchases-workflow.yml
+      name: Mindbody Find Client Purchases
+      summary: Find a client and retrieve their purchase history.
+    - url: arazzo/mindbody-issue-token-list-clients-workflow.yml
+      name: Mindbody Issue User Token and List Clients
+      summary: Issue a staff user token and use it to list clients at a site.
+    - url: arazzo/mindbody-log-client-contact-workflow.yml
+      name: Mindbody Log Client Contact
+      summary: Find a client and add a contact log entry to their record.
+    - url: arazzo/mindbody-resolve-site-list-classes-workflow.yml
+      name: Mindbody Resolve Site and List Classes
+      summary: Resolve the activated sites for an API key and list the classes for one site.
+    - url: arazzo/mindbody-schedule-items-by-location-workflow.yml
+      name: Mindbody Schedule Items by Location
+      summary: List a site's locations and retrieve the schedule items for one location.
+    - url: arazzo/mindbody-session-type-book-appointment-workflow.yml
+      name: Mindbody Session Type Book Appointment
+      summary: Discover session types, find a bookable slot, and book an appointment.
+    - url: arazzo/mindbody-staff-class-schedule-workflow.yml
+      name: Mindbody Staff Class Schedule
+      summary: Resolve a staff member and retrieve their schedule items for a date range.
+    - url: arazzo/mindbody-staff-schedule-lookup-workflow.yml
+      name: Mindbody Staff Schedule Lookup
+      summary: Look up a staff member and retrieve their booked appointments for a date range.
   - type: Website
     url: https://www.mindbodyonline.com/
   - type: Documentation

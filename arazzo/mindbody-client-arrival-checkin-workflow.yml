@@ -1,0 +1,119 @@
+arazzo: 1.0.1
+info:
+  title: Mindbody Client Arrival Check-In
+  summary: Find a client by search text and log their arrival at a location.
+  description: >-
+    A front-desk check-in flow. The workflow searches for a client by name or
+    search text, captures the matching client id, and logs the client's
+    arrival at the studio location. Every step inlines the Mindbody API-Key,
+    SiteId, and staff authorization headers along with its request body so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: mindbodyApi
+  url: ../openapi/mindbody-public-api-v6-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: client-arrival-checkin
+  summary: Search for a client and record their arrival at a location.
+  description: >-
+    Searches the client directory by search text and, when a client is found,
+    logs the arrival at the supplied location.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - siteId
+    - authorization
+    - searchText
+    - locationId
+    properties:
+      apiKey:
+        type: string
+        description: The Mindbody-issued API key sent in the API-Key header.
+      siteId:
+        type: string
+        description: The ID of the site from which to pull data and write records.
+      authorization:
+        type: string
+        description: A staff user authorization (OAuth bearer) token.
+      searchText:
+        type: string
+        description: Name, email, or other text used to find the client.
+      locationId:
+        type: integer
+        description: The ID of the location where the arrival is logged.
+  steps:
+  - stepId: findClient
+    description: >-
+      Search the client directory by the supplied search text and capture the
+      first matching client id.
+    operationId: getClients
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    - name: request.searchText
+      in: query
+      value: $inputs.searchText
+    - name: request.limit
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      clientId: $response.body#/Clients/0/Id
+    onSuccess:
+    - name: clientFound
+      type: goto
+      stepId: logArrival
+      criteria:
+      - context: $response.body
+        condition: $.Clients.length > 0
+        type: jsonpath
+    - name: clientMissing
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.Clients.length == 0
+        type: jsonpath
+  - stepId: logArrival
+    description: >-
+      Log the matched client's arrival at the supplied location.
+    operationId: addArrival
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        ClientId: $steps.findClient.outputs.clientId
+        LocationId: $inputs.locationId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      arrivalAdded: $response.body#/ArrivalAdded
+      clientService: $response.body#/ClientService
+  outputs:
+    clientId: $steps.findClient.outputs.clientId
+    arrivalAdded: $steps.logArrival.outputs.arrivalAdded

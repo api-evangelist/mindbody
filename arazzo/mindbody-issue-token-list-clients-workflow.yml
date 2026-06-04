@@ -1,0 +1,97 @@
+arazzo: 1.0.1
+info:
+  title: Mindbody Issue User Token and List Clients
+  summary: Issue a staff user token and use it to list clients at a site.
+  description: >-
+    An authentication bootstrap flow. The workflow issues a staff user token by
+    posting credentials to the User Token endpoint, captures the returned access
+    token, and then uses that token as the Authorization header when listing the
+    site's clients. Every step inlines the Mindbody API-Key and SiteId headers
+    along with its request body so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: mindbodyApi
+  url: ../openapi/mindbody-public-api-v6-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: issue-token-list-clients
+  summary: Authenticate a staff user and list clients with the issued token.
+  description: >-
+    Issues a staff user token from a username and password, then lists the
+    clients at the site using the issued access token as the Authorization
+    header.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - siteId
+    - username
+    - password
+    properties:
+      apiKey:
+        type: string
+        description: The Mindbody-issued API key sent in the API-Key header.
+      siteId:
+        type: string
+        description: The ID of the site to authenticate against and list clients from.
+      username:
+        type: string
+        description: The staff user's username.
+      password:
+        type: string
+        description: The staff user's password.
+  steps:
+  - stepId: issueToken
+    description: >-
+      Issue a staff user token from the supplied credentials and capture the
+      returned access token.
+    operationId: issueToken
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    requestBody:
+      contentType: application/json
+      payload:
+        Username: $inputs.username
+        Password: $inputs.password
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      accessToken: $response.body#/AccessToken
+      tokenType: $response.body#/TokenType
+  - stepId: listClients
+    description: >-
+      List the clients at the site using the issued access token as the
+      Authorization header.
+    operationId: getClients
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $steps.issueToken.outputs.accessToken
+    - name: request.limit
+      in: query
+      value: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      clients: $response.body#/Clients
+  outputs:
+    accessToken: $steps.issueToken.outputs.accessToken
+    clients: $steps.listClients.outputs.clients

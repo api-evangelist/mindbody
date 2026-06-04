@@ -1,0 +1,115 @@
+arazzo: 1.0.1
+info:
+  title: Mindbody Enroll Client in Program
+  summary: List available enrollments and add a client to a chosen enrollment.
+  description: >-
+    An enrollment flow for multi-session programs, courses, and series at a
+    studio. The workflow lists the enrollments offered for a date range, then
+    adds the client to the chosen enrollment by its class schedule id. Every
+    step inlines the Mindbody API-Key, SiteId, and staff authorization headers
+    along with its request body so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: mindbodyApi
+  url: ../openapi/mindbody-public-api-v6-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: enroll-client-in-program
+  summary: Discover enrollments and enroll a client into a selected program.
+  description: >-
+    Lists the enrollments for a date range and adds the client to the
+    enrollment identified by the supplied class schedule id.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - siteId
+    - authorization
+    - clientId
+    - classScheduleId
+    properties:
+      apiKey:
+        type: string
+        description: The Mindbody-issued API key sent in the API-Key header.
+      siteId:
+        type: string
+        description: The ID of the site from which to pull data and write records.
+      authorization:
+        type: string
+        description: A staff user authorization (OAuth bearer) token.
+      clientId:
+        type: string
+        description: The ID of the client to add to the enrollment.
+      classScheduleId:
+        type: integer
+        description: The class schedule id (EnrollmentId) of the enrollment to add the client to.
+      startDate:
+        type: string
+        description: The start of the date range used to list enrollments.
+      endDate:
+        type: string
+        description: The end of the date range used to list enrollments.
+  steps:
+  - stepId: listEnrollments
+    description: >-
+      Retrieve the enrollments offered over the requested date range to confirm
+      the program is available before enrolling the client.
+    operationId: getEnrollments
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    - name: request.classScheduleIds
+      in: query
+      value: $inputs.classScheduleId
+    - name: request.startDate
+      in: query
+      value: $inputs.startDate
+    - name: request.endDate
+      in: query
+      value: $inputs.endDate
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      enrollments: $response.body#/Enrollments
+  - stepId: enrollClient
+    description: >-
+      Add the client to the chosen enrollment by its class schedule id.
+    operationId: addClientToEnrollment
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        ClientId: $inputs.clientId
+        ClassScheduleId: $inputs.classScheduleId
+        Test: false
+        SendEmail: true
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      enrollmentResult: $response.body
+  outputs:
+    enrollments: $steps.listEnrollments.outputs.enrollments
+    enrollmentResult: $steps.enrollClient.outputs.enrollmentResult

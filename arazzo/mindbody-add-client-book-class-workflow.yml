@@ -1,0 +1,174 @@
+arazzo: 1.0.1
+info:
+  title: Mindbody Add Client and Book Class
+  summary: Create a new client, find an upcoming class, and book the client into it.
+  description: >-
+    A common front-desk onboarding flow for a wellness or fitness studio. The
+    workflow first looks up the class descriptions offered by the site, then
+    pulls the scheduled class instances for a date range, creates a brand new
+    client record, and finally books that client into the chosen class. Every
+    step inlines the Mindbody API-Key, SiteId, and staff authorization headers
+    along with its request body so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: mindbodyApi
+  url: ../openapi/mindbody-public-api-v6-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: add-client-book-class
+  summary: Onboard a new client and book them into an upcoming class.
+  description: >-
+    Resolves the site's class descriptions, lists the scheduled classes,
+    creates the client, and then enrolls the client in the selected class
+    instance.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - siteId
+    - authorization
+    - firstName
+    - lastName
+    - email
+    - classId
+    properties:
+      apiKey:
+        type: string
+        description: The Mindbody-issued API key sent in the API-Key header.
+      siteId:
+        type: string
+        description: The ID of the site from which to pull data and write records.
+      authorization:
+        type: string
+        description: A staff user authorization (OAuth bearer) token.
+      firstName:
+        type: string
+        description: The new client's first name.
+      lastName:
+        type: string
+        description: The new client's last name.
+      email:
+        type: string
+        description: The new client's email address.
+      classId:
+        type: integer
+        description: The ID of the class instance to book the new client into.
+      startDateTime:
+        type: string
+        description: Start of the date range used to list scheduled classes.
+      endDateTime:
+        type: string
+        description: End of the date range used to list scheduled classes.
+  steps:
+  - stepId: listClassDescriptions
+    description: >-
+      Retrieve the class descriptions configured for the site to confirm the
+      studio's class catalog before booking.
+    operationId: getClassDescriptions
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      classDescriptions: $response.body#/ClassDescriptions
+  - stepId: listClasses
+    description: >-
+      List the scheduled class instances for the requested date range so a
+      bookable class can be selected.
+    operationId: getClasses
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    - name: request.startDateTime
+      in: query
+      value: $inputs.startDateTime
+    - name: request.endDateTime
+      in: query
+      value: $inputs.endDateTime
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      classes: $response.body#/Classes
+  - stepId: addClient
+    description: >-
+      Create the new client record using the supplied name and email. The
+      created client's Id is captured for booking.
+    operationId: addClient
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        FirstName: $inputs.firstName
+        LastName: $inputs.lastName
+        Email: $inputs.email
+        Active: true
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      clientId: $response.body#/Client/Id
+      clientUniqueId: $response.body#/Client/UniqueId
+  - stepId: bookClass
+    description: >-
+      Book the newly created client into the selected class instance.
+    operationId: addClientToClass
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        ClientId: $steps.addClient.outputs.clientId
+        ClassId: $inputs.classId
+        RequirePayment: false
+        Test: false
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      visit: $response.body#/Visit
+  outputs:
+    clientId: $steps.addClient.outputs.clientId
+    visit: $steps.bookClass.outputs.visit

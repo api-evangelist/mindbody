@@ -1,0 +1,104 @@
+arazzo: 1.0.1
+info:
+  title: Mindbody Staff Class Schedule
+  summary: Resolve a staff member and retrieve their schedule items for a date range.
+  description: >-
+    A teaching-schedule flow for studio operations. The workflow lists the
+    staff members at a site, then pulls the schedule items (classes and
+    bookings) for the selected staff member across a date range so a manager
+    can review what the instructor is teaching. Every step inlines the Mindbody
+    API-Key, SiteId, and staff authorization headers so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: mindbodyApi
+  url: ../openapi/mindbody-public-api-v6-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: staff-class-schedule
+  summary: Resolve staff members and retrieve a staff member's schedule items.
+  description: >-
+    Lists the staff at the site and then retrieves the schedule items for a
+    specified staff member over the requested date range.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - siteId
+    - staffId
+    properties:
+      apiKey:
+        type: string
+        description: The Mindbody-issued API key sent in the API-Key header.
+      siteId:
+        type: string
+        description: The ID of the site from which to pull data.
+      authorization:
+        type: string
+        description: A staff user authorization (OAuth bearer) token.
+      staffId:
+        type: integer
+        description: The ID of the staff member whose schedule items are retrieved.
+      startDate:
+        type: string
+        description: The start date of the schedule item lookup.
+      endDate:
+        type: string
+        description: The end date of the schedule item lookup.
+  steps:
+  - stepId: listStaff
+    description: >-
+      Retrieve the staff members at the site to confirm the instructor exists
+      before pulling their schedule.
+    operationId: getStaff
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      staffMembers: $response.body#/StaffMembers
+  - stepId: listScheduleItems
+    description: >-
+      Retrieve the schedule items for the specified staff member across the
+      requested date range.
+    operationId: getScheduleItems
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    - name: request.staffIds
+      in: query
+      value: $inputs.staffId
+    - name: request.startDate
+      in: query
+      value: $inputs.startDate
+    - name: request.endDate
+      in: query
+      value: $inputs.endDate
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      staffSchedule: $response.body#/StaffMembers
+  outputs:
+    staffMembers: $steps.listStaff.outputs.staffMembers
+    staffSchedule: $steps.listScheduleItems.outputs.staffSchedule

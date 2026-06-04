@@ -1,0 +1,104 @@
+arazzo: 1.0.1
+info:
+  title: Mindbody Schedule Items by Location
+  summary: List a site's locations and retrieve the schedule items for one location.
+  description: >-
+    A scheduling overview flow for multi-location studios. The workflow lists
+    the locations configured for a site, then pulls the schedule items (staff
+    bookings, classes, and availabilities) for the chosen location across a
+    date range. Every step inlines the Mindbody API-Key, SiteId, and staff
+    authorization headers so the flow can be read and executed without opening
+    the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: mindbodyApi
+  url: ../openapi/mindbody-public-api-v6-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: schedule-items-by-location
+  summary: Resolve locations and retrieve schedule items for a chosen location.
+  description: >-
+    Lists the site's locations and then retrieves the schedule items for the
+    supplied location over the requested date range.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - siteId
+    - locationId
+    properties:
+      apiKey:
+        type: string
+        description: The Mindbody-issued API key sent in the API-Key header.
+      siteId:
+        type: string
+        description: The ID of the site from which to pull data.
+      authorization:
+        type: string
+        description: A staff user authorization (OAuth bearer) token.
+      locationId:
+        type: integer
+        description: The ID of the location whose schedule items are retrieved.
+      startDate:
+        type: string
+        description: The start date of the schedule item lookup.
+      endDate:
+        type: string
+        description: The end date of the schedule item lookup.
+  steps:
+  - stepId: listLocations
+    description: >-
+      Retrieve the locations configured for the site to confirm the location
+      exists before pulling its schedule.
+    operationId: getLocations
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      locations: $response.body#/Locations
+  - stepId: listScheduleItems
+    description: >-
+      Retrieve the schedule items for the chosen location across the requested
+      date range.
+    operationId: getScheduleItems
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    - name: request.locationIds
+      in: query
+      value: $inputs.locationId
+    - name: request.startDate
+      in: query
+      value: $inputs.startDate
+    - name: request.endDate
+      in: query
+      value: $inputs.endDate
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      staffMembers: $response.body#/StaffMembers
+  outputs:
+    locations: $steps.listLocations.outputs.locations
+    staffMembers: $steps.listScheduleItems.outputs.staffMembers

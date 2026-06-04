@@ -1,0 +1,134 @@
+arazzo: 1.0.1
+info:
+  title: Mindbody Browse Services and Checkout
+  summary: List sellable services, check out a cart for a client, and confirm the sale.
+  description: >-
+    A retail flow for selling pricing options and services. The workflow lists
+    the services available for sale at the site, checks out a shopping cart of
+    items and payments for the client, and confirms the resulting sale in the
+    sales ledger. Every step inlines the Mindbody API-Key, SiteId, and staff
+    authorization headers along with its request body so the flow can be read
+    and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: mindbodyApi
+  url: ../openapi/mindbody-public-api-v6-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: browse-services-checkout
+  summary: Discover sellable services, check out a cart, and confirm the sale.
+  description: >-
+    Lists the services available for sale, checks out a shopping cart for the
+    client, and then confirms the sale was recorded in the sales ledger.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - siteId
+    - authorization
+    - clientId
+    - items
+    - payments
+    properties:
+      apiKey:
+        type: string
+        description: The Mindbody-issued API key sent in the API-Key header.
+      siteId:
+        type: string
+        description: The ID of the site processing the sale.
+      authorization:
+        type: string
+        description: A staff user authorization (OAuth bearer) token.
+      clientId:
+        type: string
+        description: The RSSID of the client making the purchase.
+      items:
+        type: array
+        description: A list of the items in the cart (CheckoutItemWrapper objects).
+      payments:
+        type: array
+        description: A list of payment information objects to apply to the cart.
+      startSaleDateTime:
+        type: string
+        description: Start of the date range used to confirm the sale.
+  steps:
+  - stepId: listServices
+    description: >-
+      List the services available for sale at the site so a sellable item can
+      be selected for the cart.
+    operationId: getServices
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      services: $response.body#/Services
+  - stepId: checkout
+    description: >-
+      Check out the shopping cart for the client with the supplied items and
+      payments, committing the transaction.
+    operationId: checkoutShoppingCart
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        ClientId: $inputs.clientId
+        Items: $inputs.items
+        Payments: $inputs.payments
+        Test: false
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      cartId: $response.body#/ShoppingCart/Id
+  - stepId: confirmSale
+    description: >-
+      Read the sales list for the date range to confirm the checkout was
+      recorded as a committed sale.
+    operationId: getSales
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    - name: request.startSaleDateTime
+      in: query
+      value: $inputs.startSaleDateTime
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      sales: $response.body#/Sales
+  outputs:
+    services: $steps.listServices.outputs.services
+    cartId: $steps.checkout.outputs.cartId
+    sales: $steps.confirmSale.outputs.sales

@@ -1,0 +1,113 @@
+arazzo: 1.0.1
+info:
+  title: Mindbody Checkout Cart and Confirm Sale
+  summary: Check out a shopping cart for a client and confirm the resulting sale.
+  description: >-
+    A point-of-sale flow for selling pricing options, products, or services at
+    a wellness studio. The workflow checks out a shopping cart containing one or
+    more items and a payment, captures the resulting shopping cart identifiers,
+    and then reads the sales ledger to confirm the transaction was recorded.
+    Every step inlines the Mindbody API-Key, SiteId, and staff authorization
+    headers along with its request body so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: mindbodyApi
+  url: ../openapi/mindbody-public-api-v6-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: checkout-cart-confirm-sale
+  summary: Process a shopping cart checkout and confirm the sale in the sales ledger.
+  description: >-
+    Checks out a shopping cart for a client with the supplied items and
+    payments, then queries the sales list to confirm the sale was committed.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - siteId
+    - authorization
+    - clientId
+    - items
+    - payments
+    properties:
+      apiKey:
+        type: string
+        description: The Mindbody-issued API key sent in the API-Key header.
+      siteId:
+        type: string
+        description: The ID of the site processing the sale.
+      authorization:
+        type: string
+        description: A staff user authorization (OAuth bearer) token.
+      clientId:
+        type: string
+        description: The RSSID of the client making the purchase.
+      items:
+        type: array
+        description: A list of the items in the cart (CheckoutItemWrapper objects).
+      payments:
+        type: array
+        description: A list of payment information objects to apply to the cart.
+      startSaleDateTime:
+        type: string
+        description: Start of the date range used to confirm the sale.
+  steps:
+  - stepId: checkout
+    description: >-
+      Check out the shopping cart for the client with the supplied items and
+      payments, committing the transaction.
+    operationId: checkoutShoppingCart
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        ClientId: $inputs.clientId
+        Items: $inputs.items
+        Payments: $inputs.payments
+        Test: false
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      cartId: $response.body#/ShoppingCart/Id
+      shoppingCart: $response.body#/ShoppingCart
+  - stepId: confirmSale
+    description: >-
+      Read the sales list for the date range to confirm the cart checkout was
+      recorded as a committed sale.
+    operationId: getSales
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    - name: request.startSaleDateTime
+      in: query
+      value: $inputs.startSaleDateTime
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      sales: $response.body#/Sales
+  outputs:
+    cartId: $steps.checkout.outputs.cartId
+    sales: $steps.confirmSale.outputs.sales

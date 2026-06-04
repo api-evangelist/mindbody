@@ -1,0 +1,111 @@
+arazzo: 1.0.1
+info:
+  title: Mindbody Client Membership Review
+  summary: Find a client and review their active memberships.
+  description: >-
+    A retention and front-desk flow for reviewing what a client is entitled to.
+    The workflow searches for a client by search text, captures the matching
+    client id, and then retrieves the client's active memberships. Every step
+    inlines the Mindbody API-Key, SiteId, and staff authorization headers so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: mindbodyApi
+  url: ../openapi/mindbody-public-api-v6-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: client-membership-review
+  summary: Resolve a client and list their active memberships.
+  description: >-
+    Searches the client directory and, when a client is found, retrieves the
+    active memberships associated with that client.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - siteId
+    - searchText
+    properties:
+      apiKey:
+        type: string
+        description: The Mindbody-issued API key sent in the API-Key header.
+      siteId:
+        type: string
+        description: The ID of the site from which to pull data.
+      authorization:
+        type: string
+        description: A staff user authorization (OAuth bearer) token.
+      searchText:
+        type: string
+        description: Name, email, or other text used to find the client.
+  steps:
+  - stepId: findClient
+    description: >-
+      Search the client directory by the supplied search text and capture the
+      first matching client id.
+    operationId: getClients
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    - name: request.searchText
+      in: query
+      value: $inputs.searchText
+    - name: request.limit
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      clientId: $response.body#/Clients/0/Id
+    onSuccess:
+    - name: clientFound
+      type: goto
+      stepId: listMemberships
+      criteria:
+      - context: $response.body
+        condition: $.Clients.length > 0
+        type: jsonpath
+    - name: clientMissing
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.Clients.length == 0
+        type: jsonpath
+  - stepId: listMemberships
+    description: >-
+      Retrieve the active memberships for the matched client.
+    operationId: getActiveClientMemberships
+    parameters:
+    - name: version
+      in: path
+      value: '6'
+    - name: API-Key
+      in: header
+      value: $inputs.apiKey
+    - name: siteId
+      in: header
+      value: $inputs.siteId
+    - name: authorization
+      in: header
+      value: $inputs.authorization
+    - name: request.clientId
+      in: query
+      value: $steps.findClient.outputs.clientId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      clientMemberships: $response.body#/ClientMemberships
+  outputs:
+    clientId: $steps.findClient.outputs.clientId
+    clientMemberships: $steps.listMemberships.outputs.clientMemberships
