@@ -1,292 +1,313 @@
 aid: mindbody
 name: Mindbody
-description: >-
-  Mindbody is a business management and consumer marketplace platform for the
-  fitness, beauty, and wellness industries, providing scheduling, point of
-  sale, client management, marketing, and reporting tools for studios, gyms,
-  salons, and spas. The Mindbody Public API (v6) provides REST endpoints for
-  appointments, classes, clients, enrollments, sales, sites, staff, payroll,
-  and cross-site identity, and is paired with a Webhooks API that pushes
-  real-time event notifications using API key + SiteId headers, with optional
-  OAuth 2.0 bearer tokens from the Mindbody Identity Service for staff- and
-  client-scoped operations.
+description: Mindbody is a business management and consumer marketplace platform for
+  the fitness, beauty, and wellness industries, providing scheduling, point of sale,
+  client management, marketing, and reporting tools for studios, gyms, salons, and
+  spas. The Mindbody Public API (v6) provides REST endpoints for appointments, classes,
+  clients, enrollments, sales, sites, staff, payroll, and cross-site identity, and
+  is paired with a Webhooks API that pushes real-time event notifications using API
+  key + SiteId headers, with optional OAuth 2.0 bearer tokens from the Mindbody Identity
+  Service for staff- and client-scoped operations.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Fitness
-  - Wellness
-  - Beauty
-  - Scheduling
-  - Booking
-  - Point of Sale
-  - Studios
-  - Salons
-  - Spas
-  - Webhooks
+- Fitness
+- Wellness
+- Beauty
+- Scheduling
+- Booking
+- Point of Sale
+- Studios
+- Salons
+- Spas
+- Webhooks
 url: https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/apis.yml
 created: '2026-05-11'
 modified: '2026-05-28'
 specificationVersion: '0.19'
 apis:
-  - aid: mindbody:public-api-v6
-    name: Mindbody Public API v6
-    description: >-
-      REST API for Mindbody business data including appointments, classes,
-      clients, enrollments, sales, sites, staff, payroll, pick-a-spot
-      reservations, and cross-site identity. Authentication combines a
-      Mindbody-issued API-Key header and SiteId header with optional OAuth 2.0
-      bearer tokens issued by Mindbody Identity Service for staff- and
-      client-scoped operations. Base URL: https://api.mindbodyonline.com.
-    humanURL: https://developers.mindbodyonline.com/PublicDocumentation/V6
-    baseURL: https://api.mindbodyonline.com
-    tags:
-      - REST
-      - OAuth 2.0
-      - API Key
-      - Appointments
-      - Classes
-      - Clients
-      - Sales
-      - Staff
-      - Payroll
-      - Sites
-    properties:
-      - type: Documentation
-        url: https://developers.mindbodyonline.com/PublicDocumentation/V6
-      - type: APIReference
-        url: https://developers.mindbodyonline.com/ui/documentation/public-api
-      - type: GettingStarted
-        url: https://developers.mindbodyonline.com/PublicDocumentation/GettingStarted
-      - type: OpenAPI
-        url: openapi/mindbody-public-api-v6-openapi-original.yml
-      - type: SDK
-        title: C# .NET Standard SDK
-        url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/PublicAPI/mindbody-public-api-cs_net_standard_lib.zip
-      - type: SDK
-        title: PHP SDK
-        url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/PublicAPI/mindbody-public-api-php_generic_lib_v2.zip
-      - type: SDK
-        title: Python SDK
-        url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/PublicAPI/mindbody-public-api-python_generic_lib.zip
-      - type: SDK
-        title: Ruby SDK
-        url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/PublicAPI/mindbody-public-api-ruby_generic_lib.zip
-      - type: CodeExamples
-        title: Partner OAuth Sample App (C#)
-        url: https://github.com/mindbody/PartnerOAuthWebApp
-      - type: Authentication
-        title: OAuth 2.0 (Mindbody Identity Service)
-        url: https://signin.mindbodyonline.com/connect/authorize
-      - type: NaftikoCapability
-        url: capabilities/public-api-v6-appointment.yaml
-      - type: NaftikoCapability
-        url: capabilities/public-api-v6-class.yaml
-      - type: NaftikoCapability
-        url: capabilities/public-api-v6-client.yaml
-      - type: NaftikoCapability
-        url: capabilities/public-api-v6-cross-site.yaml
-      - type: NaftikoCapability
-        url: capabilities/public-api-v6-enrollment.yaml
-      - type: NaftikoCapability
-        url: capabilities/public-api-v6-payroll.yaml
-      - type: NaftikoCapability
-        url: capabilities/public-api-v6-pick-a-spot.yaml
-      - type: NaftikoCapability
-        url: capabilities/public-api-v6-sale.yaml
-      - type: NaftikoCapability
-        url: capabilities/public-api-v6-site.yaml
-      - type: NaftikoCapability
-        url: capabilities/public-api-v6-staff.yaml
-      - type: NaftikoCapability
-        url: capabilities/public-api-v6-user-token.yaml
-      - type: JSON-LD
-        url: json-ld/mindbody-public-api-v6-context.jsonld
-  - aid: mindbody:webhooks-api
-    name: Mindbody Webhooks API
-    description: >-
-      Subscription and delivery platform that pushes near real-time event
-      notifications for sites, locations, appointments, classes, clients,
-      sales, and staff. Partners manage subscriptions over a REST control
-      plane (POST/GET/PATCH/DELETE /api/v1/subscriptions, GET /api/v1/metrics),
-      and Mindbody pushes JSON events with HMAC-SHA256 signature
-      verification via the X-Mindbody-Signature header. Base URL:
-      https://push-api.mindbodyonline.com.
-    humanURL: https://developers.mindbodyonline.com/WebhooksDocumentation
-    baseURL: https://push-api.mindbodyonline.com
-    tags:
-      - Webhooks
-      - Events
-      - Subscriptions
-      - Real-Time
-      - HMAC
-    properties:
-      - type: Documentation
-        url: https://developers.mindbodyonline.com/WebhooksDocumentation
-      - type: APIReference
-        url: https://developers.mindbodyonline.com/ui/documentation/webhooks-api
-      - type: OpenAPI
-        url: openapi/mindbody-webhooks-api-openapi-original.yml
-      - type: SDK
-        title: C# .NET Standard SDK
-        url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/WebhooksAPI/mindbody.pushapi.api-cs_net_standard_lib.zip
-      - type: SDK
-        title: PHP SDK
-        url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/WebhooksAPI/mindbody.pushapi.api-php_generic_lib_v2.zip
-      - type: SDK
-        title: Python SDK
-        url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/WebhooksAPI/mindbody.pushapi.api-python_generic_lib.zip
-      - type: SDK
-        title: Ruby SDK
-        url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/WebhooksAPI/mindbody.pushapi.api-ruby_generic_lib.zip
-      - type: NaftikoCapability
-        url: capabilities/webhooks-api-metrics.yaml
-      - type: NaftikoCapability
-        url: capabilities/webhooks-api-subscriptions.yaml
-      - type: JSON-LD
-        url: json-ld/mindbody-webhooks-api-context.jsonld
-common:
-  - type: ArazzoWorkflows
-    url: arazzo/
-    workflows:
-    - url: arazzo/mindbody-add-client-book-class-workflow.yml
-      name: Mindbody Add Client and Book Class
-      summary: Create a new client, find an upcoming class, and book the client into it.
-    - url: arazzo/mindbody-book-appointment-workflow.yml
-      name: Mindbody Book Appointment
-      summary: Find bookable appointment availabilities and book an appointment into an open slot.
-    - url: arazzo/mindbody-browse-services-checkout-workflow.yml
-      name: Mindbody Browse Services and Checkout
-      summary: List sellable services, check out a cart for a client, and confirm the sale.
-    - url: arazzo/mindbody-checkout-cart-confirm-sale-workflow.yml
-      name: Mindbody Checkout Cart and Confirm Sale
-      summary: Check out a shopping cart for a client and confirm the resulting sale.
-    - url: arazzo/mindbody-client-arrival-checkin-workflow.yml
-      name: Mindbody Client Arrival Check-In
-      summary: Find a client by search text and log their arrival at a location.
-    - url: arazzo/mindbody-client-membership-review-workflow.yml
-      name: Mindbody Client Membership Review
-      summary: Find a client and review their active memberships.
-    - url: arazzo/mindbody-client-visit-history-workflow.yml
-      name: Mindbody Client Visit History
-      summary: Find a client and retrieve their visit history for a date range.
-    - url: arazzo/mindbody-enroll-client-in-program-workflow.yml
-      name: Mindbody Enroll Client in Program
-      summary: List available enrollments and add a client to a chosen enrollment.
-    - url: arazzo/mindbody-find-client-purchases-workflow.yml
-      name: Mindbody Find Client Purchases
-      summary: Find a client and retrieve their purchase history.
-    - url: arazzo/mindbody-issue-token-list-clients-workflow.yml
-      name: Mindbody Issue User Token and List Clients
-      summary: Issue a staff user token and use it to list clients at a site.
-    - url: arazzo/mindbody-log-client-contact-workflow.yml
-      name: Mindbody Log Client Contact
-      summary: Find a client and add a contact log entry to their record.
-    - url: arazzo/mindbody-resolve-site-list-classes-workflow.yml
-      name: Mindbody Resolve Site and List Classes
-      summary: Resolve the activated sites for an API key and list the classes for one site.
-    - url: arazzo/mindbody-schedule-items-by-location-workflow.yml
-      name: Mindbody Schedule Items by Location
-      summary: List a site's locations and retrieve the schedule items for one location.
-    - url: arazzo/mindbody-session-type-book-appointment-workflow.yml
-      name: Mindbody Session Type Book Appointment
-      summary: Discover session types, find a bookable slot, and book an appointment.
-    - url: arazzo/mindbody-staff-class-schedule-workflow.yml
-      name: Mindbody Staff Class Schedule
-      summary: Resolve a staff member and retrieve their schedule items for a date range.
-    - url: arazzo/mindbody-staff-schedule-lookup-workflow.yml
-      name: Mindbody Staff Schedule Lookup
-      summary: Look up a staff member and retrieve their booked appointments for a date range.
-  - type: Website
-    url: https://www.mindbodyonline.com/
+- aid: mindbody:public-api-v6
+  name: Mindbody Public API v6
+  description: 'REST API for Mindbody business data including appointments, classes,
+    clients, enrollments, sales, sites, staff, payroll, pick-a-spot reservations,
+    and cross-site identity. Authentication combines a Mindbody-issued API-Key header
+    and SiteId header with optional OAuth 2.0 bearer tokens issued by Mindbody Identity
+    Service for staff- and client-scoped operations. Base URL: https://api.mindbodyonline.com.'
+  humanURL: https://developers.mindbodyonline.com/PublicDocumentation/V6
+  baseURL: https://api.mindbodyonline.com
+  tags:
+  - REST
+  - OAuth 2.0
+  - API Key
+  - Appointments
+  - Classes
+  - Clients
+  - Sales
+  - Staff
+  - Payroll
+  - Sites
+  properties:
   - type: Documentation
-    url: https://developers.mindbodyonline.com/
-  - type: Developer Portal
-    url: https://developers.mindbodyonline.com/
+    url: https://developers.mindbodyonline.com/PublicDocumentation/V6
+  - type: APIReference
+    url: https://developers.mindbodyonline.com/ui/documentation/public-api
   - type: GettingStarted
     url: https://developers.mindbodyonline.com/PublicDocumentation/GettingStarted
-  - type: SignUp
-    url: https://developers.mindbodyonline.com/Signup
-  - type: Pricing
-    url: https://www.mindbodyonline.com/business/pricing
-  - type: Support
-    url: https://support.mindbodyonline.com/s/contactapisupport
-  - type: FAQ
-    url: https://developers.mindbodyonline.com/resources/faqs
-  - type: StatusPage
-    url: https://status.mindbodyonline.com/
-  - type: GitHubOrganization
-    url: https://github.com/mindbody
-  - type: GitHubRepository
-    title: Mindbody-API-SDKs
-    url: https://github.com/mindbody/Mindbody-API-SDKs
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/mindbody
-  - type: ReleaseNotes
-    url: https://developers.mindbodyonline.com/Resources/ApiReleaseNotes
-  - type: Plans
-    url: plans/mindbody-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/mindbody-rate-limits.yml
-  - type: FinOps
-    url: finops/mindbody-finops.yml
-  - type: SpectralRules
-    url: rules/mindbody-spectral-rules.yml
-  - type: Vocabulary
-    url: vocabulary/mindbody-vocabulary.yml
-  - type: Features
-    data:
-      - name: Booking and Scheduling
-        description: Online booking widgets, class schedules, appointments, enrollments, and Pick-a-Spot reservations.
-      - name: Point of Sale
-        description: In-studio POS for products, services, contracts, gift cards, custom payment methods, refunds, and returns.
-      - name: Client Management
-        description: Client profiles, contracts, services, contact logs, formula notes, custom fields, and red/yellow alerts.
-      - name: Staff and Payroll
-        description: Staff schedules, permissions, availability, class pay, commissions, and time-clock reporting.
-      - name: Webhooks
-        description: HMAC-signed, near real-time delivery of site, location, appointment, class, client, sale, and staff events.
-      - name: Identity and OAuth
-        description: OpenID Connect via signin.mindbodyonline.com with the Mindbody.Api.Public.v6 scope for delegated calls.
-      - name: Cross-Site Lookup
-        description: Discover which Mindbody businesses a client is associated with across the network.
-      - name: Marketplace Listing
-        description: Mindbody consumer app marketplace exposes participating studios to nearby members.
-  - type: UseCases
-    data:
-      - name: Studio Booking Apps
-        description: Build branded mobile or web booking experiences for yoga, pilates, barre, and fitness studios.
-      - name: CRM and Marketing Automation
-        description: Sync clients and sales events into CRMs (HubSpot, Salesforce) and trigger marketing journeys.
-      - name: Wellness Aggregator Integrations
-        description: Power class/appointment discovery and booking in third-party wellness apps and ClassPass-style platforms.
-      - name: Studio Operations Analytics
-        description: Pipe payroll, sales, and class fill data into BI tooling for chain operators.
-      - name: Customer Loyalty Programs
-        description: Drive loyalty points and rewards from visit/sale events delivered via the Webhooks API.
-      - name: Network Identity
-        description: Use Cross-Site to recognize repeat clients across affiliated Mindbody businesses.
-  - type: Integrations
-    data:
-      - name: Mindbody Identity Service
-        description: OpenID Connect provider at signin.mindbodyonline.com powering OAuth 2.0 flows for the Public API.
-      - name: Mindbody Marketplace
-        description: Consumer app surface exposing participating studios for nearby discovery and booking.
-      - name: Partner Store
-        description: Mindbody-vetted directory of integrations at partnerstore.mindbodyonline.com.
-      - name: ClassPass
-        description: Aggregator marketplace integrating with Mindbody for class supply.
-      - name: Payment Processors
-        description: Integrated card processing and custom payment methods routed through the Sale endpoints.
-  - type: Solutions
-    data:
-      - name: Boutique Fitness
-        description: Yoga, pilates, barre, indoor cycling, HIIT, and martial-arts studios.
-      - name: Beauty and Salon
-        description: Hair, nail, and beauty salons using appointment scheduling and POS.
-      - name: Spa and Wellness
-        description: Day spas, medspas, and integrative wellness centers.
-      - name: Health Clubs and Gyms
-        description: Multi-location gyms and health clubs with classes, personal training, and recurring memberships.
+  - type: OpenAPI
+    url: openapi/mindbody-public-api-v6-openapi-original.yml
+  - type: SDK
+    title: C# .NET Standard SDK
+    url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/PublicAPI/mindbody-public-api-cs_net_standard_lib.zip
+  - type: SDK
+    title: PHP SDK
+    url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/PublicAPI/mindbody-public-api-php_generic_lib_v2.zip
+  - type: SDK
+    title: Python SDK
+    url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/PublicAPI/mindbody-public-api-python_generic_lib.zip
+  - type: SDK
+    title: Ruby SDK
+    url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/PublicAPI/mindbody-public-api-ruby_generic_lib.zip
+  - type: CodeExamples
+    title: Partner OAuth Sample App (C#)
+    url: https://github.com/mindbody/PartnerOAuthWebApp
+  - type: Authentication
+    title: OAuth 2.0 (Mindbody Identity Service)
+    url: https://signin.mindbodyonline.com/connect/authorize
+  - type: NaftikoCapability
+    url: capabilities/public-api-v6-appointment.yaml
+  - type: NaftikoCapability
+    url: capabilities/public-api-v6-class.yaml
+  - type: NaftikoCapability
+    url: capabilities/public-api-v6-client.yaml
+  - type: NaftikoCapability
+    url: capabilities/public-api-v6-cross-site.yaml
+  - type: NaftikoCapability
+    url: capabilities/public-api-v6-enrollment.yaml
+  - type: NaftikoCapability
+    url: capabilities/public-api-v6-payroll.yaml
+  - type: NaftikoCapability
+    url: capabilities/public-api-v6-pick-a-spot.yaml
+  - type: NaftikoCapability
+    url: capabilities/public-api-v6-sale.yaml
+  - type: NaftikoCapability
+    url: capabilities/public-api-v6-site.yaml
+  - type: NaftikoCapability
+    url: capabilities/public-api-v6-staff.yaml
+  - type: NaftikoCapability
+    url: capabilities/public-api-v6-user-token.yaml
+  - type: JSON-LD
+    url: json-ld/mindbody-public-api-v6-context.jsonld
+  - url: graphql/mindbody-graphql.md
+    type: GraphQL
+- aid: mindbody:webhooks-api
+  name: Mindbody Webhooks API
+  description: 'Subscription and delivery platform that pushes near real-time event
+    notifications for sites, locations, appointments, classes, clients, sales, and
+    staff. Partners manage subscriptions over a REST control plane (POST/GET/PATCH/DELETE
+    /api/v1/subscriptions, GET /api/v1/metrics), and Mindbody pushes JSON events with
+    HMAC-SHA256 signature verification via the X-Mindbody-Signature header. Base URL:
+    https://push-api.mindbodyonline.com.'
+  humanURL: https://developers.mindbodyonline.com/WebhooksDocumentation
+  baseURL: https://push-api.mindbodyonline.com
+  tags:
+  - Webhooks
+  - Events
+  - Subscriptions
+  - Real-Time
+  - HMAC
+  properties:
+  - type: Documentation
+    url: https://developers.mindbodyonline.com/WebhooksDocumentation
+  - type: APIReference
+    url: https://developers.mindbodyonline.com/ui/documentation/webhooks-api
+  - type: OpenAPI
+    url: openapi/mindbody-webhooks-api-openapi-original.yml
+  - type: SDK
+    title: C# .NET Standard SDK
+    url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/WebhooksAPI/mindbody.pushapi.api-cs_net_standard_lib.zip
+  - type: SDK
+    title: PHP SDK
+    url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/WebhooksAPI/mindbody.pushapi.api-php_generic_lib_v2.zip
+  - type: SDK
+    title: Python SDK
+    url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/WebhooksAPI/mindbody.pushapi.api-python_generic_lib.zip
+  - type: SDK
+    title: Ruby SDK
+    url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/WebhooksAPI/mindbody.pushapi.api-ruby_generic_lib.zip
+  - type: NaftikoCapability
+    url: capabilities/webhooks-api-metrics.yaml
+  - type: NaftikoCapability
+    url: capabilities/webhooks-api-subscriptions.yaml
+  - type: JSON-LD
+    url: json-ld/mindbody-webhooks-api-context.jsonld
+common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/mindbody/overview
+- type: ArazzoWorkflows
+  url: arazzo/
+  workflows:
+  - url: arazzo/mindbody-add-client-book-class-workflow.yml
+    name: Mindbody Add Client and Book Class
+    summary: Create a new client, find an upcoming class, and book the client into
+      it.
+  - url: arazzo/mindbody-book-appointment-workflow.yml
+    name: Mindbody Book Appointment
+    summary: Find bookable appointment availabilities and book an appointment into
+      an open slot.
+  - url: arazzo/mindbody-browse-services-checkout-workflow.yml
+    name: Mindbody Browse Services and Checkout
+    summary: List sellable services, check out a cart for a client, and confirm the
+      sale.
+  - url: arazzo/mindbody-checkout-cart-confirm-sale-workflow.yml
+    name: Mindbody Checkout Cart and Confirm Sale
+    summary: Check out a shopping cart for a client and confirm the resulting sale.
+  - url: arazzo/mindbody-client-arrival-checkin-workflow.yml
+    name: Mindbody Client Arrival Check-In
+    summary: Find a client by search text and log their arrival at a location.
+  - url: arazzo/mindbody-client-membership-review-workflow.yml
+    name: Mindbody Client Membership Review
+    summary: Find a client and review their active memberships.
+  - url: arazzo/mindbody-client-visit-history-workflow.yml
+    name: Mindbody Client Visit History
+    summary: Find a client and retrieve their visit history for a date range.
+  - url: arazzo/mindbody-enroll-client-in-program-workflow.yml
+    name: Mindbody Enroll Client in Program
+    summary: List available enrollments and add a client to a chosen enrollment.
+  - url: arazzo/mindbody-find-client-purchases-workflow.yml
+    name: Mindbody Find Client Purchases
+    summary: Find a client and retrieve their purchase history.
+  - url: arazzo/mindbody-issue-token-list-clients-workflow.yml
+    name: Mindbody Issue User Token and List Clients
+    summary: Issue a staff user token and use it to list clients at a site.
+  - url: arazzo/mindbody-log-client-contact-workflow.yml
+    name: Mindbody Log Client Contact
+    summary: Find a client and add a contact log entry to their record.
+  - url: arazzo/mindbody-resolve-site-list-classes-workflow.yml
+    name: Mindbody Resolve Site and List Classes
+    summary: Resolve the activated sites for an API key and list the classes for one
+      site.
+  - url: arazzo/mindbody-schedule-items-by-location-workflow.yml
+    name: Mindbody Schedule Items by Location
+    summary: List a site's locations and retrieve the schedule items for one location.
+  - url: arazzo/mindbody-session-type-book-appointment-workflow.yml
+    name: Mindbody Session Type Book Appointment
+    summary: Discover session types, find a bookable slot, and book an appointment.
+  - url: arazzo/mindbody-staff-class-schedule-workflow.yml
+    name: Mindbody Staff Class Schedule
+    summary: Resolve a staff member and retrieve their schedule items for a date range.
+  - url: arazzo/mindbody-staff-schedule-lookup-workflow.yml
+    name: Mindbody Staff Schedule Lookup
+    summary: Look up a staff member and retrieve their booked appointments for a date
+      range.
+- type: Website
+  url: https://www.mindbodyonline.com/
+- type: Documentation
+  url: https://developers.mindbodyonline.com/
+- type: Developer Portal
+  url: https://developers.mindbodyonline.com/
+- type: GettingStarted
+  url: https://developers.mindbodyonline.com/PublicDocumentation/GettingStarted
+- type: SignUp
+  url: https://developers.mindbodyonline.com/Signup
+- type: Pricing
+  url: https://www.mindbodyonline.com/business/pricing
+- type: Support
+  url: https://support.mindbodyonline.com/s/contactapisupport
+- type: FAQ
+  url: https://developers.mindbodyonline.com/resources/faqs
+- type: StatusPage
+  url: https://status.mindbodyonline.com/
+- type: GitHubOrganization
+  url: https://github.com/mindbody
+- type: GitHubRepository
+  title: Mindbody-API-SDKs
+  url: https://github.com/mindbody/Mindbody-API-SDKs
+- type: LinkedIn
+  url: https://www.linkedin.com/company/mindbody
+- type: ReleaseNotes
+  url: https://developers.mindbodyonline.com/Resources/ApiReleaseNotes
+- type: Plans
+  url: plans/mindbody-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/mindbody-rate-limits.yml
+- type: FinOps
+  url: finops/mindbody-finops.yml
+- type: SpectralRules
+  url: rules/mindbody-spectral-rules.yml
+- type: Vocabulary
+  url: vocabulary/mindbody-vocabulary.yml
+- type: Features
+  data:
+  - name: Booking and Scheduling
+    description: Online booking widgets, class schedules, appointments, enrollments,
+      and Pick-a-Spot reservations.
+  - name: Point of Sale
+    description: In-studio POS for products, services, contracts, gift cards, custom
+      payment methods, refunds, and returns.
+  - name: Client Management
+    description: Client profiles, contracts, services, contact logs, formula notes,
+      custom fields, and red/yellow alerts.
+  - name: Staff and Payroll
+    description: Staff schedules, permissions, availability, class pay, commissions,
+      and time-clock reporting.
+  - name: Webhooks
+    description: HMAC-signed, near real-time delivery of site, location, appointment,
+      class, client, sale, and staff events.
+  - name: Identity and OAuth
+    description: OpenID Connect via signin.mindbodyonline.com with the Mindbody.Api.Public.v6
+      scope for delegated calls.
+  - name: Cross-Site Lookup
+    description: Discover which Mindbody businesses a client is associated with across
+      the network.
+  - name: Marketplace Listing
+    description: Mindbody consumer app marketplace exposes participating studios to
+      nearby members.
+- type: UseCases
+  data:
+  - name: Studio Booking Apps
+    description: Build branded mobile or web booking experiences for yoga, pilates,
+      barre, and fitness studios.
+  - name: CRM and Marketing Automation
+    description: Sync clients and sales events into CRMs (HubSpot, Salesforce) and
+      trigger marketing journeys.
+  - name: Wellness Aggregator Integrations
+    description: Power class/appointment discovery and booking in third-party wellness
+      apps and ClassPass-style platforms.
+  - name: Studio Operations Analytics
+    description: Pipe payroll, sales, and class fill data into BI tooling for chain
+      operators.
+  - name: Customer Loyalty Programs
+    description: Drive loyalty points and rewards from visit/sale events delivered
+      via the Webhooks API.
+  - name: Network Identity
+    description: Use Cross-Site to recognize repeat clients across affiliated Mindbody
+      businesses.
+- type: Integrations
+  data:
+  - name: Mindbody Identity Service
+    description: OpenID Connect provider at signin.mindbodyonline.com powering OAuth
+      2.0 flows for the Public API.
+  - name: Mindbody Marketplace
+    description: Consumer app surface exposing participating studios for nearby discovery
+      and booking.
+  - name: Partner Store
+    description: Mindbody-vetted directory of integrations at partnerstore.mindbodyonline.com.
+  - name: ClassPass
+    description: Aggregator marketplace integrating with Mindbody for class supply.
+  - name: Payment Processors
+    description: Integrated card processing and custom payment methods routed through
+      the Sale endpoints.
+- type: Solutions
+  data:
+  - name: Boutique Fitness
+    description: Yoga, pilates, barre, indoor cycling, HIIT, and martial-arts studios.
+  - name: Beauty and Salon
+    description: Hair, nail, and beauty salons using appointment scheduling and POS.
+  - name: Spa and Wellness
+    description: Day spas, medspas, and integrative wellness centers.
+  - name: Health Clubs and Gyms
+    description: Multi-location gyms and health clubs with classes, personal training,
+      and recurring memberships.
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

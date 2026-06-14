@@ -1,0 +1,1123 @@
+# Mindbody GraphQL Schema
+# Conceptual schema derived from Mindbody Public API v6
+# Source: https://developers.mindbodyonline.com/PublicDocumentation/V6
+
+scalar DateTime
+scalar Date
+scalar Time
+scalar Decimal
+scalar JSON
+
+# ─────────────────────────────────────────────
+# Enums
+# ─────────────────────────────────────────────
+
+enum BookingStatus {
+  BOOKED
+  WAITLISTED
+  CANCELLED
+  LATE_CANCELLED
+  COMPLETED
+  REQUESTED
+}
+
+enum AppointmentStatus {
+  BOOKED
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+  CONFIRMED
+}
+
+enum GenderType {
+  MALE
+  FEMALE
+  NON_BINARY
+  PREFER_NOT_TO_SAY
+}
+
+enum PaymentMethodType {
+  CREDIT_CARD
+  CASH
+  CHECK
+  GIFT_CARD
+  CUSTOM
+  ACCOUNT_CREDIT
+  DIRECT_DEBIT
+}
+
+enum PromoCodeType {
+  DOLLAR_DISCOUNT
+  PERCENTAGE_DISCOUNT
+  FREE_SERVICE
+}
+
+enum LoyaltyEventType {
+  VISIT
+  PURCHASE
+  REFERRAL
+  BIRTHDAY
+  MILESTONE
+  REDEMPTION
+}
+
+enum ScheduleItemType {
+  CLASS
+  APPOINTMENT
+  AVAILABILITY
+  RESOURCE
+}
+
+# ─────────────────────────────────────────────
+# Scalars + Pagination
+# ─────────────────────────────────────────────
+
+type PageInfo {
+  totalResults: Int!
+  offset: Int!
+  limit: Int!
+}
+
+# ─────────────────────────────────────────────
+# Identity & Authentication
+# ─────────────────────────────────────────────
+
+type APIKey {
+  id: ID!
+  name: String
+  key: String
+  siteIds: [Int!]
+  createdDateTime: DateTime
+  active: Boolean
+}
+
+type UserToken {
+  accessToken: String!
+  tokenType: String
+  expiresIn: Int
+  scope: String
+  userId: ID
+  siteId: Int
+}
+
+type OAuthConfig {
+  authorizationEndpoint: String
+  tokenEndpoint: String
+  scopes: [String!]
+  clientId: String
+  redirectUri: String
+}
+
+# ─────────────────────────────────────────────
+# Site & Location
+# ─────────────────────────────────────────────
+
+type Site {
+  id: Int!
+  name: String
+  description: String
+  logoUrl: String
+  pageColor1: String
+  pageColor2: String
+  pageColor3: String
+  pageColor4: String
+  acceptsVisa: Boolean
+  acceptsMasterCard: Boolean
+  acceptsDiscover: Boolean
+  acceptsAmericanExpress: Boolean
+  isOnlineStoreActive: Boolean
+  siteOwner: SiteOwner
+  locations: [Location!]
+  staff: [StaffMember!]
+  timezone: String
+  currency: String
+  taxRate: Decimal
+  createdDateTime: DateTime
+}
+
+type SiteOwner {
+  id: ID!
+  name: String
+  email: String
+  phone: String
+}
+
+type Location {
+  id: Int!
+  siteId: Int!
+  name: String
+  address: String
+  address2: String
+  city: String
+  stateProvCode: String
+  postalCode: String
+  phone: String
+  description: String
+  hasClasses: Boolean
+  canBook: Boolean
+  distanceInMiles: Decimal
+  latitude: Decimal
+  longitude: Decimal
+  tax1: Decimal
+  tax2: Decimal
+  tax3: Decimal
+  tax4: Decimal
+  tax5: Decimal
+  rooms: [Room!]
+  equipment: [Equipment!]
+  facilityUses: [FacilityUse!]
+}
+
+type Room {
+  id: Int!
+  name: String
+  siteId: Int
+  locationId: Int
+  capacity: Int
+  description: String
+}
+
+type Equipment {
+  id: Int!
+  name: String
+  locationId: Int
+  quantity: Int
+  description: String
+}
+
+type FacilityUse {
+  id: Int!
+  name: String
+  locationId: Int
+  description: String
+  programId: Int
+}
+
+# ─────────────────────────────────────────────
+# Staff
+# ─────────────────────────────────────────────
+
+type StaffMember {
+  id: ID!
+  name: String
+  firstName: String
+  lastName: String
+  displayName: String
+  email: String
+  mobilePhone: String
+  bio: String
+  imageUrl: String
+  isMale: Boolean
+  sortOrder: Int
+  independentContractor: Boolean
+  isActive: Boolean
+  appointments: [Appointment!]
+  classes: [Class!]
+  scheduleItems: [StaffScheduleItem!]
+  permissions: [StaffPermission!]
+  availability: [StaffAvailability!]
+  payroll: [PayrollDetail!]
+}
+
+type StaffPermission {
+  staffId: ID!
+  name: String
+  value: Boolean
+}
+
+type StaffAvailability {
+  id: ID!
+  staffId: ID!
+  locationId: Int
+  startDateTime: DateTime
+  endDateTime: DateTime
+  sessionTypeId: Int
+  programId: Int
+  canBook: Boolean
+}
+
+type StaffScheduleItem {
+  id: ID!
+  staffId: ID!
+  startDateTime: DateTime
+  endDateTime: DateTime
+  type: ScheduleItemType
+  locationId: Int
+  notes: String
+}
+
+# ─────────────────────────────────────────────
+# Classes & Enrollment
+# ─────────────────────────────────────────────
+
+type ClassDescription {
+  id: Int!
+  name: String
+  description: String
+  notes: String
+  prereq: String
+  lastUpdated: DateTime
+  program: Program
+  sessionType: SessionType
+  level: ClassLevel
+  active: Boolean
+  imageUrl: String
+}
+
+type ClassLevel {
+  id: Int!
+  name: String
+  description: String
+}
+
+type Program {
+  id: Int!
+  name: String
+  scheduleType: String
+  cancelOffset: Int
+}
+
+type ClassSchedule {
+  id: Int!
+  classDescriptionId: Int!
+  classDescription: ClassDescription
+  siteId: Int
+  locationId: Int
+  location: Location
+  dayOfWeek: [String!]
+  startTime: Time
+  endTime: Time
+  staff: StaffMember
+  capacity: Int
+  webCapacity: Int
+  isActive: Boolean
+  startDate: Date
+  endDate: Date
+}
+
+type Class {
+  id: Int!
+  classScheduleId: Int
+  classDescription: ClassDescription
+  location: Location
+  resource: Room
+  staff: StaffMember
+  startDateTime: DateTime
+  endDateTime: DateTime
+  classCapacity: Int
+  webCapacity: Int
+  totalBooked: Int
+  totalBookedWaitlist: Int
+  webBooked: Int
+  isCancelled: Boolean
+  substitute: Boolean
+  isActive: Boolean
+  isWaitlistAvailable: Boolean
+  isEnrolled: Boolean
+  hideCancel: Boolean
+  visits: [ClientVisit!]
+}
+
+type ClassSignUp {
+  id: ID!
+  classId: Int!
+  clientId: ID!
+  client: Client
+  signedUpDateTime: DateTime
+  earlySignIn: Boolean
+  isWaitlisted: Boolean
+  bookingStatus: BookingStatus
+  attendanceStatus: String
+  lateCancelled: Boolean
+  visitRefNo: String
+}
+
+type Enrollment {
+  id: Int!
+  classDescriptionId: Int!
+  classDescription: ClassDescription
+  locationId: Int
+  location: Location
+  startDate: Date
+  endDate: Date
+  startTime: Time
+  endTime: Time
+  staffId: ID
+  staff: StaffMember
+  capacity: Int
+  webCapacity: Int
+  isCancelled: Boolean
+  classes: [Class!]
+}
+
+type Attendance {
+  classId: Int!
+  clientId: ID!
+  attendanceStatus: String
+  visitId: ID
+  visit: ClientVisit
+  lateCancel: Boolean
+  signedIn: DateTime
+}
+
+type Waitlist {
+  id: ID!
+  classId: Int!
+  clientId: ID!
+  client: Client
+  requestDateTime: DateTime
+  expirationDateTime: DateTime
+  bookingStatus: BookingStatus
+}
+
+# ─────────────────────────────────────────────
+# Appointments & Services
+# ─────────────────────────────────────────────
+
+type SessionType {
+  id: Int!
+  name: String
+  numDeducted: Int
+  programId: Int
+  type: String
+  defaultTimeLength: Int
+  staffTimeLength: Int
+  online: Boolean
+  price: Decimal
+  onlinePrice: Decimal
+  category: String
+  categoryId: Int
+  subcategory: String
+  subcategoryId: Int
+}
+
+type Service {
+  id: ID!
+  name: String
+  sessionType: SessionType
+  price: Decimal
+  onlinePrice: Decimal
+  category: ServiceCategory
+  subcategory: String
+  count: Int
+  expirationDate: Date
+  remainingUses: Int
+  isMembershipService: Boolean
+}
+
+type ServiceCategory {
+  id: Int!
+  name: String
+  description: String
+  parentId: Int
+}
+
+type Appointment {
+  id: ID!
+  status: AppointmentStatus
+  startDateTime: DateTime
+  endDateTime: DateTime
+  duration: Int
+  staff: StaffMember
+  client: Client
+  location: Location
+  sessionType: SessionType
+  room: Room
+  genderRequested: GenderType
+  notes: String
+  staffRequested: Boolean
+  bookedByUserID: ID
+  onlineBooking: Boolean
+  firstAppointment: Boolean
+  clientServiceId: ID
+  isMale: Boolean
+}
+
+type AppointmentAvailability {
+  staffId: ID!
+  staff: StaffMember
+  startDateTime: DateTime
+  endDateTime: DateTime
+  locationId: Int
+  location: Location
+  sessionTypeId: Int
+  sessionType: SessionType
+  siteId: Int
+}
+
+type Course {
+  id: Int!
+  name: String
+  description: String
+  notes: String
+  siteId: Int
+  isActive: Boolean
+  startDate: Date
+  endDate: Date
+  capacity: Int
+  classes: [Class!]
+  price: Decimal
+}
+
+type Certification {
+  id: ID!
+  staffId: ID!
+  name: String
+  number: String
+  expirationDate: Date
+  note: String
+}
+
+# ─────────────────────────────────────────────
+# Clients
+# ─────────────────────────────────────────────
+
+type Client {
+  id: ID!
+  uniqueId: Int
+  firstName: String
+  lastName: String
+  email: String
+  mobilePhone: String
+  homePhone: String
+  workPhone: String
+  birthDate: Date
+  gender: GenderType
+  address: String
+  city: String
+  state: String
+  postalCode: String
+  country: String
+  photoUrl: String
+  isProspect: Boolean
+  active: Boolean
+  creationDate: DateTime
+  lastModifiedDateTime: DateTime
+  firstAppointmentDate: DateTime
+  firstClassDate: DateTime
+  visitCount: Int
+  notes: String
+  referredBy: String
+  salesRepId: ID
+  salesRep: SalesRep
+  liabilityRelease: Boolean
+  clientProfile: ClientProfile
+  memberships: [ClientMembership!]
+  visits: [ClientVisit!]
+  contracts: [Contract!]
+  contactLogs: [ClientContactLog!]
+  indexes: [ClientIndex!]
+  customFields: [CustomField!]
+}
+
+type ClientProfile {
+  clientId: ID!
+  emergencyContactName: String
+  emergencyContactPhone: String
+  liabilityAgreement: Boolean
+  liabilityAgreementDate: DateTime
+  medicalNotes: String
+  insuranceProvider: String
+  policyNumber: String
+}
+
+type ClientIndex {
+  id: Int!
+  name: String
+  value: String
+  requiredBusinessMode: Boolean
+}
+
+type CustomField {
+  id: Int!
+  name: String
+  value: String
+  dataType: String
+}
+
+type ClientMembership {
+  id: ID!
+  clientId: ID!
+  membershipId: Int
+  name: String
+  paymentDate: DateTime
+  startDate: DateTime
+  endDate: DateTime
+  count: Int
+  remainingCount: Int
+  totalCount: Int
+  onlineSignup: Boolean
+  contractId: ID
+  suspensionInfo: MembershipSuspension
+  program: Program
+}
+
+type MembershipSuspension {
+  startDate: Date
+  endDate: Date
+  reason: String
+}
+
+type ClientVisit {
+  id: ID!
+  clientId: ID!
+  client: Client
+  classId: Int
+  class: Class
+  appointmentId: ID
+  appointment: Appointment
+  signedIn: Boolean
+  lateCancel: Boolean
+  classDate: DateTime
+  startDateTime: DateTime
+  endDateTime: DateTime
+  locationId: Int
+  staffId: ID
+  hasClassBooking: Boolean
+  makeUp: Boolean
+  name: String
+  serviceId: ID
+  pricingOptionId: ID
+  webSignup: Boolean
+}
+
+type ClientContactLog {
+  id: ID!
+  clientId: ID!
+  contactName: String
+  isComplete: Boolean
+  contactDateTime: DateTime
+  followUpDateTime: DateTime
+  method: String
+  action: String
+  type: String
+  text: String
+  staffId: ID
+  staff: StaffMember
+  subType: String
+  comments: [ContactLogComment!]
+}
+
+type ContactLogComment {
+  id: ID!
+  contactLogId: ID!
+  text: String
+  createdDateTime: DateTime
+}
+
+type SalesRep {
+  id: ID!
+  name: String
+  firstName: String
+  lastName: String
+  email: String
+}
+
+type Registration {
+  id: ID!
+  clientId: ID!
+  enrollmentId: Int
+  classId: Int
+  dateCreated: DateTime
+  earlySignIn: Boolean
+  isWaitlisted: Boolean
+}
+
+# ─────────────────────────────────────────────
+# Sales & Payments
+# ─────────────────────────────────────────────
+
+type Sale {
+  id: ID!
+  saleDate: DateTime
+  saleTime: String
+  clientId: ID!
+  client: Client
+  locationId: Int
+  payments: [SalesPayment!]
+  items: [SaleItem!]
+  totalAmount: Decimal
+  taxAmount: Decimal
+  salesRepId: ID
+  salesRep: SalesRep
+}
+
+type SalesPayment {
+  id: ID!
+  saleId: ID!
+  amount: Decimal
+  method: PaymentMethodType
+  transactionId: String
+  lastFour: String
+  notes: String
+  authorizedDateTime: DateTime
+}
+
+type SaleItem {
+  id: ID!
+  saleId: ID!
+  type: String
+  name: String
+  description: String
+  quantity: Int
+  unitPrice: Decimal
+  discountAmount: Decimal
+  taxAmount: Decimal
+  totalAmount: Decimal
+  itemId: ID
+}
+
+type Product {
+  id: Int!
+  name: String
+  groupId: Int
+  groupName: String
+  onlinePrice: Decimal
+  taxIncluded: Boolean
+  price: Decimal
+  soldOnline: Boolean
+  sku: String
+  active: Boolean
+  color: String
+  size: String
+  imageUrl: String
+  description: String
+  category: String
+  subcategory: String
+}
+
+type PricingOption {
+  id: ID!
+  name: String
+  totalBooked: Int
+  totalScheduled: Int
+  active: Boolean
+  onlinePrice: Decimal
+  price: Decimal
+  programId: Int
+  sessionTypeId: Int
+  sessionType: SessionType
+  taxRate: Decimal
+  expirationMonths: Int
+  count: Int
+}
+
+type PurchasedItem {
+  id: ID!
+  clientId: ID!
+  saleId: ID!
+  name: String
+  itemId: ID
+  type: String
+  amount: Decimal
+  paymentRefNo: String
+  purchaseDate: DateTime
+  activationDate: DateTime
+  expirationDate: DateTime
+  remaining: Int
+}
+
+type GiftCard {
+  id: ID!
+  purchasedByClientId: ID
+  issuedToClientId: ID
+  code: String
+  balanceAmount: Decimal
+  originalAmount: Decimal
+  issuedDate: DateTime
+  expirationDate: DateTime
+  siteId: Int
+  isActive: Boolean
+}
+
+type Package {
+  id: Int!
+  name: String
+  description: String
+  price: Decimal
+  onlinePrice: Decimal
+  taxRate: Decimal
+  sellOnline: Boolean
+  packageItems: [PackageItem!]
+}
+
+type PackageItem {
+  id: Int!
+  packageId: Int!
+  type: String
+  count: Int
+  price: Decimal
+  itemId: ID
+  name: String
+}
+
+type Contract {
+  id: ID!
+  name: String
+  description: String
+  clientId: ID!
+  locationId: Int
+  startDate: Date
+  endDate: Date
+  autopaySchedule: AutopaySchedule
+  firstAutopayFree: Boolean
+  introOffer: String
+  totalNumberOfAutopays: Int
+  numberOfAutopaysDone: Int
+  soldOnline: Boolean
+  trialLength: Int
+  trialType: String
+  origin: String
+  createdDateTime: DateTime
+}
+
+type AutopaySchedule {
+  id: ID!
+  contractId: ID!
+  frequency: String
+  nextChargeDate: Date
+  lastChargeDate: Date
+  amount: Decimal
+  paymentMethodId: ID
+}
+
+type PromoCode {
+  id: Int!
+  code: String
+  name: String
+  type: PromoCodeType
+  discountAmount: Decimal
+  discountPercent: Decimal
+  startDate: Date
+  endDate: Date
+  maxUses: Int
+  useCount: Int
+  active: Boolean
+  singleUsePerClient: Boolean
+}
+
+# ─────────────────────────────────────────────
+# Payroll
+# ─────────────────────────────────────────────
+
+type PayrollDetail {
+  staffId: ID!
+  staff: StaffMember
+  startDate: Date
+  endDate: Date
+  classPayDetails: [ClassPayDetail!]
+  staffPayDetails: [StaffPayDetail!]
+  totalPay: Decimal
+}
+
+type ClassPayDetail {
+  classId: Int!
+  className: String
+  startDateTime: DateTime
+  locationId: Int
+  clientCount: Int
+  payRate: Decimal
+  bonusPay: Decimal
+  totalPay: Decimal
+}
+
+type StaffPayDetail {
+  appointmentId: ID
+  sessionTypeName: String
+  startDateTime: DateTime
+  clientName: String
+  payRate: Decimal
+  totalPay: Decimal
+}
+
+# ─────────────────────────────────────────────
+# Schedule & Availability
+# ─────────────────────────────────────────────
+
+type Schedule {
+  siteId: Int
+  startDate: Date
+  endDate: Date
+  scheduleItems: [ScheduleItem!]
+}
+
+type ScheduleItem {
+  id: ID!
+  type: ScheduleItemType
+  name: String
+  startDateTime: DateTime
+  endDateTime: DateTime
+  locationId: Int
+  location: Location
+  staffId: ID
+  staff: StaffMember
+  clientId: ID
+  client: Client
+  cancelOffset: Int
+}
+
+type Availability {
+  siteId: Int
+  locationId: Int
+  sessionTypeId: Int
+  staffId: ID
+  startDateTime: DateTime
+  endDateTime: DateTime
+  sessionType: SessionType
+  staff: StaffMember
+}
+
+type CancelPolicy {
+  id: Int!
+  siteId: Int
+  name: String
+  offset: Int
+  offsetUnit: String
+  penaltyType: String
+  penaltyAmount: Decimal
+  program: Program
+}
+
+# ─────────────────────────────────────────────
+# Loyalty & Rewards
+# ─────────────────────────────────────────────
+
+type RewardProgram {
+  id: Int!
+  siteId: Int
+  name: String
+  description: String
+  isActive: Boolean
+  pointsName: String
+  pointsPerDollar: Decimal
+  pointsPerVisit: Int
+  redemptionThreshold: Int
+  redemptionValue: Decimal
+}
+
+type LoyaltyEvent {
+  id: ID!
+  clientId: ID!
+  client: Client
+  type: LoyaltyEventType
+  points: Int
+  eventDateTime: DateTime
+  description: String
+  referenceId: ID
+  rewardProgramId: Int
+  rewardProgram: RewardProgram
+}
+
+# ─────────────────────────────────────────────
+# Reviews
+# ─────────────────────────────────────────────
+
+type Review {
+  id: ID!
+  siteId: Int
+  clientId: ID
+  staffId: ID
+  classId: Int
+  rating: Int
+  reviewText: String
+  submittedDateTime: DateTime
+  isPublic: Boolean
+}
+
+type Rating {
+  entityId: ID!
+  entityType: String
+  averageRating: Decimal
+  totalReviews: Int
+  ratingBreakdown: [RatingBreakdown!]
+}
+
+type RatingBreakdown {
+  stars: Int!
+  count: Int!
+}
+
+# ─────────────────────────────────────────────
+# Input Types
+# ─────────────────────────────────────────────
+
+input BookClassInput {
+  clientId: ID!
+  classId: Int!
+  waitlist: Boolean
+  sendEmail: Boolean
+  sendSms: Boolean
+  test: Boolean
+}
+
+input BookAppointmentInput {
+  clientId: ID!
+  staffId: ID!
+  sessionTypeId: Int!
+  locationId: Int!
+  startDateTime: DateTime!
+  endDateTime: DateTime!
+  notes: String
+  genderRequested: GenderType
+  sendEmail: Boolean
+  test: Boolean
+}
+
+input AddClientInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  mobilePhone: String
+  birthDate: Date
+  gender: GenderType
+  address: String
+  city: String
+  state: String
+  postalCode: String
+  referredBy: String
+  notes: String
+  test: Boolean
+}
+
+input UpdateClientInput {
+  id: ID!
+  firstName: String
+  lastName: String
+  email: String
+  mobilePhone: String
+  notes: String
+  address: String
+  city: String
+  state: String
+  postalCode: String
+}
+
+input CheckoutCartInput {
+  clientId: ID!
+  locationId: Int!
+  items: [CartItemInput!]!
+  paymentInfo: PaymentInfoInput
+  sendEmail: Boolean
+  test: Boolean
+}
+
+input CartItemInput {
+  type: String!
+  itemId: ID!
+  quantity: Int
+  unitPrice: Decimal
+}
+
+input PaymentInfoInput {
+  method: PaymentMethodType!
+  amount: Decimal!
+  creditCardNumber: String
+  expMonth: Int
+  expYear: Int
+  cvv: String
+  postalCode: String
+  giftCardCode: String
+}
+
+input AddContactLogInput {
+  clientId: ID!
+  staffId: ID!
+  type: String!
+  action: String!
+  text: String
+  method: String
+  followUpDateTime: DateTime
+}
+
+# ─────────────────────────────────────────────
+# Root Types
+# ─────────────────────────────────────────────
+
+type Query {
+  # Sites
+  sites(siteIds: [Int!]): [Site!]
+  site(siteId: Int!): Site
+
+  # Locations
+  locations(siteId: Int!, locationIds: [Int!]): [Location!]
+
+  # Staff
+  staffMembers(siteId: Int!, locationId: Int, sessionTypeIds: [Int!]): [StaffMember!]
+  staffMember(siteId: Int!, staffId: ID!): StaffMember
+  staffAvailability(siteId: Int!, staffIds: [ID!], startDateTime: DateTime!, endDateTime: DateTime!, locationId: Int, sessionTypeId: Int): [StaffAvailability!]
+
+  # Classes
+  classes(siteId: Int!, locationIds: [Int!], startDateTime: DateTime!, endDateTime: DateTime!, programIds: [Int!], staffIds: [ID!], limit: Int, offset: Int): [Class!]
+  classDescriptions(siteId: Int!, programIds: [Int!], limit: Int, offset: Int): [ClassDescription!]
+  classSchedules(siteId: Int!, locationId: Int, programIds: [Int!]): [ClassSchedule!]
+  enrollments(siteId: Int!, locationId: Int, programIds: [Int!], startDate: Date, endDate: Date): [Enrollment!]
+  waitlist(siteId: Int!, classId: Int!): [Waitlist!]
+
+  # Appointments
+  appointments(siteId: Int!, staffIds: [ID!], startDateTime: DateTime!, endDateTime: DateTime!, locationId: Int, clientId: ID, limit: Int, offset: Int): [Appointment!]
+  appointment(siteId: Int!, appointmentId: ID!): Appointment
+  appointmentAvailability(siteId: Int!, startDateTime: DateTime!, endDateTime: DateTime!, sessionTypeId: Int, locationId: Int, staffIds: [ID!]): [AppointmentAvailability!]
+  sessionTypes(siteId: Int!, programIds: [Int!], locationId: Int, onlineOnly: Boolean): [SessionType!]
+
+  # Clients
+  clients(siteId: Int!, searchText: String, clientIds: [ID!], limit: Int, offset: Int): [Client!]
+  client(siteId: Int!, clientId: ID!): Client
+  clientMemberships(siteId: Int!, clientId: ID!): [ClientMembership!]
+  clientVisits(siteId: Int!, clientId: ID!, startDateTime: DateTime!, endDateTime: DateTime!, limit: Int, offset: Int): [ClientVisit!]
+  clientContactLogs(siteId: Int!, clientId: ID!): [ClientContactLog!]
+  clientPurchases(siteId: Int!, clientId: ID!, startDate: Date, endDate: Date): [PurchasedItem!]
+
+  # Sales
+  sales(siteId: Int!, clientId: ID, startSaleDateTime: DateTime, endSaleDateTime: DateTime, limit: Int, offset: Int): [Sale!]
+  products(siteId: Int!, locationId: Int, onlineSale: Boolean): [Product!]
+  pricingOptions(siteId: Int!, sessionTypeId: Int, programId: Int, classId: Int): [PricingOption!]
+  giftCards(siteId: Int!, uniqueId: String): [GiftCard!]
+  packages(siteId: Int!, locationId: Int, sellOnline: Boolean): [Package!]
+  contracts(siteId: Int!, clientId: ID!, limit: Int, offset: Int): [Contract!]
+  promoCodes(siteId: Int!): [PromoCode!]
+
+  # Payroll
+  staffPayroll(siteId: Int!, staffIds: [ID!], startDate: Date!, endDate: Date!): [PayrollDetail!]
+
+  # Schedule
+  scheduleItems(siteId: Int!, locationId: Int, staffIds: [ID!], clientId: ID, startDateTime: DateTime!, endDateTime: DateTime!): Schedule
+
+  # Loyalty
+  rewardPrograms(siteId: Int!): [RewardProgram!]
+  loyaltyEvents(siteId: Int!, clientId: ID!, limit: Int, offset: Int): [LoyaltyEvent!]
+
+  # Courses
+  courses(siteId: Int!, locationId: Int, staffId: ID): [Course!]
+}
+
+type Mutation {
+  # Class bookings
+  bookClass(siteId: Int!, input: BookClassInput!): ClassSignUp
+  cancelClassBooking(siteId: Int!, visitId: ID!, lateCancel: Boolean, sendEmail: Boolean, test: Boolean): Boolean
+
+  # Appointment bookings
+  bookAppointment(siteId: Int!, input: BookAppointmentInput!): Appointment
+  cancelAppointment(siteId: Int!, appointmentId: ID!, lateCancel: Boolean, sendEmail: Boolean, test: Boolean): Boolean
+  updateAppointment(siteId: Int!, appointmentId: ID!, notes: String, startDateTime: DateTime, endDateTime: DateTime): Appointment
+
+  # Enrollment
+  addClientToEnrollment(siteId: Int!, clientId: ID!, enrollmentId: Int!, waitlist: Boolean, test: Boolean): Registration
+
+  # Client management
+  addClient(siteId: Int!, input: AddClientInput!): Client
+  updateClient(siteId: Int!, input: UpdateClientInput!): Client
+  addClientContactLog(siteId: Int!, input: AddContactLogInput!): ClientContactLog
+
+  # Sales
+  checkoutCart(siteId: Int!, input: CheckoutCartInput!): Sale
+
+  # Waitlist
+  addToWaitlist(siteId: Int!, classId: Int!, clientId: ID!, sendEmail: Boolean): Waitlist
+  removeFromWaitlist(siteId: Int!, waitlistEntryId: ID!): Boolean
+
+  # Gift cards
+  issueGiftCard(siteId: Int!, purchasedByClientId: ID!, issuedToClientId: ID!, amount: Decimal!): GiftCard
+
+  # User tokens
+  issueUserToken(siteId: Int!, username: String!, password: String!): UserToken
+}
