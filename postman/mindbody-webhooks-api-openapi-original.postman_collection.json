@@ -1,0 +1,2048 @@
+{
+  "info": {
+    "_postman_id": "a9ed7761-c6a7-499b-bf79-af617d74cad3",
+    "name": "Mindbody Webhooks API",
+    "description": "Subscription and delivery platform that pushes near real-time event notifications for sites, locations, appointments, classes, clients, sales, and staff. Partners create and manage subscriptions over a REST control plane, and Mindbody pushes JSON events to the registered webhook URL with HMAC-SHA256 signature verification. Authentication uses an API-Key header issued via the Mindbody webhooks developer portal.\n\nContact Support:\n Name: Mindbody API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:12:47.000Z",
+    "updatedAt": "2026-06-05T15:12:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a9ed7761-c6a7-499b-bf79-af617d74cad3"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "metrics",
+              "item": [
+                {
+                  "name": "Mindbody This Endpoint Gets Metrics for All the Subscriptions Associated with",
+                  "id": "1c4364e3-10e1-48f5-a246-324e7c0fed52",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "API-Key",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/metrics",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "metrics"
+                      ]
+                    },
+                    "description": "This endpoint gets metrics for all the subscriptions associated with your Public API developer account."
+                  },
+                  "response": [
+                    {
+                      "id": "59ce29d4-b206-41be-84f2-b1616876b858",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/metrics",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "metrics"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"items\": [\n    {\n      \"creationDateTime\": \"<dateTime>\",\n      \"messagesAttempted\": \"<integer>\",\n      \"messagesDelivered\": \"<integer>\",\n      \"messagesFailed\": \"<integer>\",\n      \"messagesUndelivered\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"statusChangeDate\": \"<dateTime>\",\n      \"subscriptionId\": \"<string>\"\n    },\n    {\n      \"creationDateTime\": \"<dateTime>\",\n      \"messagesAttempted\": \"<integer>\",\n      \"messagesDelivered\": \"<integer>\",\n      \"messagesFailed\": \"<integer>\",\n      \"messagesUndelivered\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"statusChangeDate\": \"<dateTime>\",\n      \"subscriptionId\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-59ce29d4-b206-41be-84f2-b1616876b858"
+                    },
+                    {
+                      "id": "1b4ee25c-b031-4bd1-823d-8afce8b73cb2",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/metrics",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "metrics"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-1b4ee25c-b031-4bd1-823d-8afce8b73cb2"
+                    },
+                    {
+                      "id": "134917eb-0674-4fdb-829e-8c08cffee63d",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/metrics",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "metrics"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-134917eb-0674-4fdb-829e-8c08cffee63d"
+                    },
+                    {
+                      "id": "b69980f1-7530-496b-8038-40b88c73e04e",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/metrics",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "metrics"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-b69980f1-7530-496b-8038-40b88c73e04e"
+                    },
+                    {
+                      "id": "8e2f6188-f924-4b73-9983-110421fa95f0",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/metrics",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "metrics"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-8e2f6188-f924-4b73-9983-110421fa95f0"
+                    },
+                    {
+                      "id": "4f8935f9-365d-4ff0-bef1-8ae0bd3a177a",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/metrics",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "metrics"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-4f8935f9-365d-4ff0-bef1-8ae0bd3a177a"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:12:48.000Z",
+                  "updatedAt": "2026-06-05T15:12:48.000Z",
+                  "uid": "35240-1c4364e3-10e1-48f5-a246-324e7c0fed52"
+                }
+              ],
+              "id": "987ed457-da61-4c8b-8d8f-5f6a04eda542",
+              "createdAt": "2026-06-05T15:12:48.000Z",
+              "updatedAt": "2026-06-05T15:12:48.000Z",
+              "uid": "35240-987ed457-da61-4c8b-8d8f-5f6a04eda542"
+            },
+            {
+              "name": "subscriptions",
+              "item": [
+                {
+                  "name": "{subscriptionId}",
+                  "item": [
+                    {
+                      "name": "Mindbody This Endpoint Deactivates a Subscription Associated with the Passed ID",
+                      "id": "f4850aff-3d1b-4369-99bd-157cd0a8e1b8",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "API-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "subscriptions",
+                            ":subscriptionId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d54834a4-0ed0-4ffe-96a9-4cf0dfe641c0",
+                              "key": "subscriptionId",
+                              "value": "<string>",
+                              "description": "(Required) The subscription ID (a GUID) that you are deactivating."
+                            }
+                          ]
+                        },
+                        "description": "This endpoint deactivates a subscription associated with the passed ID."
+                      },
+                      "response": [
+                        {
+                          "id": "70a6f341-ad6e-42a8-94d8-9de5e2a1ad44",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errorInformation\": [\n    {\n      \"errorCode\": \"<integer>\",\n      \"errorMessage\": \"<string>\",\n      \"errorType\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<integer>\",\n      \"errorMessage\": \"<string>\",\n      \"errorType\": \"<string>\"\n    }\n  ],\n  \"isSuccess\": \"<boolean>\",\n  \"value\": {\n    \"deactivationDateTime\": \"<dateTime>\",\n    \"message\": \"<string>\",\n    \"referenceId\": \"<string>\",\n    \"subscriptionId\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-06-05T15:12:48.000Z",
+                          "updatedAt": "2026-06-05T15:12:48.000Z",
+                          "uid": "35240-70a6f341-ad6e-42a8-94d8-9de5e2a1ad44"
+                        },
+                        {
+                          "id": "b75a3a98-394f-4c0c-96ff-de41b6fbf0dd",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:12:48.000Z",
+                          "updatedAt": "2026-06-05T15:12:48.000Z",
+                          "uid": "35240-b75a3a98-394f-4c0c-96ff-de41b6fbf0dd"
+                        },
+                        {
+                          "id": "7f0ce09d-2cf7-4635-bda7-529c546cfc12",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:12:48.000Z",
+                          "updatedAt": "2026-06-05T15:12:48.000Z",
+                          "uid": "35240-7f0ce09d-2cf7-4635-bda7-529c546cfc12"
+                        },
+                        {
+                          "id": "3dfc775b-df34-4cd8-bafa-d5b88ef07de9",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:12:48.000Z",
+                          "updatedAt": "2026-06-05T15:12:48.000Z",
+                          "uid": "35240-3dfc775b-df34-4cd8-bafa-d5b88ef07de9"
+                        },
+                        {
+                          "id": "a88eb604-7987-4d4c-8989-d05e664e74f3",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:12:48.000Z",
+                          "updatedAt": "2026-06-05T15:12:48.000Z",
+                          "uid": "35240-a88eb604-7987-4d4c-8989-d05e664e74f3"
+                        },
+                        {
+                          "id": "189d016d-cf0f-4fb6-8a54-d7567bfc2e06",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:12:48.000Z",
+                          "updatedAt": "2026-06-05T15:12:48.000Z",
+                          "uid": "35240-189d016d-cf0f-4fb6-8a54-d7567bfc2e06"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-f4850aff-3d1b-4369-99bd-157cd0a8e1b8"
+                    },
+                    {
+                      "name": "Mindbody This Endpoint Finds and Returns the Single Subscription Associated",
+                      "id": "6cdabc19-cd70-4c9e-a7ed-9ea71d282bf2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "API-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "subscriptions",
+                            ":subscriptionId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f3621b05-b20b-43cf-a71a-48fee737f2e0",
+                              "key": "subscriptionId",
+                              "value": "<string>",
+                              "description": "(Required) Returns the single location identified by this ID (a GUID)."
+                            }
+                          ]
+                        },
+                        "description": "This endpoint finds and returns the single subscription associated with the passed ID."
+                      },
+                      "response": [
+                        {
+                          "id": "c082965f-f426-41d0-b82f-38fe11531aa1",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errorInformation\": [\n    {\n      \"errorCode\": \"<integer>\",\n      \"errorMessage\": \"<string>\",\n      \"errorType\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<integer>\",\n      \"errorMessage\": \"<string>\",\n      \"errorType\": \"<string>\"\n    }\n  ],\n  \"isSuccess\": \"<boolean>\",\n  \"value\": {\n    \"eventIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"eventSchemaVersion\": \"<double>\",\n    \"referenceId\": \"<string>\",\n    \"status\": \"<string>\",\n    \"statusChangeDate\": \"<dateTime>\",\n    \"statusChangeMessage\": \"<string>\",\n    \"statusChangeUser\": \"<string>\",\n    \"subscriptionCreationDateTime\": \"<dateTime>\",\n    \"subscriptionId\": \"<string>\",\n    \"webhookUrl\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-06-05T15:12:48.000Z",
+                          "updatedAt": "2026-06-05T15:12:48.000Z",
+                          "uid": "35240-c082965f-f426-41d0-b82f-38fe11531aa1"
+                        },
+                        {
+                          "id": "8557ead2-9f97-471c-973c-aef3ecf38463",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:12:48.000Z",
+                          "updatedAt": "2026-06-05T15:12:48.000Z",
+                          "uid": "35240-8557ead2-9f97-471c-973c-aef3ecf38463"
+                        },
+                        {
+                          "id": "1b3d3d98-fe16-4fca-9617-9d6733f4a559",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:12:48.000Z",
+                          "updatedAt": "2026-06-05T15:12:48.000Z",
+                          "uid": "35240-1b3d3d98-fe16-4fca-9617-9d6733f4a559"
+                        },
+                        {
+                          "id": "3c632245-9e72-4679-a1cc-4c38f040937f",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:12:48.000Z",
+                          "updatedAt": "2026-06-05T15:12:48.000Z",
+                          "uid": "35240-3c632245-9e72-4679-a1cc-4c38f040937f"
+                        },
+                        {
+                          "id": "80c0aec7-3339-4335-b6e6-5b33e389133a",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:12:48.000Z",
+                          "updatedAt": "2026-06-05T15:12:48.000Z",
+                          "uid": "35240-80c0aec7-3339-4335-b6e6-5b33e389133a"
+                        },
+                        {
+                          "id": "d4c030b2-79dd-4938-bff3-2a122af5c7f6",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:12:48.000Z",
+                          "updatedAt": "2026-06-05T15:12:48.000Z",
+                          "uid": "35240-d4c030b2-79dd-4938-bff3-2a122af5c7f6"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-6cdabc19-cd70-4c9e-a7ed-9ea71d282bf2"
+                    },
+                    {
+                      "name": "Mindbody This Endpoint Can Activate a New Subscription or Reactivate an",
+                      "id": "d336c57d-db5f-40b5-b382-6c72f9eb7ab4",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "API-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"eventIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"eventSchemaVersion\": \"<double>\",\n  \"referenceId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"webhookUrl\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "subscriptions",
+                            ":subscriptionId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "7a93988f-bd9c-4361-bc65-fd7908f29509",
+                              "key": "subscriptionId",
+                              "value": "<string>",
+                              "description": "(Required) The subscription\u2019s ID (a GUID)."
+                            }
+                          ]
+                        },
+                        "description": "This endpoint can activate a new subscription or reactivate an inactive subscription that is associated with your developer portal account, by updating the status. You can also update your subscription\u2019s eventIds, eventSchemaVersion, referenceId, and webhookUrl."
+                      },
+                      "response": [
+                        {
+                          "id": "5f12be04-d9f9-45c9-b719-2ffda7871d66",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"eventIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"eventSchemaVersion\": \"<double>\",\n  \"referenceId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"webhookUrl\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errorInformation\": [\n    {\n      \"errorCode\": \"<integer>\",\n      \"errorMessage\": \"<string>\",\n      \"errorType\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<integer>\",\n      \"errorMessage\": \"<string>\",\n      \"errorType\": \"<string>\"\n    }\n  ],\n  \"isSuccess\": \"<boolean>\",\n  \"value\": {\n    \"eventIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"eventSchemaVersion\": \"<double>\",\n    \"referenceId\": \"<string>\",\n    \"status\": \"<string>\",\n    \"statusChangeDate\": \"<dateTime>\",\n    \"statusChangeMessage\": \"<string>\",\n    \"statusChangeUser\": \"<string>\",\n    \"subscriptionCreationDateTime\": \"<dateTime>\",\n    \"subscriptionId\": \"<string>\",\n    \"webhookUrl\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-06-05T15:12:48.000Z",
+                          "updatedAt": "2026-06-05T15:12:48.000Z",
+                          "uid": "35240-5f12be04-d9f9-45c9-b719-2ffda7871d66"
+                        },
+                        {
+                          "id": "44521e8d-2016-4269-a7bd-25b699b3ce17",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"eventIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"eventSchemaVersion\": \"<double>\",\n  \"referenceId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"webhookUrl\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:12:48.000Z",
+                          "updatedAt": "2026-06-05T15:12:48.000Z",
+                          "uid": "35240-44521e8d-2016-4269-a7bd-25b699b3ce17"
+                        },
+                        {
+                          "id": "51a74b8a-6f4d-4320-a85b-b4e5bfc257ca",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"eventIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"eventSchemaVersion\": \"<double>\",\n  \"referenceId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"webhookUrl\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:12:48.000Z",
+                          "updatedAt": "2026-06-05T15:12:48.000Z",
+                          "uid": "35240-51a74b8a-6f4d-4320-a85b-b4e5bfc257ca"
+                        },
+                        {
+                          "id": "fc005d6b-1e26-49c9-9f0a-dab0a0b7c6fa",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"eventIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"eventSchemaVersion\": \"<double>\",\n  \"referenceId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"webhookUrl\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:12:48.000Z",
+                          "updatedAt": "2026-06-05T15:12:48.000Z",
+                          "uid": "35240-fc005d6b-1e26-49c9-9f0a-dab0a0b7c6fa"
+                        },
+                        {
+                          "id": "0fcf8979-8e5f-4f88-9f65-f7aea1448adb",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"eventIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"eventSchemaVersion\": \"<double>\",\n  \"referenceId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"webhookUrl\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:12:48.000Z",
+                          "updatedAt": "2026-06-05T15:12:48.000Z",
+                          "uid": "35240-0fcf8979-8e5f-4f88-9f65-f7aea1448adb"
+                        },
+                        {
+                          "id": "81740e95-5667-425f-a9f1-1d954729e03c",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"eventIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"eventSchemaVersion\": \"<double>\",\n  \"referenceId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"webhookUrl\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:12:48.000Z",
+                          "updatedAt": "2026-06-05T15:12:48.000Z",
+                          "uid": "35240-81740e95-5667-425f-a9f1-1d954729e03c"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-d336c57d-db5f-40b5-b382-6c72f9eb7ab4"
+                    }
+                  ],
+                  "id": "d08d4888-9b08-487f-a138-c045d6a81fdf",
+                  "createdAt": "2026-06-05T15:12:48.000Z",
+                  "updatedAt": "2026-06-05T15:12:48.000Z",
+                  "uid": "35240-d08d4888-9b08-487f-a138-c045d6a81fdf"
+                },
+                {
+                  "name": "Mindbody This Endpoint Searches for Subscriptions Associated with Your",
+                  "id": "120cfdde-9461-4560-9abd-3482ee00ddb5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "API-Key",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/subscriptions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "subscriptions"
+                      ]
+                    },
+                    "description": "This endpoint searches for subscriptions associated with your developer portal account: You can retrieve a specific subscription by calling GET(by ID)."
+                  },
+                  "response": [
+                    {
+                      "id": "2649e02d-bec4-4536-b50f-b38521f17693",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "subscriptions"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorInformation\": [\n    {\n      \"errorCode\": \"<integer>\",\n      \"errorMessage\": \"<string>\",\n      \"errorType\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<integer>\",\n      \"errorMessage\": \"<string>\",\n      \"errorType\": \"<string>\"\n    }\n  ],\n  \"isSuccess\": \"<boolean>\",\n  \"value\": {\n    \"items\": [\n      {\n        \"eventIds\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"eventSchemaVersion\": \"<double>\",\n        \"referenceId\": \"<string>\",\n        \"status\": \"<string>\",\n        \"statusChangeDate\": \"<dateTime>\",\n        \"statusChangeMessage\": \"<string>\",\n        \"statusChangeUser\": \"<string>\",\n        \"subscriptionCreationDateTime\": \"<dateTime>\",\n        \"subscriptionId\": \"<string>\",\n        \"webhookUrl\": \"<string>\"\n      },\n      {\n        \"eventIds\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"eventSchemaVersion\": \"<double>\",\n        \"referenceId\": \"<string>\",\n        \"status\": \"<string>\",\n        \"statusChangeDate\": \"<dateTime>\",\n        \"statusChangeMessage\": \"<string>\",\n        \"statusChangeUser\": \"<string>\",\n        \"subscriptionCreationDateTime\": \"<dateTime>\",\n        \"subscriptionId\": \"<string>\",\n        \"webhookUrl\": \"<string>\"\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-2649e02d-bec4-4536-b50f-b38521f17693"
+                    },
+                    {
+                      "id": "5b4e3507-319c-4d42-94f4-268c6878b227",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "subscriptions"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-5b4e3507-319c-4d42-94f4-268c6878b227"
+                    },
+                    {
+                      "id": "89fd5f01-cbf1-4558-8f50-11987d7573d5",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "subscriptions"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-89fd5f01-cbf1-4558-8f50-11987d7573d5"
+                    },
+                    {
+                      "id": "9f0c0e04-6ca8-4aaa-ad4b-3dd1cbde0e76",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "subscriptions"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-9f0c0e04-6ca8-4aaa-ad4b-3dd1cbde0e76"
+                    },
+                    {
+                      "id": "2bafc5ff-7165-43a8-ade5-6240d5b593a8",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "subscriptions"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-2bafc5ff-7165-43a8-ade5-6240d5b593a8"
+                    },
+                    {
+                      "id": "161bb740-9553-4742-9b00-14e4074c581f",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "subscriptions"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-161bb740-9553-4742-9b00-14e4074c581f"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:12:48.000Z",
+                  "updatedAt": "2026-06-05T15:12:48.000Z",
+                  "uid": "35240-120cfdde-9461-4560-9abd-3482ee00ddb5"
+                },
+                {
+                  "name": "Mindbody This Endpoint Creates a Pending Subscription That is Linked to Your",
+                  "id": "104d0a23-869a-4fc9-b88e-68a620e08a23",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "API-Key",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"eventIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"eventSchemaVersion\": \"<double>\",\n  \"referenceId\": \"<string>\",\n  \"webhookUrl\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/subscriptions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "subscriptions"
+                      ]
+                    },
+                    "description": "This endpoint creates a pending subscription that is linked to your developer portal account. After you have created a subscription, you can activate it using the PATCH Subscription endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "5e4bf8f1-2464-4734-948a-309cea6a005a",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"eventIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"eventSchemaVersion\": \"<double>\",\n  \"referenceId\": \"<string>\",\n  \"webhookUrl\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "subscriptions"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorInformation\": [\n    {\n      \"errorCode\": \"<integer>\",\n      \"errorMessage\": \"<string>\",\n      \"errorType\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<integer>\",\n      \"errorMessage\": \"<string>\",\n      \"errorType\": \"<string>\"\n    }\n  ],\n  \"isSuccess\": \"<boolean>\",\n  \"value\": {\n    \"eventIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"eventSchemaVersion\": \"<double>\",\n    \"messageSignatureKey\": \"<string>\",\n    \"referenceId\": \"<string>\",\n    \"status\": \"<string>\",\n    \"statusChangeDate\": \"<dateTime>\",\n    \"statusChangeMessage\": \"<string>\",\n    \"statusChangeUser\": \"<string>\",\n    \"subscriptionCreationDateTime\": \"<dateTime>\",\n    \"subscriptionId\": \"<string>\",\n    \"webhookUrl\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-5e4bf8f1-2464-4734-948a-309cea6a005a"
+                    },
+                    {
+                      "id": "83029959-315f-40f1-8f1e-c3ebd2f7db75",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"eventIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"eventSchemaVersion\": \"<double>\",\n  \"referenceId\": \"<string>\",\n  \"webhookUrl\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "subscriptions"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-83029959-315f-40f1-8f1e-c3ebd2f7db75"
+                    },
+                    {
+                      "id": "8066fc5b-e3f4-490a-b42b-08e0d5665e0f",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"eventIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"eventSchemaVersion\": \"<double>\",\n  \"referenceId\": \"<string>\",\n  \"webhookUrl\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "subscriptions"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-8066fc5b-e3f4-490a-b42b-08e0d5665e0f"
+                    },
+                    {
+                      "id": "03c01ffa-62cf-4ac1-9553-423bfe488928",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"eventIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"eventSchemaVersion\": \"<double>\",\n  \"referenceId\": \"<string>\",\n  \"webhookUrl\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "subscriptions"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-03c01ffa-62cf-4ac1-9553-423bfe488928"
+                    },
+                    {
+                      "id": "152381db-98b8-42ea-8cd2-b1a8f667a4db",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"eventIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"eventSchemaVersion\": \"<double>\",\n  \"referenceId\": \"<string>\",\n  \"webhookUrl\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "subscriptions"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-152381db-98b8-42ea-8cd2-b1a8f667a4db"
+                    },
+                    {
+                      "id": "7d2fd25a-8531-4403-8b0e-8b6c4869bc9e",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"eventIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"eventSchemaVersion\": \"<double>\",\n  \"referenceId\": \"<string>\",\n  \"webhookUrl\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "subscriptions"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:48.000Z",
+                      "updatedAt": "2026-06-05T15:12:48.000Z",
+                      "uid": "35240-7d2fd25a-8531-4403-8b0e-8b6c4869bc9e"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:12:48.000Z",
+                  "updatedAt": "2026-06-05T15:12:48.000Z",
+                  "uid": "35240-104d0a23-869a-4fc9-b88e-68a620e08a23"
+                }
+              ],
+              "id": "47d6c6ab-3ddb-43b8-8f52-67b5016a427c",
+              "createdAt": "2026-06-05T15:12:48.000Z",
+              "updatedAt": "2026-06-05T15:12:48.000Z",
+              "uid": "35240-47d6c6ab-3ddb-43b8-8f52-67b5016a427c"
+            }
+          ],
+          "id": "483ce3fc-12d3-49b9-9aae-0775a4cdbcea",
+          "createdAt": "2026-06-05T15:12:48.000Z",
+          "updatedAt": "2026-06-05T15:12:48.000Z",
+          "uid": "35240-483ce3fc-12d3-49b9-9aae-0775a4cdbcea"
+        }
+      ],
+      "id": "4d270a2a-7561-45a4-8187-1d7ae3d02a6a",
+      "createdAt": "2026-06-05T15:12:48.000Z",
+      "updatedAt": "2026-06-05T15:12:48.000Z",
+      "uid": "35240-4d270a2a-7561-45a4-8187-1d7ae3d02a6a"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "API-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://push-api.mindbodyonline.com"
+    }
+  ]
+}
