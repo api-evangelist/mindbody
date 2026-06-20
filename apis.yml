@@ -9,7 +9,7 @@ description: Mindbody is a business management and consumer marketplace platform
   key + SiteId headers, with optional OAuth 2.0 bearer tokens from the Mindbody Identity
   Service for staff- and client-scoped operations.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Fitness
 - Wellness
