@@ -55,16 +55,16 @@ apis:
     url: https://developers.mindbodyonline.com/PublicDocumentation/GettingStarted
   - type: OpenAPI
     url: openapi/mindbody-public-api-v6-openapi-original.yml
-  - type: SDK
+  - type: SDKs
     title: C# .NET Standard SDK
     url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/PublicAPI/mindbody-public-api-cs_net_standard_lib.zip
-  - type: SDK
+  - type: SDKs
     title: PHP SDK
     url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/PublicAPI/mindbody-public-api-php_generic_lib_v2.zip
-  - type: SDK
+  - type: SDKs
     title: Python SDK
     url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/PublicAPI/mindbody-public-api-python_generic_lib.zip
-  - type: SDK
+  - type: SDKs
     title: Ruby SDK
     url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/PublicAPI/mindbody-public-api-ruby_generic_lib.zip
   - type: CodeExamples
@@ -73,29 +73,29 @@ apis:
   - type: Authentication
     title: OAuth 2.0 (Mindbody Identity Service)
     url: https://signin.mindbodyonline.com/connect/authorize
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/public-api-v6-appointment.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/public-api-v6-class.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/public-api-v6-client.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/public-api-v6-cross-site.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/public-api-v6-enrollment.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/public-api-v6-payroll.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/public-api-v6-pick-a-spot.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/public-api-v6-sale.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/public-api-v6-site.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/public-api-v6-staff.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/public-api-v6-user-token.yaml
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/mindbody-public-api-v6-context.jsonld
   - url: graphql/mindbody-graphql.md
     type: GraphQL
@@ -122,92 +122,84 @@ apis:
     url: https://developers.mindbodyonline.com/ui/documentation/webhooks-api
   - type: OpenAPI
     url: openapi/mindbody-webhooks-api-openapi-original.yml
-  - type: SDK
+  - type: SDKs
     title: C# .NET Standard SDK
     url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/WebhooksAPI/mindbody.pushapi.api-cs_net_standard_lib.zip
-  - type: SDK
+  - type: SDKs
     title: PHP SDK
     url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/WebhooksAPI/mindbody.pushapi.api-php_generic_lib_v2.zip
-  - type: SDK
+  - type: SDKs
     title: Python SDK
     url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/WebhooksAPI/mindbody.pushapi.api-python_generic_lib.zip
-  - type: SDK
+  - type: SDKs
     title: Ruby SDK
     url: https://github.com/mindbody/Mindbody-API-SDKs/raw/main/WebhooksAPI/mindbody.pushapi.api-ruby_generic_lib.zip
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/webhooks-api-metrics.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/webhooks-api-subscriptions.yaml
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/mindbody-webhooks-api-context.jsonld
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/mindbody/overview
-- type: ArazzoWorkflows
-  url: arazzo/
-  workflows:
-  - url: arazzo/mindbody-add-client-book-class-workflow.yml
-    name: Mindbody Add Client and Book Class
-    summary: Create a new client, find an upcoming class, and book the client into
-      it.
-  - url: arazzo/mindbody-book-appointment-workflow.yml
-    name: Mindbody Book Appointment
-    summary: Find bookable appointment availabilities and book an appointment into
-      an open slot.
-  - url: arazzo/mindbody-browse-services-checkout-workflow.yml
-    name: Mindbody Browse Services and Checkout
-    summary: List sellable services, check out a cart for a client, and confirm the
-      sale.
-  - url: arazzo/mindbody-checkout-cart-confirm-sale-workflow.yml
-    name: Mindbody Checkout Cart and Confirm Sale
-    summary: Check out a shopping cart for a client and confirm the resulting sale.
-  - url: arazzo/mindbody-client-arrival-checkin-workflow.yml
-    name: Mindbody Client Arrival Check-In
-    summary: Find a client by search text and log their arrival at a location.
-  - url: arazzo/mindbody-client-membership-review-workflow.yml
-    name: Mindbody Client Membership Review
-    summary: Find a client and review their active memberships.
-  - url: arazzo/mindbody-client-visit-history-workflow.yml
-    name: Mindbody Client Visit History
-    summary: Find a client and retrieve their visit history for a date range.
-  - url: arazzo/mindbody-enroll-client-in-program-workflow.yml
-    name: Mindbody Enroll Client in Program
-    summary: List available enrollments and add a client to a chosen enrollment.
-  - url: arazzo/mindbody-find-client-purchases-workflow.yml
-    name: Mindbody Find Client Purchases
-    summary: Find a client and retrieve their purchase history.
-  - url: arazzo/mindbody-issue-token-list-clients-workflow.yml
-    name: Mindbody Issue User Token and List Clients
-    summary: Issue a staff user token and use it to list clients at a site.
-  - url: arazzo/mindbody-log-client-contact-workflow.yml
-    name: Mindbody Log Client Contact
-    summary: Find a client and add a contact log entry to their record.
-  - url: arazzo/mindbody-resolve-site-list-classes-workflow.yml
-    name: Mindbody Resolve Site and List Classes
-    summary: Resolve the activated sites for an API key and list the classes for one
-      site.
-  - url: arazzo/mindbody-schedule-items-by-location-workflow.yml
-    name: Mindbody Schedule Items by Location
-    summary: List a site's locations and retrieve the schedule items for one location.
-  - url: arazzo/mindbody-session-type-book-appointment-workflow.yml
-    name: Mindbody Session Type Book Appointment
-    summary: Discover session types, find a bookable slot, and book an appointment.
-  - url: arazzo/mindbody-staff-class-schedule-workflow.yml
-    name: Mindbody Staff Class Schedule
-    summary: Resolve a staff member and retrieve their schedule items for a date range.
-  - url: arazzo/mindbody-staff-schedule-lookup-workflow.yml
-    name: Mindbody Staff Schedule Lookup
-    summary: Look up a staff member and retrieve their booked appointments for a date
-      range.
+- type: Arazzo
+  url: arazzo/mindbody-add-client-book-class-workflow.yml
+  name: Mindbody Add Client and Book Class
+- type: Arazzo
+  url: arazzo/mindbody-book-appointment-workflow.yml
+  name: Mindbody Book Appointment
+- type: Arazzo
+  url: arazzo/mindbody-browse-services-checkout-workflow.yml
+  name: Mindbody Browse Services and Checkout
+- type: Arazzo
+  url: arazzo/mindbody-checkout-cart-confirm-sale-workflow.yml
+  name: Mindbody Checkout Cart and Confirm Sale
+- type: Arazzo
+  url: arazzo/mindbody-client-arrival-checkin-workflow.yml
+  name: Mindbody Client Arrival Check-In
+- type: Arazzo
+  url: arazzo/mindbody-client-membership-review-workflow.yml
+  name: Mindbody Client Membership Review
+- type: Arazzo
+  url: arazzo/mindbody-client-visit-history-workflow.yml
+  name: Mindbody Client Visit History
+- type: Arazzo
+  url: arazzo/mindbody-enroll-client-in-program-workflow.yml
+  name: Mindbody Enroll Client in Program
+- type: Arazzo
+  url: arazzo/mindbody-find-client-purchases-workflow.yml
+  name: Mindbody Find Client Purchases
+- type: Arazzo
+  url: arazzo/mindbody-issue-token-list-clients-workflow.yml
+  name: Mindbody Issue User Token and List Clients
+- type: Arazzo
+  url: arazzo/mindbody-log-client-contact-workflow.yml
+  name: Mindbody Log Client Contact
+- type: Arazzo
+  url: arazzo/mindbody-resolve-site-list-classes-workflow.yml
+  name: Mindbody Resolve Site and List Classes
+- type: Arazzo
+  url: arazzo/mindbody-schedule-items-by-location-workflow.yml
+  name: Mindbody Schedule Items by Location
+- type: Arazzo
+  url: arazzo/mindbody-session-type-book-appointment-workflow.yml
+  name: Mindbody Session Type Book Appointment
+- type: Arazzo
+  url: arazzo/mindbody-staff-class-schedule-workflow.yml
+  name: Mindbody Staff Class Schedule
+- type: Arazzo
+  url: arazzo/mindbody-staff-schedule-lookup-workflow.yml
+  name: Mindbody Staff Schedule Lookup
 - type: Website
   url: https://www.mindbodyonline.com/
 - type: Documentation
   url: https://developers.mindbodyonline.com/
-- type: Developer Portal
+- type: DeveloperPortal
   url: https://developers.mindbodyonline.com/
 - type: GettingStarted
   url: https://developers.mindbodyonline.com/PublicDocumentation/GettingStarted
-- type: SignUp
+- type: Signup
   url: https://developers.mindbodyonline.com/Signup
 - type: Pricing
   url: https://www.mindbodyonline.com/business/pricing
