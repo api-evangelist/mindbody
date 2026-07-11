@@ -141,6 +141,8 @@ apis:
   - type: JSONLD
     url: json-ld/mindbody-webhooks-api-context.jsonld
 common:
+- type: OAuthScopes
+  url: scopes/mindbody-scopes.yml
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/mindbody/overview
 - type: Arazzo

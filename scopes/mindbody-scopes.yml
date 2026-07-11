@@ -1,0 +1,43 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/mindbody-public-api-v6-openapi-original.yml
+schemes:
+- name: OAuth2
+  source: openapi/mindbody-public-api-v6-openapi-original.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://signin.mindbodyonline.com/connect/authorize
+    tokenUrl: https://signin.mindbodyonline.com/connect/token
+  description: OpenID Connect bearer token issued by Mindbody Identity Service (signin.mindbodyonline.com).
+    Required for endpoints that act on behalf of a staff or client user.
+scopes:
+- scope: Mindbody.Api.Public.v6
+  description: Access the Mindbody Public API v6 on behalf of the user.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/mindbody-public-api-v6-openapi-original.yml
+- scope: email
+  description: User email claim.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/mindbody-public-api-v6-openapi-original.yml
+- scope: offline_access
+  description: Issue a refresh token.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/mindbody-public-api-v6-openapi-original.yml
+- scope: openid
+  description: OpenID Connect base scope.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/mindbody-public-api-v6-openapi-original.yml
+- scope: profile
+  description: User profile claims.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/mindbody-public-api-v6-openapi-original.yml
