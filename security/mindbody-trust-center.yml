@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: searched
+probe: true
+source: https://trust.playlist.com/
+url: https://trust.playlist.com/
+certifications:
+- PCI DSS
+evidence:
+- source: https://trust.playlist.com/
+  keywords:
+  - pci dss
+  - pci-dss
+  - trust center

@@ -141,6 +141,12 @@ apis:
   - type: JSONLD
     url: json-ld/mindbody-webhooks-api-context.jsonld
 common:
+- type: TrustCenter
+  url: security/mindbody-trust-center.yml
+- type: DomainSecurity
+  url: security/mindbody-domain-security.yml
+- type: Authentication
+  url: authentication/mindbody-authentication.yml
 - type: OAuthScopes
   url: scopes/mindbody-scopes.yml
 - type: PostmanWorkspace
