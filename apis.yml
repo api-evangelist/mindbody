@@ -141,6 +141,8 @@ apis:
   - type: JSONLD
     url: json-ld/mindbody-webhooks-api-context.jsonld
 common:
+- type: AgenticAccess
+  url: agentic-access/mindbody-agentic-access.yml
 - type: TrustCenter
   url: security/mindbody-trust-center.yml
 - type: DomainSecurity
