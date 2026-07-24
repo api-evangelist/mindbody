@@ -1,10 +1,8 @@
 openapi: 3.0.3
 info:
-  title: Mindbody Webhooks API
-  version: '1.0'
-  description: Subscription and delivery platform that pushes near real-time event notifications for sites, locations, appointments, classes, clients, sales, and staff. Partners create and manage 
-    subscriptions over a REST control plane, and Mindbody pushes JSON events to the registered webhook URL with HMAC-SHA256 signature verification. Authentication uses an API-Key header issued via the
-    Mindbody webhooks developer portal.
+  title: Mindbody Public API v6 Appointment Subscriptions API
+  version: '6.0'
+  description: REST API for Mindbody business management data including appointments, classes, clients, enrollments, sales, sites, staff, payroll, and cross-site operations. Authentication combines a Mindbody-issued API-Key header with a SiteId header and optional staff/user OAuth bearer tokens for write operations. Generated from the official Mindbody Public API Python SDK (apimatic v3).
   contact:
     name: Mindbody API Support
     url: https://support.mindbodyonline.com/s/contactapisupport
@@ -13,51 +11,14 @@ info:
   x-generated-from: Mindbody-API-SDKs python SDK
   x-last-validated: '2026-05-28'
 servers:
-- url: https://push-api.mindbodyonline.com
+- url: https://api.mindbodyonline.com
   description: Production
+security:
+- ApiKeyAuth: []
 tags:
-- name: Metrics
-  description: Metrics operations.
 - name: Subscriptions
   description: Subscriptions operations.
 paths:
-  /api/v1/metrics:
-    get:
-      tags:
-      - Metrics
-      summary: Mindbody This Endpoint Gets Metrics for All the Subscriptions Associated with
-      description: This endpoint gets metrics for all the subscriptions associated with your Public API developer account.
-      operationId: getMetrics
-      parameters: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetMetricsResponse'
-              examples:
-                Getmetrics200Example:
-                  summary: Default getMetrics 200 example
-                  x-microcks-default: true
-                  value:
-                    items: &id003
-                    - {}
-        '400':
-          description: Bad Request
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-        '500':
-          description: Internal Server Error
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-      security:
-      - ApiKeyAuth: []
   /api/v1/subscriptions:
     get:
       tags:
@@ -78,7 +39,7 @@ paths:
                   summary: Default getSubscriptions 200 example
                   x-microcks-default: true
                   value:
-                    errorInformation: &id007
+                    errorInformation:
                     - {}
                     isSuccess: true
                     value: {}
@@ -101,8 +62,7 @@ paths:
       tags:
       - Subscriptions
       summary: Mindbody This Endpoint Creates a Pending Subscription That is Linked to Your
-      description: This endpoint creates a pending subscription that is linked to your developer portal account. After you have created a subscription, you can activate it using the PATCH Subscription
-        endpoint.
+      description: This endpoint creates a pending subscription that is linked to your developer portal account. After you have created a subscription, you can activate it using the PATCH Subscription endpoint.
       operationId: createSubscription
       parameters: []
       requestBody:
@@ -116,7 +76,7 @@ paths:
                 summary: Default createSubscription request example
                 x-microcks-default: true
                 value:
-                  eventIds: &id002
+                  eventIds:
                   - example-value
                   eventSchemaVersion: 1.0
                   referenceId: example-value
@@ -133,7 +93,7 @@ paths:
                   summary: Default createSubscription 200 example
                   x-microcks-default: true
                   value:
-                    errorInformation: &id005
+                    errorInformation:
                     - {}
                     isSuccess: true
                     value: {}
@@ -179,7 +139,7 @@ paths:
                   summary: Default deleteSubscription 200 example
                   x-microcks-default: true
                   value:
-                    errorInformation: &id006
+                    errorInformation:
                     - {}
                     isSuccess: true
                     value: {}
@@ -224,7 +184,7 @@ paths:
                   summary: Default getSubscription 200 example
                   x-microcks-default: true
                   value:
-                    errorInformation: &id001
+                    errorInformation:
                     - {}
                     isSuccess: true
                     value: {}
@@ -247,14 +207,13 @@ paths:
       tags:
       - Subscriptions
       summary: Mindbody This Endpoint Can Activate a New Subscription or Reactivate an
-      description: "This endpoint can activate a new subscription or reactivate an inactive subscription that is associated with your developer portal account, by updating the status. You can also update
-        your subscription’s eventIds, eventSchemaVersion, referenceId, and webhookUrl."
+      description: This endpoint can activate a new subscription or reactivate an inactive subscription that is associated with your developer portal account, by updating the status. You can also update your subscription’s eventIds, eventSchemaVersion, referenceId, and webhookUrl.
       operationId: patchSubscription
       parameters:
       - name: subscriptionId
         in: path
         required: true
-        description: "The subscription’s ID (a GUID)."
+        description: The subscription’s ID (a GUID).
         schema:
           type: string
         example: example-value
@@ -269,7 +228,7 @@ paths:
                 summary: Default patchSubscription request example
                 x-microcks-default: true
                 value:
-                  eventIds: &id004
+                  eventIds:
                   - example-value
                   eventSchemaVersion: 1.0
                   referenceId: example-value
@@ -287,7 +246,8 @@ paths:
                   summary: Default patchSubscription 200 example
                   x-microcks-default: true
                   value:
-                    errorInformation: *id001
+                    errorInformation:
+                    - {}
                     isSuccess: true
                     value: {}
         '400':
@@ -306,37 +266,46 @@ paths:
       security:
       - ApiKeyAuth: []
 components:
-  securitySchemes:
-    ApiKeyAuth:
-      type: apiKey
-      in: header
-      name: API-Key
-      description: Mindbody-issued API key (server-to-server). Required on every request.
   schemas:
-    CreateSubscriptionRequest:
+    DeactivateSubscriptionResponse:
       type: object
-      description: Implementation of the 'CreateSubscriptionRequest' model. Request used to add a webhook subscription for the requesting developer
+      description: Implementation of the 'DeactivateSubscriptionResponse' model. Returned after a subscription is deactivated
       properties:
-        eventIds:
-          type: array
-          items:
-            type: string
-          description: The events you want to be sent to the specified `webhookUrl`.
-          example: *id002
-        eventSchemaVersion:
-          type: number
-          format: double
-          description: The event schema version for this subscription. `1` is currently the only accepted value.
-          example: 1.0
+        deactivationDateTime:
+          type: string
+          format: date-time
+          description: The UTC date and time when the deactivation took place.
+          example: '2026-05-28T14:30:00Z'
+        message:
+          type: string
+          description: A message about the deactivation request. Unless an error occurs, this message always `"Subscription deactivated successfully."`.
+          example: example-value
         referenceId:
           type: string
-          description: An arbitrary field that you can set to a value of your choice. Mindbody stores and returns this value for the subscription you are creating. Most commonly, this field stores a 
-            GUID that you can use in your application.
+          description: The subscription's reference ID, assigned when the subscription was created.
           example: example-value
-        webhookUrl:
+        subscriptionId:
           type: string
-          description: The URL that Mindbody posts the event notifications to. Webhook URL Requirements lists considerations and requirements for this URL.
-          example: https://example.mindbodyonline.com/resource/abc123
+          description: The subscription ID (a GUID).
+          example: example-value
+    PushApiResultCreateSubscriptionResponse:
+      type: object
+      description: Implementation of the 'PushApiResult[CreateSubscriptionResponse]' model. A result returned for every request to the push API
+      properties:
+        errorInformation:
+          type: array
+          items:
+            $ref: '#/components/schemas/PushApiError'
+          description: The model property of type List[PushApiError].
+          example:
+          - {}
+        isSuccess:
+          type: boolean
+          description: The model property of type bool.
+          example: true
+        value:
+          $ref: '#/components/schemas/CreateSubscriptionResponse'
+          description: The created subscription
     CreateSubscriptionResponse:
       type: object
       description: Implementation of the 'CreateSubscriptionResponse' model. The created subscription
@@ -355,8 +324,7 @@ components:
           example: 1.0
         messageSignatureKey:
           type: string
-          description: The subscription security key that you can use to verify an event payload's authenticity. It is important that you store this value because this is the only endpoint that 
-            returns it See X-Mindbody Signature Header for more details.
+          description: The subscription security key that you can use to verify an event payload's authenticity. It is important that you store this value because this is the only endpoint that returns it See X-Mindbody Signature Header for more details.
           example: example-value
         referenceId:
           type: string
@@ -364,9 +332,7 @@ components:
           example: example-value
         status:
           type: string
-          description: "The subscription's current status. *Possible Values:* 1. `PendingActivation` - The subscription is created but not receiving event notifications. To start receiving event notifications,
-            set the subscription’s status to `Active` using the PATCH Subscription endpoint. 2. `Active` - The subscription is active and can receive event notifications. 3. `DeactivatedByUser` - You deactivated
-            the subscription. 4. `DeactivatedByAdmin` - Mindbody deactivated your subscription. 5. `DeactivatedTooManyFailedMe"
+          description: The subscription's current status. *Possible Values:* 1. `PendingActivation` - The subscription is created but not receiving event notifications. To start receiving event notifications, set the subscription’s status to `Active` using the PATCH Subscription endpoint. 2. `Active` - The subscription is active and can receive event notifications. 3. `DeactivatedByUser` - You deactivated the subscription. 4. `DeactivatedByAdmin` - Mindbody deactivated your subscription. 5. `DeactivatedTooManyFailedMe
           example: example-value
         statusChangeDate:
           type: string
@@ -394,172 +360,6 @@ components:
           type: string
           description: The webhook to which the listed `eventIds` are sent.
           example: https://example.mindbodyonline.com/resource/abc123
-    DeactivateSubscriptionResponse:
-      type: object
-      description: Implementation of the 'DeactivateSubscriptionResponse' model. Returned after a subscription is deactivated
-      properties:
-        deactivationDateTime:
-          type: string
-          format: date-time
-          description: The UTC date and time when the deactivation took place.
-          example: '2026-05-28T14:30:00Z'
-        message:
-          type: string
-          description: A message about the deactivation request. Unless an error occurs, this message always `"Subscription deactivated successfully."`.
-          example: example-value
-        referenceId:
-          type: string
-          description: The subscription's reference ID, assigned when the subscription was created.
-          example: example-value
-        subscriptionId:
-          type: string
-          description: The subscription ID (a GUID).
-          example: example-value
-    GetMetricsResponse:
-      type: object
-      description: Implementation of the 'GetMetricsResponse' model. A wrapper for returning subscription metrics to API users
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Metric'
-          description: Contains the metrics for the passed subscription
-          example: *id003
-    GetSubscriptionsResponse:
-      type: object
-      description: Implementation of the 'GetSubscriptionsResponse' model. A wrapper for a get subscriptions request
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Subscription'
-          description: A list of subscriptions
-          example:
-          - {}
-    Metric:
-      type: object
-      description: Implementation of the 'Metric' model. Metrics for subscription
-      properties:
-        creationDateTime:
-          type: string
-          format: date-time
-          description: The UTC date and time when the subscription was created.
-          example: '2026-05-28T14:30:00Z'
-        messagesAttempted:
-          type: integer
-          format: int32
-          description: The number of event notifications Mindbody attempted to deliver to the subscription `webhookUrl`, including retries.
-          example: 1
-        messagesDelivered:
-          type: integer
-          format: int32
-          description: The number of event notifications Mindbody successfully delivered to the subscription `webhookUrl`.
-          example: 1
-        messagesFailed:
-          type: integer
-          format: int32
-          description: The number of event notifications that Mindbody stopped trying to send after 3 hours.
-          example: 1
-        messagesUndelivered:
-          type: integer
-          format: int32
-          description: The number of event notifications where MINDBODY received a failure response from the subscription `webhookUrl`.
-          example: 1
-        status:
-          type: string
-          description: "The subscription's current status. **Possible Values**:<br /> `PendingActivation` - The subscription is created but not receiving event notifications.To start receiving event notifications,
-            set the subscription’s status to Active using the PATCH Subscription endpoint.<br /> `Active` - The subscription is active and can receive event notifications.<br /> `DeactivatedByUser` - You
-            deactivated the subscription.<br /> `DeactivatedByAdmin` - Mindbody deactivated your subscription.<br /> `DeactivatedT"
-          example: example-value
-        statusChangeDate:
-          type: string
-          format: date-time
-          description: The UTC date and time when the subscription `status` was last updated.
-          example: '2026-05-28T14:30:00Z'
-        subscriptionId:
-          type: string
-          description: The subscription's ID (a GUID).
-          example: example-value
-    PatchSubscriptionRequest:
-      type: object
-      description: Implementation of the 'PatchSubscriptionRequest' model. A request to patch update a subscription
-      properties:
-        eventIds:
-          type: array
-          items:
-            type: string
-          description: A list of event IDs that you want to update or subscribe to.
-          example: *id004
-        eventSchemaVersion:
-          type: number
-          format: double
-          description: The event schema version associated with the subscription. Currently, this is always `1`.
-          example: 1.0
-        referenceId:
-          type: string
-          description: An arbitrary field that you can set to a value of your choice. Mindbody stores and returns this value for the subscription you are activating. Most commonly, this field stores a
-            GUID that you can use in your application.
-          example: example-value
-        status:
-          type: string
-          description: "The subscription’s current status, as of the last update."
-          example: example-value
-        webhookUrl:
-          type: string
-          description: The URL registered as the target of the webhook deliveries. Mindbody posts the event notifications to this URL. Webhook URL Requirements lists considerations and requirements 
-            for this URL.
-          example: https://example.mindbodyonline.com/resource/abc123
-    PushApiError:
-      type: object
-      description: Implementation of the 'PushApiError' model. An error returned by the push API for application errors
-      properties:
-        errorCode:
-          type: integer
-          format: int32
-          description: A unique ID for the returned error code
-          example: 1
-        errorMessage:
-          type: string
-          description: A message indicating what went wrong
-          example: example-value
-        errorType:
-          type: string
-          description: A category/type associated with the error
-          example: example-value
-    PushApiResultCreateSubscriptionResponse:
-      type: object
-      description: Implementation of the 'PushApiResult[CreateSubscriptionResponse]' model. A result returned for every request to the push API
-      properties:
-        errorInformation:
-          type: array
-          items:
-            $ref: '#/components/schemas/PushApiError'
-          description: The model property of type List[PushApiError].
-          example: *id005
-        isSuccess:
-          type: boolean
-          description: The model property of type bool.
-          example: true
-        value:
-          $ref: '#/components/schemas/CreateSubscriptionResponse'
-          description: The created subscription
-    PushApiResultDeactivateSubscriptionResponse:
-      type: object
-      description: Implementation of the 'PushApiResult[DeactivateSubscriptionResponse]' model. A result returned for every request to the push API
-      properties:
-        errorInformation:
-          type: array
-          items:
-            $ref: '#/components/schemas/PushApiError'
-          description: The model property of type List[PushApiError].
-          example: *id006
-        isSuccess:
-          type: boolean
-          description: The model property of type bool.
-          example: true
-        value:
-          $ref: '#/components/schemas/DeactivateSubscriptionResponse'
-          description: Returned after a subscription is deactivated
     PushApiResultGetSubscriptionsResponse:
       type: object
       description: Implementation of the 'PushApiResult[GetSubscriptionsResponse]' model. A result returned for every request to the push API
@@ -569,7 +369,8 @@ components:
           items:
             $ref: '#/components/schemas/PushApiError'
           description: The model property of type List[PushApiError].
-          example: *id007
+          example:
+          - {}
         isSuccess:
           type: boolean
           description: The model property of type bool.
@@ -577,23 +378,24 @@ components:
         value:
           $ref: '#/components/schemas/GetSubscriptionsResponse'
           description: A wrapper for a get subscriptions request
-    PushApiResultSubscription:
+    PushApiResultDeactivateSubscriptionResponse:
       type: object
-      description: Implementation of the 'PushApiResult[Subscription]' model. A result returned for every request to the push API
+      description: Implementation of the 'PushApiResult[DeactivateSubscriptionResponse]' model. A result returned for every request to the push API
       properties:
         errorInformation:
           type: array
           items:
             $ref: '#/components/schemas/PushApiError'
           description: The model property of type List[PushApiError].
-          example: *id001
+          example:
+          - {}
         isSuccess:
           type: boolean
           description: The model property of type bool.
           example: true
         value:
-          $ref: '#/components/schemas/Subscription'
-          description: A webhook subscription
+          $ref: '#/components/schemas/DeactivateSubscriptionResponse'
+          description: Returned after a subscription is deactivated
     Subscription:
       type: object
       description: Implementation of the 'Subscription' model. A webhook subscription
@@ -616,9 +418,7 @@ components:
           example: example-value
         status:
           type: string
-          description: "The subscription's current status. *Possible Values:* 1. `PendingActivation` - The subscription is created but not receiving event notifications. To start receiving event notifications,
-            set the subscription’s status to `Active` using the PATCH Subscription endpoint. 2. `Active` - The subscription is active and can receive event notifications. 3. `DeactivatedByUser` - You deactivated
-            the subscription. 4. `DeactivatedByAdmin` - Mindbody deactivated your subscription. 5. `DeactivatedTooManyFailedMe"
+          description: The subscription's current status. *Possible Values:* 1. `PendingActivation` - The subscription is created but not receiving event notifications. To start receiving event notifications, set the subscription’s status to `Active` using the PATCH Subscription endpoint. 2. `Active` - The subscription is active and can receive event notifications. 3. `DeactivatedByUser` - You deactivated the subscription. 4. `DeactivatedByAdmin` - Mindbody deactivated your subscription. 5. `DeactivatedTooManyFailedMe
           example: example-value
         statusChangeDate:
           type: string
@@ -646,5 +446,120 @@ components:
           type: string
           description: The webhook to which the listed `eventIds` are sent.
           example: https://example.mindbodyonline.com/resource/abc123
-security:
-- ApiKeyAuth: []
+    PushApiError:
+      type: object
+      description: Implementation of the 'PushApiError' model. An error returned by the push API for application errors
+      properties:
+        errorCode:
+          type: integer
+          format: int32
+          description: A unique ID for the returned error code
+          example: 1
+        errorMessage:
+          type: string
+          description: A message indicating what went wrong
+          example: example-value
+        errorType:
+          type: string
+          description: A category/type associated with the error
+          example: example-value
+    CreateSubscriptionRequest:
+      type: object
+      description: Implementation of the 'CreateSubscriptionRequest' model. Request used to add a webhook subscription for the requesting developer
+      properties:
+        eventIds:
+          type: array
+          items:
+            type: string
+          description: The events you want to be sent to the specified `webhookUrl`.
+          example:
+          - example-value
+        eventSchemaVersion:
+          type: number
+          format: double
+          description: The event schema version for this subscription. `1` is currently the only accepted value.
+          example: 1.0
+        referenceId:
+          type: string
+          description: An arbitrary field that you can set to a value of your choice. Mindbody stores and returns this value for the subscription you are creating. Most commonly, this field stores a GUID that you can use in your application.
+          example: example-value
+        webhookUrl:
+          type: string
+          description: The URL that Mindbody posts the event notifications to. Webhook URL Requirements lists considerations and requirements for this URL.
+          example: https://example.mindbodyonline.com/resource/abc123
+    PatchSubscriptionRequest:
+      type: object
+      description: Implementation of the 'PatchSubscriptionRequest' model. A request to patch update a subscription
+      properties:
+        eventIds:
+          type: array
+          items:
+            type: string
+          description: A list of event IDs that you want to update or subscribe to.
+          example:
+          - example-value
+        eventSchemaVersion:
+          type: number
+          format: double
+          description: The event schema version associated with the subscription. Currently, this is always `1`.
+          example: 1.0
+        referenceId:
+          type: string
+          description: An arbitrary field that you can set to a value of your choice. Mindbody stores and returns this value for the subscription you are activating. Most commonly, this field stores a GUID that you can use in your application.
+          example: example-value
+        status:
+          type: string
+          description: The subscription’s current status, as of the last update.
+          example: example-value
+        webhookUrl:
+          type: string
+          description: The URL registered as the target of the webhook deliveries. Mindbody posts the event notifications to this URL. Webhook URL Requirements lists considerations and requirements for this URL.
+          example: https://example.mindbodyonline.com/resource/abc123
+    GetSubscriptionsResponse:
+      type: object
+      description: Implementation of the 'GetSubscriptionsResponse' model. A wrapper for a get subscriptions request
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subscription'
+          description: A list of subscriptions
+          example:
+          - {}
+    PushApiResultSubscription:
+      type: object
+      description: Implementation of the 'PushApiResult[Subscription]' model. A result returned for every request to the push API
+      properties:
+        errorInformation:
+          type: array
+          items:
+            $ref: '#/components/schemas/PushApiError'
+          description: The model property of type List[PushApiError].
+          example:
+          - {}
+        isSuccess:
+          type: boolean
+          description: The model property of type bool.
+          example: true
+        value:
+          $ref: '#/components/schemas/Subscription'
+          description: A webhook subscription
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: API-Key
+      description: Mindbody-issued API key (server-to-server). Required on every request.
+    OAuth2:
+      type: oauth2
+      description: OpenID Connect bearer token issued by Mindbody Identity Service (signin.mindbodyonline.com). Required for endpoints that act on behalf of a staff or client user.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://signin.mindbodyonline.com/connect/authorize
+          tokenUrl: https://signin.mindbodyonline.com/connect/token
+          scopes:
+            openid: OpenID Connect base scope.
+            profile: User profile claims.
+            email: User email claim.
+            offline_access: Issue a refresh token.
+            Mindbody.Api.Public.v6: Access the Mindbody Public API v6 on behalf of the user.

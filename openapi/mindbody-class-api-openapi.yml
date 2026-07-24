@@ -1,0 +1,4425 @@
+openapi: 3.0.3
+info:
+  title: Mindbody Public API v6 Appointment Class API
+  version: '6.0'
+  description: REST API for Mindbody business management data including appointments, classes, clients, enrollments, sales, sites, staff, payroll, and cross-site operations. Authentication combines a Mindbody-issued API-Key header with a SiteId header and optional staff/user OAuth bearer tokens for write operations. Generated from the official Mindbody Public API Python SDK (apimatic v3).
+  contact:
+    name: Mindbody API Support
+    url: https://support.mindbodyonline.com/s/contactapisupport
+  license:
+    name: Proprietary
+  x-generated-from: Mindbody-API-SDKs python SDK
+  x-last-validated: '2026-05-28'
+servers:
+- url: https://api.mindbodyonline.com
+  description: Production
+security:
+- ApiKeyAuth: []
+tags:
+- name: Class
+  description: Class operations.
+paths:
+  /public/v6/class/classdescriptions:
+    get:
+      tags:
+      - Class
+      summary: Mindbody To Find Class Descriptions Associated with **scheduled Classes**, Pass
+      description: To find class descriptions associated with **scheduled classes**, pass `StaffId`, `StartClassDateTime`, `EndClassDateTime`, or `LocationId` in the request.
+      operationId: getClassDescriptions
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.classDescriptionId
+        in: query
+        required: false
+        description: The ID of the requested client.
+        schema:
+          type: integer
+          format: int32
+        example: 123456
+      - name: request.endClassDateTime
+        in: query
+        required: false
+        description: Filters the results to class descriptions for scheduled classes that happen before the given date and time.
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      - name: request.includeInactive
+        in: query
+        required: false
+        description: Includes inactive class descriptions, defaulting to true. When set to false, it filters out inactive class descriptions.
+        schema:
+          type: boolean
+        example: true
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.locationId
+        in: query
+        required: false
+        description: Filters results to classes descriptions for schedule classes as the given location.
+        schema:
+          type: integer
+          format: int32
+        example: 123456
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.programIds
+        in: query
+        required: false
+        description: A list of requested program IDs.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.staffId
+        in: query
+        required: false
+        description: Filters results to class descriptions for scheduled classes taught by the given staff member.
+        schema:
+          type: integer
+          format: int32
+        example: 123456
+      - name: request.startClassDateTime
+        in: query
+        required: false
+        description: Filters the results to class descriptions for scheduled classes that happen on or after the given date and time.
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetClassDescriptionsResponse'
+              examples:
+                Getclassdescriptions200Example:
+                  summary: Default getClassDescriptions 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    ClassDescriptions:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/class/classes:
+    get:
+      tags:
+      - Class
+      summary: Mindbody Get Scheduled Classes
+      description: Get scheduled classes.
+      operationId: getClasses
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.classDescriptionIds
+        in: query
+        required: false
+        description: The requested class description IDs.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.classIds
+        in: query
+        required: false
+        description: The requested class IDs.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.classScheduleIds
+        in: query
+        required: false
+        description: The requested classSchedule Ids.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.clientId
+        in: query
+        required: false
+        description: The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials.
+        schema:
+          type: string
+        example: example-value
+      - name: request.endDateTime
+        in: query
+        required: false
+        description: 'The requested end date for filtering. NOTE: ClassDate does not take Class Time into consideration. <br />Default: **today’s date**'
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      - name: request.hideCanceledClasses
+        in: query
+        required: false
+        description: 'When `true`, canceled classes are removed from the response.<br /> When `false`, canceled classes are included in the response.<br /> Default: **false**'
+        schema:
+          type: boolean
+        example: true
+      - name: request.lastModifiedDate
+        in: query
+        required: false
+        description: When included in the request, only records modified on or after the `LastModifiedDate` specified are included in the response.
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.locationIds
+        in: query
+        required: false
+        description: A list of location IDs on which to base the search.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.programIds
+        in: query
+        required: false
+        description: A list of program IDs on which to base the search.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.schedulingWindow
+        in: query
+        required: false
+        description: 'When `true`, classes outside scheduling window are removed from the response.<br /> When `false`, classes are included in the response, regardless of the scheduling window.<br /> Default: **false**'
+        schema:
+          type: boolean
+        example: true
+      - name: request.semesterIds
+        in: query
+        required: false
+        description: A list of semester IDs on which to base the search.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.sessionTypeIds
+        in: query
+        required: false
+        description: A list of session type IDs on which to base the search.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.staffIds
+        in: query
+        required: false
+        description: The requested IDs of the teaching staff members.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.startDateTime
+        in: query
+        required: false
+        description: 'The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date. NOTE: ClassDate does not take Class Time into consideration.'
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      - name: request.uniqueClientId
+        in: query
+        required: false
+        description: 'The unique ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. Note: you need to provide the ''UniqueClientId'' OR the ''ClientId''. If both are provided, the ''UniqueClientId'' takes precedence.'
+        schema:
+          type: integer
+          format: int32
+        example: 123456
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetClassesResponse'
+              examples:
+                Getclasses200Example:
+                  summary: Default getClasses 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    Classes:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/class/classschedules:
+    get:
+      tags:
+      - Class
+      summary: Mindbody Get Class Schedules
+      description: Get class schedules.
+      operationId: getClassSchedules
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.classScheduleIds
+        in: query
+        required: false
+        description: 'The class schedule IDs. <br />Default: **all**'
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.endDate
+        in: query
+        required: false
+        description: 'The end date of the range. Return any active enrollments that occur on or before this day. <br />Default: **StartDate**'
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.locationIds
+        in: query
+        required: false
+        description: 'The location IDs. <br />Default: **all**'
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.programIds
+        in: query
+        required: false
+        description: 'The program IDs. <br />Default: **all**'
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.sessionTypeIds
+        in: query
+        required: false
+        description: 'The session type IDs. <br />Default: **all**'
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.staffIds
+        in: query
+        required: false
+        description: 'The staff IDs. <br />Default: **all**'
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.startDate
+        in: query
+        required: false
+        description: 'The start date of the range. Return any active enrollments that occur on or after this day. <br />Default: **today’s date**'
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetClassSchedulesResponse'
+              examples:
+                Getclassschedules200Example:
+                  summary: Default getClassSchedules 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    ClassSchedules:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/class/classvisits:
+    get:
+      tags:
+      - Class
+      summary: Mindbody Returns a List of Visits That Contain Information for a Specified
+      description: Returns a list of visits that contain information for a specified class. On success, this request returns the class object in the response with a list of visits.
+      operationId: getClassVisits
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: request.classID
+        in: query
+        required: true
+        description: The class ID.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.lastModifiedDate
+        in: query
+        required: false
+        description: When included in the request, only records modified on or after the `LastModifiedDate` specified are included in the response.
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      - name: request.useSiteSettingsStaffName
+        in: query
+        required: false
+        description: When `true`, the staff DisplayName will be populated based on site-level settings. When `false` or omitted, the staff DisplayName will contain only the FirstName.
+        schema:
+          type: boolean
+        example: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetClassVisitsResponse'
+              examples:
+                Getclassvisits200Example:
+                  summary: Default getClassVisits 200 example
+                  x-microcks-default: true
+                  value:
+                    Class: {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/class/courses:
+    get:
+      tags:
+      - Class
+      summary: Mindbody This Endpoint Will Provide All the Data Related to Courses Depending
+      description: 'This endpoint will provide all the data related to courses depending on the access level.<br /> Note: The Authorization is an optional header.If Authorization header is not passed, the response will be masked else full response will be provided.'
+      operationId: getCourses
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: getCoursesRequest.courseIDs
+        in: query
+        required: false
+        description: Return only courses that are available for the specified CourseIds.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: getCoursesRequest.endDate
+        in: query
+        required: false
+        description: The end date range. Any active courses that are on or before this day. <br />(optional) Defaults to StartDate.
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      - name: getCoursesRequest.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: getCoursesRequest.locationIDs
+        in: query
+        required: false
+        description: Return only courses that are available for the specified LocationIds.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: getCoursesRequest.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: getCoursesRequest.programIDs
+        in: query
+        required: false
+        description: Return only courses that are available for the specified ProgramIds.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: getCoursesRequest.semesterIDs
+        in: query
+        required: false
+        description: Return only courses that are available for the specified SemesterIds.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: getCoursesRequest.staffIDs
+        in: query
+        required: false
+        description: Return only courses that are available for the specified StaffIds.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: getCoursesRequest.startDate
+        in: query
+        required: false
+        description: The start date range. Any active courses that are on or after this day. <br />(optional) Defaults to today.
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCoursesReponse'
+              examples:
+                Getcourses200Example:
+                  summary: Default getCourses 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    Courses:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/class/semesters:
+    get:
+      tags:
+      - Class
+      summary: Mindbody This Endpoint Retrieves the Business Class Semesters
+      description: This endpoint retrieves the business class semesters.
+      operationId: getSemesters
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.active
+        in: query
+        required: false
+        description: 'When true, the response only contains semesters which are activated. When false, only deactivated semesters are returned. Default: **All semesters**'
+        schema:
+          type: boolean
+        example: true
+      - name: request.endDate
+        in: query
+        required: false
+        description: 'The end date for the range. All semesters that are on or before this day. Default: **StartDate**'
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.semesterIDs
+        in: query
+        required: false
+        description: The requested semester IDs.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.startDate
+        in: query
+        required: false
+        description: 'The start date for the range. All semesters that are on or after this day. Default: **today’s date**'
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSemestersResponse'
+              examples:
+                Getsemesters200Example:
+                  summary: Default getSemesters 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    Semesters:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/class/waitlistentries:
+    get:
+      tags:
+      - Class
+      summary: Mindbody Returns a List of Waiting List Entries for a Specified Class Schedule
+      description: Returns a list of waiting list entries for a specified class schedule or class. The request requires staff credentials and either a class schedule ID or class ID.
+      operationId: getWaitlistEntries
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.classIds
+        in: query
+        required: false
+        description: 'The requested class IDs. If a class ID is present, the request automatically disregards any class schedule IDs in the request. <br /> Either `ClassScheduleIds`, `ClientIds`, `WaitlistEntryIds`, or `ClassIds` is required; the others become optional.<br /> Default: **all ClassIds**'
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.classScheduleIds
+        in: query
+        required: false
+        description: 'The requested class schedule IDs. If a class ID is present, the request automatically disregards any class schedule IDs in the request.<br /> Either `ClassScheduleIds`, `ClientIds`, `WaitlistEntryIds`, or `ClassIds` is required; the others become optional.<br /> Default: **all ClassScheduleIds**'
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.clientIds
+        in: query
+        required: false
+        description: 'The requested client IDs.<br /> Either `ClassScheduleIds`, `ClientIds`, `WaitlistEntryIds`, or `ClassIds` is required; the others become optional.<br /> Default: **all ClientIds**'
+        schema:
+          type: array
+          items:
+            type: string
+        example:
+        - example-value
+      - name: request.hidePastEntries
+        in: query
+        required: false
+        description: 'When `true`, indicates that past waiting list entries are hidden from clients.<br /> When `false`, indicates that past entries are not hidden from clients.<br /> Default: **false**'
+        schema:
+          type: boolean
+        example: true
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.waitlistEntryIds
+        in: query
+        required: false
+        description: 'The requested waiting list entry IDs.<br /> Either `ClassScheduleIds`, `ClientIds`, `WaitlistEntryIds`, or `ClassIds` is required; the others become optional.<br /> Default: **all WaitlistEntryIds**'
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetWaitlistEntriesResponse'
+              examples:
+                Getwaitlistentries200Example:
+                  summary: Default getWaitlistEntries 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    WaitlistEntries:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/class/addclassschedule:
+    post:
+      tags:
+      - Class
+      summary: Mindbody This Endpoint Adds a Class Schedule. for a Single Day Schedule, the
+      description: This endpoint adds a class schedule. For a single day schedule, the EndDate parameter can be omitted.
+      operationId: addClassSchedule
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddClassEnrollmentScheduleRequest'
+            examples:
+              AddclassscheduleRequestExample:
+                summary: Default addClassSchedule request example
+                x-microcks-default: true
+                value:
+                  ClassDescriptionId: 123456
+                  LocationId: 123456
+                  StartDate: '2026-05-28T14:30:00Z'
+                  EndDate: '2026-05-28T14:30:00Z'
+                  StartTime: '2026-05-28T14:30:00Z'
+                  EndTime: '2026-05-28T14:30:00Z'
+                  DaySunday: true
+                  DayMonday: true
+                  DayTuesday: true
+                  DayWednesday: true
+                  DayThursday: true
+                  DayFriday: true
+                  DaySaturday: true
+                  StaffId: 123456
+                  StaffPayRate: 1
+                  ResourceId: 123456
+                  MaxCapacity: 1
+                  WebCapacity: 1
+                  WaitlistCapacity: 1
+                  BookingStatus: Active
+                  AllowOpenEnrollment: true
+                  AllowDateForwardEnrollment: true
+                  PricingOptionsProductIds:
+                  - 1
+                  ShowToPublic: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WrittenClassSchedulesInfo'
+              examples:
+                Addclassschedule200Example:
+                  summary: Default addClassSchedule 200 example
+                  x-microcks-default: true
+                  value:
+                    ClassId: 123456
+                    ClassInstanceIds:
+                    - 1
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/class/addclienttoclass:
+    post:
+      tags:
+      - Class
+      summary: Mindbody This Endpoint Adds a Client to a Class or to a Class Waiting List. to
+      description: 'This endpoint adds a client to a class or to a class waiting list. To prevent overbooking a class or booking outside the schedule windows set forth by the business, it is necessary to first check the capacity level of the class (‘MaxCapacity’ and ''TotalBooked’) and the ''IsAvailable’ parameter by running the GetClasses REQUEST. It is helpful to use this endpoint in the following situations: * Use after calling `GET Clients` and `GET Classes` so that you are sure which client to book in which class. * If adding a client to a class from a waiting list, use this call after you call `GET WaitlistEntries` and determine the ID of the waiting list from which you are moving the client. * If adding a client to a class and using a pricing option that the client has already purchased, use this call after you call `GET ClientServices` to determine the ID of the pricing option that the client wants to use. If you add a client to a class and the client purchases a new pricing option, use `GET Services`, `GET Classes`, and then `POST CheckoutShoppingCart` in place of this call. This endpoint also supports cross-regional class bookings. If you want to perform a cross-regional class booking, set `CrossRegionalBooking` to `true`. This endpoint does not support adding a user to a waiting list using a cross-regional client pricing option(service). Cross-regional booking workflows do not support client service scheduling restrictions. When performing a cross-regional class booking, this endpoint loops through the first ten sites that the client is associated with, looks for client pricing options at each of those sites, and then uses the oldest client pricing option found.It is important to note that this endpoint only loops through a maximum of ten associated client sites. If a `ClientID` is associated with more than ten sites in an organization, this endpoint only loops through the first ten.If you know that a client has a client service at another site, you can specify that site using'
+      operationId: addClientToClass
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddClientToClassRequest'
+            examples:
+              AddclienttoclassRequestExample:
+                summary: Default addClientToClass request example
+                x-microcks-default: true
+                value:
+                  ClientId: example-value
+                  ClassId: 123456
+                  Test: true
+                  RequirePayment: true
+                  Waitlist: true
+                  SendEmail: true
+                  WaitlistEntryId: 123456
+                  ClientServiceId: 123456
+                  CrossRegionalBooking: true
+                  CrossRegionalBookingClientServiceSiteId: 123456
+                  UniqueId: 123456
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddClientToClassResponse'
+              examples:
+                Addclienttoclass200Example:
+                  summary: Default addClientToClass 200 example
+                  x-microcks-default: true
+                  value:
+                    Visit: {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/class/cancelsingleclass:
+    post:
+      tags:
+      - Class
+      summary: Mindbody This Endpoint Will Cancel a Single Class from Studio
+      description: This endpoint will cancel a single class from studio.
+      operationId: cancelSingleClass
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CancelSingleClassRequest'
+            examples:
+              CancelsingleclassRequestExample:
+                summary: Default cancelSingleClass request example
+                x-microcks-default: true
+                value:
+                  ClassID: 1
+                  HideCancel: true
+                  SendClientEmail: true
+                  SendStaffEmail: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CancelSingleClassResponse'
+              examples:
+                Cancelsingleclass200Example:
+                  summary: Default cancelSingleClass 200 example
+                  x-microcks-default: true
+                  value:
+                    Class: {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/class/removeclientfromclass:
+    post:
+      tags:
+      - Class
+      summary: Mindbody Remove a Client from a Class
+      description: Remove a client from a class.
+      operationId: removeClientFromClass
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveClientFromClassRequest'
+            examples:
+              RemoveclientfromclassRequestExample:
+                summary: Default removeClientFromClass request example
+                x-microcks-default: true
+                value:
+                  ClassId: 123456
+                  ClientId: example-value
+                  UniqueClientId: 123456
+                  Test: true
+                  SendEmail: true
+                  LateCancel: true
+                  VisitId: 123456
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoveClientFromClassResponse'
+              examples:
+                Removeclientfromclass200Example:
+                  summary: Default removeClientFromClass 200 example
+                  x-microcks-default: true
+                  value:
+                    Class: {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/class/removeclientsfromclasses:
+    post:
+      tags:
+      - Class
+      summary: Mindbody This Endpoint Can Be Utilized for Removing Multiple Clients from
+      description: This endpoint can be utilized for removing multiple clients from multiple classes in one request.
+      operationId: removeClientsFromClasses
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveClientsFromClassesRequest'
+            examples:
+              RemoveclientsfromclassesRequestExample:
+                summary: Default removeClientsFromClasses request example
+                x-microcks-default: true
+                value:
+                  Details:
+                  - {}
+                  Test: true
+                  SendEmail: true
+                  LateCancel: true
+                  Limit: 10
+                  Offset: 10
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoveClientsFromClassesResponse'
+              examples:
+                Removeclientsfromclasses200Example:
+                  summary: Default removeClientsFromClasses 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    Classes:
+                    - {}
+                    Errors:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/class/removefromwaitlist:
+    post:
+      tags:
+      - Class
+      summary: Mindbody This Endpoint Does Not Return a Response. if a Call to This Endpoint
+      description: This endpoint does not return a response. If a call to this endpoint results in a 200 OK HTTP status code, then the call was successful.
+      operationId: removeFromWaitlist
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: request.waitlistEntryIds
+        in: query
+        required: true
+        description: A list of `WaitlistEntryIds` to remove from the waiting list.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/class/substituteclassteacher:
+    post:
+      tags:
+      - Class
+      summary: Mindbody Substitute a Class Teacher
+      description: Substitute a class teacher.
+      operationId: substituteClassTeacher
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubstituteClassTeacherRequest'
+            examples:
+              SubstituteclassteacherRequestExample:
+                summary: Default substituteClassTeacher request example
+                x-microcks-default: true
+                value:
+                  ClassId: 123456
+                  StaffId: 123456
+                  OverrideConflicts: true
+                  SendClientEmail: true
+                  SendOriginalTeacherEmail: true
+                  SendSubstituteTeacherEmail: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubstituteClassTeacherResponse'
+              examples:
+                Substituteclassteacher200Example:
+                  summary: Default substituteClassTeacher 200 example
+                  x-microcks-default: true
+                  value:
+                    Class: {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/class/updateclassschedule:
+    post:
+      tags:
+      - Class
+      summary: Mindbody This Endpoint Updates a Class Schedule
+      description: This endpoint updates a class schedule.
+      operationId: updateClassSchedule
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateClassEnrollmentScheduleRequest'
+            examples:
+              UpdateclassscheduleRequestExample:
+                summary: Default updateClassSchedule request example
+                x-microcks-default: true
+                value:
+                  ClassId: 123456
+                  ClassDescriptionId: 123456
+                  LocationId: 123456
+                  StartDate: '2026-05-28T14:30:00Z'
+                  EndDate: '2026-05-28T14:30:00Z'
+                  StartTime: '2026-05-28T14:30:00Z'
+                  EndTime: '2026-05-28T14:30:00Z'
+                  DaySunday: true
+                  DayMonday: true
+                  DayTuesday: true
+                  DayWednesday: true
+                  DayThursday: true
+                  DayFriday: true
+                  DaySaturday: true
+                  StaffId: 123456
+                  StaffPayRate: 1
+                  ResourceId: 123456
+                  MaxCapacity: 1
+                  WebCapacity: 1
+                  WaitlistCapacity: 1
+                  BookingStatus: Active
+                  AllowOpenEnrollment: true
+                  AllowDateForwardEnrollment: true
+                  RetainScheduleChanges: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WrittenClassSchedulesInfo'
+              examples:
+                Updateclassschedule200Example:
+                  summary: Default updateClassSchedule 200 example
+                  x-microcks-default: true
+                  value:
+                    ClassId: 123456
+                    ClassInstanceIds:
+                    - 1
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/class/updateclassschedulenotes/{classScheduleId}:
+    patch:
+      tags:
+      - Class
+      summary: Mindbody This Endpoint Updates the Notes of Class Instances Based on the
+      description: 'This endpoint updates the notes of class instances based on the schedule''s schedule ID. Note: Every coming class instance for the given ScheduleID will have the notes updated the same way.'
+      operationId: updateClassScheduleNotes
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: classScheduleId
+        in: path
+        required: true
+        description: The request template parameter.
+        schema:
+          type: integer
+          format: int32
+        example: 123456
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateClassScheduleNotesRequest'
+            examples:
+              UpdateclassschedulenotesRequestExample:
+                summary: Default updateClassScheduleNotes request example
+                x-microcks-default: true
+                value:
+                  Notes: Example note for Mindbody Public API.
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+components:
+  schemas:
+    StatusEnum:
+      type: string
+      description: StatusEnum enumeration.
+      enum:
+      - None
+      - Requested
+      - Booked
+      - Completed
+      - Confirmed
+      - Arrived
+      - NoShow
+      - Cancelled
+      - LateCancelled
+    BookingWindow:
+      type: object
+      description: Implementation of the 'BookingWindow' model. The booking window for registration
+      properties:
+        StartDateTime:
+          type: string
+          format: date-time
+          description: Date and time that the booking window opens; that is, the first day of sales.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: Date and time that the booking window closes; that is, the last day of sales.
+          example: '2026-05-28T14:30:00Z'
+        DailyStartTime:
+          type: string
+          format: date-time
+          description: The time that the booking window opens; that is, the time that the store opens.
+          example: '2026-05-28T14:30:00Z'
+        DailyEndTime:
+          type: string
+          format: date-time
+          description: The time that the booking window closes; that is, the time that the store closes.
+          example: '2026-05-28T14:30:00Z'
+    CancelSingleClassResponse:
+      type: object
+      description: Implementation of the 'CancelSingleClassResponse' model.
+      properties:
+        Class:
+          $ref: '#/components/schemas/Class'
+          description: A resulting class.
+    GetClassDescriptionsResponse:
+      type: object
+      description: Implementation of the 'GetClassDescriptionsResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        ClassDescriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassDescription'
+          description: Contains information about the class descriptions.
+          example:
+          - {}
+    Availability:
+      type: object
+      description: Implementation of the 'Availability' model. A staff availability entry
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The ID of the availability.
+          example: 123456
+        Staff:
+          $ref: '#/components/schemas/Staff'
+          description: Contains information about staff members.
+        SessionType:
+          $ref: '#/components/schemas/SessionType'
+          description: Contains information about the types of sessions.
+        Programs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Program'
+          description: Contains information about the programs.
+          example:
+          - {}
+        StartDateTime:
+          type: string
+          format: date-time
+          description: The date and time the availability starts in the site local time zone.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: The date and time the availability ends in the site local time zone.
+          example: '2026-05-28T14:30:00Z'
+        BookableEndDateTime:
+          type: string
+          format: date-time
+          description: The time of day that the last appointment can start in the site local time zone.
+          example: '2026-05-28T14:30:00Z'
+        Location:
+          $ref: '#/components/schemas/Location'
+          description: Contains information about the location.
+        PrepTime:
+          type: integer
+          format: int32
+          description: Prep time in minutes
+          example: 1
+        FinishTime:
+          type: integer
+          format: int32
+          description: Finish time in minutes
+          example: 1
+        IsMasked:
+          type: boolean
+          description: When `true`, indicates that the staff member's name for availabilty is masked. When `false`, indicates that the staff member's name for availabilty is not masked.
+          example: true
+        ShowPublic:
+          type: boolean
+          description: When `true`, indicates that the schedule is shown to the clients. When `false`, indicates that the schedule is hidden from the clients.
+          example: true
+        ResourceAvailabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceAvailability'
+          description: Contains information about resources availability for the specified session type.
+          example:
+          - {}
+    ScheduleTypeEnum:
+      type: string
+      description: ScheduleTypeEnum enumeration.
+      enum:
+      - All
+      - Class
+      - Enrollment
+      - Appointment
+      - Resource
+      - Media
+      - Arrival
+    Client:
+      type: object
+      description: Implementation of the 'Client' model. The Client.
+      properties:
+        AppointmentGenderPreference:
+          $ref: '#/components/schemas/AppointmentGenderPreference1Enum'
+          description: The gender of staff member with whom the client prefers to book appointments.
+        BirthDate:
+          type: string
+          format: date-time
+          description: The client’s date of birth.
+          example: '2026-05-28T14:30:00Z'
+        Country:
+          type: string
+          description: The client’s country.
+          example: US
+        CreationDate:
+          type: string
+          format: date-time
+          description: The date the client’s profile was created and added to the business, either by the client from the online store, or by a staff member. This value always returns in the format `yyyy-mm-ddThh:mm:ss:ms`.
+          example: '2026-05-28T14:30:00Z'
+        CustomClientFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomClientFieldValue'
+          description: Contains information about the custom fields used for clients in the business.
+          example:
+          - {}
+        ClientCreditCard:
+          $ref: '#/components/schemas/ClientCreditCard'
+          description: Contains information about the client’s credit card.
+        ClientIndexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssignedClientIndex'
+          description: Contains the IDs of the client’s assigned ClientIndexes and ClientIndexValues. If an index is already assigned to the client, it is overwritten with the passed index value. You cannot currently remove client indexes using the Public API. Only the indexes passed in the request are returned in the response.
+          example:
+          - {}
+        ClientRelationships:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientRelationship'
+          description: Contains information about the relationship between two clients. This parameter does not include all of the relationships assigned to the client, only the ones passed in the request.
+          example:
+          - {}
+        FirstAppointmentDate:
+          type: string
+          format: date-time
+          description: The date of the client’s first booked appointment at the business.
+          example: '2026-05-28T14:30:00Z'
+        FirstClassDate:
+          type: string
+          format: date-time
+          description: The date of the clients first booked class at the business.
+          example: '2026-05-28T14:30:00Z'
+        FirstName:
+          type: string
+          description: The client’s first name.
+          example: Alex
+        Id:
+          type: string
+          description: The client’s ID, as configured by the business owner. This is the client’s barcode ID if the business owner assigns barcodes to clients. This ID is used throughout the Public API for client-related Public API calls. When used in a POST `UpdateClient` request, the `Id` is used to identify the client for the update.
+          example: example-value
+        IsCompany:
+          type: boolean
+          description: When `true`, indicates that the client should be marked as a company at the business.<br /> When `false`, indicates the client is an individual and does not represent a company.
+          example: true
+        IsProspect:
+          type: boolean
+          description: This value is set only if the business owner allows individuals to be prospects.<br /> When `true`, indicates that the client should be marked as a prospect for the business.<br /> When `false`, indicates that the client should not be marked as a prospect for the business.
+          example: true
+        LastName:
+          type: string
+          description: The client’s last name.
+          example: Lane
+        Liability:
+          $ref: '#/components/schemas/Liability'
+          description: Contains the client’s liability agreement information for the business.
+        LiabilityRelease:
+          type: boolean
+          description: 'Passing `true` sets the client’s liability information as follows: * `IsReleased` is set to `true`. * `AgreementDate` is set to the time zone of the business when the call was processed. * `ReleasedBy` is set to `null` if the call is made by the client, `0` if the call was made by the business owner, or to a specific staff member’s ID if a staff member made the call. Passing `false` sets the client’s liability information as follows: * `IsReleased` is set to `false`. * `AgreementDate` is set to '
+          example: true
+        MembershipIcon:
+          type: integer
+          format: int32
+          description: The ID of the [membership icon](https://support.mindbodyonline.com/s/article/203259703-Member ship-Setup-screen?language=en_US) displayed next to the client’s name, if the client has a membership on their account.
+          example: 1
+        MobileProvider:
+          type: integer
+          format: int32
+          description: The client’s mobile provider.
+          example: 1
+        Notes:
+          type: string
+          description: Any notes entered on the client’s account by staff members. This value should never be shown to clients unless the business owner has a specific reason for showing them.
+          example: Example note for Mindbody Public API.
+        State:
+          type: string
+          description: The client’s state.
+          example: CA
+        UniqueId:
+          type: integer
+          format: int32
+          description: The client’s system-generated ID at the business. This value cannot be changed by business owners and is always unique across all clients at the business. This ID is not widely used in the Public API, but can be used by your application to uniquely identify clients.
+          example: 123456
+        LastModifiedDateTime:
+          type: string
+          format: date-time
+          description: The UTC date and time when the client’s information was last modified.
+          example: '2026-05-28T14:30:00Z'
+        RedAlert:
+          type: string
+          description: Contains any red alert information entered by the business owner for the client.
+          example: example-value
+        YellowAlert:
+          type: string
+          description: Contains any yellow alert information entered by the business owner for the client.
+          example: example-value
+        MiddleName:
+          type: string
+          description: The client’s middle name.
+          example: example-value
+        ProspectStage:
+          $ref: '#/components/schemas/ProspectStage'
+          description: Contains information about the client [prospect stage](https://support.mindbodyonline.com/s/article/206176457-Prosp ect-Stages?language=en_US).
+        Email:
+          type: string
+          description: The client’s email address.
+          example: kinlane@example.com
+        MobilePhone:
+          type: string
+          description: The client’s mobile phone number.
+          example: '+15551234567'
+        HomePhone:
+          type: string
+          description: The client’s home phone number.
+          example: '+15551234567'
+        WorkPhone:
+          type: string
+          description: The client’s work phone number.
+          example: '+15551234567'
+        AccountBalance:
+          type: number
+          format: double
+          description: The client’s current [account balance](https://mindbody-online-support.force.com/support/s/articl e/203262013-Adding-account-payments-video-tutorial?language=en_US).
+          example: 49.99
+        AddressLine1:
+          type: string
+          description: The first line of the client’s street address.
+          example: 123 Market St
+        AddressLine2:
+          type: string
+          description: The second line of the client’s street address, if needed.
+          example: 123 Market St
+        City:
+          type: string
+          description: The client’s city.
+          example: San Francisco
+        PostalCode:
+          type: string
+          description: The client’s postal code.
+          example: '94110'
+        WorkExtension:
+          type: string
+          description: The client’s work phone extension number.
+          example: example-value
+        ReferredBy:
+          type: string
+          description: Specifies how the client was referred to the business. You can get a list of possible strings using the `GetClientReferralTypes` endpoint.
+          example: example-value
+        PhotoUrl:
+          type: string
+          description: The URL of the client’s photo for the client profile.
+          example: https://example.mindbodyonline.com/resource/abc123
+        EmergencyContactInfoName:
+          type: string
+          description: The name of the client’s emergency contact.
+          example: example-value
+        EmergencyContactInfoEmail:
+          type: string
+          description: The email address of the client’s emergency contact.
+          example: kinlane@example.com
+        EmergencyContactInfoPhone:
+          type: string
+          description: The phone number of the client’s emergency contact.
+          example: '+15551234567'
+        EmergencyContactInfoRelationship:
+          type: string
+          description: The client’s relationship with the emergency contact.
+          example: example-value
+        Gender:
+          type: string
+          description: The gender of the client.
+          example: example-value
+        LastFormulaNotes:
+          type: string
+          description: The last [formula note](https://support.mindbodyonline.com/s/article/203259903-Appoin tments-Formula-notes?language=en_US) entered for the client.
+          example: Example note for Mindbody Public API.
+        Active:
+          type: boolean
+          description: When `true`, indicates that the client’s profile is marked as active on the site.<br /> When `false`, the client’s profile is inactive. Defaults to `true` based on the assumption that if a client is currently inactive OR is to be marked inactive, this property will explicitly be mapped/set to `false`.
+          example: true
+        SalesReps:
+          type: array
+          items:
+            $ref: '#/components/schemas/SalesRep'
+          description: A list of sales representatives.
+          example:
+          - {}
+        Status:
+          type: string
+          description: 'The status of the client in the business. Possible values are: * Declined * Non-Member * Active * Expired * Suspended * Terminated'
+          example: Active
+        Action:
+          $ref: '#/components/schemas/Action1Enum'
+          description: The action taken.
+        SendAccountEmails:
+          type: boolean
+          description: 'When `true`, indicates that the client has opted to receive general account notifications by email. This property is editable. <br />Default: **false**'
+          example: true
+        SendAccountTexts:
+          type: boolean
+          description: When `true`, indicates that the client has opted to receive general account notifications by text message. This parameter cannot be updated by developers. If included in a request, it is ignored.
+          example: true
+        SendPromotionalEmails:
+          type: boolean
+          description: 'When `true`, indicates that the client has opted to receive promotional notifications by email. This property is editable. <br />Default: **false**'
+          example: true
+        SendPromotionalTexts:
+          type: boolean
+          description: When `true`, indicates that the client has opted to receive promotional notifications by text message. This parameter cannot be updated by developers. If included in a request, it is ignored.
+          example: true
+        SendScheduleEmails:
+          type: boolean
+          description: 'When `true`, indicates that the client has opted to receive schedule notifications by email. This property is editable. <br />Default: **false**'
+          example: true
+        SendScheduleTexts:
+          type: boolean
+          description: When `true`, indicates that the client has opted to receive schedule notifications by text message. This parameter cannot be updated by developers. If included in a request, it is ignored.
+          example: true
+        HomeLocation:
+          $ref: '#/components/schemas/Location'
+          description: Information about the Home Location for this client
+        LockerNumber:
+          type: string
+          description: The clients locker number.
+          example: example-value
+        ClientType:
+          $ref: '#/components/schemas/ClientType'
+          description: The client's assigned client type. Returns null if the client has no client type assigned. For more information, see [Client Types](https://support.mindbodyonline.com/s/article/203259193-Clien t-Types).
+    SalesRep:
+      type: object
+      description: Implementation of the 'SalesRep' model.
+      properties:
+        FirstName:
+          type: string
+          description: The first name of the sales representative.
+          example: Alex
+        Id:
+          type: integer
+          format: int32
+          description: The staff ID of the sales representative.
+          example: 123456
+        LastName:
+          type: string
+          description: The last name of the sales representative.
+          example: Lane
+        SalesRepNumber:
+          type: integer
+          format: int32
+          description: This value is the number that identifies the type of sales representative assigned to this client. One to six types of sales representatives can be assigned to a client at any given time, depending on site settings.
+          example: 1
+        SalesRepNumbers:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: A list of the different types of sales representative functions assigned to this staff member.
+          example:
+          - 1
+    AddClientToClassVisit:
+      type: object
+      description: Implementation of the 'AddClientToClassVisit' model.
+      properties:
+        AppointmentId:
+          type: integer
+          format: int32
+          description: The appointment’s ID.
+          example: 123456
+        AppointmentGenderPreference:
+          $ref: '#/components/schemas/AppointmentGenderPreference1Enum'
+          description: The gender of staff member with whom the client prefers to book appointments.
+        AppointmentStatus:
+          $ref: '#/components/schemas/AppointmentStatusEnum'
+          description: The status of the appointment.
+        ClassId:
+          type: integer
+          format: int32
+          description: The class ID that was used to retrieve the visits.
+          example: 123456
+        ClientId:
+          type: string
+          description: The ID of the client associated with the visit.
+          example: example-value
+        StartDateTime:
+          type: string
+          format: date-time
+          description: The time this class is scheduled to start.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: The date and time the visit ends. The Public API returns UTC dates and times. For example, a class that occurs on June 25th, 2018 at 2:15PM (EST) appears as “2018-06-25T19:15:00Z” because EST is five hours behind UTC. Date time pairs always return in the format YYYY-MM-DDTHH:mm:ssZ.
+          example: '2026-05-28T14:30:00Z'
+        Id:
+          type: integer
+          format: int32
+          description: The ID of the visit.
+          example: 123456
+        LastModifiedDateTime:
+          type: string
+          format: date-time
+          description: When included in the request, only records modified on or after the specified `LastModifiedDate` are included in the response. The Public API returns UTC dates and times. For example, a class that occurs on June 25th, 2018 at 2:15PM (EST) appears as “2018-06-25T19:15:00Z” because EST is five hours behind UTC. Date time pairs always return in the format YYYY-MM-DDTHH:mm:ssZ.
+          example: '2026-05-28T14:30:00Z'
+        LateCancelled:
+          type: boolean
+          description: When `true`, indicates that the class has been `LateCancelled`.<br /> When `false`, indicates that the class has not been `LateCancelled`.
+          example: true
+        LocationId:
+          type: integer
+          format: int32
+          description: The ID of the location where the visit took place or is to take place.
+          example: 123456
+        MakeUp:
+          type: boolean
+          description: 'When `true`, the client can make up this session and a session is not deducted from the pricing option that was used to sign the client into the enrollment. When the client has the make-up session, a session is automatically removed from a pricing option that matches the service category of the enrollment and is within the same date range of the missed session.<br /> When `false`, the client cannot make up this session. See [Enrollments: Make-ups](https://support.mindbodyonline.com/s/article/203'
+          example: true
+        Name:
+          type: string
+          description: The name of the class.
+          example: Sunset Yoga Studio
+        ServiceId:
+          type: integer
+          format: int32
+          description: The ID of the client's pricing option applied to the class visit.
+          example: 123456
+        ServiceName:
+          type: string
+          description: The name of the pricing option applied to the class visit.
+          example: example-value
+        ProductId:
+          type: integer
+          format: int32
+          description: The business' ID of the type of pricing option used to pay for the class visit.
+          example: 123456
+        SignedIn:
+          type: boolean
+          description: When `true`, indicates that the client has been signed in.<br /> When `false`, indicates that the client has not been signed in.
+          example: true
+        StaffId:
+          type: integer
+          format: int32
+          description: The ID of the staff member who is teaching the class.
+          example: 123456
+        WebSignup:
+          type: boolean
+          description: When `true`, indicates that the client signed up online.<br /> When `false`, indicates that the client was signed up by a staff member.
+          example: true
+        Action:
+          $ref: '#/components/schemas/Action1Enum'
+          description: The action taken.
+        CrossRegionalBookingPerformed:
+          type: boolean
+          description: When `true`, indicates that the client is paying for the visit using a pricing option from one of their associated cross-regional profiles.
+          example: true
+        SiteId:
+          type: integer
+          format: int32
+          description: The ID of the business from which cross-regional payment is applied.
+          example: -99
+        WaitlistEntryId:
+          type: integer
+          format: int32
+          description: 'When this value is not null, it indicates that the client is on the waiting list for the requested class. The only additional fields that are populated when this is not null are: * ClassId * ClientId You can call GET WaitlistEntries using `WaitlistEntryId` to obtain more data about this waiting list entry.'
+          example: 123456
+    ClientRelationship:
+      type: object
+      description: Implementation of the 'ClientRelationship' model. A relation between two clients.
+      properties:
+        RelatedClientId:
+          type: string
+          description: The RSSID of the related client.
+          example: example-value
+        RelatedUniqueId:
+          type: integer
+          format: int32
+          description: The UniqueId of the related client.
+          example: 123456
+        Relationship:
+          $ref: '#/components/schemas/Relationship'
+          description: Contains details about the relationship between two clients.
+        RelationshipName:
+          type: string
+          description: The name of the relationship of the related client.
+          example: example-value
+        Delete:
+          type: boolean
+          description: 'When true, the associated relationship is removed from the client’s list of relationships. This property is ignored in all other use cases. Default: *false*'
+          example: true
+    PaginationResponse:
+      type: object
+      description: Implementation of the 'PaginationResponse' model. Contains information about the pagination to use.
+      properties:
+        RequestedLimit:
+          type: integer
+          format: int32
+          description: Limit from pagination request
+          example: 10
+        RequestedOffset:
+          type: integer
+          format: int32
+          description: Offset from pagination request
+          example: 10
+        PageSize:
+          type: integer
+          format: int32
+          description: Number of results returned in this response
+          example: 1
+        TotalResults:
+          type: integer
+          format: int32
+          description: Total number of results in dataset
+          example: 1
+    Unavailability:
+      type: object
+      description: Implementation of the 'Unavailability' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The ID of the unavailability.
+          example: 123456
+        StartDateTime:
+          type: string
+          format: date-time
+          description: The date and time the unavailability starts.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: The date and time the unavailability ends.
+          example: '2026-05-28T14:30:00Z'
+        Description:
+          type: string
+          description: A description of the unavailability.
+          example: Example note for Mindbody Public API.
+    GetClassVisitsResponse:
+      type: object
+      description: Implementation of the 'GetClassVisitsResponse' model.
+      properties:
+        Class:
+          $ref: '#/components/schemas/Class'
+          description: Contains class and booking information.
+    GetCoursesReponse:
+      type: object
+      description: Implementation of the 'GetCoursesReponse' model. This is the response class for the get courses API
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: This is the pgaination response
+        Courses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Course'
+          description: This is the list course data
+          example:
+          - {}
+    GetClassSchedulesResponse:
+      type: object
+      description: Implementation of the 'GetClassSchedulesResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        ClassSchedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassSchedule'
+          description: Contains information about the class schedules.
+          example:
+          - {}
+    StaffSetting:
+      type: object
+      description: Implementation of the 'StaffSetting' model. contains the information about the staff settings.
+      properties:
+        UseStaffNicknames:
+          type: boolean
+          description: When `true`, `DisplayName` of the staff will be displayed. When `false`, `DisplayName` will be displayed as null.
+          example: true
+        ShowStaffLastNamesOnSchedules:
+          type: boolean
+          description: When `true`, indicates that the Name contains both the `FirstName` and `LastName` of the staff. When `false`, indicates that the Name contains only the `FirstName` of the staff.
+          example: true
+    SessionType:
+      type: object
+      description: Implementation of the 'SessionType' model. SessionType contains information about the session types in a business.
+      properties:
+        Type:
+          $ref: '#/components/schemas/TypeEnum'
+          description: 'Contains the class description session type. Possible values are: * All * Class * Enrollment * Appointment * Resource * Media * Arrival'
+        DefaultTimeLength:
+          type: integer
+          format: int32
+          description: The default amount of time that a session of this type typically lasts.
+          example: 1
+        StaffTimeLength:
+          type: integer
+          format: int32
+          description: The amount of time that a session of this type will last for a specific Staff (when applicable.)
+          example: 1
+        Id:
+          type: integer
+          format: int32
+          description: This session type’s unique ID.
+          example: 123456
+        Name:
+          type: string
+          description: The name of this session type.
+          example: Sunset Yoga Studio
+        OnlineDescription:
+          type: string
+          description: The online description associated with the appointment.
+          example: Example note for Mindbody Public API.
+        NumDeducted:
+          type: integer
+          format: int32
+          description: The number of sessions that this session type deducts from the pricing option used to pay for this type of session.
+          example: 1
+        ProgramId:
+          type: integer
+          format: int32
+          description: This session type’s service category ID.
+          example: 123456
+        Category:
+          type: string
+          description: This session type’s category.
+          example: example-value
+        CategoryId:
+          type: integer
+          format: int32
+          description: This session type’s category ID.
+          example: 123456
+        Subcategory:
+          type: string
+          description: This session type’s subcategory.
+          example: example-value
+        SubcategoryId:
+          type: integer
+          format: int32
+          description: This session type’s subcategory ID.
+          example: 123456
+        AvailableForAddOn:
+          type: boolean
+          description: This session type’s Add On Flag.
+          example: true
+    ApiError:
+      type: object
+      description: Implementation of the 'ApiError' model.
+      properties:
+        Message:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        Code:
+          type: string
+          description: The model property of type str.
+          example: example-value
+    GenderPreferenceEnum:
+      type: string
+      description: GenderPreferenceEnum enumeration.
+      enum:
+      - None
+      - Female
+      - Male
+    Staff:
+      type: object
+      description: Implementation of the 'Staff' model. The Staff
+      properties:
+        Address:
+          type: string
+          description: The address of the staff member who is teaching the class.
+          example: 123 Market St
+        AppointmentInstructor:
+          type: boolean
+          description: When `true`, indicates that the staff member offers appointments.<br /> When `false`, indicates that the staff member does not offer appointments.
+          example: true
+        AlwaysAllowDoubleBooking:
+          type: boolean
+          description: When `true`, indicates that the staff member can be scheduled for overlapping services.<br /> When `false`, indicates that the staff can only be scheduled for one service at a time in any given time-frame.
+          example: true
+        Bio:
+          type: string
+          description: The staff member’s biography. This string contains HTML.
+          example: example-value
+        City:
+          type: string
+          description: The staff member’s city.
+          example: San Francisco
+        Country:
+          type: string
+          description: The staff member’s country.
+          example: US
+        Email:
+          type: string
+          description: The staff member’s email address.
+          example: kinlane@example.com
+        FirstName:
+          type: string
+          description: The staff member’s first name.
+          example: Alex
+        DisplayName:
+          type: string
+          description: The staff member’s Nickname.
+          example: example-value
+        HomePhone:
+          type: string
+          description: The staff member’s home phone number.
+          example: '+15551234567'
+        Id:
+          type: integer
+          format: int32
+          description: The ID assigned to the staff member.
+          example: 123456
+        IndependentContractor:
+          type: boolean
+          description: When `true`, indicates that the staff member is an independent contractor. When `false`, indicates that the staff member is not an independent contractor.
+          example: true
+        IsMale:
+          type: boolean
+          description: When `true`, indicates that the staff member is male. When `false`, indicates that the staff member is female.
+          example: true
+        LastName:
+          type: string
+          description: The staff member’s last name.
+          example: Lane
+        MobilePhone:
+          type: string
+          description: The staff member’s mobile phone number.
+          example: '+15551234567'
+        Name:
+          type: string
+          description: The staff member’s name.
+          example: Sunset Yoga Studio
+        PostalCode:
+          type: string
+          description: The staff member’s postal code.
+          example: '94110'
+        ClassTeacher:
+          type: boolean
+          description: When `true`, indicates that the staff member can teach classes. When `false`, indicates that the staff member cannot teach classes.
+          example: true
+        SortOrder:
+          type: integer
+          format: int32
+          description: If configured by the business owner, this field determines a staff member’s weight when sorting. Use this field to sort staff members on your interface.
+          example: 1
+        State:
+          type: string
+          description: The staff member’s state.
+          example: CA
+        WorkPhone:
+          type: string
+          description: The staff member’s work phone number.
+          example: '+15551234567'
+        ImageUrl:
+          type: string
+          description: The URL of the staff member’s image, if one has been uploaded.
+          example: https://example.mindbodyonline.com/resource/abc123
+        ClassAssistant:
+          type: boolean
+          description: Is the staff an assistant
+          example: true
+        ClassAssistant2:
+          type: boolean
+          description: Is the staff an assistant2
+          example: true
+        EmploymentStart:
+          type: string
+          format: date-time
+          description: The start date of employment
+          example: '2026-05-28T14:30:00Z'
+        EmploymentEnd:
+          type: string
+          format: date-time
+          description: The end date of employment
+          example: '2026-05-28T14:30:00Z'
+        ProviderIDs:
+          type: array
+          items:
+            type: string
+          description: A list of ProviderIds for the staff.
+          example:
+          - example-value
+        Rep:
+          type: boolean
+          description: return true if staff is sales Rep 1 else false.
+          example: true
+        Rep2:
+          type: boolean
+          description: return true if staff is sales Rep 2 else false.
+          example: true
+        Rep3:
+          type: boolean
+          description: return true if staff is sales Rep 3 else false.
+          example: true
+        Rep4:
+          type: boolean
+          description: return true if staff is sales Rep 4 else false.
+          example: true
+        Rep5:
+          type: boolean
+          description: return true if staff is sales Rep 5 else false.
+          example: true
+        Rep6:
+          type: boolean
+          description: return true if staff is sales Rep 6 else false.
+          example: true
+        StaffSettings:
+          $ref: '#/components/schemas/StaffSetting'
+          description: This object contains the staff settings.
+        Appointments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Appointment'
+          description: A list of appointments for the staff.
+          example:
+          - {}
+        Unavailabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Unavailability'
+          description: A list of unavailabilities for the staff.
+          example:
+          - {}
+        Availabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Availability'
+          description: A list of availabilities for the staff.
+          example:
+          - {}
+        EmpID:
+          type: string
+          description: The EmpID assigned to the staff member.
+          example: example-value
+    Relationship:
+      type: object
+      description: Implementation of the 'Relationship' model. Jim is a RelationshipName1 of John. John is a RelationshipName2 of Jim.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The ID of the relationship.
+          example: 123456
+        RelationshipName1:
+          type: string
+          description: The name of the first relationship.
+          example: example-value
+        RelationshipName2:
+          type: string
+          description: The name of the second relationship.
+          example: example-value
+    Semester:
+      type: object
+      description: Implementation of the 'Semester' model. Semesters help you quickly classify enrollments.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: This semester’s unique ID.
+          example: 123456
+        Name:
+          type: string
+          description: Name of the semester.
+          example: Sunset Yoga Studio
+        Description:
+          type: string
+          description: The description of the semester.
+          example: Example note for Mindbody Public API.
+        StartDate:
+          type: string
+          format: date-time
+          description: Start date of the semester.
+          example: '2026-05-28T14:30:00Z'
+        EndDate:
+          type: string
+          format: date-time
+          description: End date of the semester.
+          example: '2026-05-28T14:30:00Z'
+        MultiRegistrationDiscount:
+          type: number
+          format: double
+          description: Discount for multiple registration in the semester.
+          example: 1.0
+        MultiRegistrationDeadline:
+          type: string
+          format: date-time
+          description: Registration deadline of the semester.
+          example: '2026-05-28T14:30:00Z'
+        Active:
+          type: boolean
+          description: When `true`, indicates that the semester is active.
+          example: true
+    ClientType:
+      type: object
+      description: Implementation of the 'ClientType' model. Represents a client's type classification.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The unique identifier for the client type.
+          example: 123456
+        Name:
+          type: string
+          description: The display name of the client type.
+          example: Sunset Yoga Studio
+    SubstituteTeacherClass:
+      type: object
+      description: Implementation of the 'SubstituteTeacherClass' model. Represents a single class instance. Used in SubstituteClassTeacher endpoint.
+      properties:
+        ClassScheduleId:
+          type: integer
+          format: int32
+          description: The class schedule ID of the requested class.
+          example: 123456
+        Location:
+          $ref: '#/components/schemas/Location'
+          description: Contains information about the location where the class is taking place.
+        MaxCapacity:
+          type: integer
+          format: int32
+          description: The total number of bookings allowed in the class.
+          example: 1
+        WebCapacity:
+          type: integer
+          format: int32
+          description: The total number of online bookings allowed in the class.
+          example: 1
+        TotalBooked:
+          type: integer
+          format: int32
+          description: The total number of clients who are booked into the class prior to this call being made.
+          example: 1
+        TotalBookedWaitlist:
+          type: integer
+          format: int32
+          description: The total number of booked clients who are on the waiting list for the class prior to this call being made.
+          example: 1
+        WebBooked:
+          type: integer
+          format: int32
+          description: The total number of bookings in the class made by online users, prior to this call being made. This property is the current number of bookings counted toward the `WebCapacity` limit.
+          example: 1
+        SemesterId:
+          type: integer
+          format: int32
+          description: Identifies the semester assigned to this class.
+          example: 123456
+        IsCanceled:
+          type: boolean
+          description: When `true`, indicates that the class has been canceled.<br /> When `false`, indicates that the class has not been canceled and may still be bookable.
+          example: true
+        Substitute:
+          type: boolean
+          description: When `true`, indicates that the class is being taught by a substitute teacher.
+          example: true
+        Active:
+          type: boolean
+          description: When `true`, indicates that the class is being shown to clients in consumer mode.
+          example: true
+        IsWaitlistAvailable:
+          type: boolean
+          description: When `true`, indicates that the class has a waiting list and there is space available on the waiting list for another client.<br /> When `false`, indicates either that the class does not have a waiting list or there is no space available on the class waiting list.
+          example: true
+        HideCancel:
+          type: boolean
+          description: When `true`, indicates that this class is should not be shown to clients when `IsCancelled` is `true`.<br /> When `false`, indicates that this class is should be shown to clients when `IsCancelled` is `true`.<br /> This property can be ignored when the `IsCancelled` property is `false`.
+          example: true
+        Id:
+          type: integer
+          format: int32
+          description: The unique identifier of the class.
+          example: 123456
+        IsAvailable:
+          type: boolean
+          description: When `true`, indicates that the class can be booked.<br /> When `false`, that the class cannot be booked at this time.
+          example: true
+        StartDateTime:
+          type: string
+          format: date-time
+          description: The date and time that this class is scheduled to start.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: The date and time when this class is scheduled to end.
+          example: '2026-05-28T14:30:00Z'
+        LastModifiedDateTime:
+          type: string
+          format: date-time
+          description: The last time the class was modified.
+          example: '2026-05-28T14:30:00Z'
+        ClassDescription:
+          $ref: '#/components/schemas/ClassDescription'
+          description: Contains information about this class.
+        Staff:
+          $ref: '#/components/schemas/Staff'
+          description: Contains information about the teacher of the class.
+        VirtualStreamLink:
+          type: string
+          description: The URL for the pre-recorded live stream for the class if hosted on the mindbody virtual wellness platform
+          example: example-value
+    GetWaitlistEntriesResponse:
+      type: object
+      description: Implementation of the 'GetWaitlistEntriesResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        WaitlistEntries:
+          type: array
+          items:
+            $ref: '#/components/schemas/WaitlistEntry'
+          description: Contains information about the waiting list entries.
+          example:
+          - {}
+    Location:
+      type: object
+      description: Implementation of the 'Location' model.
+      properties:
+        AdditionalImageURLs:
+          type: array
+          items:
+            type: string
+          description: A list of URLs of any images associated with this location.
+          example:
+          - example-value
+        Address:
+          type: string
+          description: The first line of the location’s street address.
+          example: 123 Market St
+        Address2:
+          type: string
+          description: A second address line for the location’s street address, if needed.
+          example: 123 Market St
+        Amenities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Amenity'
+          description: A list of strings representing amenities available at the location.
+          example:
+          - {}
+        BusinessDescription:
+          type: string
+          description: The business description for the location, as configured by the business owner.
+          example: Example note for Mindbody Public API.
+        City:
+          type: string
+          description: The location’s city.
+          example: San Francisco
+        Description:
+          type: string
+          description: A description of the location.
+          example: Example note for Mindbody Public API.
+        HasClasses:
+          type: boolean
+          description: When `true`, indicates that classes are held at this location.<br /> When `false`, Indicates that classes are not held at this location.
+          example: true
+        Id:
+          type: integer
+          format: int32
+          description: The ID assigned to this location.
+          example: 123456
+        Latitude:
+          type: number
+          format: double
+          description: The location’s latitude.
+          example: 1.0
+        Longitude:
+          type: number
+          format: double
+          description: The location’s longitude.
+          example: 1.0
+        Name:
+          type: string
+          description: The name of this location.
+          example: Sunset Yoga Studio
+        Phone:
+          type: string
+          description: The location’s phone number.
+          example: '+15551234567'
+        PhoneExtension:
+          type: string
+          description: The location’s phone extension.
+          example: example-value
+        PostalCode:
+          type: string
+          description: The location’s postal code.
+          example: '94110'
+        SiteID:
+          type: integer
+          format: int32
+          description: The ID number assigned to this location.
+          example: 1
+        StateProvCode:
+          type: string
+          description: The location’s state or province code.
+          example: example-value
+        Tax1:
+          type: number
+          format: double
+          description: A decimal representation of the location’s first tax rate. Tax properties are provided to apply all taxes to the purchase price that the purchase is subject to. Use as many tax properties as needed to represent all the taxes that apply in the location. Enter a decimal number that represents the appropriate tax rate. For example, for an 8% sales tax, enter 0.08.
+          example: 1.0
+        Tax2:
+          type: number
+          format: double
+          description: A decimal representation of the location’s second tax rate. See the example in the description of Tax1.
+          example: 1.0
+        Tax3:
+          type: number
+          format: double
+          description: A decimal representation of the location’s third tax rate. See the example in the description of Tax1.
+          example: 1.0
+        Tax4:
+          type: number
+          format: double
+          description: A decimal representation of the location’s fourth tax rate. See the example in the description of Tax1.
+          example: 1.0
+        Tax5:
+          type: number
+          format: double
+          description: A decimal representation of the location’s fifth tax rate. See the example in the description of Tax1.
+          example: 1.0
+        TotalNumberOfRatings:
+          type: integer
+          format: int32
+          description: The number of reviews that clients have left for this location.
+          example: 1
+        AverageRating:
+          type: number
+          format: double
+          description: The average rating for the location, out of five stars.
+          example: 1.0
+        TotalNumberOfDeals:
+          type: integer
+          format: int32
+          description: The number of distinct introductory pricing options available for purchase at this location.
+          example: 1
+    Amenity:
+      type: object
+      description: Implementation of the 'Amenity' model. Definition of a location amenity
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The ID number of the amenity.
+          example: 123456
+        Name:
+          type: string
+          description: The name of the amenity, for example, food or lockers.
+          example: Sunset Yoga Studio
+    AddOnSmall:
+      type: object
+      description: Implementation of the 'AddOnSmall' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The unique ID of the appointment add-on booking.
+          example: 123456
+        Name:
+          type: string
+          description: The name of the appointment add-on.
+          example: Sunset Yoga Studio
+        StaffId:
+          type: integer
+          format: int32
+          description: The ID of the staff member providing the service for this add-on.
+          example: 123456
+        TypeId:
+          type: integer
+          format: int32
+          description: The ID of the session type of this appointment.
+          example: 123456
+    Level:
+      type: object
+      description: Implementation of the 'Level' model. A session level.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: Contains the Id given to this level.
+          example: 123456
+        Name:
+          type: string
+          description: Contains the name given to this level.
+          example: Sunset Yoga Studio
+        Description:
+          type: string
+          description: Contains a description of this level.
+          example: Example note for Mindbody Public API.
+    AddClientToClassResponse:
+      type: object
+      description: Implementation of the 'AddClientToClassResponse' model.
+      properties:
+        Visit:
+          $ref: '#/components/schemas/AddClientToClassVisit'
+          description: Contains information about the created visit.
+    SubstituteClassTeacherResponse:
+      type: object
+      description: Implementation of the 'SubstituteClassTeacherResponse' model.
+      properties:
+        Class:
+          $ref: '#/components/schemas/SubstituteTeacherClass'
+          description: Contains information about the class that is being assigned a substitute teacher.
+    ResourceAvailability:
+      type: object
+      description: Implementation of the 'ResourceAvailability' model. An availability of a resource
+      properties:
+        ResourceId:
+          type: integer
+          format: int32
+          description: Id
+          example: 123456
+        StartDateTime:
+          type: string
+          format: date-time
+          description: Starts
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: Ends
+          example: '2026-05-28T14:30:00Z'
+    SubstituteClassTeacherRequest:
+      type: object
+      description: Implementation of the 'SubstituteClassTeacherRequest' model.
+      properties:
+        ClassId:
+          type: integer
+          format: int32
+          description: The ID of the class to which a substitute teacher needs to be assigned.
+          example: 123456
+        StaffId:
+          type: integer
+          format: int32
+          description: The staff ID of the teacher to substitute.
+          example: 123456
+        OverrideConflicts:
+          type: boolean
+          description: When `true`, overrides any conflicts in the schedule.
+          example: true
+        SendClientEmail:
+          type: boolean
+          description: When `true`, sends the client an automatic email about the substitution, if the client has opted to receive email.
+          example: true
+        SendOriginalTeacherEmail:
+          type: boolean
+          description: When `true`, sends the originally scheduled teacher an automatic email about the substitution.
+          example: true
+        SendSubstituteTeacherEmail:
+          type: boolean
+          description: When `true`, sends the substituted teacher an automatic email about the substitution.
+          example: true
+    AppointmentStaff:
+      type: object
+      description: Implementation of the 'AppointmentStaff' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 123456
+        FirstName:
+          type: string
+          description: The model property of type str.
+          example: Alex
+        LastName:
+          type: string
+          description: The model property of type str.
+          example: Lane
+        DisplayName:
+          type: string
+          description: The model property of type str.
+          example: example-value
+    WrittenClassSchedulesInfo:
+      type: object
+      description: Implementation of the 'WrittenClassSchedulesInfo' model.
+      properties:
+        ClassId:
+          type: integer
+          format: int32
+          description: The ClassScheduleId.
+          example: 123456
+        ClassInstanceIds:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: The individual ClassIds of the enrollment schedule.
+          example:
+          - 1
+    RemoveClientsFromClassesRequest:
+      type: object
+      description: Implementation of the 'RemoveClientsFromClassesRequest' model. Remove Clients From Classes Request
+      properties:
+        Details:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassClientDetail'
+          description: 'This object includes `ClientIds`: List of the RSSID(string) of the clients to remove from the specified class. `ClassId`: The ID(number) of the class that you want to remove the clients from.'
+          example:
+          - {}
+        Test:
+          type: boolean
+          description: 'When `true`, the request ensures that its parameters are valid without affecting real data.<br /> When `false`, the request performs as intended and may affect live client data.<br /> Default: **false**'
+          example: true
+        SendEmail:
+          type: boolean
+          description: 'When `true`, indicates that the client should be sent an email. Depending on the site and client settings, an email may or may not be sent.<br /> Default: **false** **Note**: When the Authorization header is passed and the SendEmail is set to `true`, then an email will be sent. When the Authorization header is passed and the SendEmail is set to `false`, then an email will not be sent. When the Authorization header is not passed and the SendEmail is set to either `true` or `false`, then an email '
+          example: true
+        LateCancel:
+          type: boolean
+          description: 'When `true`, indicates that the client is to be late cancelled from the class.<br /> When `false`, indicates that the client is to be early cancelled from the class.<br /> Default: **false**'
+          example: true
+        Limit:
+          type: integer
+          format: int32
+          description: Number of results to include, defaults to 100
+          example: 10
+        Offset:
+          type: integer
+          format: int32
+          description: Page offset, defaults to 0.
+          example: 10
+    Liability:
+      type: object
+      description: Implementation of the 'Liability' model.
+      properties:
+        AgreementDate:
+          type: string
+          format: date-time
+          description: The date and time at which the client agreed to the liability waiver for the business.
+          example: '2026-05-28T14:30:00Z'
+        IsReleased:
+          type: boolean
+          description: The client’s liability release status.<br /> When `true`, indicates that the client has agreed to the liability release for the business.<br /> When `false`, indicates that the client has not agreed to the liability release for the business.
+          example: true
+        ReleasedBy:
+          type: integer
+          format: int32
+          description: An ID indicating who released liability for the client. If the client agreed to the liability waiver by signing into an account online, this value is `null`. If a staff member marked the waiver as signed on behalf of the client, it is the staff member’s ID. `0` indicates that the business owner marked the liability waiver as signed on behalf of the client.
+          example: 1
+    UpdateClassEnrollmentScheduleRequest:
+      type: object
+      description: Implementation of the 'UpdateClassEnrollmentScheduleRequest' model.
+      properties:
+        ClassId:
+          type: integer
+          format: int32
+          description: The class id, a block of schedules
+          example: 123456
+        ClassDescriptionId:
+          type: integer
+          format: int32
+          description: Used only internally, overridden if sent
+          example: 123456
+        LocationId:
+          type: integer
+          format: int32
+          description: The location where the class is taking place
+          example: 123456
+        StartDate:
+          type: string
+          format: date-time
+          description: Class start time (use null for TBD)
+          example: '2026-05-28T14:30:00Z'
+        EndDate:
+          type: string
+          format: date-time
+          description: Class end time (ignored if StartTime is null)
+          example: '2026-05-28T14:30:00Z'
+        StartTime:
+          type: string
+          format: date-time
+          description: Class start time (use null for TBD)
+          example: '2026-05-28T14:30:00Z'
+        EndTime:
+          type: string
+          format: date-time
+          description: Class end time (ignored if StartTime is null)
+          example: '2026-05-28T14:30:00Z'
+        DaySunday:
+          type: boolean
+          description: (optional) - If the class occurs on Sunday (ignored if EndDate is null)
+          example: true
+        DayMonday:
+          type: boolean
+          description: (optional) - If the class occurs on Monday (ignored if EndDate is null)
+          example: true
+        DayTuesday:
+          type: boolean
+          description: (optional) - If the class occurs on Tuesday (ignored if EndDate is null)
+          example: true
+        DayWednesday:
+          type: boolean
+          description: (optional) - If the class occurs on Wednesday (ignored if EndDate is null)
+          example: true
+        DayThursday:
+          type: boolean
+          description: (optional) - If the class occurs on Thursday (ignored if EndDate is null)
+          example: true
+        DayFriday:
+          type: boolean
+          description: (optional) - If the class occurs on Friday (ignored if EndDate is null)
+          example: true
+        DaySaturday:
+          type: boolean
+          description: (optional) - If the class occurs on Saturday (ignored if EndDate is null
+          example: true
+        StaffId:
+          type: integer
+          format: int32
+          description: The staff member teaching the class
+          example: 123456
+        StaffPayRate:
+          type: integer
+          format: int32
+          description: The staff pay rate
+          example: 1
+        ResourceId:
+          type: integer
+          format: int32
+          description: (optional) - The room where the class is taking place
+          example: 123456
+        MaxCapacity:
+          type: integer
+          format: int32
+          description: How many people can attend
+          example: 1
+        WebCapacity:
+          type: integer
+          format: int32
+          description: How many people can signup online (if 0 clients cannot signup online)
+          example: 1
+        WaitlistCapacity:
+          type: integer
+          format: int32
+          description: 'One of: PaymentRequired, BookAndPayLater, Free'
+          example: 1
+        BookingStatus:
+          type: string
+          description: 'One of: PaymentRequired, BookAndPayLater, Free'
+          example: Active
+        AllowOpenEnrollment:
+          type: boolean
+          description: Allow clients to choose which sessions they'd like to sign up for
+          example: true
+        AllowDateForwardEnrollment:
+          type: boolean
+          description: Allow booking after the enrollment has started
+          example: true
+        RetainScheduleChanges:
+          type: boolean
+          description: Whether or not to retain manual schedule changes within the date range
+          example: true
+    GetClassesResponse:
+      type: object
+      description: Implementation of the 'GetClassesResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        Classes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Class'
+          description: A list of the requested classes.
+          example:
+          - {}
+    RemoveClientFromClassRequest:
+      type: object
+      description: Implementation of the 'RemoveClientFromClassRequest' model.
+      properties:
+        ClassId:
+          type: integer
+          format: int32
+          description: The ID of the class that you want to remove the client from.
+          example: 123456
+        ClientId:
+          type: string
+          description: The RSSID of the client to remove from the specified class.
+          example: example-value
+        UniqueClientId:
+          type: integer
+          format: int32
+          description: 'The Unique Id of the client to remove from the specified class Note: you need to provide the ''UniqueClientId'' OR the ''ClientId''. If both are provided, the ''UniqueClientId'' takes precedence.'
+          example: 123456
+        Test:
+          type: boolean
+          description: 'When `true`, the request ensures that its parameters are valid without affecting real data.<br /> When `false`, the request performs as intended and may affect live client data.<br /> Default: **false**'
+          example: true
+        SendEmail:
+          type: boolean
+          description: 'When `true`, indicates that the client should be sent an email. Depending on the site and client settings, an email may or may not be sent.<br /> Default: **false** Note: When the Authorization header is passed and the SendEmail is set to `true`, then an email will be sent. When the Authorization header is passed and the SendEmail is set to `false`, then an email will not be sent. When the Authorization header is not passed and the SendEmail is set to either `true` or `false`, then an email will'
+          example: true
+        LateCancel:
+          type: boolean
+          description: 'When `true`, indicates that the client is to be late cancelled from the class.<br /> When `false`, indicates that the client is to be early cancelled from the class.<br /> Default: **false**'
+          example: true
+        VisitId:
+          type: integer
+          format: int32
+          description: 'The ID of the client visit that you want to remove from the class. Default: **0**'
+          example: 123456
+    CustomClientFieldValue:
+      type: object
+      description: Implementation of the 'CustomClientFieldValue' model. The value of a custom client field
+      properties:
+        Value:
+          type: string
+          description: The value of a specific custom field for a client.
+          example: example-value
+        Id:
+          type: integer
+          format: int32
+          description: The ID of the custom client field.
+          example: 123456
+        DataType:
+          type: string
+          description: The data type of the field.
+          example: example-value
+        Name:
+          type: string
+          description: The name of the field.
+          example: Sunset Yoga Studio
+    UpdateClassScheduleNotesRequest:
+      type: object
+      description: Implementation of the 'UpdateClassScheduleNotesRequest' model. A model for requesting the updates of notes of a class schedule.
+      properties:
+        Notes:
+          type: string
+          description: Gets the class notes.
+          example: Example note for Mindbody Public API.
+    RemoveClientFromClassResponse:
+      type: object
+      description: Implementation of the 'RemoveClientFromClassResponse' model.
+      properties:
+        Class:
+          $ref: '#/components/schemas/Class'
+          description: Contains information about the class from which the client was removed.
+    RemoveClientsFromClassesResponse:
+      type: object
+      description: Implementation of the 'RemoveClientsFromClassesResponse' model. Remove Clients From Classes Response
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        Classes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Class'
+          description: Contains information about the classes from which the clients were removed.
+          example:
+          - {}
+        Errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiError'
+          description: Contains information about the errors
+          example:
+          - {}
+    Program:
+      type: object
+      description: Implementation of the 'Program' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The service category’s ID.
+          example: 123456
+        Name:
+          type: string
+          description: The name of this service category.
+          example: Sunset Yoga Studio
+        ScheduleType:
+          $ref: '#/components/schemas/ScheduleTypeEnum'
+          description: 'The service category’s schedule type. Possible values are: * All * Class * Enrollment * Appointment * Resource * Arrival'
+        CancelOffset:
+          type: integer
+          format: int32
+          description: The offset to use for the service category.
+          example: 10
+        ContentFormats:
+          type: array
+          items:
+            type: string
+          description: 'The content delivery platform(s) used by the service category. Possible values are: * InPerson * Livestream:Mindbody * Livestream:Other'
+          example:
+          - example-value
+        PricingRelationships:
+          $ref: '#/components/schemas/PricingRelationships'
+          description: Pricing relationships
+    GetSemestersResponse:
+      type: object
+      description: Implementation of the 'GetSemestersResponse' model. Get Semesters Response Model
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        Semesters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Semester'
+          description: Contains the Semester objects, each of which describes the semesters for a site.
+          example:
+          - {}
+    AddClientToClassRequest:
+      type: object
+      description: Implementation of the 'AddClientToClassRequest' model.
+      properties:
+        ClientId:
+          type: string
+          description: The ID of the client who is being booked into the class
+          example: example-value
+        ClassId:
+          type: integer
+          format: int32
+          description: The ID of the class into which the client is being booked
+          example: 123456
+        Test:
+          type: boolean
+          description: 'When `true`, indicates that input information is validated, but not committed.<br /> When `false`, the information is committed and the database is affected.<br /> Default: **false**'
+          example: true
+        RequirePayment:
+          type: boolean
+          description: When `true`, the client must have an active, usable pricing option on their account.<br /> When `false` or omitted, an active pricing option is not required to complete the client’s booking.
+          example: true
+        Waitlist:
+          type: boolean
+          description: When `true`, indicates that the client should be added to a specific class waiting list.<br /> When `false`, the client should not be added to the waiting list.
+          example: true
+        SendEmail:
+          type: boolean
+          description: 'When `true`, the subscriber’s configured Booking Confirmation automatic email is sent to the client. Note that an email is sent only if the client has an email address and automatic emails have been set up.<br /> When `false`, indicates that the client does not receive emails.<br /> Default: **false** **Note**: When the Authorization header is passed and the SendEmail is set to `true`, then an email will be sent. When the Authorization header is passed and the SendEmail is set to `false`, then a'
+          example: true
+        WaitlistEntryId:
+          type: integer
+          format: int32
+          description: The ID of the waiting list entry from which you are moving a client into a class.
+          example: 123456
+        ClientServiceId:
+          type: integer
+          format: int32
+          description: The ID of the pricing option on the client’s account that you want to use to pay for this booking, if payment is required at the time of the update.
+          example: 123456
+        CrossRegionalBooking:
+          type: boolean
+          description: When `true`, cross regional series are checked and used if applicable.
+          example: true
+        CrossRegionalBookingClientServiceSiteId:
+          type: integer
+          format: int32
+          description: If the request is cross regional, use a purchased pricing option from this specified site. If omitted, an attempt is made to use an applicable pricing option from the local site.
+          example: 123456
+        UniqueId:
+          type: integer
+          format: int32
+          description: The UniqueID of the client who is being booked into the class
+          example: 123456
+    ClassSchedule:
+      type: object
+      description: Implementation of the 'ClassSchedule' model. Represents a single class instance. The class meets at the start time, goes until the end time.
+      properties:
+        Classes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Class'
+          description: Contains information about a class.
+          example:
+          - {}
+        Clients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Client'
+          description: Contains information about clients.
+          example:
+          - {}
+        Course:
+          $ref: '#/components/schemas/Course'
+          description: Contains information about the course that the enrollment is a part of.
+        SemesterId:
+          type: integer
+          format: int32
+          description: The semester ID for the enrollment (if any).
+          example: 123456
+        IsAvailable:
+          type: boolean
+          description: When `true`, indicates that the enrollment shows in consumer mode, has not started yet, and there is room in each class of the enrollment.<br /> When `false`, indicates that either the enrollment does not show in consumer mode, has already started, or there is no room in some classes of the enrollment.
+          example: true
+        Id:
+          type: integer
+          format: int32
+          description: The unique ID of the class schedule.
+          example: 123456
+        ClassDescription:
+          $ref: '#/components/schemas/ClassDescription'
+          description: Contains information about the class.
+        DaySunday:
+          type: boolean
+          description: When `true`, indicates that this schedule occurs on Sundays.
+          example: true
+        DayMonday:
+          type: boolean
+          description: When `true`, indicates that this schedule occurs on Mondays.
+          example: true
+        DayTuesday:
+          type: boolean
+          description: When `true`, indicates that this schedule occurs on Tuesdays.
+          example: true
+        DayWednesday:
+          type: boolean
+          description: When `true`, indicates that this schedule occurs on Wednesdays.
+          example: true
+        DayThursday:
+          type: boolean
+          description: When `true`, indicates that this schedule occurs on Thursdays.
+          example: true
+        DayFriday:
+          type: boolean
+          description: When `true`, indicates that this schedule occurs on Fridays.
+          example: true
+        DaySaturday:
+          type: boolean
+          description: When `true`, indicates that this schedule occurs on Saturdays.
+          example: true
+        AllowOpenEnrollment:
+          type: boolean
+          description: When `true`, indicates that the enrollment allows booking after the enrollment has started.
+          example: true
+        AllowDateForwardEnrollment:
+          type: boolean
+          description: When `true`, indicates that this the enrollment shows in consumer mode, the enrollment has not started yet, and there is room in each class of the enrollment.
+          example: true
+        StartTime:
+          type: string
+          format: date-time
+          description: The time this class schedule starts.
+          example: '2026-05-28T14:30:00Z'
+        EndTime:
+          type: string
+          format: date-time
+          description: The time this class schedule ends.
+          example: '2026-05-28T14:30:00Z'
+        StartDate:
+          type: string
+          format: date-time
+          description: The date this class schedule starts.
+          example: '2026-05-28T14:30:00Z'
+        EndDate:
+          type: string
+          format: date-time
+          description: The date this class schedule ends.
+          example: '2026-05-28T14:30:00Z'
+        Staff:
+          $ref: '#/components/schemas/Staff'
+          description: Contains information about the staff member who is regularly scheduled to teach the class.
+        Location:
+          $ref: '#/components/schemas/Location'
+          description: Contains information about the regularly scheduled location of this class.
+        FrequencyType:
+          $ref: '#/components/schemas/FrequencyTypeEnum'
+          description: The class schedule recurrence type.
+        FrequencyInterval:
+          type: integer
+          format: int32
+          description: The interval between class schedule occurencies.
+          example: 1
+    WaitlistEntry:
+      type: object
+      description: Implementation of the 'WaitlistEntry' model.
+      properties:
+        ClassDate:
+          type: string
+          format: date-time
+          description: The date of the class or enrollment.
+          example: '2026-05-28T14:30:00Z'
+        ClassId:
+          type: integer
+          format: int32
+          description: The ID of the class or enrollment.
+          example: 123456
+        ClassSchedule:
+          $ref: '#/components/schemas/ClassSchedule'
+          description: Contains information about the class schedule for this waiting list entry.
+        Client:
+          $ref: '#/components/schemas/Client'
+          description: Contains information about the requested client who is on the waiting list.
+        EnrollmentDateForward:
+          type: string
+          format: date-time
+          description: If the waiting list entry was created for an enrollment, this is the date on or after which the client can be added to the enrollment from the waitlist.
+          example: '2026-05-28T14:30:00Z'
+        Id:
+          type: integer
+          format: int32
+          description: The ID of the waiting list entry.
+          example: 123456
+        RequestDateTime:
+          type: string
+          format: date-time
+          description: The date and time that the request to be on the waiting list was made.
+          example: '2026-05-28T14:30:00Z'
+        VisitRefNo:
+          type: integer
+          format: int32
+          description: The ID of the visit that is associated with the waiting list entry.
+          example: 1
+        Web:
+          type: boolean
+          description: If `true`, the entry on the waiting list was requested online.<br /> If `false`, the entry on the waiting list was requested off-line, for example in person or by phone.
+          example: true
+    FrequencyTypeEnum:
+      type: string
+      description: FrequencyTypeEnum enumeration.
+      enum:
+      - Daily
+      - Weekly
+      - Monthly
+    Course:
+      type: object
+      description: Implementation of the 'Course' model. A course.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The course ID.
+          example: 123456
+        Name:
+          type: string
+          description: The course name.
+          example: Sunset Yoga Studio
+        Description:
+          type: string
+          description: A description of the course.
+          example: Example note for Mindbody Public API.
+        Notes:
+          type: string
+          description: Any notes that have been written about the course.
+          example: Example note for Mindbody Public API.
+        StartDate:
+          type: string
+          format: date-time
+          description: Date and time that the course starts.
+          example: '2026-05-28T14:30:00Z'
+        EndDate:
+          type: string
+          format: date-time
+          description: Date and time that the course ends.
+          example: '2026-05-28T14:30:00Z'
+        Location:
+          $ref: '#/components/schemas/Location'
+          description: Contains information about the location.
+        Organizer:
+          $ref: '#/components/schemas/Staff'
+          description: Contains information about the staff member in charge of organizing the event.
+        Program:
+          $ref: '#/components/schemas/Program'
+          description: Contains information about the service category to which the course belongs.
+        ImageUrl:
+          type: string
+          description: The URL of the image associated with this course, if one exists.
+          example: https://example.mindbodyonline.com/resource/abc123
+    Action1Enum:
+      type: string
+      description: Action1Enum enumeration.
+      enum:
+      - None
+      - Added
+      - Updated
+      - Failed
+      - Removed
+    PricingRelationships:
+      type: object
+      description: Implementation of the 'PricingRelationships' model.
+      properties:
+        PaysFor:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: The model property of type List[int].
+          example:
+          - 1
+        PaidBy:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: The model property of type List[int].
+          example:
+          - 1
+    CancelSingleClassRequest:
+      type: object
+      description: Implementation of the 'CancelSingleClassRequest' model.
+      properties:
+        ClassID:
+          type: integer
+          format: int32
+          description: Class ID to lookup.
+          example: 1
+        HideCancel:
+          type: boolean
+          description: When `true`, indicates that this class is hidden when cancelled. When `false`, indicates that this class is not hidden when cancelled.
+          example: true
+        SendClientEmail:
+          type: boolean
+          description: When `true`, sends the client an automatic email about the cancellation, if the client has opted to receive email.
+          example: true
+        SendStaffEmail:
+          type: boolean
+          description: When `true`, sends the staff an automatic email about the cancellation, if the staff has opted to receive email.
+          example: true
+    ResourceSlim:
+      type: object
+      description: Implementation of the 'ResourceSlim' model. Contains information about resources, such as rooms.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The ID of the resource being used for this appointment.
+          example: 123456
+        Name:
+          type: string
+          description: The name of the resource being used for this appointment.
+          example: Sunset Yoga Studio
+    TypeEnum:
+      type: string
+      description: TypeEnum enumeration.
+      enum:
+      - All
+      - Class
+      - Enrollment
+      - Appointment
+      - Resource
+      - Media
+      - Arrival
+    AssignedClientIndex:
+      type: object
+      description: Implementation of the 'AssignedClientIndex' model. Represents a client index value assigned to a client
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The index ID assigned to the client.
+          example: 123456
+        ValueId:
+          type: integer
+          format: int32
+          description: The index’s value ID.
+          example: 123456
+    ClientService:
+      type: object
+      description: Implementation of the 'ClientService' model. A service that is on a client's account.
+      properties:
+        ActiveDate:
+          type: string
+          format: date-time
+          description: The date that this pricing option became active and could be used to pay for services.
+          example: '2026-05-28T14:30:00Z'
+        Count:
+          type: integer
+          format: int32
+          description: The number of service sessions this pricing option contained when first purchased.
+          example: 10
+        Current:
+          type: boolean
+          description: When `true`, there are service sessions remaining on the pricing option that can be used pay for the current session.<br /> When `false`, the client cannot use this pricing option to pay for other services.
+          example: true
+        ExpirationDate:
+          type: string
+          format: date-time
+          description: The date when the pricing option expires and can no longer be used to pay for services, even if unused service sessions remain on the option; expressed as UTC.
+          example: '2026-05-28T14:30:00Z'
+        Id:
+          type: integer
+          format: int32
+          description: The unique ID assigned to this pricing option, specific to when it was purchased by the client.
+          example: 123456
+        ProductId:
+          type: integer
+          format: int32
+          description: The unique ID of this pricing option, not specific to any client's purchase of it.
+          example: 123456
+        Name:
+          type: string
+          description: The name of this pricing option.
+          example: Sunset Yoga Studio
+        PaymentDate:
+          type: string
+          format: date-time
+          description: The date on which the client paid for this pricing option.
+          example: '2026-05-28T14:30:00Z'
+        Program:
+          $ref: '#/components/schemas/Program'
+          description: Contains information about the service category this service falls under.
+        Remaining:
+          type: integer
+          format: int32
+          description: The number of service sessions remaining in the pricing option that can still be used.
+          example: 1
+        SiteId:
+          type: integer
+          format: int32
+          description: The ID of the subscriber site associated with this pricing option.
+          example: -99
+        Action:
+          $ref: '#/components/schemas/Action1Enum'
+          description: The action taken.
+        ClientID:
+          type: string
+          description: The Client ID assigned to this pricing option, specific to when it was purchased by the client.
+          example: example-value
+        Returned:
+          type: boolean
+          description: Identification for purchased service is returned or not.
+          example: true
+    AppointmentGenderPreferenceEnum:
+      type: string
+      description: AppointmentGenderPreferenceEnum enumeration.
+      enum:
+      - None
+      - Female
+      - Male
+    Class:
+      type: object
+      description: Implementation of the 'Class' model. Represents a single class instance. The class meets at the start time, goes until the end time.
+      properties:
+        ClassScheduleId:
+          type: integer
+          format: int32
+          description: The ID used to retrieve the class schedule for the desired class.
+          example: 123456
+        Visits:
+          type: array
+          items:
+            $ref: '#/components/schemas/Visit'
+          description: Contains information about visits.
+          example:
+          - {}
+        Clients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Client'
+          description: Contains information about clients.
+          example:
+          - {}
+        Location:
+          $ref: '#/components/schemas/Location'
+          description: Contains information about a location.
+        Resource:
+          $ref: '#/components/schemas/ResourceSlim'
+          description: Contains information about a resource, such as a room, assigned to a class.
+        MaxCapacity:
+          type: integer
+          format: int32
+          description: The maximum number of clients allowed in the class.
+          example: 1
+        WebCapacity:
+          type: integer
+          format: int32
+          description: The maximum number of clients allowed to sign up online for the class.
+          example: 1
+        TotalBooked:
+          type: integer
+          format: int32
+          description: The total number of clients booked in the class.
+          example: 1
+        TotalSignedIn:
+          type: integer
+          format: int32
+          description: The total number of clients signed into the class.
+          example: 1
+        TotalBookedWaitlist:
+          type: integer
+          format: int32
+          description: The total number of booked clients on the waiting list for the class.
+          example: 1
+        WebBooked:
+          type: integer
+          format: int32
+          description: The total number of clients who signed up online for the class.
+          example: 1
+        SemesterId:
+          type: integer
+          format: int32
+          description: The ID of the semester that the class is a part of, if any.
+          example: 123456
+        IsCanceled:
+          type: boolean
+          description: When `true`, indicates that the class has been cancelled.<br /> When `false`, indicates that the class has not been cancelled.
+          example: true
+        Substitute:
+          type: boolean
+          description: When `true`, indicates that the class is being taught by a substitute teacher.<br /> When `false`, indicates that the class is being taught by its regular teacher.
+          example: true
+        Active:
+          type: boolean
+          description: When `true`, indicates that the class is shown to clients when in consumer mode.<br /> When `false`, indicates that the class is not shown to clients when in consumer mode.
+          example: true
+        IsWaitlistAvailable:
+          type: boolean
+          description: When `true`, indicates that the clients can be placed on a waiting list for the class.<br /> When `false`, indicates that the clients cannot be placed on a waiting list for the class.
+          example: true
+        IsEnrolled:
+          type: boolean
+          description: When `true`, indicates that the client with the given `ClientId` is enrolled in this class.<br /> When `false`, indicates that the client with the given `ClientId` is not enrolled in this class.
+          example: true
+        HideCancel:
+          type: boolean
+          description: When `true`, indicates that this class is hidden when cancelled.<br /> When `false`, indicates that this class is not hidden when cancelled.
+          example: true
+        Id:
+          type: integer
+          format: int32
+          description: The unique identifier for the class.
+          example: 123456
+        IsAvailable:
+          type: boolean
+          description: When `true`, indicates that the client with the given client ID can book this class.<br /> When `false`, indicates that the client with the given client ID cannot book this class.
+          example: true
+        StartDateTime:
+          type: string
+          format: date-time
+          description: The time this class is scheduled to start.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: The time this class is scheduled to end.
+          example: '2026-05-28T14:30:00Z'
+        LastModifiedDateTime:
+          type: string
+          format: date-time
+          description: The last time this class was modified.
+          example: '2026-05-28T14:30:00Z'
+        ClassDescription:
+          $ref: '#/components/schemas/ClassDescription'
+          description: Contains information that defines the class.
+        Staff:
+          $ref: '#/components/schemas/Staff'
+          description: Contains information about the staff member.
+        BookingWindow:
+          $ref: '#/components/schemas/BookingWindow'
+          description: Contains information about the window for booking.
+        BookingStatus:
+          $ref: '#/components/schemas/BookingStatusEnum'
+          description: Contains the booking’s payment status.
+        VirtualStreamLink:
+          type: string
+          description: The link to the Mindbody-hosted live stream for the class. This is `null` when no live stream is configured for the class.
+          example: example-value
+        WaitListSize:
+          type: integer
+          format: int32
+          description: The maximum number allowed on the waiting list for the class.
+          example: 1
+        ClassNotes:
+          type: string
+          description: Notes for the class
+          example: Example note for Mindbody Public API.
+    AppointmentStatusEnum:
+      type: string
+      description: AppointmentStatusEnum enumeration.
+      enum:
+      - None
+      - Requested
+      - Booked
+      - Completed
+      - Confirmed
+      - Arrived
+      - NoShow
+      - Cancelled
+      - LateCancelled
+    Appointment:
+      type: object
+      description: Implementation of the 'Appointment' model. Contains information about an appointment.
+      properties:
+        GenderPreference:
+          $ref: '#/components/schemas/GenderPreferenceEnum'
+          description: 'The prefered gender of the appointment provider. Possible values are: * None * Female * Male'
+        Duration:
+          type: integer
+          format: int32
+          description: The duration of the appointment.
+          example: 1
+        ProviderId:
+          type: string
+          description: If a user has Complementary and Alternative Medicine features enabled, this property indicates the provider assigned to the appointment.
+          example: example-value
+        Id:
+          type: integer
+          format: int32
+          description: The unique ID of the appointment.
+          example: 123456
+        Status:
+          $ref: '#/components/schemas/StatusEnum'
+          description: 'The status of this appointment. Possible values are: * None * Requested * Booked * Completed * Confirmed * Arrived * NoShow * Cancelled * LateCancelled'
+        StartDateTime:
+          type: string
+          format: date-time
+          description: The date and time the appointment is to start.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: The date and time the appointment is to end.
+          example: '2026-05-28T14:30:00Z'
+        Notes:
+          type: string
+          description: Any notes associated with the appointment.
+          example: Example note for Mindbody Public API.
+        PartnerExternalId:
+          type: string
+          description: Optional external key for api partners.
+          example: example-value
+        StaffRequested:
+          type: boolean
+          description: When `true`, indicates that the staff member was requested specifically by the client.
+          example: true
+        ProgramId:
+          type: integer
+          format: int32
+          description: The ID of the program to which this appointment belongs.
+          example: 123456
+        SessionTypeId:
+          type: integer
+          format: int32
+          description: The ID of the session type of this appointment.
+          example: 123456
+        LocationId:
+          type: integer
+          format: int32
+          description: The ID of the location where this appointment is to take place.
+          example: 123456
+        StaffId:
+          type: integer
+          format: int32
+          description: The ID of the staff member providing the service for this appointment.
+          example: 123456
+        Staff:
+          $ref: '#/components/schemas/AppointmentStaff'
+          description: Staff for the appointment
+        ClientId:
+          type: string
+          description: The RSSID of the client who is booked for this appointment.
+          example: example-value
+        FirstAppointment:
+          type: boolean
+          description: When `true`, indicates that this is the client’s first appointment at this site.
+          example: true
+        IsWaitlist:
+          type: boolean
+          description: 'When `true`, indicates that the client should be added to a specific appointment waiting list. When `false`, the client should not be added to the waiting list. Default: *false*'
+          example: true
+        WaitlistEntryId:
+          type: integer
+          format: int32
+          description: The unique ID of the appointment waitlist.
+          example: 123456
+        ClientServiceId:
+          type: integer
+          format: int32
+          description: The ID of the pass on the client’s account that is to pay for this appointment.
+          example: 123456
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSlim'
+          description: The resources this appointment is to use.
+          example:
+          - {}
+        AddOns:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddOnSmall'
+          description: Any AddOns associated with the appointment
+          example:
+          - {}
+        OnlineDescription:
+          type: string
+          description: Online Description associated with the appointment
+          example: Example note for Mindbody Public API.
+    ProspectStage:
+      type: object
+      description: Implementation of the 'ProspectStage' model.
+      properties:
+        Active:
+          type: boolean
+          description: When `true`, indicates that the client is a prospect at the business and has not yet purchased any of the business pricing options. When `false`, indicates that the client has already purchased at least one pricing option from the business.
+          example: true
+        Description:
+          type: string
+          description: A description of the prospect stage.
+          example: Example note for Mindbody Public API.
+        Id:
+          type: integer
+          format: int32
+          description: The ID of the prospect stage assigned to the client.
+          example: 123456
+    ClassDescription:
+      type: object
+      description: Implementation of the 'ClassDescription' model. Represents a class definition. The class meets at the start time, goes until the end time.
+      properties:
+        Active:
+          type: boolean
+          description: When `true`, indicates that the business can assign this class description to new class schedules.<br /> When `false`, indicates that the business cannot assign this class description to new class schedules.
+          example: true
+        Description:
+          type: string
+          description: The long version of the class description.
+          example: Example note for Mindbody Public API.
+        Id:
+          type: integer
+          format: int32
+          description: The class description's ID.
+          example: 123456
+        ImageURL:
+          type: string
+          description: The class description's image URL, if any. If it does not exist, nothing is returned.
+          example: example-value
+        LastUpdated:
+          type: string
+          format: date-time
+          description: The date this class description was last modified.
+          example: '2026-05-28T14:30:00Z'
+        Level:
+          $ref: '#/components/schemas/Level'
+          description: The level information about this class.
+        Name:
+          type: string
+          description: The name of this class description.
+          example: Sunset Yoga Studio
+        Notes:
+          type: string
+          description: Any notes about the class description.
+          example: Example note for Mindbody Public API.
+        Prereq:
+          type: string
+          description: Any prerequisites for the class.
+          example: example-value
+        Program:
+          $ref: '#/components/schemas/Program'
+          description: Contains information about the class description's program.
+        SessionType:
+          $ref: '#/components/schemas/SessionType'
+          description: Contains information about the class description's session type.
+        Category:
+          type: string
+          description: The category of this class description.
+          example: example-value
+        CategoryId:
+          type: integer
+          format: int32
+          description: The category ID of this class description.
+          example: 123456
+        Subcategory:
+          type: string
+          description: The subcategory of this class description.
+          example: example-value
+        SubcategoryId:
+          type: integer
+          format: int32
+          description: The subcategory ID of this class description.
+          example: 123456
+    BookingStatusEnum:
+      type: string
+      description: BookingStatusEnum enumeration.
+      enum:
+      - PaymentRequired
+      - BookAndPayLater
+      - Free
+    Visit:
+      type: object
+      description: Implementation of the 'Visit' model. Represents a specific visit to a class
+      properties:
+        AppointmentId:
+          type: integer
+          format: int32
+          description: The appointment’s ID.
+          example: 123456
+        AppointmentGenderPreference:
+          $ref: '#/components/schemas/AppointmentGenderPreferenceEnum'
+          description: 'The gender of staff member with whom the client prefers to book appointments. Possible values are: * Female - Indicates that the client prefers to book appointments with female staff members. * Male - Indicates that the client prefers to book appointments with male staff members. * None - Indicates that the client does not have a staff member gender preference.'
+        AppointmentStatus:
+          $ref: '#/components/schemas/AppointmentStatusEnum'
+          description: The status of the appointment.
+        ClassId:
+          type: integer
+          format: int32
+          description: The class ID that was used to retrieve the visits.
+          example: 123456
+        ClientId:
+          type: string
+          description: The ID of the client associated with the visit.
+          example: example-value
+        ClientPhotoUrl:
+          type: string
+          description: PhotoUrl for the client
+          example: https://example.mindbodyonline.com/resource/abc123
+        ClientUniqueId:
+          type: integer
+          format: int32
+          description: The unique ID of the client associated with the visit.
+          example: 123456
+        StartDateTime:
+          type: string
+          format: date-time
+          description: The time this class is scheduled to start.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: The date and time the visit ends. The Public API returns UTC dates and times. For example, a class that occurs on June 25th, 2018 at 2:15PM (EST) appears as “2018-06-25T19:15:00Z” because EST is five hours behind UTC. Date time pairs always return in the format YYYY-MM-DDTHH:mm:ssZ.
+          example: '2026-05-28T14:30:00Z'
+        Id:
+          type: integer
+          format: int32
+          description: The ID of the visit.
+          example: 123456
+        LastModifiedDateTime:
+          type: string
+          format: date-time
+          description: When included in the request, only records modified on or after the specified `LastModifiedDate` are included in the response. The Public API returns UTC dates and times. For example, a class that occurs on June 25th, 2018 at 2:15PM (EST) appears as “2018-06-25T19:15:00Z” because EST is five hours behind UTC. Date time pairs always return in the format YYYY-MM-DDTHH:mm:ssZ.
+          example: '2026-05-28T14:30:00Z'
+        LateCancelled:
+          type: boolean
+          description: When `true`, indicates that the class has been `LateCancelled`.<br /> When `false`, indicates that the class has not been `LateCancelled`.
+          example: true
+        SiteId:
+          type: integer
+          format: int32
+          description: The ID of the business where the visit is booked.
+          example: -99
+        LocationId:
+          type: integer
+          format: int32
+          description: The ID of the location where the visit took place or is to take place.
+          example: 123456
+        MakeUp:
+          type: boolean
+          description: 'When `true`, the client can make up this session and a session is not deducted from the pricing option that was used to sign the client into the enrollment. When the client has the make-up session, a session is automatically removed from a pricing option that matches the service category of the enrollment and is within the same date range of the missed session.<br /> When `false`, the client cannot make up this session. See [Enrollments: Make-ups](https://support.mindbodyonline.com/s/article/203'
+          example: true
+        Name:
+          type: string
+          description: The name of the class.
+          example: Sunset Yoga Studio
+        ServiceId:
+          type: integer
+          format: int32
+          description: The unique ID assigned to this pricing option when it was purchased by the client.
+          example: 123456
+        ServiceName:
+          type: string
+          description: The name of the pricing option at the site where it was purchased.
+          example: example-value
+        Service:
+          $ref: '#/components/schemas/ClientService'
+          description: The details of the pricing option at the site where it was purchased.
+        ProductId:
+          type: integer
+          format: int32
+          description: The ID of the pricing option at the site where it was purchased.
+          example: 123456
+        SignedIn:
+          type: boolean
+          description: When `true`, indicates that the client has been signed in.<br /> When `false`, indicates that the client has not been signed in.
+          example: true
+        StaffId:
+          type: integer
+          format: int32
+          description: The ID of the staff member who is teaching the class.
+          example: 123456
+        WebSignup:
+          type: boolean
+          description: When `true`, indicates that the client signed up online.<br /> When `false`, indicates that the client was signed up by a staff member.
+          example: true
+        Action:
+          $ref: '#/components/schemas/Action1Enum'
+          description: The action taken.
+        Missed:
+          type: boolean
+          description: When `true`, indicates that the class has been `Missed`.<br /> When `false`, indicates that the class has not been `Missed`.
+          example: true
+        VisitType:
+          type: integer
+          format: int32
+          description: Indicates the Id of visit type.
+          example: 1
+        TypeGroup:
+          type: integer
+          format: int32
+          description: Indicates the Id of type group.
+          example: 1
+        TypeTaken:
+          type: string
+          description: Indicates the service type taken.
+          example: example-value
+    ClassClientDetail:
+      type: object
+      description: Implementation of the 'ClassClientDetail' model. Class Client Detail Object
+      properties:
+        ClientIds:
+          type: array
+          items:
+            type: string
+          description: The RSSID of the clients to remove from the specified classes.
+          example:
+          - example-value
+        ClassId:
+          type: integer
+          format: int32
+          description: The ID of the classes that you want to remove the clients from.
+          example: 123456
+    AppointmentGenderPreference1Enum:
+      type: string
+      description: AppointmentGenderPreference1Enum enumeration.
+      enum:
+      - None
+      - Female
+      - Male
+    ClientCreditCard:
+      type: object
+      description: Implementation of the 'ClientCreditCard' model. A client credit card.
+      properties:
+        Address:
+          type: string
+          description: The billing address for the credit card.
+          example: 123 Market St
+        CardHolder:
+          type: string
+          description: The name of the card holder.
+          example: example-value
+        CardNumber:
+          type: string
+          description: The credit card number.
+          example: example-value
+        CardType:
+          type: string
+          description: The type of credit card, for example Visa or MasterCard.
+          example: example-value
+        City:
+          type: string
+          description: The city in which the billing address is located.
+          example: San Francisco
+        ExpMonth:
+          type: string
+          description: The month in which the credit card expires.
+          example: example-value
+        ExpYear:
+          type: string
+          description: The year in which the credit card expires.
+          example: example-value
+        LastFour:
+          type: string
+          description: The last four digits of the credit card number.
+          example: example-value
+        PostalCode:
+          type: string
+          description: The postal code where the billing address is located.
+          example: '94110'
+        State:
+          type: string
+          description: The state that the billing address is located in.
+          example: CA
+    AddClassEnrollmentScheduleRequest:
+      type: object
+      description: Implementation of the 'AddClassEnrollmentScheduleRequest' model.
+      properties:
+        ClassDescriptionId:
+          type: integer
+          format: int32
+          description: The Id of the class/enrollment description. This can be found in GetClassDescriptions.
+          example: 123456
+        LocationId:
+          type: integer
+          format: int32
+          description: The Location Id of the enrollment schedule.
+          example: 123456
+        StartDate:
+          type: string
+          format: date-time
+          description: The start date of the enrollment schedule.
+          example: '2026-05-28T14:30:00Z'
+        EndDate:
+          type: string
+          format: date-time
+          description: The end date of the enrollment schedule.
+          example: '2026-05-28T14:30:00Z'
+        StartTime:
+          type: string
+          format: date-time
+          description: Enrollment start time (use null or omit for TBD).
+          example: '2026-05-28T14:30:00Z'
+        EndTime:
+          type: string
+          format: date-time
+          description: Enrollment end time (ignored if StartTime is null or omitted).
+          example: '2026-05-28T14:30:00Z'
+        DaySunday:
+          type: boolean
+          description: If the enrollment occurs on Sunday(s).
+          example: true
+        DayMonday:
+          type: boolean
+          description: If the enrollment occurs on Monday(s).
+          example: true
+        DayTuesday:
+          type: boolean
+          description: If the enrollment occurs on Tuesday(s).
+          example: true
+        DayWednesday:
+          type: boolean
+          description: If the enrollment occurs on Wednesday(s).
+          example: true
+        DayThursday:
+          type: boolean
+          description: If the enrollment occurs on Thursday(s).
+          example: true
+        DayFriday:
+          type: boolean
+          description: If the enrollment occurs on Friday(s).
+          example: true
+        DaySaturday:
+          type: boolean
+          description: If the enrollment occurs on Saturday(s).
+          example: true
+        StaffId:
+          type: integer
+          format: int32
+          description: The staff member teaching the enrollment.
+          example: 123456
+        StaffPayRate:
+          type: integer
+          format: int32
+          description: The staff pay rate. Must be between 1-21.
+          example: 1
+        ResourceId:
+          type: integer
+          format: int32
+          description: The room where the enrollment is taking place.
+          example: 123456
+        MaxCapacity:
+          type: integer
+          format: int32
+          description: How many people can attend.
+          example: 1
+        WebCapacity:
+          type: integer
+          format: int32
+          description: 'How many people can signup online. Default: **0**'
+          example: 1
+        WaitlistCapacity:
+          type: integer
+          format: int32
+          description: How many people can waitlist. Default:**0**
+          example: 1
+        BookingStatus:
+          type: string
+          description: 'One of: PaymentRequired, BookAndPayLater, Free'
+          example: Active
+        AllowOpenEnrollment:
+          type: boolean
+          description: 'Allow clients to choose which sessions they’d like to sign up for. Default: **false**'
+          example: true
+        AllowDateForwardEnrollment:
+          type: boolean
+          description: 'Allow booking after the enrollment has started. Default: **false**'
+          example: true
+        PricingOptionsProductIds:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: Pricing Options for this schedule
+          example:
+          - 1
+        ShowToPublic:
+          type: boolean
+          description: 'Allow clients to see this schedule Default: **true**'
+          example: true
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: API-Key
+      description: Mindbody-issued API key (server-to-server). Required on every request.
+    OAuth2:
+      type: oauth2
+      description: OpenID Connect bearer token issued by Mindbody Identity Service (signin.mindbodyonline.com). Required for endpoints that act on behalf of a staff or client user.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://signin.mindbodyonline.com/connect/authorize
+          tokenUrl: https://signin.mindbodyonline.com/connect/token
+          scopes:
+            openid: OpenID Connect base scope.
+            profile: User profile claims.
+            email: User email claim.
+            offline_access: Issue a refresh token.
+            Mindbody.Api.Public.v6: Access the Mindbody Public API v6 on behalf of the user.

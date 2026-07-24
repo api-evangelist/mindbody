@@ -1,0 +1,185 @@
+openapi: 3.0.3
+info:
+  title: Mindbody Public API v6 Appointment Cross Site API
+  version: '6.0'
+  description: REST API for Mindbody business management data including appointments, classes, clients, enrollments, sales, sites, staff, payroll, and cross-site operations. Authentication combines a Mindbody-issued API-Key header with a SiteId header and optional staff/user OAuth bearer tokens for write operations. Generated from the official Mindbody Public API Python SDK (apimatic v3).
+  contact:
+    name: Mindbody API Support
+    url: https://support.mindbodyonline.com/s/contactapisupport
+  license:
+    name: Proprietary
+  x-generated-from: Mindbody-API-SDKs python SDK
+  x-last-validated: '2026-05-28'
+servers:
+- url: https://api.mindbodyonline.com
+  description: Production
+security:
+- ApiKeyAuth: []
+tags:
+- name: Cross Site
+  description: Cross Site operations.
+paths:
+  /public/v6/crossSite/copycreditcard:
+    post:
+      tags:
+      - Cross Site
+      summary: Mindbody Copies the Credit Card Information from One Client to Another,
+      description: Copies the credit card information from one client to another, regardless of site. The source and target clients must have the same email address.
+      operationId: copyCreditCard
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CopyCreditCardRequest'
+            examples:
+              CopycreditcardRequestExample:
+                summary: Default copyCreditCard request example
+                x-microcks-default: true
+                value:
+                  SourceSiteId: 123456
+                  SourceClientId: example-value
+                  SourceUniqueClientId: 123456
+                  TargetSiteId: 123456
+                  TargetClientId: example-value
+                  TargetUniqueClientId: 123456
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CopyCreditCardResponse'
+              examples:
+                Copycreditcard200Example:
+                  summary: Default copyCreditCard 200 example
+                  x-microcks-default: true
+                  value:
+                    CopiedFrom: {}
+                    CopiedTo: {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+components:
+  schemas:
+    CopyCreditCardRequest:
+      type: object
+      description: Implementation of the 'CopyCreditCardRequest' model. crosssite/copycreditcard
+      properties:
+        SourceSiteId:
+          type: integer
+          format: int32
+          description: The siteId of the source clientId.
+          example: 123456
+        SourceClientId:
+          type: string
+          description: The clientId at the source siteId.
+          example: example-value
+        SourceUniqueClientId:
+          type: integer
+          format: int32
+          description: The unique clidnetId at the source siteId.
+          example: 123456
+        TargetSiteId:
+          type: integer
+          format: int32
+          description: The siteId of the target clientId.
+          example: 123456
+        TargetClientId:
+          type: string
+          description: The clientId at the target siteId.
+          example: example-value
+        TargetUniqueClientId:
+          type: integer
+          format: int32
+          description: The unique clidnetId at the target siteId.
+          example: 123456
+    CopyCreditCardResponse:
+      type: object
+      description: Implementation of the 'CopyCreditCardResponse' model. crosssite/copycreditcard
+      properties:
+        CopiedFrom:
+          $ref: '#/components/schemas/CopyCreditCardResponseClient'
+          description: Copied from
+        CopiedTo:
+          $ref: '#/components/schemas/CopyCreditCardResponseClient'
+          description: Copied To
+    CopyCreditCardResponseClient:
+      type: object
+      description: Implementation of the 'CopyCreditCardResponseClient' model.
+      properties:
+        ClientId:
+          type: string
+          description: ClientId
+          example: example-value
+        UniqueId:
+          type: integer
+          format: int32
+          description: UniqeuId
+          example: 123456
+        SiteId:
+          type: integer
+          format: int32
+          description: SiteId
+          example: -99
+        FirstName:
+          type: string
+          description: First name of ClientId
+          example: Alex
+        LastName:
+          type: string
+          description: Last name of ClientId
+          example: Lane
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: API-Key
+      description: Mindbody-issued API key (server-to-server). Required on every request.
+    OAuth2:
+      type: oauth2
+      description: OpenID Connect bearer token issued by Mindbody Identity Service (signin.mindbodyonline.com). Required for endpoints that act on behalf of a staff or client user.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://signin.mindbodyonline.com/connect/authorize
+          tokenUrl: https://signin.mindbodyonline.com/connect/token
+          scopes:
+            openid: OpenID Connect base scope.
+            profile: User profile claims.
+            email: User email claim.
+            offline_access: Issue a refresh token.
+            Mindbody.Api.Public.v6: Access the Mindbody Public API v6 on behalf of the user.

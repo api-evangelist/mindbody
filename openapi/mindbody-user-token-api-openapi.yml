@@ -1,0 +1,255 @@
+openapi: 3.0.3
+info:
+  title: Mindbody Public API v6 Appointment User Token API
+  version: '6.0'
+  description: REST API for Mindbody business management data including appointments, classes, clients, enrollments, sales, sites, staff, payroll, and cross-site operations. Authentication combines a Mindbody-issued API-Key header with a SiteId header and optional staff/user OAuth bearer tokens for write operations. Generated from the official Mindbody Public API Python SDK (apimatic v3).
+  contact:
+    name: Mindbody API Support
+    url: https://support.mindbodyonline.com/s/contactapisupport
+  license:
+    name: Proprietary
+  x-generated-from: Mindbody-API-SDKs python SDK
+  x-last-validated: '2026-05-28'
+servers:
+- url: https://api.mindbodyonline.com
+  description: Production
+security:
+- ApiKeyAuth: []
+tags:
+- name: User Token
+  description: User Token operations.
+paths:
+  /public/v6/usertoken/issue:
+    post:
+      tags:
+      - User Token
+      summary: Mindbody When Users Interact with Your Public API Integration as Staff Members,
+      description: When users interact with your Public API integration as staff members, they need to get a staff user token for authentication. You can use the issue endpoint to get a staff user token, then pass the token in the headers for all of your requests.
+      operationId: issueToken
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IssueRequest'
+            examples:
+              IssuetokenRequestExample:
+                summary: Default issueToken request example
+                x-microcks-default: true
+                value:
+                  Username: example-value
+                  Password: example-value
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IssueResponse'
+              examples:
+                Issuetoken200Example:
+                  summary: Default issueToken 200 example
+                  x-microcks-default: true
+                  value:
+                    TokenType: example-value
+                    AccessToken: example-value
+                    Expires: '2026-05-28T14:30:00Z'
+                    User: {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/usertoken/renew:
+    post:
+      tags:
+      - User Token
+      summary: Mindbody Renews a Token. Can Be Used to Extend the Lifetime of a Token
+      description: 'Renews a token. Can be used to extend the lifetime of a token. Current lifetime expansion: 24hrs from current expiration, up to 7 renewals.'
+      operationId: renewToken
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/usertoken/revoke:
+    delete:
+      tags:
+      - User Token
+      summary: Mindbody Revokes the User Token in the Authorization Header
+      description: Revokes the user token in the Authorization header.
+      operationId: revokeToken
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+components:
+  schemas:
+    IssueRequest:
+      type: object
+      description: Implementation of the 'IssueRequest' model. POST UserToken/Issue request
+      properties:
+        Username:
+          type: string
+          description: The staff member’s username.
+          example: example-value
+        Password:
+          type: string
+          description: The staff member’s password.
+          example: example-value
+    User:
+      type: object
+      description: Implementation of the 'User' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The user’s ID at the business. This is always 0 for Admin and Owner type users.
+          example: 123456
+        FirstName:
+          type: string
+          description: The user’s first name.
+          example: Alex
+        LastName:
+          type: string
+          description: The user’s last name.
+          example: Lane
+        Type:
+          type: string
+          description: 'The user’s type. Possible values are: * Staff * Owner * Admin'
+          example: example-value
+    IssueResponse:
+      type: object
+      description: Implementation of the 'IssueResponse' model. POST UserToken/Issue successful response
+      properties:
+        TokenType:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        AccessToken:
+          type: string
+          description: The authentication token value.
+          example: example-value
+        Expires:
+          type: string
+          format: date-time
+          description: Token expiration in UTC.
+          example: '2026-05-28T14:30:00Z'
+        User:
+          $ref: '#/components/schemas/User'
+          description: Contains information about the user represented by the access token.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: API-Key
+      description: Mindbody-issued API key (server-to-server). Required on every request.
+    OAuth2:
+      type: oauth2
+      description: OpenID Connect bearer token issued by Mindbody Identity Service (signin.mindbodyonline.com). Required for endpoints that act on behalf of a staff or client user.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://signin.mindbodyonline.com/connect/authorize
+          tokenUrl: https://signin.mindbodyonline.com/connect/token
+          scopes:
+            openid: OpenID Connect base scope.
+            profile: User profile claims.
+            email: User email claim.
+            offline_access: Issue a refresh token.
+            Mindbody.Api.Public.v6: Access the Mindbody Public API v6 on behalf of the user.

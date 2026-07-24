@@ -1,0 +1,671 @@
+openapi: 3.0.3
+info:
+  title: Mindbody Public API v6 Appointment Pick A Spot API
+  version: '6.0'
+  description: REST API for Mindbody business management data including appointments, classes, clients, enrollments, sales, sites, staff, payroll, and cross-site operations. Authentication combines a Mindbody-issued API-Key header with a SiteId header and optional staff/user OAuth bearer tokens for write operations. Generated from the official Mindbody Public API Python SDK (apimatic v3).
+  contact:
+    name: Mindbody API Support
+    url: https://support.mindbodyonline.com/s/contactapisupport
+  license:
+    name: Proprietary
+  x-generated-from: Mindbody-API-SDKs python SDK
+  x-last-validated: '2026-05-28'
+servers:
+- url: https://api.mindbodyonline.com
+  description: Production
+security:
+- ApiKeyAuth: []
+tags:
+- name: Pick A Spot
+  description: Pick A Spot operations.
+paths:
+  /public/v6/pickaspot/v1/class:
+    get:
+      tags:
+      - Pick A Spot
+      summary: Mindbody This Endpoint Supports Pagination. See Pagination Object for a
+      description: This endpoint supports pagination. See Pagination object for a description.
+      operationId: getClassList
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPickASpotClassResponse'
+              examples:
+                Getclasslist200Example:
+                  summary: Default getClassList 200 example
+                  x-microcks-default: true
+                  value:
+                    classes:
+                    - {}
+                    pagination: {}
+                    responseDetails: {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/pickaspot/v1/class/{classId}:
+    get:
+      tags:
+      - Pick A Spot
+      summary: Mindbody Get a Class Filtered by ClassId
+      description: Get a class filtered by classId.
+      operationId: getClass
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: classId
+        in: path
+        required: true
+        description: The request template parameter.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPickASpotClassResponse'
+              examples:
+                Getclass200Example:
+                  summary: Default getClass 200 example
+                  x-microcks-default: true
+                  value:
+                    classes:
+                    - {}
+                    pagination: {}
+                    responseDetails: {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/pickaspot/v1/reservation/{pathInfo}:
+    get:
+      tags:
+      - Pick A Spot
+      summary: Mindbody Retrieves Reservation for Pick a Spot
+      description: Retrieves reservation for Pick a Spot.
+      operationId: getReservation
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: pathInfo
+        in: path
+        required: true
+        description: The request template parameter.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetReservationResponse'
+              examples:
+                Getreservation200Example:
+                  summary: Default getReservation 200 example
+                  x-microcks-default: true
+                  value:
+                    Reservations:
+                    - {}
+                    Pagination: {}
+                    ResponseDetails: {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+    put:
+      tags:
+      - Pick A Spot
+      summary: Mindbody A User Token is Required for This Endpoint
+      description: A user token is required for this endpoint. This endpoint updates a single reservation.
+      operationId: updateReservation
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: pathInfo
+        in: path
+        required: true
+        description: The request template parameter.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateReservationResponse'
+              examples:
+                Updatereservation200Example:
+                  summary: Default updateReservation 200 example
+                  x-microcks-default: true
+                  value:
+                    Reservation: {}
+                    ResponseDetails: {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+    post:
+      tags:
+      - Pick A Spot
+      summary: Mindbody Creates a Spot Reservation for a Given Pick-a-spot Class. the Actual
+      description: 'Creates a spot reservation for a given pick-a-spot class. The actual class visit must be created prior to calling this endpoint. A user token is required for this endpoint. Sample request: POST /pickaspot/v1/reservation { "SiteId": -1147483363, "LocationId": 1, "ClassId": "64b14ac8c20ae8f0afd2d409", "ReservationExternalId": "44724", // this is a Visit.Id and should be linked to a specific class visit "MemberExternalId": "100000136", // this is Client''s UniqueId "SpotNumber": "5", "ReservationDisplayName": "ReservationDisplayName", // optional "ReservationType": "Member", // optional. Can be Member, Guest, Instructor, FamilyMember, "AutoConfirm": false, // optional. Default: false "AutoAssignSpot": false // optional. It will override the "SpotNumber" passed and auto assign one. Default: false }'
+      operationId: createReservation
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: pathInfo
+        in: path
+        required: true
+        description: The request template parameter.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateReservationResponse'
+              examples:
+                Createreservation200Example:
+                  summary: Default createReservation 200 example
+                  x-microcks-default: true
+                  value:
+                    Reservation: {}
+                    ResponseDetails: {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+    delete:
+      tags:
+      - Pick A Spot
+      summary: Mindbody A User Token is Required for This Endpoint
+      description: A user token is required for this endpoint. This endpoint deletes a single reservation.
+      operationId: deleteReservation
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: pathInfo
+        in: path
+        required: true
+        description: The request template parameter.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HttpContent'
+              examples:
+                Deletereservation200Example:
+                  summary: Default deleteReservation 200 example
+                  x-microcks-default: true
+                  value:
+                    Headers:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+components:
+  schemas:
+    UpdateReservationResponse:
+      type: object
+      description: Implementation of the 'UpdateReservationResponse' model. Contains information about the update reservation response.
+      properties:
+        Reservation:
+          $ref: '#/components/schemas/Reservation'
+          description: Contains information about the reservation details.
+        ResponseDetails:
+          $ref: '#/components/schemas/ResponseDetails'
+          description: Contains information about the response details, e.g. status, transactionId.
+    GetReservationResponse:
+      type: object
+      description: Implementation of the 'GetReservationResponse' model. Contains information about the get reservation response
+      properties:
+        Reservations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reservation'
+          description: Contains information about the reservation details.
+          example:
+          - {}
+        Pagination:
+          $ref: '#/components/schemas/Pagination'
+          description: Contains information about the pagination used.
+        ResponseDetails:
+          $ref: '#/components/schemas/ResponseDetails'
+          description: Contains information about the response details, e.g. status, transactionId.
+    ResponseDetails:
+      type: object
+      description: Implementation of the 'ResponseDetails' model. Contains information about the response message detail.
+      properties:
+        Status:
+          type: string
+          description: Contains information about the response status.
+          example: Active
+        TransactionId:
+          type: string
+          description: The unique transaction ID.
+          example: example-value
+        Message:
+          type: string
+          description: Contains information about the response message detail.
+          example: example-value
+    CreateReservationResponse:
+      type: object
+      description: Implementation of the 'CreateReservationResponse' model. Contains information about the create reservation response.
+      properties:
+        Reservation:
+          $ref: '#/components/schemas/Reservation'
+          description: Contains information about the reservation details.
+        ResponseDetails:
+          $ref: '#/components/schemas/ResponseDetails'
+          description: Contains information about the response details, e.g. status, transactionId.
+    M0CultureNeutralPublicKeyTokenB77a5c561934e089:
+      type: object
+      description: Implementation of the '0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]' model.
+      properties:
+        key:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        value:
+          type: array
+          items:
+            type: string
+          description: The model property of type List[str].
+          example:
+          - example-value
+    GetPickASpotClassResponse:
+      type: object
+      description: Implementation of the 'GetPickASpotClassResponse' model. Contains information about the get PickASpot class response.
+      properties:
+        classes:
+          type: array
+          items:
+            $ref: '#/components/schemas/PickASpotClass'
+          description: Contains information about the PickASpot classes.
+          example:
+          - {}
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+          description: Contains information about the pagination used.
+        responseDetails:
+          $ref: '#/components/schemas/ResponseDetails'
+          description: Contains information about the response details.
+    HttpContent:
+      type: object
+      description: Implementation of the 'HttpContent' model.
+      properties:
+        Headers:
+          type: array
+          items:
+            $ref: '#/components/schemas/M0CultureNeutralPublicKeyTokenB77a5c561934e089'
+          description: The model property of type List[M0CultureNeutralPublicKeyTokenB77a5c561934e089].
+          example:
+          - {}
+    Reservation:
+      type: object
+      description: Implementation of the 'Reservation' model. Contains information about the reservation.
+      properties:
+        ReservationId:
+          type: string
+          description: The unique reservation ID.
+          example: example-value
+        ReservationExternalId:
+          type: string
+          description: The unique reservation external ID.
+          example: example-value
+        ClassId:
+          type: string
+          description: The unique class ID.
+          example: example-value
+        ClassExternalId:
+          type: string
+          description: The unique class external ID.
+          example: example-value
+        MemberExternalId:
+          type: string
+          description: The unique member external ID.
+          example: example-value
+        ReservationType:
+          type: string
+          description: Contains information about the reservation type.
+          example: example-value
+        Spots:
+          $ref: '#/components/schemas/Spot'
+          description: Contains information about the spot details.
+        IsConfirmed:
+          type: boolean
+          description: Boolean value whether it is confirmed.
+          example: true
+        ConfirmationDate:
+          type: string
+          format: date-time
+          description: Contains information about the confirmation date.
+          example: '2026-05-28T14:30:00Z'
+    PickASpotClass:
+      type: object
+      description: Implementation of the 'PickASpotClass' model. Contains information about the PickASpot classes.
+      properties:
+        SiteId:
+          type: integer
+          format: int32
+          description: The unique ID of the Site.
+          example: -99
+        LocationId:
+          type: integer
+          format: int32
+          description: The unique ID of the Location.
+          example: 123456
+        ClassId:
+          type: string
+          description: The unique ID of the Class.
+          example: example-value
+        ClassExternalId:
+          type: string
+          description: The unique Class external ID.
+          example: example-value
+        ClassName:
+          type: string
+          description: Contains the class name.
+          example: example-value
+        ClassStartTime:
+          type: string
+          format: date-time
+          description: Class start time.
+          example: '2026-05-28T14:30:00Z'
+        ClassEndTime:
+          type: string
+          format: date-time
+          description: Class end time.
+          example: '2026-05-28T14:30:00Z'
+        ClassMaximumCapacity:
+          type: integer
+          format: int32
+          description: Contains information about the Class maximum capacity.
+          example: 1
+        RoomId:
+          type: string
+          description: The unique Room ID.
+          example: example-value
+        Spots:
+          $ref: '#/components/schemas/Spot'
+          description: Contains information about the spot detail.
+        Reservations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reservation'
+          description: Contains information about the reservation collection.
+          example:
+          - {}
+    Pagination:
+      type: object
+      description: Implementation of the 'Pagination' model. Contains information about the pagination used.
+      properties:
+        PageNumber:
+          type: integer
+          format: int32
+          description: Page number of results in dataset.
+          example: 1
+        PageSize:
+          type: integer
+          format: int32
+          description: Number of results returned in this response.
+          example: 1
+        TotalResultCount:
+          type: integer
+          format: int32
+          description: Total number of results in dataset.
+          example: 10
+        TotalPageCount:
+          type: integer
+          format: int32
+          description: Total number of page in dataset.
+          example: 10
+    Spot:
+      type: object
+      description: Implementation of the 'Spot' model. Contains information about the spot details.
+      properties:
+        ReservedSpotNumbers:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: Contains information about the collection of reserved spot numbers.
+          example:
+          - 1
+        AvailableSpotNumbers:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: Contains information about the collection of available spot numbers.
+          example:
+          - 1
+        UnavailableSpotNumbers:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: Contains information about the collection of Unavailable spot numbers.
+          example:
+          - 1
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: API-Key
+      description: Mindbody-issued API key (server-to-server). Required on every request.
+    OAuth2:
+      type: oauth2
+      description: OpenID Connect bearer token issued by Mindbody Identity Service (signin.mindbodyonline.com). Required for endpoints that act on behalf of a staff or client user.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://signin.mindbodyonline.com/connect/authorize
+          tokenUrl: https://signin.mindbodyonline.com/connect/token
+          scopes:
+            openid: OpenID Connect base scope.
+            profile: User profile claims.
+            email: User email claim.
+            offline_access: Issue a refresh token.
+            Mindbody.Api.Public.v6: Access the Mindbody Public API v6 on behalf of the user.

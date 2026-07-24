@@ -1,0 +1,3848 @@
+openapi: 3.0.3
+info:
+  title: Mindbody Public API v6 Appointment API
+  version: '6.0'
+  description: REST API for Mindbody business management data including appointments, classes, clients, enrollments, sales, sites, staff, payroll, and cross-site operations. Authentication combines a Mindbody-issued API-Key header with a SiteId header and optional staff/user OAuth bearer tokens for write operations. Generated from the official Mindbody Public API Python SDK (apimatic v3).
+  contact:
+    name: Mindbody API Support
+    url: https://support.mindbodyonline.com/s/contactapisupport
+  license:
+    name: Proprietary
+  x-generated-from: Mindbody-API-SDKs python SDK
+  x-last-validated: '2026-05-28'
+servers:
+- url: https://api.mindbodyonline.com
+  description: Production
+security:
+- ApiKeyAuth: []
+tags:
+- name: Appointment
+  description: Appointment operations.
+paths:
+  /public/v6/appointment/activesessiontimes:
+    get:
+      tags:
+      - Appointment
+      summary: Mindbody This is Not Appointment Availability but Rather the Active Business
+      description: This is not appointment availability but rather the active business hours for studios and which increments services can be booked at. See BookableItems for appointment availability.
+      operationId: getActiveSessionTimes
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.endTime
+        in: query
+        required: false
+        description: 'Filters results to times that end on or before this time on the current date. Any date provided is ignored.. <br />Default: **23:59:59**'
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.scheduleType
+        in: query
+        required: false
+        description: Filters on the provided the schedule type. Either `SessionTypeIds` or `ScheduleType` must be provided.
+        schema:
+          $ref: '#/components/schemas/RequestScheduleTypeEnum'
+        example: {}
+      - name: request.sessionTypeIds
+        in: query
+        required: false
+        description: Filters on the provided session type IDs. Either `SessionTypeIds` or `ScheduleType` must be provided.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.startTime
+        in: query
+        required: false
+        description: 'Filters results to times that start on or after this time on the current date. Any date provided is ignored. <br />Default: **00:00:00**'
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetActiveSessionTimesResponse'
+              examples:
+                Getactivesessiontimes200Example:
+                  summary: Default getActiveSessionTimes 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    ActiveSessionTimes:
+                    - example-value
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/appointment/addons:
+    get:
+      tags:
+      - Appointment
+      summary: Mindbody Get Active Appointment Add-ons
+      description: Get active appointment add-ons.
+      operationId: getAddOns
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.staffId
+        in: query
+        required: false
+        description: Filter to add-ons only performed by this staff member.
+        schema:
+          type: integer
+          format: int32
+        example: 123456
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAddOnsResponse'
+              examples:
+                Getaddons200Example:
+                  summary: Default getAddOns 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    AddOns:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/appointment/appointmentoptions:
+    get:
+      tags:
+      - Appointment
+      summary: Mindbody This Endpoint Has No Query Parameters
+      description: This endpoint has no query parameters.
+      operationId: getAppointmentOptions
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAppointmentOptionsResponse'
+              examples:
+                Getappointmentoptions200Example:
+                  summary: Default getAppointmentOptions 200 example
+                  x-microcks-default: true
+                  value:
+                    Options:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/appointment/availabledates:
+    get:
+      tags:
+      - Appointment
+      summary: Mindbody Returns a List of Dates to Narrow Down Staff Availability When
+      description: Returns a list of dates to narrow down staff availability when booking. Dates are those which staff are scheduled to work and do not guarantee booking availabilities. After this call is made, use GET BookableItems to retrieve availabilities for specific dates before booking.
+      operationId: getAvailableDates
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: request.sessionTypeId
+        in: query
+        required: true
+        description: required requested session type ID.
+        schema:
+          type: integer
+          format: int32
+        example: 123456
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.endDate
+        in: query
+        required: false
+        description: 'The end date of the requested date range. <br />Default: **StartDate**'
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      - name: request.locationId
+        in: query
+        required: false
+        description: optional requested location ID.
+        schema:
+          type: integer
+          format: int32
+        example: 123456
+      - name: request.staffId
+        in: query
+        required: false
+        description: optional requested staff ID.
+        schema:
+          type: integer
+          format: int32
+        example: 123456
+      - name: request.startDate
+        in: query
+        required: false
+        description: 'The start date of the requested date range. If omitted, the default is used. <br />Default: **today’s date**'
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAvailableDatesResponse'
+              examples:
+                Getavailabledates200Example:
+                  summary: Default getAvailableDates 200 example
+                  x-microcks-default: true
+                  value:
+                    AvailableDates:
+                    - '2026-05-28T14:30:00Z'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/appointment/bookableitems:
+    get:
+      tags:
+      - Appointment
+      summary: Mindbody Returns a List of Availabilities with the Information Needed to Book
+      description: 'Returns a list of availabilities with the information needed to book appointments. Availabilities include information such as the location and its amenities, staff members, programs, and session types. Recommended to use with GET AvailableDates to see what dates the staff is scheduled to work and narrow down the dates searched. Recommended to use with GET ActiveSessionTimes to see which increments each business allows for booking appointments. Notes: - With a wider range of dates, this call may take longer to return results. - With a higher number of request.sessionTypeIds, this call may take longer to return results.'
+      operationId: getBookableItems
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: request.sessionTypeIds
+        in: query
+        required: true
+        description: A list of the requested session type IDs.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.appointmentId
+        in: query
+        required: false
+        description: If provided, filters out the appointment with this ID.
+        schema:
+          type: integer
+          format: int32
+        example: 123456
+      - name: request.endDate
+        in: query
+        required: false
+        description: 'The end date of the requested date range. <br />Default: **StartDate**'
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      - name: request.ignoreDefaultSessionLength
+        in: query
+        required: false
+        description: When `true`, availabilities that are non-default return, for example, a 30-minute availability with a 60-minute default session length.<br /> When `false`, only availabilities that have the default session length return.
+        schema:
+          type: boolean
+        example: true
+      - name: request.includeResourceAvailability
+        in: query
+        required: false
+        description: When `true`, resource availabilities for the session type are returned.<br /> When `false`, resource availabilities are not returned default.
+        schema:
+          type: boolean
+        example: true
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.locationIds
+        in: query
+        required: false
+        description: A list of the requested location IDs.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.staffIds
+        in: query
+        required: false
+        description: A list of the requested staff IDs. Omit parameter to return all staff availabilities.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.startDate
+        in: query
+        required: false
+        description: 'The start date of the requested date range. <br />Default: **today’s date**'
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBookableItemsResponse'
+              examples:
+                Getbookableitems200Example:
+                  summary: Default getBookableItems 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    Availabilities:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/appointment/scheduleitems:
+    get:
+      tags:
+      - Appointment
+      summary: Mindbody Returns a List of Schedule Items, Including Appointments,
+      description: Returns a list of schedule items, including appointments, availabilities, and unavailabilities. Unavailabilities are the times at which appointments cannot be booked, for example, on holidays or after hours when the business is closed.
+      operationId: getScheduleItems
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.endDate
+        in: query
+        required: false
+        description: 'The end date of the requested date range. <br />Default: **today’s date**'
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      - name: request.ignorePrepFinishTimes
+        in: query
+        required: false
+        description: 'When `true`, appointment preparation and finish unavailabilities are not returned. <br />Default: **false**'
+        schema:
+          type: boolean
+        example: true
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.locationIds
+        in: query
+        required: false
+        description: A list of requested location IDs.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.staffIds
+        in: query
+        required: false
+        description: A list of requested staff IDs.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.startDate
+        in: query
+        required: false
+        description: 'The start date of the requested date range. <br />Default: **today’s date**'
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetScheduleItemsResponse'
+              examples:
+                Getscheduleitems200Example:
+                  summary: Default getScheduleItems 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    StaffMembers:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/appointment/staffappointments:
+    get:
+      tags:
+      - Appointment
+      summary: Mindbody Returns a List of Appointments by Staff Member
+      description: Returns a list of appointments by staff member.
+      operationId: getStaffAppointments
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.appointmentIds
+        in: query
+        required: false
+        description: A list of the requested appointment IDs.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.clientId
+        in: query
+        required: false
+        description: The client ID to be returned.
+        schema:
+          type: string
+        example: example-value
+      - name: request.endDate
+        in: query
+        required: false
+        description: 'The end date of the requested date range. <br />Default: **StartDate**'
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.locationIds
+        in: query
+        required: false
+        description: A list of the requested location IDs.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.staffIds
+        in: query
+        required: false
+        description: List of staff IDs to be returned. Omit parameter to return staff appointments for all staff.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.startDate
+        in: query
+        required: false
+        description: 'The start date of the requested date range. If omitted, the default is used. <br />Default: **today''s date**'
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      - name: request.useSiteSettingsStaffName
+        in: query
+        required: false
+        description: When `true`, the staff DisplayName will be populated based on site-level settings. When `false` or omitted, the staff DisplayName will contain only the FirstName.
+        schema:
+          type: boolean
+        example: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetStaffAppointmentsResponse'
+              examples:
+                Getstaffappointments200Example:
+                  summary: Default getStaffAppointments 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    Appointments:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/appointment/unavailabilities:
+    get:
+      tags:
+      - Appointment
+      summary: Mindbody Returns a List of Unavailabilities. Unavailabilities Are the Times at
+      description: Returns a list of unavailabilities. Unavailabilities are the times at which appointments cannot be booked, for example, on holidays or after hours when the business is closed.
+      operationId: getUnavailabilities
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.endDate
+        in: query
+        required: false
+        description: 'The end date of the requested date range. <br />Default: **today’s date**'
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.staffIds
+        in: query
+        required: false
+        description: A list of requested staff IDs.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.startDate
+        in: query
+        required: false
+        description: 'The start date of the requested date range. <br />Default: **today’s date**'
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUnavailabilitiesResponse'
+              examples:
+                Getunavailabilities200Example:
+                  summary: Default getUnavailabilities 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    Unavailabilities:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/appointment/addappointment:
+    post:
+      tags:
+      - Appointment
+      summary: Mindbody A User Token is Required for This Endpoint. to Book an Appointment,
+      description: 'A user token is required for this endpoint. To book an appointment, you must use a location ID, staff ID, client ID, session type ID, and the StartDateTime of the appointment. You can get most of this information using GET BookableItems. Note: Request deduplication is enabled for this endpoint. More information can be found in the [Request Deduplication Page](https://developers.mindbodyonline.com/ui/documentation/public-api #/net-standard-library/mindbody-public-api-v6-0/request-deduplication). Use the `X-RequestDeduplication-Skip` header to bypass deduplication if necessary. This may be useful in scenarios where you want to ensure a new appointment is created regardless of previous identical requests.'
+      operationId: addAppointment
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddAppointmentRequest'
+            examples:
+              AddappointmentRequestExample:
+                summary: Default addAppointment request example
+                x-microcks-default: true
+                value:
+                  ClientId: example-value
+                  LocationId: 123456
+                  SessionTypeId: 123456
+                  StaffId: 123456
+                  StartDateTime: '2026-05-28T14:30:00Z'
+                  ApplyPayment: true
+                  Duration: 1
+                  EndDateTime: '2026-05-28T14:30:00Z'
+                  GenderPreference: example-value
+                  Notes: Example note for Mindbody Public API.
+                  ProviderId: example-value
+                  ResourceIds:
+                  - 1
+                  SendEmail: true
+                  StaffRequested: true
+                  Test: true
+                  IsWaitlist: true
+                  IsRequest: true
+                  PartnerExternalId: example-value
+                  AddAppointmentRequestId: 123456
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddAppointmentResponse'
+              examples:
+                Addappointment200Example:
+                  summary: Default addAppointment 200 example
+                  x-microcks-default: true
+                  value:
+                    Appointment: {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/appointment/addappointmentaddon:
+    post:
+      tags:
+      - Appointment
+      summary: Mindbody This Endpoint Books an Add-on on Top of an Existing, Regular
+      description: This endpoint books an add-on on top of an existing, regular appointment. To book an add-on, you must use an existing appointment ID and session type ID. You can get a session type ID using `GET AppointmentAddOns`.
+      operationId: addAppointmentAddOn
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddAppointmentAddOnRequest'
+            examples:
+              AddappointmentaddonRequestExample:
+                summary: Default addAppointmentAddOn request example
+                x-microcks-default: true
+                value:
+                  ApplyPayment: true
+                  AppointmentId: 123456
+                  SessionTypeId: 123456
+                  StaffId: 123456
+                  Test: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddAppointmentAddOnResponse'
+              examples:
+                Addappointmentaddon200Example:
+                  summary: Default addAppointmentAddOn 200 example
+                  x-microcks-default: true
+                  value:
+                    AppointmentId: 123456
+                    AddOnAppointmentId: 123456
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/appointment/addmultipleappointments:
+    post:
+      tags:
+      - Appointment
+      summary: Mindbody A User Token is Required for This Endpoint. to Book Appointments, You
+      description: A user token is required for this endpoint. To book appointments, you must provide a location ID, staff ID, client ID, session type ID, and the StartDateTime for each appointment. You can retrieve most of this information using the GET BookableItems endpoint. This endpoint will handle errors that occur during the appointment creation process and return a list of errors, as well as the request object that generated each outcome. You can pass the AddAppointmentRequestId for each request, or it will be automatically filled. This is intended to facilitate matching each request with the corresponding outcome. This endpoint will send one notification when multiple Appointments are booked by one Client on a given day.
+      operationId: addMultipleAppointments
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddMultipleAppointmentsRequest'
+            examples:
+              AddmultipleappointmentsRequestExample:
+                summary: Default addMultipleAppointments request example
+                x-microcks-default: true
+                value:
+                  AddAppointmentRequests:
+                  - {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddMultipleAppointmentsResponse'
+              examples:
+                Addmultipleappointments200Example:
+                  summary: Default addMultipleAppointments 200 example
+                  x-microcks-default: true
+                  value:
+                    AddAppointmentOutcomes:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/appointment/availabilities:
+    put:
+      tags:
+      - Appointment
+      summary: Mindbody To Update the Information for a Specific Availability or
+      description: 'To update the information for a specific availability or unavailability of the staff.<br /> Note: You must have a staff user token with the required permissions.'
+      operationId: updateAvailability
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAvailabilityRequest'
+            examples:
+              UpdateavailabilityRequestExample:
+                summary: Default updateAvailability request example
+                x-microcks-default: true
+                value:
+                  AvailabilityIds:
+                  - 1
+                  PublicDisplay: {}
+                  DaysOfWeek:
+                  - {}
+                  ProgramIds:
+                  - 1
+                  StartDateTime: '2026-05-28T14:30:00Z'
+                  EndDateTime: '2026-05-28T14:30:00Z'
+                  LocationId: 123456
+                  UnavailableDescription: Example note for Mindbody Public API.
+                  Test: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateAvailabilityResponse'
+              examples:
+                Updateavailability200Example:
+                  summary: Default updateAvailability 200 example
+                  x-microcks-default: true
+                  value:
+                    StaffMembers:
+                    - {}
+                    Errors:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+    post:
+      tags:
+      - Appointment
+      summary: Mindbody Add Availabilities and Unavailabilities for a Staff Member.<br />
+      description: 'Add availabilities and unavailabilities for a staff member.<br /> Note: You must have a staff user token with the required permissions.'
+      operationId: addAvailabilities
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddAvailabilitiesRequest'
+            examples:
+              AddavailabilitiesRequestExample:
+                summary: Default addAvailabilities request example
+                x-microcks-default: true
+                value:
+                  Test: true
+                  LocationID: 1
+                  StaffIDs:
+                  - 1
+                  ProgramIDs:
+                  - 1
+                  StartDateTime: '2026-05-28T14:30:00Z'
+                  EndDateTime: '2026-05-28T14:30:00Z'
+                  DaysOfWeek:
+                  - {}
+                  UnavailableDescription: Example note for Mindbody Public API.
+                  IsUnavailable: true
+                  PublicDisplay: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddAvailabilitiesResponse'
+              examples:
+                Addavailabilities200Example:
+                  summary: Default addAvailabilities 200 example
+                  x-microcks-default: true
+                  value:
+                    StaffMembers:
+                    - {}
+                    Errors:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/appointment/updateappointment:
+    post:
+      tags:
+      - Appointment
+      summary: Mindbody To Update the Information for a Specific Appointment, You Must Have a
+      description: To update the information for a specific appointment, you must have a staff user token with the proper permissions. Note that you can only update the appointment’s `StartDateTime`, `EndDateTime`, `StaffId`, `Notes`, and `SessionTypeId`.
+      operationId: updateAppointment
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAppointmentRequest'
+            examples:
+              UpdateappointmentRequestExample:
+                summary: Default updateAppointment request example
+                x-microcks-default: true
+                value:
+                  AppointmentId: 123456
+                  EndDateTime: '2026-05-28T14:30:00Z'
+                  Execute: example-value
+                  GenderPreference: example-value
+                  Notes: Example note for Mindbody Public API.
+                  PartnerExternalId: example-value
+                  ProviderId: example-value
+                  ResourceIds:
+                  - 1
+                  SendEmail: true
+                  SessionTypeId: 123456
+                  StaffId: 123456
+                  StartDateTime: '2026-05-28T14:30:00Z'
+                  ApplyPayment: true
+                  Test: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateAppointmentResponse'
+              examples:
+                Updateappointment200Example:
+                  summary: Default updateAppointment 200 example
+                  x-microcks-default: true
+                  value:
+                    Appointment: {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/appointment/appointmentfromwaitlist:
+    delete:
+      tags:
+      - Appointment
+      summary: Mindbody Remove an Appointment from Waitlist
+      description: Remove an appointment from waitlist
+      operationId: removeFromWaitlist
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: request.waitlistEntryIds
+        in: query
+        required: true
+        description: A list of `WaitlistEntryIds` to remove from the waiting list.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/appointment/availability:
+    delete:
+      tags:
+      - Appointment
+      summary: Mindbody This Endpoint Deletes the Availability or Unavailability
+      description: 'This endpoint deletes the availability or unavailability. Note: You must have a staff user token with the required permissions.'
+      operationId: deleteAvailability
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: deleteAvailabilityRequest.availabilityId
+        in: query
+        required: false
+        description: The ID of the availability or unavailability.
+        schema:
+          type: integer
+          format: int32
+        example: 123456
+      - name: deleteAvailabilityRequest.test
+        in: query
+        required: false
+        description: 'When `true`, indicates that this is a test request and no data is deleted from the subscriber’s database. When `false`, the record will be deleted. Default: **false**'
+        schema:
+          type: boolean
+        example: true
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/appointment/deleteappointmentaddon:
+    delete:
+      tags:
+      - Appointment
+      summary: Mindbody This Endpoint Can Be Used to Early-cancel a Booked Appointment Add-on
+      description: This endpoint can be used to early-cancel a booked appointment add-on.
+      operationId: deleteAppointmentAddOn
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: id
+        in: query
+        required: true
+        description: The request query parameter.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+components:
+  schemas:
+    StatusEnum:
+      type: string
+      description: StatusEnum enumeration.
+      enum:
+      - None
+      - Requested
+      - Booked
+      - Completed
+      - Confirmed
+      - Arrived
+      - NoShow
+      - Cancelled
+      - LateCancelled
+    Unavailability1:
+      type: object
+      description: Implementation of the 'Unavailability1' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: Unavailabiltity ID.
+          example: 123456
+        StartDateTime:
+          type: string
+          format: date-time
+          description: Start of the unavailability.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: End of the unavailability.
+          example: '2026-05-28T14:30:00Z'
+        Description:
+          type: string
+          description: Description of the unavailability.
+          example: Example note for Mindbody Public API.
+    GetAvailableDatesResponse:
+      type: object
+      description: Implementation of the 'GetAvailableDatesResponse' model.
+      properties:
+        AvailableDates:
+          type: array
+          items:
+            type: string
+            format: date-time
+          description: A list of dates where scheduled appointment availability was found after applying request filters.
+          example:
+          - '2026-05-28T14:30:00Z'
+    Availability:
+      type: object
+      description: Implementation of the 'Availability' model. A staff availability entry
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The ID of the availability.
+          example: 123456
+        Staff:
+          $ref: '#/components/schemas/Staff'
+          description: Contains information about staff members.
+        SessionType:
+          $ref: '#/components/schemas/SessionType'
+          description: Contains information about the types of sessions.
+        Programs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Program'
+          description: Contains information about the programs.
+          example:
+          - {}
+        StartDateTime:
+          type: string
+          format: date-time
+          description: The date and time the availability starts in the site local time zone.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: The date and time the availability ends in the site local time zone.
+          example: '2026-05-28T14:30:00Z'
+        BookableEndDateTime:
+          type: string
+          format: date-time
+          description: The time of day that the last appointment can start in the site local time zone.
+          example: '2026-05-28T14:30:00Z'
+        Location:
+          $ref: '#/components/schemas/Location'
+          description: Contains information about the location.
+        PrepTime:
+          type: integer
+          format: int32
+          description: Prep time in minutes
+          example: 1
+        FinishTime:
+          type: integer
+          format: int32
+          description: Finish time in minutes
+          example: 1
+        IsMasked:
+          type: boolean
+          description: When `true`, indicates that the staff member's name for availabilty is masked. When `false`, indicates that the staff member's name for availabilty is not masked.
+          example: true
+        ShowPublic:
+          type: boolean
+          description: When `true`, indicates that the schedule is shown to the clients. When `false`, indicates that the schedule is hidden from the clients.
+          example: true
+        ResourceAvailabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceAvailability'
+          description: Contains information about resources availability for the specified session type.
+          example:
+          - {}
+    ScheduleTypeEnum:
+      type: string
+      description: ScheduleTypeEnum enumeration.
+      enum:
+      - All
+      - Class
+      - Enrollment
+      - Appointment
+      - Resource
+      - Media
+      - Arrival
+    Resource:
+      type: object
+      description: Implementation of the 'Resource' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 123456
+        Name:
+          type: string
+          description: The model property of type str.
+          example: Sunset Yoga Studio
+    DaysOfWeekEnum:
+      type: string
+      description: DaysOfWeekEnum enumeration.
+      enum:
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+    ContentFormatEnum:
+      type: string
+      description: ContentFormatEnum enumeration.
+      enum:
+      - InPerson
+      - Mindbody
+      - Other
+    PaginationResponse:
+      type: object
+      description: Implementation of the 'PaginationResponse' model. Contains information about the pagination to use.
+      properties:
+        RequestedLimit:
+          type: integer
+          format: int32
+          description: Limit from pagination request
+          example: 10
+        RequestedOffset:
+          type: integer
+          format: int32
+          description: Offset from pagination request
+          example: 10
+        PageSize:
+          type: integer
+          format: int32
+          description: Number of results returned in this response
+          example: 1
+        TotalResults:
+          type: integer
+          format: int32
+          description: Total number of results in dataset
+          example: 1
+    Unavailability:
+      type: object
+      description: Implementation of the 'Unavailability' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The ID of the unavailability.
+          example: 123456
+        StartDateTime:
+          type: string
+          format: date-time
+          description: The date and time the unavailability starts.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: The date and time the unavailability ends.
+          example: '2026-05-28T14:30:00Z'
+        Description:
+          type: string
+          description: A description of the unavailability.
+          example: Example note for Mindbody Public API.
+    ResourceAvailability1:
+      type: object
+      description: Implementation of the 'ResourceAvailability1' model. An availability of a resource
+      properties:
+        ResourceId:
+          type: integer
+          format: int32
+          description: Id
+          example: 123456
+        StartDateTime:
+          type: string
+          format: date-time
+          description: Starts
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: Ends
+          example: '2026-05-28T14:30:00Z'
+        SessionTypeIds:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: List of SessionTypeIds that this availability is restricted to. If empty, no restrictions.
+          example:
+          - 1
+        ProgramIds:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: List of ProgramIds that this availability is restricted to. If empty, no restrictions.
+          example:
+          - 1
+    AddAppointmentAddOnResponse:
+      type: object
+      description: Implementation of the 'AddAppointmentAddOnResponse' model.
+      properties:
+        AppointmentId:
+          type: integer
+          format: int32
+          description: This is the id of the main appointment we added on to
+          example: 123456
+        AddOnAppointmentId:
+          type: integer
+          format: int32
+          description: This is the id for the newly created add-on appointment
+          example: 123456
+    UpdateAvailabilityRequest:
+      type: object
+      description: Implementation of the 'UpdateAvailabilityRequest' model. This is the update avaialability request coming DTO
+      properties:
+        AvailabilityIds:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: Unique IDs for the availabilities or unavailabilities.
+          example:
+          - 1
+        PublicDisplay:
+          $ref: '#/components/schemas/PublicDisplayEnum'
+          description: Choice that decides whether the availablity should be publicly visible, masked or hidden.
+        DaysOfWeek:
+          type: array
+          items:
+            $ref: '#/components/schemas/DaysOfWeekEnum'
+          description: 'The days of week to update the availabilities or unavailabilities.<br /> Default: **All**'
+          example:
+          - {}
+        ProgramIds:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: 'The program Id to be set for the availabilities. Default: **All**'
+          example:
+          - 1
+        StartDateTime:
+          type: string
+          format: date-time
+          description: The start date and time for the availabilities or unavailabilities.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: The end date and time for the availabilities or unavailabilities.
+          example: '2026-05-28T14:30:00Z'
+        LocationId:
+          type: integer
+          format: int32
+          description: The location Id to be updated for the provided availability Ids.
+          example: 123456
+        UnavailableDescription:
+          type: string
+          description: The description for unavailability.
+          example: Example note for Mindbody Public API.
+        Test:
+          type: boolean
+          description: 'When `true`, the request ensures that its parameters are valid without affecting real data. When ``false`, the request performs as intended and may affect live client data. Default: **false**'
+          example: true
+    StaffSetting:
+      type: object
+      description: Implementation of the 'StaffSetting' model. contains the information about the staff settings.
+      properties:
+        UseStaffNicknames:
+          type: boolean
+          description: When `true`, `DisplayName` of the staff will be displayed. When `false`, `DisplayName` will be displayed as null.
+          example: true
+        ShowStaffLastNamesOnSchedules:
+          type: boolean
+          description: When `true`, indicates that the Name contains both the `FirstName` and `LastName` of the staff. When `false`, indicates that the Name contains only the `FirstName` of the staff.
+          example: true
+    Type1Enum:
+      type: string
+      description: Type1Enum enumeration.
+      enum:
+      - All
+      - DropIn
+      - Enrollment
+      - Appointment
+      - Resource
+      - Media
+      - Arrival
+    UpdateAvailabilityResponse:
+      type: object
+      description: Implementation of the 'UpdateAvailabilityResponse' model. This is the update avaialability response
+      properties:
+        StaffMembers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Staff'
+          description: This is the success list of the trainer availability
+          example:
+          - {}
+        Errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiError'
+          description: The model property of type List[ApiError].
+          example:
+          - {}
+    SessionType:
+      type: object
+      description: Implementation of the 'SessionType' model. SessionType contains information about the session types in a business.
+      properties:
+        Type:
+          $ref: '#/components/schemas/TypeEnum'
+          description: 'Contains the class description session type. Possible values are: * All * Class * Enrollment * Appointment * Resource * Media * Arrival'
+        DefaultTimeLength:
+          type: integer
+          format: int32
+          description: The default amount of time that a session of this type typically lasts.
+          example: 1
+        StaffTimeLength:
+          type: integer
+          format: int32
+          description: The amount of time that a session of this type will last for a specific Staff (when applicable.)
+          example: 1
+        Id:
+          type: integer
+          format: int32
+          description: This session type’s unique ID.
+          example: 123456
+        Name:
+          type: string
+          description: The name of this session type.
+          example: Sunset Yoga Studio
+        OnlineDescription:
+          type: string
+          description: The online description associated with the appointment.
+          example: Example note for Mindbody Public API.
+        NumDeducted:
+          type: integer
+          format: int32
+          description: The number of sessions that this session type deducts from the pricing option used to pay for this type of session.
+          example: 1
+        ProgramId:
+          type: integer
+          format: int32
+          description: This session type’s service category ID.
+          example: 123456
+        Category:
+          type: string
+          description: This session type’s category.
+          example: example-value
+        CategoryId:
+          type: integer
+          format: int32
+          description: This session type’s category ID.
+          example: 123456
+        Subcategory:
+          type: string
+          description: This session type’s subcategory.
+          example: example-value
+        SubcategoryId:
+          type: integer
+          format: int32
+          description: This session type’s subcategory ID.
+          example: 123456
+        AvailableForAddOn:
+          type: boolean
+          description: This session type’s Add On Flag.
+          example: true
+    ApiError:
+      type: object
+      description: Implementation of the 'ApiError' model.
+      properties:
+        Message:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        Code:
+          type: string
+          description: The model property of type str.
+          example: example-value
+    ServiceTag:
+      type: object
+      description: Implementation of the 'ServiceTag' model. ServiceTag refers to Category and Subcategory fields for classes and appointments
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 123456
+        Name:
+          type: string
+          description: The model property of type str.
+          example: Sunset Yoga Studio
+    GenderPreferenceEnum:
+      type: string
+      description: GenderPreferenceEnum enumeration.
+      enum:
+      - None
+      - Female
+      - Male
+    Staff:
+      type: object
+      description: Implementation of the 'Staff' model. The Staff
+      properties:
+        Address:
+          type: string
+          description: The address of the staff member who is teaching the class.
+          example: 123 Market St
+        AppointmentInstructor:
+          type: boolean
+          description: When `true`, indicates that the staff member offers appointments.<br /> When `false`, indicates that the staff member does not offer appointments.
+          example: true
+        AlwaysAllowDoubleBooking:
+          type: boolean
+          description: When `true`, indicates that the staff member can be scheduled for overlapping services.<br /> When `false`, indicates that the staff can only be scheduled for one service at a time in any given time-frame.
+          example: true
+        Bio:
+          type: string
+          description: The staff member’s biography. This string contains HTML.
+          example: example-value
+        City:
+          type: string
+          description: The staff member’s city.
+          example: San Francisco
+        Country:
+          type: string
+          description: The staff member’s country.
+          example: US
+        Email:
+          type: string
+          description: The staff member’s email address.
+          example: kinlane@example.com
+        FirstName:
+          type: string
+          description: The staff member’s first name.
+          example: Alex
+        DisplayName:
+          type: string
+          description: The staff member’s Nickname.
+          example: example-value
+        HomePhone:
+          type: string
+          description: The staff member’s home phone number.
+          example: '+15551234567'
+        Id:
+          type: integer
+          format: int32
+          description: The ID assigned to the staff member.
+          example: 123456
+        IndependentContractor:
+          type: boolean
+          description: When `true`, indicates that the staff member is an independent contractor. When `false`, indicates that the staff member is not an independent contractor.
+          example: true
+        IsMale:
+          type: boolean
+          description: When `true`, indicates that the staff member is male. When `false`, indicates that the staff member is female.
+          example: true
+        LastName:
+          type: string
+          description: The staff member’s last name.
+          example: Lane
+        MobilePhone:
+          type: string
+          description: The staff member’s mobile phone number.
+          example: '+15551234567'
+        Name:
+          type: string
+          description: The staff member’s name.
+          example: Sunset Yoga Studio
+        PostalCode:
+          type: string
+          description: The staff member’s postal code.
+          example: '94110'
+        ClassTeacher:
+          type: boolean
+          description: When `true`, indicates that the staff member can teach classes. When `false`, indicates that the staff member cannot teach classes.
+          example: true
+        SortOrder:
+          type: integer
+          format: int32
+          description: If configured by the business owner, this field determines a staff member’s weight when sorting. Use this field to sort staff members on your interface.
+          example: 1
+        State:
+          type: string
+          description: The staff member’s state.
+          example: CA
+        WorkPhone:
+          type: string
+          description: The staff member’s work phone number.
+          example: '+15551234567'
+        ImageUrl:
+          type: string
+          description: The URL of the staff member’s image, if one has been uploaded.
+          example: https://example.mindbodyonline.com/resource/abc123
+        ClassAssistant:
+          type: boolean
+          description: Is the staff an assistant
+          example: true
+        ClassAssistant2:
+          type: boolean
+          description: Is the staff an assistant2
+          example: true
+        EmploymentStart:
+          type: string
+          format: date-time
+          description: The start date of employment
+          example: '2026-05-28T14:30:00Z'
+        EmploymentEnd:
+          type: string
+          format: date-time
+          description: The end date of employment
+          example: '2026-05-28T14:30:00Z'
+        ProviderIDs:
+          type: array
+          items:
+            type: string
+          description: A list of ProviderIds for the staff.
+          example:
+          - example-value
+        Rep:
+          type: boolean
+          description: return true if staff is sales Rep 1 else false.
+          example: true
+        Rep2:
+          type: boolean
+          description: return true if staff is sales Rep 2 else false.
+          example: true
+        Rep3:
+          type: boolean
+          description: return true if staff is sales Rep 3 else false.
+          example: true
+        Rep4:
+          type: boolean
+          description: return true if staff is sales Rep 4 else false.
+          example: true
+        Rep5:
+          type: boolean
+          description: return true if staff is sales Rep 5 else false.
+          example: true
+        Rep6:
+          type: boolean
+          description: return true if staff is sales Rep 6 else false.
+          example: true
+        StaffSettings:
+          $ref: '#/components/schemas/StaffSetting'
+          description: This object contains the staff settings.
+        Appointments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Appointment'
+          description: A list of appointments for the staff.
+          example:
+          - {}
+        Unavailabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Unavailability'
+          description: A list of unavailabilities for the staff.
+          example:
+          - {}
+        Availabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Availability'
+          description: A list of availabilities for the staff.
+          example:
+          - {}
+        EmpID:
+          type: string
+          description: The EmpID assigned to the staff member.
+          example: example-value
+    ApiError1:
+      type: object
+      description: Implementation of the 'ApiError1' model.
+      properties:
+        Message:
+          type: string
+          description: The text of the message. Each message is specific to the error that caused it. For example, if the the error type is `InvalidFileFormat`, the message could say "The photo you attempted to upload is not a supported file type."
+          example: example-value
+        Code:
+          type: string
+          description: The type of error that occurred, for example, `ClientNotFound` or `InvalidClassId`.
+          example: example-value
+    AddAppointmentOutcome:
+      type: object
+      description: Implementation of the 'AddAppointmentOutcome' model. Contains information about an appointment creation outcome.
+      properties:
+        Appointment:
+          $ref: '#/components/schemas/Appointment'
+          description: The appointment details if created.
+        Error:
+          $ref: '#/components/schemas/ApiError'
+          description: The error message if the appointment creation failed.
+        Request:
+          $ref: '#/components/schemas/AddAppointmentRequest'
+          description: The request details for the appointment creation.
+    AddAppointmentAddOnRequest:
+      type: object
+      description: Implementation of the 'AddAppointmentAddOnRequest' model. Creates an add-on for an appointment
+      properties:
+        ApplyPayment:
+          type: boolean
+          description: 'When `true`, indicates that a payment should be applied to the appointment. Currently only ApplyPayment=false is implemented. Default: **true**'
+          example: true
+        AppointmentId:
+          type: integer
+          format: int32
+          description: The appointment ID the add-on is getting added to.
+          example: 123456
+        SessionTypeId:
+          type: integer
+          format: int32
+          description: The session type associated with the new appointment add-on.
+          example: 123456
+        StaffId:
+          type: integer
+          format: int32
+          description: 'The ID of the staff member who is adding the new appointment add-on. Default: staff member performing the appointment.'
+          example: 123456
+        Test:
+          type: boolean
+          description: 'When `true`, indicates that the method is to be validated, but no new appointment add-on data is added. Default: **false**'
+          example: true
+    GetActiveSessionTimesResponse:
+      type: object
+      description: Implementation of the 'GetActiveSessionTimesResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        ActiveSessionTimes:
+          type: array
+          items:
+            type: string
+          description: 'List of available start times for active sessions. Note the following: * The times returned represent possibilities for scheduling a session, not necessarily currently scheduled sessions. * The response includes either all schedule types or those filtered by supplying `ScheduleType` or `SessionTypeIds`. * Each session has an associated schedule type, but when you supply `SessionTypeIds`, they may map to one or more of the schedule types.'
+          example:
+          - example-value
+    AddMultipleAppointmentsRequest:
+      type: object
+      description: Implementation of the 'AddMultipleAppointmentsRequest' model. Request to add multiple appointments.
+      properties:
+        AddAppointmentRequests:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddAppointmentRequest'
+          description: List of appointment requests to be added.
+          example:
+          - {}
+    PublicDisplayEnum:
+      type: string
+      description: PublicDisplayEnum enumeration.
+      enum:
+      - Hide
+      - Show
+      - Mask
+    GetAddOnsResponse:
+      type: object
+      description: Implementation of the 'GetAddOnsResponse' model. Get AddOns Response Model
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        AddOns:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppointmentAddOn'
+          description: A list of available add-ons.
+          example:
+          - {}
+    Location:
+      type: object
+      description: Implementation of the 'Location' model.
+      properties:
+        AdditionalImageURLs:
+          type: array
+          items:
+            type: string
+          description: A list of URLs of any images associated with this location.
+          example:
+          - example-value
+        Address:
+          type: string
+          description: The first line of the location’s street address.
+          example: 123 Market St
+        Address2:
+          type: string
+          description: A second address line for the location’s street address, if needed.
+          example: 123 Market St
+        Amenities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Amenity'
+          description: A list of strings representing amenities available at the location.
+          example:
+          - {}
+        BusinessDescription:
+          type: string
+          description: The business description for the location, as configured by the business owner.
+          example: Example note for Mindbody Public API.
+        City:
+          type: string
+          description: The location’s city.
+          example: San Francisco
+        Description:
+          type: string
+          description: A description of the location.
+          example: Example note for Mindbody Public API.
+        HasClasses:
+          type: boolean
+          description: When `true`, indicates that classes are held at this location.<br /> When `false`, Indicates that classes are not held at this location.
+          example: true
+        Id:
+          type: integer
+          format: int32
+          description: The ID assigned to this location.
+          example: 123456
+        Latitude:
+          type: number
+          format: double
+          description: The location’s latitude.
+          example: 1.0
+        Longitude:
+          type: number
+          format: double
+          description: The location’s longitude.
+          example: 1.0
+        Name:
+          type: string
+          description: The name of this location.
+          example: Sunset Yoga Studio
+        Phone:
+          type: string
+          description: The location’s phone number.
+          example: '+15551234567'
+        PhoneExtension:
+          type: string
+          description: The location’s phone extension.
+          example: example-value
+        PostalCode:
+          type: string
+          description: The location’s postal code.
+          example: '94110'
+        SiteID:
+          type: integer
+          format: int32
+          description: The ID number assigned to this location.
+          example: 1
+        StateProvCode:
+          type: string
+          description: The location’s state or province code.
+          example: example-value
+        Tax1:
+          type: number
+          format: double
+          description: A decimal representation of the location’s first tax rate. Tax properties are provided to apply all taxes to the purchase price that the purchase is subject to. Use as many tax properties as needed to represent all the taxes that apply in the location. Enter a decimal number that represents the appropriate tax rate. For example, for an 8% sales tax, enter 0.08.
+          example: 1.0
+        Tax2:
+          type: number
+          format: double
+          description: A decimal representation of the location’s second tax rate. See the example in the description of Tax1.
+          example: 1.0
+        Tax3:
+          type: number
+          format: double
+          description: A decimal representation of the location’s third tax rate. See the example in the description of Tax1.
+          example: 1.0
+        Tax4:
+          type: number
+          format: double
+          description: A decimal representation of the location’s fourth tax rate. See the example in the description of Tax1.
+          example: 1.0
+        Tax5:
+          type: number
+          format: double
+          description: A decimal representation of the location’s fifth tax rate. See the example in the description of Tax1.
+          example: 1.0
+        TotalNumberOfRatings:
+          type: integer
+          format: int32
+          description: The number of reviews that clients have left for this location.
+          example: 1
+        AverageRating:
+          type: number
+          format: double
+          description: The average rating for the location, out of five stars.
+          example: 1.0
+        TotalNumberOfDeals:
+          type: integer
+          format: int32
+          description: The number of distinct introductory pricing options available for purchase at this location.
+          example: 1
+    Amenity:
+      type: object
+      description: Implementation of the 'Amenity' model. Definition of a location amenity
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The ID number of the amenity.
+          example: 123456
+        Name:
+          type: string
+          description: The name of the amenity, for example, food or lockers.
+          example: Sunset Yoga Studio
+    AddOnSmall:
+      type: object
+      description: Implementation of the 'AddOnSmall' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The unique ID of the appointment add-on booking.
+          example: 123456
+        Name:
+          type: string
+          description: The name of the appointment add-on.
+          example: Sunset Yoga Studio
+        StaffId:
+          type: integer
+          format: int32
+          description: The ID of the staff member providing the service for this add-on.
+          example: 123456
+        TypeId:
+          type: integer
+          format: int32
+          description: The ID of the session type of this appointment.
+          example: 123456
+    ScheduleType2Enum:
+      type: string
+      description: ScheduleType2Enum enumeration.
+      enum:
+      - All
+      - DropIn
+      - Enrollment
+      - Appointment
+      - Resource
+      - Media
+      - Arrival
+    ActionEnum:
+      type: string
+      description: ActionEnum enumeration.
+      enum:
+      - None
+      - Added
+      - Updated
+      - Failed
+      - Removed
+    ResourceAvailability:
+      type: object
+      description: Implementation of the 'ResourceAvailability' model. An availability of a resource
+      properties:
+        ResourceId:
+          type: integer
+          format: int32
+          description: Id
+          example: 123456
+        StartDateTime:
+          type: string
+          format: date-time
+          description: Starts
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: Ends
+          example: '2026-05-28T14:30:00Z'
+    GetUnavailabilitiesResponse:
+      type: object
+      description: Implementation of the 'GetUnavailabilitiesResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        Unavailabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/UnavailabilityPlain'
+          description: Contains information about unavailabilities
+          example:
+          - {}
+    AddAppointmentRequest:
+      type: object
+      description: Implementation of the 'AddAppointmentRequest' model. Represents a request to add a new appointment, including details such as client information, appointment timing, location, and additional preferences.
+      properties:
+        ClientId:
+          type: string
+          description: The RRSID of the client for whom the new appointment is being made.
+          example: example-value
+        LocationId:
+          type: integer
+          format: int32
+          description: The ID of the location where the new appointment is to take place.
+          example: 123456
+        SessionTypeId:
+          type: integer
+          format: int32
+          description: The session type associated with the new appointment.
+          example: 123456
+        StaffId:
+          type: integer
+          format: int32
+          description: The ID of the staff member who is adding the new appointment.
+          example: 123456
+        StartDateTime:
+          type: string
+          format: date-time
+          description: The start date and time of the new appointment.
+          example: '2026-05-28T14:30:00Z'
+        ApplyPayment:
+          type: boolean
+          description: 'When `true`, indicates that a payment should be applied to the appointment. <br />Default: **true**'
+          example: true
+        Duration:
+          type: integer
+          format: int32
+          description: The duration of the appointment. This parameter is used to change the default duration of an appointment.
+          example: 1
+        EndDateTime:
+          type: string
+          format: date-time
+          description: 'The end date and time of the new appointment. <br /> Default: **StartDateTime**, offset by the staff member’s default appointment duration.'
+          example: '2026-05-28T14:30:00Z'
+        GenderPreference:
+          type: string
+          description: The client’s service provider gender preference.
+          example: example-value
+        Notes:
+          type: string
+          description: Any general notes about this appointment.
+          example: Example note for Mindbody Public API.
+        ProviderId:
+          type: string
+          description: If a user has Complementary and Alternative Medicine features enabled, this parameter assigns a provider ID to the appointment.
+          example: example-value
+        ResourceIds:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: A list of resource IDs to associate with the new appointment.
+          example:
+          - 1
+        SendEmail:
+          type: boolean
+          description: 'Whether to send client an email for cancellations. An email is sent only if the client has an email address and automatic emails have been set up. <br />Default: **false**'
+          example: true
+        StaffRequested:
+          type: boolean
+          description: When `true`, indicates that the staff member was requested specifically by the client.
+          example: true
+        Test:
+          type: boolean
+          description: 'When true, indicates that the method is to be validated, but no new appointment data is added. <br />Default: **false**'
+          example: true
+        IsWaitlist:
+          type: boolean
+          description: 'When `true`, indicates that the client should be added to a specific appointment waiting list. When `false`, the client should not be added to the waiting list. Default: **false**'
+          example: true
+        IsRequest:
+          type: boolean
+          description: 'Indicates whether to add an appointment request for review. If `true`, the appointment will be added as a request, bypassing the `IsWaitlist` parameter and two validations: 1. If a consumer is adding the appointment for another person. 2. If a staff member without permission to add appointments for other staff members is adding the appointment for another staff member. This also allows anonymous calls (without an authentication token) to this endpoint. The `AllowClientsToBookAppointments` option'
+          example: true
+        PartnerExternalId:
+          type: string
+          description: Optional external key for api partners.
+          example: example-value
+        AddAppointmentRequestId:
+          type: integer
+          format: int32
+          description: A unique identifier for tracking the AddAppointmentRequest. This ID is not stored and is used to match each request with its corresponding response. The request object will also be returned in the response, with the same ID value. - For single requests, this value will be ignored. - For multiple requests, if no value is provided, the system will generate an identifier ranging from 0 to (number of requests - 1).
+          example: 123456
+    AddMultipleAppointmentsResponse:
+      type: object
+      description: Implementation of the 'AddMultipleAppointmentsResponse' model. Represents the response for adding multiple appointments.
+      properties:
+        AddAppointmentOutcomes:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddAppointmentOutcome'
+          description: Contains information about the created appointments.
+          example:
+          - {}
+    AppointmentStaff:
+      type: object
+      description: Implementation of the 'AppointmentStaff' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 123456
+        FirstName:
+          type: string
+          description: The model property of type str.
+          example: Alex
+        LastName:
+          type: string
+          description: The model property of type str.
+          example: Lane
+        DisplayName:
+          type: string
+          description: The model property of type str.
+          example: example-value
+    AddAvailabilitiesRequest:
+      type: object
+      description: Implementation of the 'AddAvailabilitiesRequest' model.
+      properties:
+        Test:
+          type: boolean
+          description: When `true`, the request ensures that its parameters are valid without affecting real data. When `false`, the request performs as intended and may affect live client data. (optional) Defaults to false.
+          example: true
+        LocationID:
+          type: integer
+          format: int32
+          description: Location of availability. <br />Not used when IsUnavailable is `true`.
+          example: 1
+        StaffIDs:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: A list of requested staff IDs.<br /> (optional) Defaults to staff ID of user credentials. Use 0 for all.
+          example:
+          - 1
+        ProgramIDs:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: A list of program IDs.<br /> (optional) Defaults to all. <br />Not used when IsUnavailable is true.
+          example:
+          - 1
+        StartDateTime:
+          type: string
+          format: date-time
+          description: The start date and time of the new availabilities or unavailabilities.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: The end date and time of the new availabilities or unavailabilities.
+          example: '2026-05-28T14:30:00Z'
+        DaysOfWeek:
+          type: array
+          items:
+            $ref: '#/components/schemas/DaysOfWeekEnum'
+          description: The days of the week to set.<br /> (optional) Defaults to all.
+          example:
+          - {}
+        UnavailableDescription:
+          type: string
+          description: Description of unavalability. <br />Only used when IsUnavailable is true.
+          example: Example note for Mindbody Public API.
+        IsUnavailable:
+          type: boolean
+          description: 'When `true`, indicates that unavailability is getting added. When `false`, indicates that availability is getting added. Default: **false**'
+          example: true
+        PublicDisplay:
+          $ref: '#/components/schemas/PublicDisplay1Enum'
+          description: Sets the public display of the availability.<br /><ul><li>Show</li><li>Mask</li><li>Hide</li></ul> (optional) Defaults to Show.
+    AppointmentOption:
+      type: object
+      description: Implementation of the 'AppointmentOption' model. An appointment option name/value pair
+      properties:
+        DisplayName:
+          type: string
+          description: The name displayed for this appointment option.
+          example: example-value
+        Name:
+          type: string
+          description: The name given to this option.
+          example: Sunset Yoga Studio
+        Value:
+          type: string
+          description: The value of the option.
+          example: example-value
+        Type:
+          type: string
+          description: The data type of the option value.
+          example: example-value
+    Status1Enum:
+      type: string
+      description: Status1Enum enumeration.
+      enum:
+      - Booked
+      - Completed
+      - Confirmed
+      - Arrived
+      - NoShow
+      - Cancelled
+      - LateCancelled
+    GetStaffAppointmentsResponse:
+      type: object
+      description: Implementation of the 'GetStaffAppointmentsResponse' model. Get Staff Appointments Response Model
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        Appointments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Appointment'
+          description: Contains information about appointments and their details.
+          example:
+          - {}
+    AppointmentAddOn:
+      type: object
+      description: Implementation of the 'AppointmentAddOn' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The ID of this add-on.
+          example: 123456
+        Name:
+          type: string
+          description: The name of this add-on.
+          example: Sunset Yoga Studio
+        NumDeducted:
+          type: integer
+          format: int32
+          description: The number of sessions that this add-on deducts from the pricing option used to pay for this add-on.
+          example: 1
+        CategoryId:
+          type: integer
+          format: int32
+          description: This ID of this add-on’s category.
+          example: 123456
+        Category:
+          type: string
+          description: The name of this add-on’s category.
+          example: example-value
+    Staff1:
+      type: object
+      description: Implementation of the 'Staff1' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The ID assigned to the staff member.
+          example: 123456
+        FirstName:
+          type: string
+          description: The staff member’s first name.
+          example: Alex
+        LastName:
+          type: string
+          description: The staff member’s last name.
+          example: Lane
+        DisplayName:
+          type: string
+          description: The display name of the staff member.
+          example: example-value
+        Email:
+          type: string
+          description: The staff member’s email address.
+          example: kinlane@example.com
+        Bio:
+          type: string
+          description: The staff member’s biography. This string contains HTML.
+          example: example-value
+        Address:
+          type: string
+          description: The address of the staff member who is teaching the class.
+          example: 123 Market St
+        Address2:
+          type: string
+          description: The address2 of the staff member who is teaching the class.
+          example: 123 Market St
+        City:
+          type: string
+          description: The staff member’s city.
+          example: San Francisco
+        State:
+          type: string
+          description: The staff member’s state.
+          example: CA
+        PostalCode:
+          type: string
+          description: The staff member’s postal code.
+          example: '94110'
+        ForeignZip:
+          type: string
+          description: The staff member’s Foreign Zip code.
+          example: example-value
+        Country:
+          type: string
+          description: The staff member’s country.
+          example: US
+        WorkPhone:
+          type: string
+          description: The staff member’s work phone number.
+          example: '+15551234567'
+        HomePhone:
+          type: string
+          description: The staff member’s home phone number.
+          example: '+15551234567'
+        CellPhone:
+          type: string
+          description: The staff member’s mobile phone number.
+          example: '+15551234567'
+        Active:
+          type: boolean
+          description: When `true`, indicates that the staff member is Active. When `false`, indicates that the staff member is not Active.
+          example: true
+        IsSystem:
+          type: boolean
+          description: When `true`, indicates that the staff member is a system . When `false`, indicates that the staff member is not system.
+          example: true
+        SmodeId:
+          type: integer
+          format: int32
+          description: The Staff's Smode Id
+          example: 123456
+        AppointmentTrn:
+          type: boolean
+          description: When `true`, indicates that the staff member offers appointments. When `false`, indicates that the staff member does not offer appointments.
+          example: true
+        AlwaysAllowDoubleBooking:
+          type: boolean
+          description: When `true`, indicates that the staff member can be scheduled for overlapping services. When `false`, indicates that the staff can only be scheduled for one service at a time in any given time-frame.
+          example: true
+        IndependentContractor:
+          type: boolean
+          description: When `true`, indicates that the staff member is an independent contractor. When `false`, indicates that the staff member is not an independent contractor.
+          example: true
+        ImageUrl:
+          type: string
+          description: The URL of the staff member’s image, if one has been uploaded.
+          example: https://example.mindbodyonline.com/resource/abc123
+        IsMale:
+          type: boolean
+          description: When `true`, indicates that the staff member is male. When `false`, indicates that the staff member is female.
+          example: true
+        ReservationTrn:
+          type: boolean
+          description: When `true`, indicates that the staff member offers Reservation. When `false`, indicates that the staff member does not offer Reservation.
+          example: true
+        SortOrder:
+          type: integer
+          format: int32
+          description: If configured by the business owner, this field determines a staff member’s weight when sorting. Use this field to sort staff members on your interface.
+          example: 1
+        MultiLocationPermission:
+          type: boolean
+          description: When `true`, indicates that the staff member has Multi Location Permission. When `false`, indicates that the staff member does not has Multi Location Permission.
+          example: true
+        Name:
+          type: string
+          description: The staff member’s name.
+          example: Sunset Yoga Studio
+        ProviderIDs:
+          type: array
+          items:
+            type: string
+          description: A list of ProviderIds for the staff.
+          example:
+          - example-value
+        StaffSettings:
+          $ref: '#/components/schemas/StaffSetting'
+          description: This object contains the staff settings.
+        Rep:
+          type: boolean
+          description: When `true`, indicates that the staff is sales Rep 1 else `false`.
+          example: true
+        Rep2:
+          type: boolean
+          description: When `true`, indicates that the staff is sales Rep 2 else `false`.
+          example: true
+        Rep3:
+          type: boolean
+          description: When `true`, indicates that the staff is sales Rep 3 else `false`.
+          example: true
+        Rep4:
+          type: boolean
+          description: When `true`, indicates that the staff is sales Rep 4 else `false`.
+          example: true
+        Rep5:
+          type: boolean
+          description: When `true`, indicates that the staff is sales Rep 5 else `false`.
+          example: true
+        Rep6:
+          type: boolean
+          description: When `true`, indicates that the staff is sales Rep 6 else `false`.
+          example: true
+        Assistant:
+          type: boolean
+          description: When `true`, indicates that the staff is assistant. When `false`, indicates that the staff is not assistant.
+          example: true
+        Assistant2:
+          type: boolean
+          description: When `true`, indicates that the staff is assistant2. When `false`, indicates that the staff is not assistant2.
+          example: true
+        EmploymentStart:
+          type: string
+          format: date-time
+          description: The start date of employment.
+          example: '2026-05-28T14:30:00Z'
+        EmploymentEnd:
+          type: string
+          format: date-time
+          description: The end date of employment.
+          example: '2026-05-28T14:30:00Z'
+        EmpID:
+          type: string
+          description: The custom staff ID assigned to the staff member.
+          example: example-value
+        Appointments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Appointment1'
+          description: A list of appointments for the staff.
+          example:
+          - {}
+        Unavailabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Unavailability1'
+          description: A list of unavailabilities for the staff.
+          example:
+          - {}
+        Availabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Availability1'
+          description: A list of availabilities for the staff.
+          example:
+          - {}
+        LoginLocations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location1'
+          description: A list of LoginLocations for the staff
+          example:
+          - {}
+    Program:
+      type: object
+      description: Implementation of the 'Program' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The service category’s ID.
+          example: 123456
+        Name:
+          type: string
+          description: The name of this service category.
+          example: Sunset Yoga Studio
+        ScheduleType:
+          $ref: '#/components/schemas/ScheduleTypeEnum'
+          description: 'The service category’s schedule type. Possible values are: * All * Class * Enrollment * Appointment * Resource * Arrival'
+        CancelOffset:
+          type: integer
+          format: int32
+          description: The offset to use for the service category.
+          example: 10
+        ContentFormats:
+          type: array
+          items:
+            type: string
+          description: 'The content delivery platform(s) used by the service category. Possible values are: * InPerson * Livestream:Mindbody * Livestream:Other'
+          example:
+          - example-value
+        PricingRelationships:
+          $ref: '#/components/schemas/PricingRelationships'
+          description: Pricing relationships
+    AddAvailabilitiesResponse:
+      type: object
+      description: Implementation of the 'AddAvailabilitiesResponse' model. Add Availabilities Response Model
+      properties:
+        StaffMembers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Staff1'
+          description: Contains information about the staff.
+          example:
+          - {}
+        Errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiError1'
+          description: Contains information about the error.
+          example:
+          - {}
+    Appointment1:
+      type: object
+      description: Implementation of the 'Appointment1' model. An appointment
+      properties:
+        GenderPreference:
+          type: string
+          description: Prefered gender of appointment.
+          example: example-value
+        Duration:
+          type: integer
+          format: int32
+          description: Duration of appointment.
+          example: 1
+        ProviderId:
+          type: string
+          description: If a user has Complementary and Alternative Medicine features enabled, this will allow a Provider ID to be assigned to an appointment.
+          example: example-value
+        Id:
+          type: integer
+          format: int32
+          description: The unique ID of the appointment.
+          example: 123456
+        Status:
+          $ref: '#/components/schemas/Status1Enum'
+          description: The status of this appointment.
+        StartDateTime:
+          type: string
+          format: date-time
+          description: The date and time the appointment will start.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: The date and time the appointment will end.
+          example: '2026-05-28T14:30:00Z'
+        Notes:
+          type: string
+          description: The appointment notes.
+          example: Example note for Mindbody Public API.
+        PartnerExternalId:
+          type: string
+          description: Optional external key for api partners.
+          example: example-value
+        StaffRequested:
+          type: boolean
+          description: Whether the staff member was requested specifically by the client.
+          example: true
+        ProgramId:
+          type: integer
+          format: int32
+          description: The ID of the program this appointment belongs to.
+          example: 123456
+        WaitlistEntryId:
+          type: integer
+          format: int32
+          description: The ID of the appointment waitlist.
+          example: 123456
+        SessionTypeId:
+          type: integer
+          format: int32
+          description: The ID of the session type of this appointment.
+          example: 123456
+        LocationId:
+          type: integer
+          format: int32
+          description: The ID of the location where this appointment will take place.
+          example: 123456
+        StaffId:
+          type: integer
+          format: int32
+          description: The ID of the staff member instructing this appointment.
+          example: 123456
+        ClientId:
+          type: string
+          description: The RSSID of the client booked for this appointment.
+          example: example-value
+        FirstAppointment:
+          type: boolean
+          description: Whether this is the client's first appointment at the site.
+          example: true
+        ClientServiceId:
+          type: integer
+          format: int32
+          description: The ID of the pass on the client's account that is paying for this appointment.
+          example: 123456
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Resource'
+          description: The resources this appointment is using.
+          example:
+          - {}
+        AddOns:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddOnSmall1'
+          description: The Add-Ons Associated with this appointment
+          example:
+          - {}
+        IsWaitlist:
+          type: boolean
+          description: Whether to add appointment to waitlist.
+          example: true
+        OnlineDescription:
+          type: string
+          description: Online Description associated with the appointment
+          example: Example note for Mindbody Public API.
+    UpdateAppointmentRequest:
+      type: object
+      description: Implementation of the 'UpdateAppointmentRequest' model.
+      properties:
+        AppointmentId:
+          type: integer
+          format: int32
+          description: A unique ID for the appointment.
+          example: 123456
+        EndDateTime:
+          type: string
+          format: date-time
+          description: 'The end date and time of the new appointment. <br />Default: **StartDateTime**, offset by the staff member’s default appointment duration.'
+          example: '2026-05-28T14:30:00Z'
+        Execute:
+          type: string
+          description: 'The action taken to add this appointment. Possible values are: confirm, unconfirm, arrive, unarrive, cancel, latecancel, complete.'
+          example: example-value
+        GenderPreference:
+          type: string
+          description: The client’s service provider gender preference.
+          example: example-value
+        Notes:
+          type: string
+          description: Any general notes about this appointment.
+          example: Example note for Mindbody Public API.
+        PartnerExternalId:
+          type: string
+          description: Optional external key for api partners.
+          example: example-value
+        ProviderId:
+          type: string
+          description: If a user has Complementary and Alternative Medicine features enabled, this parameter assigns a provider ID to the appointment.
+          example: example-value
+        ResourceIds:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: A list of resource IDs to associate with the new appointment.
+          example:
+          - 1
+        SendEmail:
+          type: boolean
+          description: 'Whether to send client an email for cancellations. An email is sent only if the client has an email address and automatic emails have been set up. <br />Default: **false**'
+          example: true
+        SessionTypeId:
+          type: integer
+          format: int32
+          description: The session type associated with the new appointment.
+          example: 123456
+        StaffId:
+          type: integer
+          format: int32
+          description: The ID of the staff member who is adding the new appointment.
+          example: 123456
+        StartDateTime:
+          type: string
+          format: date-time
+          description: The start date and time of the new appointment.
+          example: '2026-05-28T14:30:00Z'
+        ApplyPayment:
+          type: boolean
+          description: 'When `true`, appointment will be updated with a current applicable client service from the clients account. <br />Default: **false**'
+          example: true
+        Test:
+          type: boolean
+          description: 'When `true`, indicates that the method is to be validated, but no new appointment data is added. <br />Default: **false**'
+          example: true
+    GetAppointmentOptionsResponse:
+      type: object
+      description: Implementation of the 'GetAppointmentOptionsResponse' model.
+      properties:
+        Options:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppointmentOption'
+          description: Contains information about the appointment options.
+          example:
+          - {}
+    PricingRelationships:
+      type: object
+      description: Implementation of the 'PricingRelationships' model.
+      properties:
+        PaysFor:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: The model property of type List[int].
+          example:
+          - 1
+        PaidBy:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: The model property of type List[int].
+          example:
+          - 1
+    ResourceSlim:
+      type: object
+      description: Implementation of the 'ResourceSlim' model. Contains information about resources, such as rooms.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The ID of the resource being used for this appointment.
+          example: 123456
+        Name:
+          type: string
+          description: The name of the resource being used for this appointment.
+          example: Sunset Yoga Studio
+    TypeEnum:
+      type: string
+      description: TypeEnum enumeration.
+      enum:
+      - All
+      - Class
+      - Enrollment
+      - Appointment
+      - Resource
+      - Media
+      - Arrival
+    GetBookableItemsResponse:
+      type: object
+      description: Implementation of the 'GetBookableItemsResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        Availabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Availability'
+          description: Contains information about the availabilities for appointment booking.
+          example:
+          - {}
+    AddAppointmentResponse:
+      type: object
+      description: Implementation of the 'AddAppointmentResponse' model.
+      properties:
+        Appointment:
+          $ref: '#/components/schemas/Appointment'
+          description: Contains information about the appointment.
+    Availability1:
+      type: object
+      description: Implementation of the 'Availability1' model. The availability of a specific staff
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: Id of the availability
+          example: 123456
+        Staff:
+          $ref: '#/components/schemas/Staff1'
+          description: Availabilities staff.
+        SessionType:
+          $ref: '#/components/schemas/SessionType1'
+          description: Availabilities session type.
+        Programs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Program1'
+          description: Availabilities program list.
+          example:
+          - {}
+        StartDateTime:
+          type: string
+          format: date-time
+          description: Availabilities start date and time.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: Availabilities end date and time.
+          example: '2026-05-28T14:30:00Z'
+        BookableEndDateTime:
+          type: string
+          format: date-time
+          description: Availabilities bookable end date and time.
+          example: '2026-05-28T14:30:00Z'
+        Location:
+          $ref: '#/components/schemas/Location1'
+          description: Availabilities location.
+        PrepTime:
+          type: integer
+          format: int32
+          description: Appointment prep time
+          example: 1
+        FinishTime:
+          type: integer
+          format: int32
+          description: Appointment finish time
+          example: 1
+        IsMasked:
+          type: boolean
+          description: The model property of type bool.
+          example: true
+        ShowPublic:
+          type: boolean
+          description: The model property of type bool.
+          example: true
+        ResourceAvailabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceAvailability1'
+          description: List of resource availabilities that can be booked with this session type.
+          example:
+          - {}
+    SessionType1:
+      type: object
+      description: Implementation of the 'SessionType1' model.
+      properties:
+        Type:
+          $ref: '#/components/schemas/Type1Enum'
+          description: The model property of type Type1Enum.
+        DefaultTimeLength:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 1
+        StaffTimeLength:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 1
+        ProgramId:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 123456
+        NumDeducted:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 1
+        Id:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 123456
+        Name:
+          type: string
+          description: The model property of type str.
+          example: Sunset Yoga Studio
+        Active:
+          type: boolean
+          description: The model property of type bool.
+          example: true
+        Capacity:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 1
+        ResourceRequired:
+          type: boolean
+          description: The model property of type bool.
+          example: true
+        Category:
+          $ref: '#/components/schemas/ServiceTag'
+          description: The model property of type ServiceTag.
+        Subcategory:
+          $ref: '#/components/schemas/ServiceTag'
+          description: The model property of type ServiceTag.
+        OnlineDescription:
+          type: string
+          description: The model property of type str.
+          example: Example note for Mindbody Public API.
+        AvailableForAddOn:
+          type: boolean
+          description: The model property of type bool.
+          example: true
+    PublicDisplay1Enum:
+      type: string
+      description: PublicDisplay1Enum enumeration.
+      enum:
+      - Hide
+      - Show
+      - Mask
+    UnavailabilityPlain:
+      type: object
+      description: Implementation of the 'UnavailabilityPlain' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The ID of the unavailability.
+          example: 123456
+        StaffId:
+          type: integer
+          format: int32
+          description: Id of the staff
+          example: 123456
+        StartDateTime:
+          type: string
+          format: date-time
+          description: The date and time the unavailability starts.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: The date and time the unavailability ends.
+          example: '2026-05-28T14:30:00Z'
+        Description:
+          type: string
+          description: A description of the unavailability.
+          example: Example note for Mindbody Public API.
+    Appointment:
+      type: object
+      description: Implementation of the 'Appointment' model. Contains information about an appointment.
+      properties:
+        GenderPreference:
+          $ref: '#/components/schemas/GenderPreferenceEnum'
+          description: 'The prefered gender of the appointment provider. Possible values are: * None * Female * Male'
+        Duration:
+          type: integer
+          format: int32
+          description: The duration of the appointment.
+          example: 1
+        ProviderId:
+          type: string
+          description: If a user has Complementary and Alternative Medicine features enabled, this property indicates the provider assigned to the appointment.
+          example: example-value
+        Id:
+          type: integer
+          format: int32
+          description: The unique ID of the appointment.
+          example: 123456
+        Status:
+          $ref: '#/components/schemas/StatusEnum'
+          description: 'The status of this appointment. Possible values are: * None * Requested * Booked * Completed * Confirmed * Arrived * NoShow * Cancelled * LateCancelled'
+        StartDateTime:
+          type: string
+          format: date-time
+          description: The date and time the appointment is to start.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: The date and time the appointment is to end.
+          example: '2026-05-28T14:30:00Z'
+        Notes:
+          type: string
+          description: Any notes associated with the appointment.
+          example: Example note for Mindbody Public API.
+        PartnerExternalId:
+          type: string
+          description: Optional external key for api partners.
+          example: example-value
+        StaffRequested:
+          type: boolean
+          description: When `true`, indicates that the staff member was requested specifically by the client.
+          example: true
+        ProgramId:
+          type: integer
+          format: int32
+          description: The ID of the program to which this appointment belongs.
+          example: 123456
+        SessionTypeId:
+          type: integer
+          format: int32
+          description: The ID of the session type of this appointment.
+          example: 123456
+        LocationId:
+          type: integer
+          format: int32
+          description: The ID of the location where this appointment is to take place.
+          example: 123456
+        StaffId:
+          type: integer
+          format: int32
+          description: The ID of the staff member providing the service for this appointment.
+          example: 123456
+        Staff:
+          $ref: '#/components/schemas/AppointmentStaff'
+          description: Staff for the appointment
+        ClientId:
+          type: string
+          description: The RSSID of the client who is booked for this appointment.
+          example: example-value
+        FirstAppointment:
+          type: boolean
+          description: When `true`, indicates that this is the client’s first appointment at this site.
+          example: true
+        IsWaitlist:
+          type: boolean
+          description: 'When `true`, indicates that the client should be added to a specific appointment waiting list. When `false`, the client should not be added to the waiting list. Default: *false*'
+          example: true
+        WaitlistEntryId:
+          type: integer
+          format: int32
+          description: The unique ID of the appointment waitlist.
+          example: 123456
+        ClientServiceId:
+          type: integer
+          format: int32
+          description: The ID of the pass on the client’s account that is to pay for this appointment.
+          example: 123456
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSlim'
+          description: The resources this appointment is to use.
+          example:
+          - {}
+        AddOns:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddOnSmall'
+          description: Any AddOns associated with the appointment
+          example:
+          - {}
+        OnlineDescription:
+          type: string
+          description: Online Description associated with the appointment
+          example: Example note for Mindbody Public API.
+    Location1:
+      type: object
+      description: Implementation of the 'Location1' model.
+      properties:
+        BusinessId:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 123456
+        SiteId:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: -99
+        BusinessDescription:
+          type: string
+          description: The model property of type str.
+          example: Example note for Mindbody Public API.
+        AdditionalImageURLs:
+          type: array
+          items:
+            type: string
+          description: The model property of type List[str].
+          example:
+          - example-value
+        FacilitySquareFeet:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 1
+        ProSpaFinderSite:
+          type: boolean
+          description: The model property of type bool.
+          example: true
+        HasClasses:
+          type: boolean
+          description: The model property of type bool.
+          example: true
+        PhoneExtension:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        Action:
+          $ref: '#/components/schemas/ActionEnum'
+          description: The model property of type ActionEnum.
+        Id:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 123456
+        Name:
+          type: string
+          description: The model property of type str.
+          example: Sunset Yoga Studio
+        Address:
+          type: string
+          description: The model property of type str.
+          example: 123 Market St
+        Address2:
+          type: string
+          description: The model property of type str.
+          example: 123 Market St
+        Tax1:
+          type: number
+          format: double
+          description: The model property of type float.
+          example: 1.0
+        Tax2:
+          type: number
+          format: double
+          description: The model property of type float.
+          example: 1.0
+        Tax3:
+          type: number
+          format: double
+          description: The model property of type float.
+          example: 1.0
+        Tax4:
+          type: number
+          format: double
+          description: The model property of type float.
+          example: 1.0
+        Tax5:
+          type: number
+          format: double
+          description: The model property of type float.
+          example: 1.0
+        Phone:
+          type: string
+          description: The model property of type str.
+          example: '+15551234567'
+        City:
+          type: string
+          description: The model property of type str.
+          example: San Francisco
+        StateProvCode:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        PostalCode:
+          type: string
+          description: The model property of type str.
+          example: '94110'
+        Latitude:
+          type: number
+          format: double
+          description: The model property of type float.
+          example: 1.0
+        Longitude:
+          type: number
+          format: double
+          description: The model property of type float.
+          example: 1.0
+        DistanceInMiles:
+          type: number
+          format: double
+          description: The model property of type float.
+          example: 1.0
+        ImageURL:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        Description:
+          type: string
+          description: The model property of type str.
+          example: Example note for Mindbody Public API.
+        HasSite:
+          type: boolean
+          description: The model property of type bool.
+          example: true
+        CanBook:
+          type: boolean
+          description: The model property of type bool.
+          example: true
+        NumberTreatmentRooms:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 1
+        Active:
+          type: boolean
+          description: The model property of type bool.
+          example: true
+        InvActive:
+          type: boolean
+          description: The model property of type bool.
+          example: true
+        WsShow:
+          type: boolean
+          description: The model property of type bool.
+          example: true
+        Email:
+          type: string
+          description: The model property of type str.
+          example: kinlane@example.com
+        ContactName:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        ShipAddress:
+          type: string
+          description: The model property of type str.
+          example: 123 Market St
+        ShipState:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        ShipPostal:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        ShipPhone:
+          type: string
+          description: The model property of type str.
+          example: '+15551234567'
+        ShipPOC:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        TaxGrouping:
+          type: boolean
+          description: The model property of type bool.
+          example: true
+        LabelTax1:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        LabelTax2:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        LabelTax3:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        LabelTax4:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        LabelTax5:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        WAC:
+          type: boolean
+          description: The model property of type bool.
+          example: true
+        ShipAddress2:
+          type: string
+          description: The model property of type str.
+          example: 123 Market St
+        MasterLocId:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 123456
+        StreetAddress:
+          type: string
+          description: The model property of type str.
+          example: 123 Market St
+        Country:
+          type: string
+          description: The model property of type str.
+          example: US
+        Ext:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        Amenities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Amenity1'
+          description: The model property of type List[Amenity1].
+          example:
+          - {}
+        TotalNumberOfDeals:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 1
+        TotalNumberOfRatings:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 1
+        AverageRating:
+          type: number
+          format: double
+          description: The model property of type float.
+          example: 1.0
+    Amenity1:
+      type: object
+      description: Implementation of the 'Amenity1' model. A specific amenity at a location
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The identifying ID of the amenity.
+          example: 123456
+        Name:
+          type: string
+          description: The name of the amenity (e.g. "Lockers" or "Food/Drink").
+          example: Sunset Yoga Studio
+    UpdateAppointmentResponse:
+      type: object
+      description: Implementation of the 'UpdateAppointmentResponse' model.
+      properties:
+        Appointment:
+          $ref: '#/components/schemas/Appointment'
+          description: Contains information about the appointment.
+    Program1:
+      type: object
+      description: Implementation of the 'Program1' model.
+      properties:
+        CancelOffset:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 10
+        Id:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 123456
+        Name:
+          type: string
+          description: The model property of type str.
+          example: Sunset Yoga Studio
+        ScheduleType:
+          $ref: '#/components/schemas/ScheduleType2Enum'
+          description: The model property of type ScheduleType2Enum.
+        ContentFormat:
+          $ref: '#/components/schemas/ContentFormatEnum'
+          description: The model property of type ContentFormatEnum.
+        OnlineBookingDisabled:
+          type: boolean
+          description: The model property of type bool.
+          example: true
+        ScheduleOffset:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 10
+        ScheduleOffsetEnd:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 10
+        PricingRelationships:
+          $ref: '#/components/schemas/PricingRelationships'
+          description: The model property of type PricingRelationships.
+    GetScheduleItemsResponse:
+      type: object
+      description: Implementation of the 'GetScheduleItemsResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        StaffMembers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Staff'
+          description: Contains information about staff members with schedule items.
+          example:
+          - {}
+    AddOnSmall1:
+      type: object
+      description: Implementation of the 'AddOnSmall1' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The unique ID of the appointment add on.
+          example: 123456
+        Name:
+          type: string
+          description: The Name of the appointment add on.
+          example: Sunset Yoga Studio
+        StaffId:
+          type: integer
+          format: int32
+          description: The unique ID of the staff on appointment.
+          example: 123456
+        TypeId:
+          type: integer
+          format: int32
+          description: The ID of the session type of this appointment.
+          example: 123456
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: API-Key
+      description: Mindbody-issued API key (server-to-server). Required on every request.
+    OAuth2:
+      type: oauth2
+      description: OpenID Connect bearer token issued by Mindbody Identity Service (signin.mindbodyonline.com). Required for endpoints that act on behalf of a staff or client user.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://signin.mindbodyonline.com/connect/authorize
+          tokenUrl: https://signin.mindbodyonline.com/connect/token
+          scopes:
+            openid: OpenID Connect base scope.
+            profile: User profile claims.
+            email: User email claim.
+            offline_access: Issue a refresh token.
+            Mindbody.Api.Public.v6: Access the Mindbody Public API v6 on behalf of the user.

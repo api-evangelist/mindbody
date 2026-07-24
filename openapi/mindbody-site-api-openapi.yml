@@ -1,0 +1,2943 @@
+openapi: 3.0.3
+info:
+  title: Mindbody Public API v6 Appointment Site API
+  version: '6.0'
+  description: REST API for Mindbody business management data including appointments, classes, clients, enrollments, sales, sites, staff, payroll, and cross-site operations. Authentication combines a Mindbody-issued API-Key header with a SiteId header and optional staff/user OAuth bearer tokens for write operations. Generated from the official Mindbody Public API Python SDK (apimatic v3).
+  contact:
+    name: Mindbody API Support
+    url: https://support.mindbodyonline.com/s/contactapisupport
+  license:
+    name: Proprietary
+  x-generated-from: Mindbody-API-SDKs python SDK
+  x-last-validated: '2026-05-28'
+servers:
+- url: https://api.mindbodyonline.com
+  description: Production
+security:
+- ApiKeyAuth: []
+tags:
+- name: Site
+  description: Site operations.
+paths:
+  /public/v6/site/activationcode:
+    get:
+      tags:
+      - Site
+      summary: Mindbody Before You Can Use This Endpoint, MINDBODY Must Approve Your Developer
+      description: Before you can use this endpoint, MINDBODY must approve your developer account for live access. If you have finished testing in the sandbox and are ready to begin working with MINDBODY customers, log into your account and request to go live. See [Accessing Business Data From MINDBODY](https://developers.mindbodyonline.com/PublicDocumentation/V6# accessing-business-data) for more information about the activation code and how to use it. Once you are approved, this endpoint returns an activation code.This endpoint supports only one site per call.
+      operationId: getActivationCode
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetActivationCodeResponse'
+              examples:
+                Getactivationcode200Example:
+                  summary: Default getActivationCode 200 example
+                  x-microcks-default: true
+                  value:
+                    ActivationCode: example-value
+                    ActivationLink: example-value
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/categories:
+    get:
+      tags:
+      - Site
+      summary: Mindbody Gets the Categories
+      description: Gets the categories.
+      operationId: getCategories
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.active
+        in: query
+        required: false
+        description: 'When `true`, the response only contains categories which are activated. When `false`, only deactivated categories are returned. Default: **All Categories**'
+        schema:
+          type: boolean
+        example: true
+      - name: request.categoryIds
+        in: query
+        required: false
+        description: When included, the response only contains details about the specified category Ids.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.service
+        in: query
+        required: false
+        description: 'When `true`, the response only contains details about Revenue Categories. When `false`, only Product Revenue Categories are returned. Default: **All Categories**'
+        schema:
+          type: boolean
+        example: true
+      - name: request.subCategoryIds
+        in: query
+        required: false
+        description: When included, the response only contains details about the specified subcategory Ids.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCategoriesResponse'
+              examples:
+                Getcategories200Example:
+                  summary: Default getCategories 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    Categories:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/genders:
+    get:
+      tags:
+      - Site
+      summary: Mindbody The Endpoint Returns a List of Configured Client Gender Options for a
+      description: The endpoint returns a list of configured client gender options for a site. Custom gender options are assignable to client genders only. Currently, custom values returned from this endpoint cannot be used as input for other endpoints to specify the genders of staff or client preferences.
+      operationId: getGenders
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetGendersResponse'
+              examples:
+                Getgenders200Example:
+                  summary: Default getGenders 200 example
+                  x-microcks-default: true
+                  value:
+                    GenderOptions:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/liabilitywaiver:
+    get:
+      tags:
+      - Site
+      summary: Mindbody Gets Liability Waiver Content at the Specified Business
+      description: Gets Liability Waiver content at the specified business. This endpoint requires staff user credentials.
+      operationId: getLiabilityWaiver
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetLiabilityWaiverResponse'
+              examples:
+                Getliabilitywaiver200Example:
+                  summary: Default getLiabilityWaiver 200 example
+                  x-microcks-default: true
+                  value:
+                    LiabilityWaiver: example-value
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/locations:
+    get:
+      tags:
+      - Site
+      summary: Mindbody Get Locations for a Site
+      description: Get locations for a site.
+      operationId: getLocations
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetLocationsResponse'
+              examples:
+                Getlocations200Example:
+                  summary: Default getLocations 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    Locations:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/memberships:
+    get:
+      tags:
+      - Site
+      summary: Mindbody Get the Memberships at a Site
+      description: Get the memberships at a site.
+      operationId: getMemberships
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.membershipIds
+        in: query
+        required: false
+        description: 'The requested membership IDs.<br /> Default: **all** IDs that the authenticated user’s access level allows.'
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMembershipsResponse'
+              examples:
+                Getmemberships200Example:
+                  summary: Default getMemberships 200 example
+                  x-microcks-default: true
+                  value:
+                    Memberships:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/mobileproviders:
+    get:
+      tags:
+      - Site
+      summary: Mindbody Get the List of Mobile Providers That Are Supported by the Business
+      description: Get the list of mobile providers that are supported by the business.
+      operationId: getMobileProviders
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.active
+        in: query
+        required: false
+        description: 'When `true`, the response only contains mobile providers which are activated. When `false`, only deactivated mobile providers are returned. Default: **All Mobile Providers**'
+        schema:
+          type: boolean
+        example: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMobileProvidersResponse'
+              examples:
+                Getmobileproviders200Example:
+                  summary: Default getMobileProviders 200 example
+                  x-microcks-default: true
+                  value:
+                    MobileProviders:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/paymenttypes:
+    get:
+      tags:
+      - Site
+      summary: Mindbody Get Payment Types for a Site
+      description: Get payment types for a site.
+      operationId: getPaymentTypes
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.active
+        in: query
+        required: false
+        description: 'When `true`, the response only contains payment types which are activated. When `false`, only deactivated payment types are returned. Default: **All Payment Types**'
+        schema:
+          type: boolean
+        example: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPaymentTypesResponse'
+              examples:
+                Getpaymenttypes200Example:
+                  summary: Default getPaymentTypes 200 example
+                  x-microcks-default: true
+                  value:
+                    PaymentTypes:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/programs:
+    get:
+      tags:
+      - Site
+      summary: Mindbody Get Service Categories Offered at a Site
+      description: Get service categories offered at a site.
+      operationId: getPrograms
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.onlineOnly
+        in: query
+        required: false
+        description: 'If `true`, filters results to show only those programs that are shown online.<br /> If `false`, all programs are returned.<br /> Default: **false**'
+        schema:
+          type: boolean
+        example: true
+      - name: request.programIds
+        in: query
+        required: false
+        description: Program Ids to filter for
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.scheduleType
+        in: query
+        required: false
+        description: 'A schedule type used to filter the returned results. Possible values are: * All * Class * Enrollment * Appointment * Resource * Media * Arrival'
+        schema:
+          $ref: '#/components/schemas/RequestScheduleTypeEnum'
+        example: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetProgramsResponse'
+              examples:
+                Getprograms200Example:
+                  summary: Default getPrograms 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    Programs:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/promocodes:
+    get:
+      tags:
+      - Site
+      summary: Mindbody Gets a List of Promocodes at the Specified Business. This Endpoint
+      description: Gets a list of promocodes at the specified business. This endpoint requires staff user credentials. This staff member should have enabled the Set up promotions / **Semester discounts** staff permission.
+      operationId: getPromoCodes
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.activeOnly
+        in: query
+        required: false
+        description: 'If true, filters results to show only promocodes that are active. If **false**, all promocodes are returned. Default: **true**'
+        schema:
+          type: boolean
+        example: true
+      - name: request.endDate
+        in: query
+        required: false
+        description: Filters results to promocodes that were activated before this date.
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      - name: request.lastModifiedDate
+        in: query
+        required: false
+        description: Filters results to promocodes that were modified on or after this date.
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.onlineOnly
+        in: query
+        required: false
+        description: 'If `true`, filters results to show only promocodes that can be used for online sale. If `false`, all promocodes are returned. Default: **false**'
+        schema:
+          type: boolean
+        example: true
+      - name: request.startDate
+        in: query
+        required: false
+        description: Filters results to promocodes that were activated after this date.
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPromoCodesResponse'
+              examples:
+                Getpromocodes200Example:
+                  summary: Default getPromoCodes 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    PromoCodes:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/prospectstages:
+    get:
+      tags:
+      - Site
+      summary: Mindbody Get the List of Prospect Stages That Represent the Prospect Stage
+      description: Get the list of prospect stages that represent the prospect stage options for prospective clients.
+      operationId: getProspectStages
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.active
+        in: query
+        required: false
+        description: 'When `true`, the response only contains prospect stages which are activated. When `false`, only deactivated prospect stages are returned. Default: **All Prospect Stages**'
+        schema:
+          type: boolean
+        example: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetProspectStagesResponse'
+              examples:
+                Getprospectstages200Example:
+                  summary: Default getProspectStages 200 example
+                  x-microcks-default: true
+                  value:
+                    ProspectStages:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/relationships:
+    get:
+      tags:
+      - Site
+      summary: Mindbody This Endpoint Retrieves the Business Site Relationships
+      description: This endpoint retrieves the business site relationships.
+      operationId: getRelationships
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.active
+        in: query
+        required: false
+        description: 'When `true`, the response only contains relationships which are activated. When `false`, only deactivated relationships are returned. Default: **All Relationships**'
+        schema:
+          type: boolean
+        example: true
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRelationshipsResponse'
+              examples:
+                Getrelationships200Example:
+                  summary: Default getRelationships 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    Relationships:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/resourceavailabilities:
+    get:
+      tags:
+      - Site
+      summary: Mindbody Get Resource Availabilities Used at a Site
+      description: Get resource availabilities used at a site.
+      operationId: getResourceAvailabilities
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.endDate
+        in: query
+        required: false
+        description: End date. If default, StartDate is used.
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.locationIds
+        in: query
+        required: false
+        description: Filter by location ids (optional)
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.programIds
+        in: query
+        required: false
+        description: Filter by program ids (optional)
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.resourceIds
+        in: query
+        required: false
+        description: Filter on resourceIds
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.scheduleTypes
+        in: query
+        required: false
+        description: Filter by schedule types (optional)
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/RequestScheduleTypeEnum'
+        example:
+        - {}
+      - name: request.startDate
+        in: query
+        required: false
+        description: Start time
+        schema:
+          type: string
+          format: date-time
+        example: '2026-05-28T14:30:00Z'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetResourceAvailabilitiesResponse'
+              examples:
+                Getresourceavailabilities200Example:
+                  summary: Default getResourceAvailabilities 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    ResourceAvailabilities:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/resources:
+    get:
+      tags:
+      - Site
+      summary: Mindbody Get Resources Used at a Site
+      description: Get resources used at a site.
+      operationId: getResources
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.includeInactive
+        in: query
+        required: false
+        description: Enable to include inactive
+        schema:
+          type: boolean
+        example: true
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.locationIds
+        in: query
+        required: false
+        description: Filter by location ids (optional)
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.programIds
+        in: query
+        required: false
+        description: Filter by program ids (optional)
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.resourceIds
+        in: query
+        required: false
+        description: Filter on resourceIds
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      - name: request.scheduleTypes
+        in: query
+        required: false
+        description: Filter by schedule types (optional)
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/RequestScheduleTypeEnum'
+        example:
+        - {}
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/sessiontypes:
+    get:
+      tags:
+      - Site
+      summary: Mindbody Get the Session Types Used at a Site
+      description: Get the session types used at a site.
+      operationId: getSessionTypes
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.onlineOnly
+        in: query
+        required: false
+        description: 'When `true`, indicates that only the session types that can be booked online should be returned.<br /> Default: **false**'
+        schema:
+          type: boolean
+        example: true
+      - name: request.programIDs
+        in: query
+        required: false
+        description: Filters results to session types that belong to one of the given program IDs. If omitted, all program IDs return.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSessionTypesResponse'
+              examples:
+                Getsessiontypes200Example:
+                  summary: Default getSessionTypes 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    SessionTypes:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/sites:
+    get:
+      tags:
+      - Site
+      summary: Mindbody Gets a List of Sites That the Developer Has Permission to View
+      description: 'Gets a list of sites that the developer has permission to view. * Passing in no `SiteIds` returns all sites that the developer has access to. * Passing in one `SiteIds` returns more detailed information about the specified site. Important Behavior Notice: When calling GetSites without specifying a SiteId, or when passing multiple SiteIds, the response will include only limited data for each site. This is expected behavior designed to help identify accessible sites without returning full site-level configuration details. To retrieve complete information for a specific site, please make a separate GetSites request using a single SiteId. This design helps reduce payload size for multi-site queries, but we recognize it may require additional requests when full detail is needed. If your integration depends on full site-level data, we recommend retrieving the list of site IDs first, then querying each one individually as needed.'
+      operationId: getSites
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      - name: request.includeLeadChannels
+        in: query
+        required: false
+        description: This is an optional parameter to get lead channels for a Site.
+        schema:
+          type: boolean
+        example: true
+      - name: request.includePerStaffPricing
+        in: query
+        required: false
+        description: Include whether or not studios have per staff pricing enabled.
+        schema:
+          type: boolean
+        example: true
+      - name: request.limit
+        in: query
+        required: false
+        description: Number of results to include, defaults to 100
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.offset
+        in: query
+        required: false
+        description: Page offset, defaults to 0.
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: request.siteIds
+        in: query
+        required: false
+        description: List of the requested site IDs. When omitted, returns all sites that the source has access to.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+        example:
+        - 1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSitesResponse'
+              examples:
+                Getsites200Example:
+                  summary: Default getSites 200 example
+                  x-microcks-default: true
+                  value:
+                    PaginationResponse: {}
+                    Sites:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/addclientindex:
+    post:
+      tags:
+      - Site
+      summary: Mindbody Creates a New Client Index Record at the Specified Business
+      description: Creates a new client index record at the specified business. This endpoint requires staff user credentials.
+      operationId: addClientIndex
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddSiteClientIndexRequest'
+            examples:
+              AddclientindexRequestExample:
+                summary: Default addClientIndex request example
+                x-microcks-default: true
+                value:
+                  ClientIndexName: example-value
+                  Active: true
+                  ShowOnNewClient: true
+                  ShowOnEnrollmentRoster: true
+                  EditOnEnrollmentRoster: true
+                  SortOrder: 1
+                  ShowInConsumerMode: true
+                  RequiredConsumerMode: true
+                  RequiredBizMode: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddSiteClientIndexResponse'
+              examples:
+                Addclientindex200Example:
+                  summary: Default addClientIndex 200 example
+                  x-microcks-default: true
+                  value:
+                    ClientIndexID: 1
+                    ClientIndexName: example-value
+                    Active: true
+                    ShowOnNewClient: true
+                    ShowOnEnrollmentRoster: true
+                    EditOnEnrollmentRoster: true
+                    SortOrder: 1
+                    ShowInConsumerMode: true
+                    RequiredConsumerMode: true
+                    RequiredBizMode: true
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/addpromocode:
+    post:
+      tags:
+      - Site
+      summary: Mindbody Creates a New Promocode Record at the Specified Business
+      description: Creates a new promocode record at the specified business. This endpoint requires staff user credentials. This staff memeber should have enabled the **Set up promotions / Semester discounts** staff permission.
+      operationId: addPromoCode
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddPromoCodeRequest'
+            examples:
+              AddpromocodeRequestExample:
+                summary: Default addPromoCode request example
+                x-microcks-default: true
+                value:
+                  Code: example-value
+                  Name: Sunset Yoga Studio
+                  Active: true
+                  Discount: {}
+                  ActivationDate: '2026-05-28T14:30:00Z'
+                  ExpirationDate: '2026-05-28T14:30:00Z'
+                  MaxUses: 1
+                  DaysAfterCloseDate: 1
+                  AllowOnline: true
+                  DaysValid:
+                  - example-value
+                  ApplicableItems:
+                  - {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddPromoCodeResponse'
+              examples:
+                Addpromocode200Example:
+                  summary: Default addPromoCode 200 example
+                  x-microcks-default: true
+                  value:
+                    PromoCode: {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/deactivatepromocode:
+    post:
+      tags:
+      - Site
+      summary: Mindbody Deactivates an Existing Promocode Record at the Specified Business
+      description: Deactivates an existing promocode record at the specified business. This endpoint requires staff user credentials. This staff memeber should have enabled the **Set up promotions / Semester discounts** staff permission.
+      operationId: deactivatePromoCode
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeactivatePromoCodeRequest'
+            examples:
+              DeactivatepromocodeRequestExample:
+                summary: Default deactivatePromoCode request example
+                x-microcks-default: true
+                value:
+                  PromotionId: 123456
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+  /public/v6/site/updateclientindex:
+    post:
+      tags:
+      - Site
+      summary: Mindbody Updates an Exisitng Client Index Record at the Specified Business
+      description: Updates an exisitng client index record at the specified business. This endpoint requires staff user credentials.
+      operationId: updateClientIndex
+      parameters:
+      - name: version
+        in: path
+        required: true
+        description: version of the api.
+        schema:
+          type: string
+        example: example-value
+      - name: siteId
+        in: header
+        required: true
+        description: ID of the site from which to pull data.
+        schema:
+          type: string
+        example: example-value
+      - name: authorization
+        in: header
+        required: false
+        description: A staff user authorization token.
+        schema:
+          type: string
+        example: example-value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSiteClientIndexRequest'
+            examples:
+              UpdateclientindexRequestExample:
+                summary: Default updateClientIndex request example
+                x-microcks-default: true
+                value:
+                  ClientIndexID: 1
+                  ClientIndexName: example-value
+                  Active: true
+                  ShowOnNewClient: true
+                  ShowOnEnrollmentRoster: true
+                  EditOnEnrollmentRoster: true
+                  SortOrder: 1
+                  ShowInConsumerMode: true
+                  RequiredConsumerMode: true
+                  RequiredBizMode: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateSiteClientIndexResponse'
+              examples:
+                Updateclientindex200Example:
+                  summary: Default updateClientIndex 200 example
+                  x-microcks-default: true
+                  value:
+                    ClientIndexID: 1
+                    ClientIndexName: example-value
+                    Active: true
+                    ShowOnNewClient: true
+                    ShowOnEnrollmentRoster: true
+                    EditOnEnrollmentRoster: true
+                    SortOrder: 1
+                    ShowInConsumerMode: true
+                    RequiredConsumerMode: true
+                    RequiredBizMode: true
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+components:
+  schemas:
+    GetMobileProvidersResponse:
+      type: object
+      description: Implementation of the 'GetMobileProvidersResponse' model. Get Mobile Providers Response Object
+      properties:
+        MobileProviders:
+          type: array
+          items:
+            $ref: '#/components/schemas/MobileProvider'
+          description: A list of mobile providers.
+          example:
+          - {}
+    GetPaymentTypesResponse:
+      type: object
+      description: Implementation of the 'GetPaymentTypesResponse' model. Get Payment Types Response Model
+      properties:
+        PaymentTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentType'
+          description: The requested payment types.
+          example:
+          - {}
+    ScheduleTypeEnum:
+      type: string
+      description: ScheduleTypeEnum enumeration.
+      enum:
+      - All
+      - Class
+      - Enrollment
+      - Appointment
+      - Resource
+      - Media
+      - Arrival
+    AddPromoCodeResponse:
+      type: object
+      description: Implementation of the 'AddPromoCodeResponse' model.
+      properties:
+        PromoCode:
+          $ref: '#/components/schemas/PromoCode'
+          description: Contains information about PromoCode
+    GetResourceAvailabilitiesResponse:
+      type: object
+      description: Implementation of the 'GetResourceAvailabilitiesResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        ResourceAvailabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceAvailability'
+          description: Contains information about resources as the business.
+          example:
+          - {}
+    DaysValidEnum:
+      type: string
+      description: DaysValidEnum enumeration.
+      enum:
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+    PaginationResponse:
+      type: object
+      description: Implementation of the 'PaginationResponse' model. Contains information about the pagination to use.
+      properties:
+        RequestedLimit:
+          type: integer
+          format: int32
+          description: Limit from pagination request
+          example: 10
+        RequestedOffset:
+          type: integer
+          format: int32
+          description: Offset from pagination request
+          example: 10
+        PageSize:
+          type: integer
+          format: int32
+          description: Number of results returned in this response
+          example: 1
+        TotalResults:
+          type: integer
+          format: int32
+          description: Total number of results in dataset
+          example: 1
+    SubCategory:
+      type: object
+      description: Implementation of the 'SubCategory' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The Id of the subcategory.
+          example: 123456
+        SubCategoryName:
+          type: string
+          description: The name of the subcategory.
+          example: example-value
+        Active:
+          type: boolean
+          description: When `true`, indicates that the subcategory is active.
+          example: true
+    GetSessionTypesResponse:
+      type: object
+      description: Implementation of the 'GetSessionTypesResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination properties used.
+        SessionTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/SessionType'
+          description: Contains information about sessions.
+          example:
+          - {}
+    GetLiabilityWaiverResponse:
+      type: object
+      description: Implementation of the 'GetLiabilityWaiverResponse' model.
+      properties:
+        LiabilityWaiver:
+          type: string
+          description: Contains Liability Waiver text for a site
+          example: example-value
+    GetGendersResponse:
+      type: object
+      description: Implementation of the 'GetGendersResponse' model.
+      properties:
+        GenderOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GenderOption'
+          description: A list of the gender options and their properties at the site
+          example:
+          - {}
+    DeactivatePromoCodeRequest:
+      type: object
+      description: Implementation of the 'DeactivatePromoCodeRequest' model.
+      properties:
+        PromotionId:
+          type: integer
+          format: int32
+          description: The promocodeID
+          example: 123456
+    SessionType:
+      type: object
+      description: Implementation of the 'SessionType' model. SessionType contains information about the session types in a business.
+      properties:
+        Type:
+          $ref: '#/components/schemas/TypeEnum'
+          description: 'Contains the class description session type. Possible values are: * All * Class * Enrollment * Appointment * Resource * Media * Arrival'
+        DefaultTimeLength:
+          type: integer
+          format: int32
+          description: The default amount of time that a session of this type typically lasts.
+          example: 1
+        StaffTimeLength:
+          type: integer
+          format: int32
+          description: The amount of time that a session of this type will last for a specific Staff (when applicable.)
+          example: 1
+        Id:
+          type: integer
+          format: int32
+          description: This session type’s unique ID.
+          example: 123456
+        Name:
+          type: string
+          description: The name of this session type.
+          example: Sunset Yoga Studio
+        OnlineDescription:
+          type: string
+          description: The online description associated with the appointment.
+          example: Example note for Mindbody Public API.
+        NumDeducted:
+          type: integer
+          format: int32
+          description: The number of sessions that this session type deducts from the pricing option used to pay for this type of session.
+          example: 1
+        ProgramId:
+          type: integer
+          format: int32
+          description: This session type’s service category ID.
+          example: 123456
+        Category:
+          type: string
+          description: This session type’s category.
+          example: example-value
+        CategoryId:
+          type: integer
+          format: int32
+          description: This session type’s category ID.
+          example: 123456
+        Subcategory:
+          type: string
+          description: This session type’s subcategory.
+          example: example-value
+        SubcategoryId:
+          type: integer
+          format: int32
+          description: This session type’s subcategory ID.
+          example: 123456
+        AvailableForAddOn:
+          type: boolean
+          description: This session type’s Add On Flag.
+          example: true
+    AddSiteClientIndexRequest:
+      type: object
+      description: Implementation of the 'AddSiteClientIndexRequest' model.
+      properties:
+        ClientIndexName:
+          type: string
+          description: The name of the client index.
+          example: example-value
+        Active:
+          type: boolean
+          description: Indicates if Client Index is Active
+          example: true
+        ShowOnNewClient:
+          type: boolean
+          description: Indicates if Client Index is shown on a new client profile
+          example: true
+        ShowOnEnrollmentRoster:
+          type: boolean
+          description: Indicates if Client Index is shown on Enrollement Roster
+          example: true
+        EditOnEnrollmentRoster:
+          type: boolean
+          description: Indicates if Client Index can be edited on Enrollement Roster
+          example: true
+        SortOrder:
+          type: integer
+          format: int32
+          description: Indicates sort order
+          example: 1
+        ShowInConsumerMode:
+          type: boolean
+          description: Indicates if Client Index is shown in consumer mode.
+          example: true
+        RequiredConsumerMode:
+          type: boolean
+          description: Indicates if the index is required when creating profiles in consumer mode.
+          example: true
+        RequiredBizMode:
+          type: boolean
+          description: Indicates if the index is required when creating profiles in business mode.
+          example: true
+    GetCategoriesResponse:
+      type: object
+      description: Implementation of the 'GetCategoriesResponse' model. Get Categories Response Model
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        Categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+          description: Contains the Category objects, each of which describes the categories for a site.
+          example:
+          - {}
+    UpdateSiteClientIndexResponse:
+      type: object
+      description: Implementation of the 'UpdateSiteClientIndexResponse' model.
+      properties:
+        ClientIndexID:
+          type: integer
+          format: int32
+          description: ID of the client index.
+          example: 1
+        ClientIndexName:
+          type: string
+          description: The name of the client index.
+          example: example-value
+        Active:
+          type: boolean
+          description: Indicates if Client Index is Active
+          example: true
+        ShowOnNewClient:
+          type: boolean
+          description: Indicates if Client Index is shown on a new client profile
+          example: true
+        ShowOnEnrollmentRoster:
+          type: boolean
+          description: Indicates if Client Index is shown on Enrollement Roster
+          example: true
+        EditOnEnrollmentRoster:
+          type: boolean
+          description: Indicates if Client Index can be edited on Enrollement Roster
+          example: true
+        SortOrder:
+          type: integer
+          format: int32
+          description: Indicates sort order
+          example: 1
+        ShowInConsumerMode:
+          type: boolean
+          description: Indicates if Client Index is shown in consumer mode.
+          example: true
+        RequiredConsumerMode:
+          type: boolean
+          description: Indicates if the index is required when creating profiles in consumer mode.
+          example: true
+        RequiredBizMode:
+          type: boolean
+          description: Indicates if the index is required when creating profiles in business mode.
+          example: true
+    Relationship:
+      type: object
+      description: Implementation of the 'Relationship' model. Jim is a RelationshipName1 of John. John is a RelationshipName2 of Jim.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The ID of the relationship.
+          example: 123456
+        RelationshipName1:
+          type: string
+          description: The name of the first relationship.
+          example: example-value
+        RelationshipName2:
+          type: string
+          description: The name of the second relationship.
+          example: example-value
+    Location:
+      type: object
+      description: Implementation of the 'Location' model.
+      properties:
+        AdditionalImageURLs:
+          type: array
+          items:
+            type: string
+          description: A list of URLs of any images associated with this location.
+          example:
+          - example-value
+        Address:
+          type: string
+          description: The first line of the location’s street address.
+          example: 123 Market St
+        Address2:
+          type: string
+          description: A second address line for the location’s street address, if needed.
+          example: 123 Market St
+        Amenities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Amenity'
+          description: A list of strings representing amenities available at the location.
+          example:
+          - {}
+        BusinessDescription:
+          type: string
+          description: The business description for the location, as configured by the business owner.
+          example: Example note for Mindbody Public API.
+        City:
+          type: string
+          description: The location’s city.
+          example: San Francisco
+        Description:
+          type: string
+          description: A description of the location.
+          example: Example note for Mindbody Public API.
+        HasClasses:
+          type: boolean
+          description: When `true`, indicates that classes are held at this location.<br /> When `false`, Indicates that classes are not held at this location.
+          example: true
+        Id:
+          type: integer
+          format: int32
+          description: The ID assigned to this location.
+          example: 123456
+        Latitude:
+          type: number
+          format: double
+          description: The location’s latitude.
+          example: 1.0
+        Longitude:
+          type: number
+          format: double
+          description: The location’s longitude.
+          example: 1.0
+        Name:
+          type: string
+          description: The name of this location.
+          example: Sunset Yoga Studio
+        Phone:
+          type: string
+          description: The location’s phone number.
+          example: '+15551234567'
+        PhoneExtension:
+          type: string
+          description: The location’s phone extension.
+          example: example-value
+        PostalCode:
+          type: string
+          description: The location’s postal code.
+          example: '94110'
+        SiteID:
+          type: integer
+          format: int32
+          description: The ID number assigned to this location.
+          example: 1
+        StateProvCode:
+          type: string
+          description: The location’s state or province code.
+          example: example-value
+        Tax1:
+          type: number
+          format: double
+          description: A decimal representation of the location’s first tax rate. Tax properties are provided to apply all taxes to the purchase price that the purchase is subject to. Use as many tax properties as needed to represent all the taxes that apply in the location. Enter a decimal number that represents the appropriate tax rate. For example, for an 8% sales tax, enter 0.08.
+          example: 1.0
+        Tax2:
+          type: number
+          format: double
+          description: A decimal representation of the location’s second tax rate. See the example in the description of Tax1.
+          example: 1.0
+        Tax3:
+          type: number
+          format: double
+          description: A decimal representation of the location’s third tax rate. See the example in the description of Tax1.
+          example: 1.0
+        Tax4:
+          type: number
+          format: double
+          description: A decimal representation of the location’s fourth tax rate. See the example in the description of Tax1.
+          example: 1.0
+        Tax5:
+          type: number
+          format: double
+          description: A decimal representation of the location’s fifth tax rate. See the example in the description of Tax1.
+          example: 1.0
+        TotalNumberOfRatings:
+          type: integer
+          format: int32
+          description: The number of reviews that clients have left for this location.
+          example: 1
+        AverageRating:
+          type: number
+          format: double
+          description: The average rating for the location, out of five stars.
+          example: 1.0
+        TotalNumberOfDeals:
+          type: integer
+          format: int32
+          description: The number of distinct introductory pricing options available for purchase at this location.
+          example: 1
+    Amenity:
+      type: object
+      description: Implementation of the 'Amenity' model. Definition of a location amenity
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The ID number of the amenity.
+          example: 123456
+        Name:
+          type: string
+          description: The name of the amenity, for example, food or lockers.
+          example: Sunset Yoga Studio
+    GetLocationsResponse:
+      type: object
+      description: Implementation of the 'GetLocationsResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        Locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
+          description: Contains information about the locations.
+          example:
+          - {}
+    GetProspectStagesResponse:
+      type: object
+      description: Implementation of the 'GetProspectStagesResponse' model. Get Prospect Stages Response Model
+      properties:
+        ProspectStages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProspectStage'
+          description: List of Prospect Stages
+          example:
+          - {}
+    ResourceAvailability:
+      type: object
+      description: Implementation of the 'ResourceAvailability' model. An availability of a resource
+      properties:
+        ResourceId:
+          type: integer
+          format: int32
+          description: Id
+          example: 123456
+        StartDateTime:
+          type: string
+          format: date-time
+          description: Starts
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: Ends
+          example: '2026-05-28T14:30:00Z'
+    GetActivationCodeResponse:
+      type: object
+      description: Implementation of the 'GetActivationCodeResponse' model.
+      properties:
+        ActivationCode:
+          type: string
+          description: An activation code used to provide access to a site’s business data through MINDBODY.
+          example: example-value
+        ActivationLink:
+          type: string
+          description: A link to the Manage Credentials screen.
+          example: example-value
+    PaymentType:
+      type: object
+      description: Implementation of the 'PaymentType' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The Payment Type Id used for api calls.
+          example: 123456
+        PaymentTypeName:
+          type: string
+          description: Payment Type Name
+          example: example-value
+        Active:
+          type: boolean
+          description: Check if Payment type is active.
+          example: true
+        Fee:
+          type: number
+          format: double
+          description: Payment type fee.
+          example: 1.0
+    ApplicableItem:
+      type: object
+      description: Implementation of the 'ApplicableItem' model. Item that will be applied to a promo code
+      properties:
+        Type:
+          type: string
+          description: 'Type of a promo code The promotional item type. Possible values are: * ServiceCategory * RevenueCategory * Supplier * Item'
+          example: example-value
+        Id:
+          type: integer
+          format: int32
+          description: The promotional item ID.
+          example: 123456
+        Name:
+          type: string
+          description: The promotional item name.
+          example: Sunset Yoga Studio
+    Category:
+      type: object
+      description: Implementation of the 'Category' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The category Id used for api calls.
+          example: 123456
+        CategoryName:
+          type: string
+          description: Category Name
+          example: example-value
+        Description:
+          type: string
+          description: Category Description
+          example: Example note for Mindbody Public API.
+        Service:
+          type: boolean
+          description: Category service
+          example: true
+        Active:
+          type: boolean
+          description: Check if Category is active.
+          example: true
+        IsPrimary:
+          type: boolean
+          description: Check if Category is of primary type.
+          example: true
+        IsSecondary:
+          type: boolean
+          description: Check if Category is of secondary type.
+          example: true
+        CreatedDateTimeUTC:
+          type: string
+          format: date-time
+          description: Category Created DateTime UTC
+          example: '2026-05-28T14:30:00Z'
+        ModifiedDateTimeUTC:
+          type: string
+          format: date-time
+          description: Category Modified DateTime UTC
+          example: '2026-05-28T14:30:00Z'
+        SubCategories:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubCategory'
+          description: Contains the SubCategory objects, each of which describes the subcategories for a category.
+          example:
+          - {}
+        TotalCount:
+          type: integer
+          format: int32
+          description: Get total number of rows
+          example: 10
+    Program:
+      type: object
+      description: Implementation of the 'Program' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The service category’s ID.
+          example: 123456
+        Name:
+          type: string
+          description: The name of this service category.
+          example: Sunset Yoga Studio
+        ScheduleType:
+          $ref: '#/components/schemas/ScheduleTypeEnum'
+          description: 'The service category’s schedule type. Possible values are: * All * Class * Enrollment * Appointment * Resource * Arrival'
+        CancelOffset:
+          type: integer
+          format: int32
+          description: The offset to use for the service category.
+          example: 10
+        ContentFormats:
+          type: array
+          items:
+            type: string
+          description: 'The content delivery platform(s) used by the service category. Possible values are: * InPerson * Livestream:Mindbody * Livestream:Other'
+          example:
+          - example-value
+        PricingRelationships:
+          $ref: '#/components/schemas/PricingRelationships'
+          description: Pricing relationships
+    AddPromoCodeRequest:
+      type: object
+      description: Implementation of the 'AddPromoCodeRequest' model.
+      properties:
+        Code:
+          type: string
+          description: The code of the promocode.
+          example: example-value
+        Name:
+          type: string
+          description: The name of the promocode.
+          example: Sunset Yoga Studio
+        Active:
+          type: boolean
+          description: 'Indicates that promocode is active. Default: **true**'
+          example: true
+        Discount:
+          $ref: '#/components/schemas/Discount'
+          description: Discount info
+        ActivationDate:
+          type: string
+          format: date-time
+          description: 'The date of the promocode activation. Default: **today’s date**'
+          example: '2026-05-28T14:30:00Z'
+        ExpirationDate:
+          type: string
+          format: date-time
+          description: 'The date of the promocode expiration. Default: **a months from today’s date**'
+          example: '2026-05-28T14:30:00Z'
+        MaxUses:
+          type: integer
+          format: int32
+          description: The maximun number of uses. A use is considered a single sale.
+          example: 1
+        DaysAfterCloseDate:
+          type: integer
+          format: int32
+          description: The number of days a client has to use a promocode after they are no longer a prospect.
+          example: 1
+        AllowOnline:
+          type: boolean
+          description: 'Indicates if promocode can be redeemed online in consumer mode. Default: **false**'
+          example: true
+        DaysValid:
+          type: array
+          items:
+            type: string
+          description: 'Indicates what days of the week promocode is valid. Defaults to 7 days of the week. Possible values are: * Monday * Tuesday * Wednesday * Thursday * Friday * Saturday * Sunday'
+          example:
+          - example-value
+        ApplicableItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicableItem'
+          description: Contains information about a promocode applicable items. See ApplicableItems for a details of the `ApplicableItems` object.
+          example:
+          - {}
+    MobileProvider:
+      type: object
+      description: Implementation of the 'MobileProvider' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 123456
+        Active:
+          type: boolean
+          description: The model property of type bool.
+          example: true
+        ProviderName:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        ProviderAddress:
+          type: string
+          description: The model property of type str.
+          example: 123 Market St
+    Membership:
+      type: object
+      description: Implementation of the 'Membership' model.
+      properties:
+        MembershipId:
+          type: integer
+          format: int32
+          description: The membership id.
+          example: 123456
+        MembershipName:
+          type: string
+          description: The membership name.
+          example: example-value
+        Priority:
+          type: integer
+          format: int32
+          description: The priority/sort order.
+          example: 1
+        MemberRetailDiscount:
+          type: number
+          format: double
+          description: The membership discount for retail as a percentage.
+          example: 1.0
+        MemberServiceDiscount:
+          type: number
+          format: double
+          description: The membership discount for services as a percentage.
+          example: 1.0
+        AllowClientsToScheduleUnpaid:
+          type: boolean
+          description: Allow clients in this membership to schedule unpaid.
+          example: true
+        OnlineBookingRestrictedToMembersOnly:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProgramMembership'
+          description: List of programs that are restricted to clients in this membership only.
+          example:
+          - {}
+        DayOfMonthSchedulingOpensForNextMonth:
+          type: integer
+          format: int32
+          description: Day of month scheduling opens for next month. Unrestricted is a null value.
+          example: 1
+        RestrictSelfSignInToMembersOnly:
+          type: boolean
+          description: Restrict self sign in to members only.
+          example: true
+        AllowMembersToBookAppointmentsWithoutPaying:
+          type: boolean
+          description: Allow members to book appointments without paying.
+          example: true
+        AllowMembersToPurchaseNonMembersServices:
+          type: boolean
+          description: Allow members to purchase non-members services.
+          example: true
+        AllowMembersToPurchaseNonMembersProducts:
+          type: boolean
+          description: Allow members to purchase non-members products.
+          example: true
+        IsActive:
+          type: boolean
+          description: Indicates if the membership is active.
+          example: true
+        EarlyAccessDaysBeforeSchedulingWindow:
+          type: integer
+          format: int32
+          description: Number of days before the scheduling window that members with this membership get early access.
+          example: 1
+    PromoCode:
+      type: object
+      description: Implementation of the 'PromoCode' model.
+      properties:
+        PromotionID:
+          type: integer
+          format: int32
+          description: ID of the promo code
+          example: 1
+        Name:
+          type: string
+          description: Name of the promo code
+          example: Sunset Yoga Studio
+        Code:
+          type: string
+          description: The code of the promocode.
+          example: example-value
+        Active:
+          type: boolean
+          description: Indicates that promocode is active.
+          example: true
+        Discount:
+          $ref: '#/components/schemas/Discount'
+          description: Contains information about the discount.
+        ActivationDate:
+          type: string
+          format: date-time
+          description: The promocode activation date.
+          example: '2026-05-28T14:30:00Z'
+        ExpirationDate:
+          type: string
+          format: date-time
+          description: The promocode expiration date.
+          example: '2026-05-28T14:30:00Z'
+        MaxUses:
+          type: integer
+          format: int32
+          description: The maximun number of uses.
+          example: 1
+        NumberOfAutopays:
+          type: integer
+          format: int32
+          description: Number of Autopays
+          example: 1
+        DaysAfterCloseDate:
+          type: integer
+          format: int32
+          description: The number of days a client has to use a promocode after they are no longer a prospect.
+          example: 1
+        AllowOnline:
+          type: boolean
+          description: Indicates if promocode to be redeemed online in consumer mode.
+          example: true
+        LastModifiedDateTime:
+          type: string
+          format: date-time
+          description: Promo code last modified date and time
+          example: '2026-05-28T14:30:00Z'
+        DaysValid:
+          type: array
+          items:
+            $ref: '#/components/schemas/DaysValidEnum'
+          description: What days the promo code can be used
+          example:
+          - {}
+        ApplicableItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicableItem'
+          description: Contains information about a promocode applicable items.
+          example:
+          - {}
+    PricingRelationships:
+      type: object
+      description: Implementation of the 'PricingRelationships' model.
+      properties:
+        PaysFor:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: The model property of type List[int].
+          example:
+          - 1
+        PaidBy:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: The model property of type List[int].
+          example:
+          - 1
+    UpdateSiteClientIndexRequest:
+      type: object
+      description: Implementation of the 'UpdateSiteClientIndexRequest' model.
+      properties:
+        ClientIndexID:
+          type: integer
+          format: int32
+          description: The ID of the client index.
+          example: 1
+        ClientIndexName:
+          type: string
+          description: The name of the client index.
+          example: example-value
+        Active:
+          type: boolean
+          description: Indicates if Client Index is Active
+          example: true
+        ShowOnNewClient:
+          type: boolean
+          description: Indicates if Client Index is shown on a new client profile
+          example: true
+        ShowOnEnrollmentRoster:
+          type: boolean
+          description: Indicates if Client Index is shown on Enrollement Roster
+          example: true
+        EditOnEnrollmentRoster:
+          type: boolean
+          description: Indicates if Client Index can be edited on Enrollement Roster
+          example: true
+        SortOrder:
+          type: integer
+          format: int32
+          description: Indicates sort order
+          example: 1
+        ShowInConsumerMode:
+          type: boolean
+          description: Indicates if Client Index is shown in consumer mode.
+          example: true
+        RequiredConsumerMode:
+          type: boolean
+          description: Indicates if the index is required when creating profiles in consumer mode.
+          example: true
+        RequiredBizMode:
+          type: boolean
+          description: Indicates if the index is required when creating profiles in business mode.
+          example: true
+    LeadChannel:
+      type: object
+      description: Implementation of the 'LeadChannel' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 123456
+        Name:
+          type: string
+          description: The model property of type str.
+          example: Sunset Yoga Studio
+        SalespipelineId:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 123456
+        UniversalCustomerId:
+          type: string
+          description: The model property of type uuid|str.
+          example: example-value
+        StudioId:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 123456
+    TypeEnum:
+      type: string
+      description: TypeEnum enumeration.
+      enum:
+      - All
+      - Class
+      - Enrollment
+      - Appointment
+      - Resource
+      - Media
+      - Arrival
+    GenderOption:
+      type: object
+      description: Implementation of the 'GenderOption' model. A gender option available at a site
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The id of the gender option.
+          example: 123456
+        Name:
+          type: string
+          description: The value that describes this gender option.
+          example: Sunset Yoga Studio
+        IsActive:
+          type: boolean
+          description: When `true`, this indicates that the gender option is active and may be assigned to a client.
+          example: true
+        IsDefault:
+          type: boolean
+          description: When true, this indicates that this is the default gender option at the site.
+          example: true
+    Site:
+      type: object
+      description: Implementation of the 'Site' model.
+      properties:
+        AcceptsAmericanExpress:
+          type: boolean
+          description: When `true`, indicates that this site accepts American Express cards.<br /> When `false`, indicates that this site does not accept American Express credit cards.
+          example: true
+        AcceptsDiscover:
+          type: boolean
+          description: When `true`, indicates that this site accepts Discover cards.<br /> When `false`, indicates that this site does not accept Discover credit cards.
+          example: true
+        AcceptsMasterCard:
+          type: boolean
+          description: When `true`, indicates that this site accepts MasterCard cards.<br /> When `false`, indicates that this site does not accept MasterCard credit cards.
+          example: true
+        AcceptsVisa:
+          type: boolean
+          description: When `true`, indicates that this site accepts Visa cards.<br /> When `false`, indicates that this site does not accept Visa credit cards.
+          example: true
+        AllowsDashboardAccess:
+          type: boolean
+          description: When `true`, indicates that this site allows access to its dashboard.<br /> When `false`, indicates that this site does not allow access to its dashboard.
+          example: true
+        ContactEmail:
+          type: string
+          description: The site’s email address.
+          example: kinlane@example.com
+        Description:
+          type: string
+          description: A description of the site.
+          example: Example note for Mindbody Public API.
+        Id:
+          type: integer
+          format: int32
+          description: The site ID.
+          example: 123456
+        LogoUrl:
+          type: string
+          description: The URL to the site’s logo.
+          example: https://example.mindbodyonline.com/resource/abc123
+        Name:
+          type: string
+          description: The name of the site.
+          example: Sunset Yoga Studio
+        PageColor1:
+          type: string
+          description: A hex code for a color the business owner uses in marketing. This color can be used to set a theme for an integration so that it matches the configured color-scheme for the business.
+          example: example-value
+        PageColor2:
+          type: string
+          description: The hex code for a second color, to be used in the same manner as `pageColor1`.
+          example: example-value
+        PageColor3:
+          type: string
+          description: The hex code for a third color, to be used in the same manner as `pageColor1`.
+          example: example-value
+        PageColor4:
+          type: string
+          description: The hex code for a fourth color, to be used in the same manner as `pageColor1`.
+          example: example-value
+        PricingLevel:
+          type: string
+          description: 'The MINDBODY pricing level for the business. Possible values are: Accelerate - The business is on MINDBODY’s Accelerate pricing tier. Grow - The business is on MINDBODY’s Essential pricing tier. Legacy - The business is on an older MINDBODY pricing tier that is no longer offered. Listing - The business is on an older MINDBODY pricing tier that is no longer offered. Pro - The business is on an older MINDBODY pricing tier that is no longer offered. Solo - The business is on an older MINDBODY prici'
+          example: example-value
+        SmsPackageEnabled:
+          type: boolean
+          description: When `true`, indicates that the business uses SMS text messages to communicate with its clients.<br /> When `false`, indicates that the business does not use SMS text messages to communicate with its clients.
+          example: true
+        TaxInclusivePrices:
+          type: boolean
+          description: When `true`, indicates that the total includes tax.<br /> When `false`, indicates that the total does not include tax.
+          example: true
+        CurrencyIsoCode:
+          type: string
+          description: The currency ISO code for the site.
+          example: example-value
+        CountryCode:
+          type: string
+          description: The country code for the site.
+          example: example-value
+        TimeZone:
+          type: string
+          description: The time zone the site is located in.
+          example: example-value
+        AcceptsDirectDebit:
+          type: boolean
+          description: When `true`, indicates that direct debit can be used by clients at this site.<br /> When `false`, indicates that direct debit can not by used by clients at this site.
+          example: true
+        LeadChannels:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeadChannel'
+          description: The list of lead channels available for a subscriber/studio.
+          example:
+          - {}
+        PerStaffPricing:
+          type: boolean
+          description: When `true`, indicates that per-staff pricing is enabled at this site.<br /> When `false`, indicates that per-staff pricing is not enabled at this site.
+          example: true
+    GetPromoCodesResponse:
+      type: object
+      description: Implementation of the 'GetPromoCodesResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Pagination Response
+        PromoCodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/PromoCode'
+          description: Contains information about Promocodes at a site
+          example:
+          - {}
+    GetMembershipsResponse:
+      type: object
+      description: Implementation of the 'GetMembershipsResponse' model.
+      properties:
+        Memberships:
+          type: array
+          items:
+            $ref: '#/components/schemas/Membership'
+          description: Details about the memberships.
+          example:
+          - {}
+    ProspectStage:
+      type: object
+      description: Implementation of the 'ProspectStage' model.
+      properties:
+        Active:
+          type: boolean
+          description: When `true`, indicates that the client is a prospect at the business and has not yet purchased any of the business pricing options. When `false`, indicates that the client has already purchased at least one pricing option from the business.
+          example: true
+        Description:
+          type: string
+          description: A description of the prospect stage.
+          example: Example note for Mindbody Public API.
+        Id:
+          type: integer
+          format: int32
+          description: The ID of the prospect stage assigned to the client.
+          example: 123456
+    GetRelationshipsResponse:
+      type: object
+      description: Implementation of the 'GetRelationshipsResponse' model. Get Relationships Response Model
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        Relationships:
+          type: array
+          items:
+            $ref: '#/components/schemas/Relationship'
+          description: A list of relationships.
+          example:
+          - {}
+    AddSiteClientIndexResponse:
+      type: object
+      description: Implementation of the 'AddSiteClientIndexResponse' model.
+      properties:
+        ClientIndexID:
+          type: integer
+          format: int32
+          description: ID of the client index.
+          example: 1
+        ClientIndexName:
+          type: string
+          description: The name of the client index.
+          example: example-value
+        Active:
+          type: boolean
+          description: Indicates if Client Index is Active
+          example: true
+        ShowOnNewClient:
+          type: boolean
+          description: Indicates if Client Index is shown on a new client profile
+          example: true
+        ShowOnEnrollmentRoster:
+          type: boolean
+          description: Indicates if Client Index is shown on Enrollement Roster
+          example: true
+        EditOnEnrollmentRoster:
+          type: boolean
+          description: Indicates if Client Index can be edited on Enrollement Roster
+          example: true
+        SortOrder:
+          type: integer
+          format: int32
+          description: Indicates sort order
+          example: 1
+        ShowInConsumerMode:
+          type: boolean
+          description: Indicates if Client Index is shown in consumer mode.
+          example: true
+        RequiredConsumerMode:
+          type: boolean
+          description: Indicates if the index is required when creating profiles in consumer mode.
+          example: true
+        RequiredBizMode:
+          type: boolean
+          description: Indicates if the index is required when creating profiles in business mode.
+          example: true
+    ProgramMembership:
+      type: object
+      description: Implementation of the 'ProgramMembership' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The service category’s ID.
+          example: 123456
+        Name:
+          type: string
+          description: The name of this service category.
+          example: Sunset Yoga Studio
+    GetProgramsResponse:
+      type: object
+      description: Implementation of the 'GetProgramsResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        Programs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Program'
+          description: Contains information about the programs.
+          example:
+          - {}
+    Discount:
+      type: object
+      description: Implementation of the 'Discount' model. Discount for a promo code
+      properties:
+        Type:
+          type: string
+          description: Type of discount percentage/amount
+          example: example-value
+        Amount:
+          type: number
+          format: double
+          description: Amount of discount
+          example: 49.99
+    GetSitesResponse:
+      type: object
+      description: Implementation of the 'GetSitesResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        Sites:
+          type: array
+          items:
+            $ref: '#/components/schemas/Site'
+          description: Contains information about the sites.
+          example:
+          - {}
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: API-Key
+      description: Mindbody-issued API key (server-to-server). Required on every request.
+    OAuth2:
+      type: oauth2
+      description: OpenID Connect bearer token issued by Mindbody Identity Service (signin.mindbodyonline.com). Required for endpoints that act on behalf of a staff or client user.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://signin.mindbodyonline.com/connect/authorize
+          tokenUrl: https://signin.mindbodyonline.com/connect/token
+          scopes:
+            openid: OpenID Connect base scope.
+            profile: User profile claims.
+            email: User email claim.
+            offline_access: Issue a refresh token.
+            Mindbody.Api.Public.v6: Access the Mindbody Public API v6 on behalf of the user.

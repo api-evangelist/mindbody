@@ -1,0 +1,132 @@
+openapi: 3.0.3
+info:
+  title: Mindbody Public API v6 Appointment Metrics API
+  version: '6.0'
+  description: REST API for Mindbody business management data including appointments, classes, clients, enrollments, sales, sites, staff, payroll, and cross-site operations. Authentication combines a Mindbody-issued API-Key header with a SiteId header and optional staff/user OAuth bearer tokens for write operations. Generated from the official Mindbody Public API Python SDK (apimatic v3).
+  contact:
+    name: Mindbody API Support
+    url: https://support.mindbodyonline.com/s/contactapisupport
+  license:
+    name: Proprietary
+  x-generated-from: Mindbody-API-SDKs python SDK
+  x-last-validated: '2026-05-28'
+servers:
+- url: https://api.mindbodyonline.com
+  description: Production
+security:
+- ApiKeyAuth: []
+tags:
+- name: Metrics
+  description: Metrics operations.
+paths:
+  /api/v1/metrics:
+    get:
+      tags:
+      - Metrics
+      summary: Mindbody This Endpoint Gets Metrics for All the Subscriptions Associated with
+      description: This endpoint gets metrics for all the subscriptions associated with your Public API developer account.
+      operationId: getMetrics
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMetricsResponse'
+              examples:
+                Getmetrics200Example:
+                  summary: Default getMetrics 200 example
+                  x-microcks-default: true
+                  value:
+                    items:
+                    - {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      security:
+      - ApiKeyAuth: []
+components:
+  schemas:
+    Metric:
+      type: object
+      description: Implementation of the 'Metric' model. Metrics for subscription
+      properties:
+        creationDateTime:
+          type: string
+          format: date-time
+          description: The UTC date and time when the subscription was created.
+          example: '2026-05-28T14:30:00Z'
+        messagesAttempted:
+          type: integer
+          format: int32
+          description: The number of event notifications Mindbody attempted to deliver to the subscription `webhookUrl`, including retries.
+          example: 1
+        messagesDelivered:
+          type: integer
+          format: int32
+          description: The number of event notifications Mindbody successfully delivered to the subscription `webhookUrl`.
+          example: 1
+        messagesFailed:
+          type: integer
+          format: int32
+          description: The number of event notifications that Mindbody stopped trying to send after 3 hours.
+          example: 1
+        messagesUndelivered:
+          type: integer
+          format: int32
+          description: The number of event notifications where MINDBODY received a failure response from the subscription `webhookUrl`.
+          example: 1
+        status:
+          type: string
+          description: The subscription's current status. **Possible Values**:<br /> `PendingActivation` - The subscription is created but not receiving event notifications.To start receiving event notifications, set the subscription’s status to Active using the PATCH Subscription endpoint.<br /> `Active` - The subscription is active and can receive event notifications.<br /> `DeactivatedByUser` - You deactivated the subscription.<br /> `DeactivatedByAdmin` - Mindbody deactivated your subscription.<br /> `DeactivatedT
+          example: example-value
+        statusChangeDate:
+          type: string
+          format: date-time
+          description: The UTC date and time when the subscription `status` was last updated.
+          example: '2026-05-28T14:30:00Z'
+        subscriptionId:
+          type: string
+          description: The subscription's ID (a GUID).
+          example: example-value
+    GetMetricsResponse:
+      type: object
+      description: Implementation of the 'GetMetricsResponse' model. A wrapper for returning subscription metrics to API users
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metric'
+          description: Contains the metrics for the passed subscription
+          example:
+          - {}
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: API-Key
+      description: Mindbody-issued API key (server-to-server). Required on every request.
+    OAuth2:
+      type: oauth2
+      description: OpenID Connect bearer token issued by Mindbody Identity Service (signin.mindbodyonline.com). Required for endpoints that act on behalf of a staff or client user.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://signin.mindbodyonline.com/connect/authorize
+          tokenUrl: https://signin.mindbodyonline.com/connect/token
+          scopes:
+            openid: OpenID Connect base scope.
+            profile: User profile claims.
+            email: User email claim.
+            offline_access: Issue a refresh token.
+            Mindbody.Api.Public.v6: Access the Mindbody Public API v6 on behalf of the user.
