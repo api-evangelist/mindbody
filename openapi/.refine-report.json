@@ -1,0 +1,44 @@
+{
+  "provider": "mindbody",
+  "sources": [
+    "mindbody-appointment-api-openapi.yml",
+    "mindbody-class-api-openapi.yml",
+    "mindbody-client-api-openapi.yml",
+    "mindbody-cross-site-api-openapi.yml",
+    "mindbody-enrollment-api-openapi.yml",
+    "mindbody-metrics-api-openapi.yml",
+    "mindbody-payroll-api-openapi.yml",
+    "mindbody-pick-a-spot-api-openapi.yml",
+    "mindbody-sale-api-openapi.yml",
+    "mindbody-site-api-openapi.yml",
+    "mindbody-staff-api-openapi.yml",
+    "mindbody-subscriptions-api-openapi.yml",
+    "mindbody-user-token-api-openapi.yml"
+  ],
+  "outputs": [
+    "mindbody-appointment-api-openapi.yml",
+    "mindbody-class-api-openapi.yml",
+    "mindbody-client-api-openapi.yml",
+    "mindbody-cross-site-api-openapi.yml",
+    "mindbody-enrollment-api-openapi.yml",
+    "mindbody-metrics-api-openapi.yml",
+    "mindbody-payroll-api-openapi.yml",
+    "mindbody-pick-a-spot-api-openapi.yml",
+    "mindbody-sale-api-openapi.yml",
+    "mindbody-site-api-openapi.yml",
+    "mindbody-staff-api-openapi.yml",
+    "mindbody-subscriptions-api-openapi.yml",
+    "mindbody-user-token-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [
+    "mindbody-appointment-api-openapi.yml: dangling $ref: #/components/schemas/RequestScheduleTypeEnum",
+    "mindbody-sale-api-openapi.yml: dangling $ref: #/components/schemas/Any",
+    "mindbody-sale-api-openapi.yml: dangling $ref: #/components/schemas/UpdateProductRequest",
+    "mindbody-sale-api-openapi.yml: dangling $ref: #/components/schemas/UpdateServiceRequest",
+    "mindbody-site-api-openapi.yml: dangling $ref: #/components/schemas/RequestScheduleTypeEnum"
+  ],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
