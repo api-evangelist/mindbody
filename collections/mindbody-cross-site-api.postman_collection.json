@@ -1,0 +1,554 @@
+{
+  "item": [
+    {
+      "id": "18858b4e-6657-4e7b-bf28-fd43a9ce772c",
+      "name": "Cross Site",
+      "description": {
+        "content": "Cross Site operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "329ffc4e-cc92-4e0e-9878-9b898759535d",
+          "name": "Mindbody Copies the Credit Card Information from One Client to Another,",
+          "request": {
+            "name": "Mindbody Copies the Credit Card Information from One Client to Another,",
+            "description": {
+              "content": "Copies the credit card information from one client to another, regardless of site. The source and target clients must have the same email address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "v6",
+                "crossSite",
+                "copycreditcard"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) version of the api."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ID of the site from which to pull data.",
+                "key": "siteId",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "API-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SourceSiteId\": \"<integer>\",\n  \"SourceClientId\": \"<string>\",\n  \"SourceUniqueClientId\": \"<integer>\",\n  \"TargetSiteId\": \"<integer>\",\n  \"TargetClientId\": \"<string>\",\n  \"TargetUniqueClientId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e4ca43ae-c613-4d3d-a754-7c6a885c7f7e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "crossSite",
+                    "copycreditcard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SourceSiteId\": 123456,\n  \"SourceClientId\": \"example-value\",\n  \"SourceUniqueClientId\": 123456,\n  \"TargetSiteId\": 123456,\n  \"TargetClientId\": \"example-value\",\n  \"TargetUniqueClientId\": 123456\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"CopiedFrom\": {},\n  \"CopiedTo\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "135ea45d-ce42-4240-8dce-a5dc0e462373",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "crossSite",
+                    "copycreditcard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SourceSiteId\": 123456,\n  \"SourceClientId\": \"example-value\",\n  \"SourceUniqueClientId\": 123456,\n  \"TargetSiteId\": 123456,\n  \"TargetClientId\": \"example-value\",\n  \"TargetUniqueClientId\": 123456\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "52d9fd24-54cb-452e-8acc-1bfc78887722",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "crossSite",
+                    "copycreditcard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SourceSiteId\": 123456,\n  \"SourceClientId\": \"example-value\",\n  \"SourceUniqueClientId\": 123456,\n  \"TargetSiteId\": 123456,\n  \"TargetClientId\": \"example-value\",\n  \"TargetUniqueClientId\": 123456\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "58300485-2f97-4ab8-b059-d7dff0d3be13",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "crossSite",
+                    "copycreditcard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SourceSiteId\": 123456,\n  \"SourceClientId\": \"example-value\",\n  \"SourceUniqueClientId\": 123456,\n  \"TargetSiteId\": 123456,\n  \"TargetClientId\": \"example-value\",\n  \"TargetUniqueClientId\": 123456\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4a6f2389-8da3-4f01-9c0f-1a5588f2f5ba",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "crossSite",
+                    "copycreditcard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SourceSiteId\": 123456,\n  \"SourceClientId\": \"example-value\",\n  \"SourceUniqueClientId\": 123456,\n  \"TargetSiteId\": 123456,\n  \"TargetClientId\": \"example-value\",\n  \"TargetUniqueClientId\": 123456\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ad5b334c-bb67-4f70-af81-6940234363e1",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "crossSite",
+                    "copycreditcard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SourceSiteId\": 123456,\n  \"SourceClientId\": \"example-value\",\n  \"SourceUniqueClientId\": 123456,\n  \"TargetSiteId\": 123456,\n  \"TargetClientId\": \"example-value\",\n  \"TargetUniqueClientId\": 123456\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mindbodyonline.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c856ce07-bf92-4af9-875a-0e551ccc72e9",
+    "name": "Mindbody Public API v6 Appointment Cross Site API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for Mindbody business management data including appointments, classes, clients, enrollments, sales, sites, staff, payroll, and cross-site operations. Authentication combines a Mindbody-issued API-Key header with a SiteId header and optional staff/user OAuth bearer tokens for write operations. Generated from the official Mindbody Public API Python SDK (apimatic v3).\n\nContact Support:\n Name: Mindbody API Support",
+      "type": "text/plain"
+    }
+  }
+}

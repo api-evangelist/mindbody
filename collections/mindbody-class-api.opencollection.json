@@ -1,0 +1,990 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mindbody Public API v6 Appointment Class API",
+    "version": "6.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "API-Key",
+      "value": "{{API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Class",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mindbody To Find Class Descriptions Associated with **scheduled Classes**, Pass",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/class/classdescriptions",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.classDescriptionId",
+                "value": "123456",
+                "type": "query",
+                "description": "The ID of the requested client."
+              },
+              {
+                "name": "request.endClassDateTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "Filters the results to class descriptions for scheduled classes that happen before the given date and time."
+              },
+              {
+                "name": "request.includeInactive",
+                "value": "true",
+                "type": "query",
+                "description": "Includes inactive class descriptions, defaulting to true. When set to false, it filters out inactive class descriptions."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationId",
+                "value": "123456",
+                "type": "query",
+                "description": "Filters results to classes descriptions for schedule classes as the given location."
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.programIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of requested program IDs."
+              },
+              {
+                "name": "request.staffId",
+                "value": "123456",
+                "type": "query",
+                "description": "Filters results to class descriptions for scheduled classes taught by the given staff member."
+              },
+              {
+                "name": "request.startClassDateTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "Filters the results to class descriptions for scheduled classes that happen on or after the given date and time."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "To find class descriptions associated with **scheduled classes**, pass `StaffId`, `StartClassDateTime`, `EndClassDateTime`, or `LocationId` in the request."
+        },
+        {
+          "info": {
+            "name": "Mindbody Get Scheduled Classes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/class/classes",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.classDescriptionIds",
+                "value": "1",
+                "type": "query",
+                "description": "The requested class description IDs."
+              },
+              {
+                "name": "request.classIds",
+                "value": "1",
+                "type": "query",
+                "description": "The requested class IDs."
+              },
+              {
+                "name": "request.classScheduleIds",
+                "value": "1",
+                "type": "query",
+                "description": "The requested classSchedule Ids."
+              },
+              {
+                "name": "request.clientId",
+                "value": "example-value",
+                "type": "query",
+                "description": "The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials."
+              },
+              {
+                "name": "request.endDateTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The requested end date for filtering. NOTE: ClassDate does not take Class Time into consideration. <br />Default: **today’s date**"
+              },
+              {
+                "name": "request.hideCanceledClasses",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, canceled classes are removed from the response.<br /> When `false`, canceled classes are included in the response.<br /> Default: **false**"
+              },
+              {
+                "name": "request.lastModifiedDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "When included in the request, only records modified on or after the `LastModifiedDate` specified are included in the response."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of location IDs on which to base the search."
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.programIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of program IDs on which to base the search."
+              },
+              {
+                "name": "request.schedulingWindow",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, classes outside scheduling window are removed from the response.<br /> When `false`, classes are included in the response, regardless of the scheduling window.<br /> Default: **false**"
+              },
+              {
+                "name": "request.semesterIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of semester IDs on which to base the search."
+              },
+              {
+                "name": "request.sessionTypeIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of session type IDs on which to base the search."
+              },
+              {
+                "name": "request.staffIds",
+                "value": "1",
+                "type": "query",
+                "description": "The requested IDs of the teaching staff members."
+              },
+              {
+                "name": "request.startDateTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date. NOTE: ClassDate does not take Class Time into consideration."
+              },
+              {
+                "name": "request.uniqueClientId",
+                "value": "123456",
+                "type": "query",
+                "description": "The unique ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. Note: you need to provide the 'UniqueClientId' OR the 'ClientId'. If both are provided, the 'UniqueClientId' takes precedence."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get scheduled classes."
+        },
+        {
+          "info": {
+            "name": "Mindbody Get Class Schedules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/class/classschedules",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.classScheduleIds",
+                "value": "1",
+                "type": "query",
+                "description": "The class schedule IDs. <br />Default: **all**"
+              },
+              {
+                "name": "request.endDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The end date of the range. Return any active enrollments that occur on or before this day. <br />Default: **StartDate**"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationIds",
+                "value": "1",
+                "type": "query",
+                "description": "The location IDs. <br />Default: **all**"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.programIds",
+                "value": "1",
+                "type": "query",
+                "description": "The program IDs. <br />Default: **all**"
+              },
+              {
+                "name": "request.sessionTypeIds",
+                "value": "1",
+                "type": "query",
+                "description": "The session type IDs. <br />Default: **all**"
+              },
+              {
+                "name": "request.staffIds",
+                "value": "1",
+                "type": "query",
+                "description": "The staff IDs. <br />Default: **all**"
+              },
+              {
+                "name": "request.startDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The start date of the range. Return any active enrollments that occur on or after this day. <br />Default: **today’s date**"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get class schedules."
+        },
+        {
+          "info": {
+            "name": "Mindbody Returns a List of Visits That Contain Information for a Specified",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/class/classvisits",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.classID",
+                "value": "1",
+                "type": "query",
+                "description": "The class ID."
+              },
+              {
+                "name": "request.lastModifiedDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "When included in the request, only records modified on or after the `LastModifiedDate` specified are included in the response."
+              },
+              {
+                "name": "request.useSiteSettingsStaffName",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, the staff DisplayName will be populated based on site-level settings. When `false` or omitted, the staff DisplayName will contain only the FirstName."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of visits that contain information for a specified class. On success, this request returns the class object in the response with a list of visits."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Will Provide All the Data Related to Courses Depending",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/class/courses",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "getCoursesRequest.courseIDs",
+                "value": "1",
+                "type": "query",
+                "description": "Return only courses that are available for the specified CourseIds."
+              },
+              {
+                "name": "getCoursesRequest.endDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The end date range. Any active courses that are on or before this day. <br />(optional) Defaults to StartDate."
+              },
+              {
+                "name": "getCoursesRequest.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "getCoursesRequest.locationIDs",
+                "value": "1",
+                "type": "query",
+                "description": "Return only courses that are available for the specified LocationIds."
+              },
+              {
+                "name": "getCoursesRequest.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "getCoursesRequest.programIDs",
+                "value": "1",
+                "type": "query",
+                "description": "Return only courses that are available for the specified ProgramIds."
+              },
+              {
+                "name": "getCoursesRequest.semesterIDs",
+                "value": "1",
+                "type": "query",
+                "description": "Return only courses that are available for the specified SemesterIds."
+              },
+              {
+                "name": "getCoursesRequest.staffIDs",
+                "value": "1",
+                "type": "query",
+                "description": "Return only courses that are available for the specified StaffIds."
+              },
+              {
+                "name": "getCoursesRequest.startDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The start date range. Any active courses that are on or after this day. <br />(optional) Defaults to today."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint will provide all the data related to courses depending on the access level.<br /> Note: The Authorization is an optional header.If Authorization header is not passed, the response will be masked else full response will be provided."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Retrieves the Business Class Semesters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/class/semesters",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.active",
+                "value": "true",
+                "type": "query",
+                "description": "When true, the response only contains semesters which are activated. When false, only deactivated semesters are returned. Default: **All semesters**"
+              },
+              {
+                "name": "request.endDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The end date for the range. All semesters that are on or before this day. Default: **StartDate**"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.semesterIDs",
+                "value": "1",
+                "type": "query",
+                "description": "The requested semester IDs."
+              },
+              {
+                "name": "request.startDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The start date for the range. All semesters that are on or after this day. Default: **today’s date**"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint retrieves the business class semesters."
+        },
+        {
+          "info": {
+            "name": "Mindbody Returns a List of Waiting List Entries for a Specified Class Schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/class/waitlistentries",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.classIds",
+                "value": "1",
+                "type": "query",
+                "description": "The requested class IDs. If a class ID is present, the request automatically disregards any class schedule IDs in the request. <br /> Either `ClassScheduleIds`, `ClientIds`, `WaitlistEntryIds`, or `ClassIds` is required; the others become optional.<br /> Default: **all ClassIds**"
+              },
+              {
+                "name": "request.classScheduleIds",
+                "value": "1",
+                "type": "query",
+                "description": "The requested class schedule IDs. If a class ID is present, the request automatically disregards any class schedule IDs in the request.<br /> Either `ClassScheduleIds`, `ClientIds`, `WaitlistEntryIds`, or `ClassIds` is required; the others become optional.<br /> Default: **all ClassScheduleIds**"
+              },
+              {
+                "name": "request.clientIds",
+                "value": "example-value",
+                "type": "query",
+                "description": "The requested client IDs.<br /> Either `ClassScheduleIds`, `ClientIds`, `WaitlistEntryIds`, or `ClassIds` is required; the others become optional.<br /> Default: **all ClientIds**"
+              },
+              {
+                "name": "request.hidePastEntries",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, indicates that past waiting list entries are hidden from clients.<br /> When `false`, indicates that past entries are not hidden from clients.<br /> Default: **false**"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.waitlistEntryIds",
+                "value": "1",
+                "type": "query",
+                "description": "The requested waiting list entry IDs.<br /> Either `ClassScheduleIds`, `ClientIds`, `WaitlistEntryIds`, or `ClassIds` is required; the others become optional.<br /> Default: **all WaitlistEntryIds**"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of waiting list entries for a specified class schedule or class. The request requires staff credentials and either a class schedule ID or class ID."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Adds a Class Schedule. for a Single Day Schedule, the",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/class/addclassschedule",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint adds a class schedule. For a single day schedule, the EndDate parameter can be omitted."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Adds a Client to a Class or to a Class Waiting List. to",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/class/addclienttoclass",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint adds a client to a class or to a class waiting list. To prevent overbooking a class or booking outside the schedule windows set forth by the business, it is necessary to first check the capacity level of the class (‘MaxCapacity’ and 'TotalBooked’) and the 'IsAvailable’ parameter by running the GetClasses REQUEST. It is helpful to use this endpoint in the following situations: * Use after calling `GET Clients` and `GET Classes` so that you are sure which client to book in which clas"
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Will Cancel a Single Class from Studio",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/class/cancelsingleclass",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint will cancel a single class from studio."
+        },
+        {
+          "info": {
+            "name": "Mindbody Remove a Client from a Class",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/class/removeclientfromclass",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Remove a client from a class."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Can Be Utilized for Removing Multiple Clients from",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/class/removeclientsfromclasses",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint can be utilized for removing multiple clients from multiple classes in one request."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Does Not Return a Response. if a Call to This Endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/class/removefromwaitlist",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.waitlistEntryIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of `WaitlistEntryIds` to remove from the waiting list."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint does not return a response. If a call to this endpoint results in a 200 OK HTTP status code, then the call was successful."
+        },
+        {
+          "info": {
+            "name": "Mindbody Substitute a Class Teacher",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/class/substituteclassteacher",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Substitute a class teacher."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Updates a Class Schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/class/updateclassschedule",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates a class schedule."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Updates the Notes of Class Instances Based on the",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.mindbodyonline.com/public/v6/class/updateclassschedulenotes/:classScheduleId",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "classScheduleId",
+                "value": "123456",
+                "type": "path",
+                "description": "The request template parameter."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates the notes of class instances based on the schedule's schedule ID. Note: Every coming class instance for the given ScheduleID will have the notes updated the same way."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

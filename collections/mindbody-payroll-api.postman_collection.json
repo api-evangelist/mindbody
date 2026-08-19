@@ -1,0 +1,2633 @@
+{
+  "item": [
+    {
+      "id": "683f8813-7bf0-4bc8-9b77-4b7494f39886",
+      "name": "Payroll",
+      "description": {
+        "content": "Payroll operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f1d8633e-7fef-427a-8b1b-f849e766956d",
+          "name": "Mindbody A Staff Authorization Token is Not Required for This Endpoint, but if",
+          "request": {
+            "name": "Mindbody A Staff Authorization Token is Not Required for This Endpoint, but if",
+            "description": {
+              "content": "A staff authorization token is not required for this endpoint, but if one is passed, its permissions are honored. Depending on the access permissions configured for the staff member whose token is passed, the endpoint returns either only the payroll information for that staff member or it returns the payroll information for all staff members.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "v6",
+                "payroll",
+                "commissions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "request.endDateTime",
+                  "value": "<dateTime>",
+                  "description": "The end of the date range for the payroll information to be returned. The maximum allowed date range is 14 days.<br /> Default: **Today’s date** * If you do not supply an `EndDateTime`, the data returns for the period from the `StartDateTime` that you supply to today’s date. * If you do not supply an `EndDateTime` or a `StartDateTime`, data returns for the seven days prior to today’s date."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.limit",
+                  "value": "<integer>",
+                  "description": "Number of results to include, defaults to 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "request.locationId",
+                  "value": "<integer>",
+                  "description": "A LocationId that you want to retrieve payroll information for. If you do not supply a `LocationId`, data from all locations is returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.offset",
+                  "value": "<integer>",
+                  "description": "Page offset, defaults to 0."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.staffId",
+                  "value": "<integer>",
+                  "description": "A list of staff IDs that you want to retrieve payroll information for. If you do not supply a `StaffId`, all active staff members return, ordered by staff ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.startDateTime",
+                  "value": "<dateTime>",
+                  "description": "The beginning of the date range for the payroll information to be returned. The maximum allowed date range is 14 days. * If you do not supply a `StartDateTime`, data returns for the seven days prior to the `EndDateTime` that you supply. * If you do not supply either a `StartDateTime` or an `EndDateTime`, the data returns for seven days prior to today’s date."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) version of the api."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ID of the site from which to pull data.",
+                "key": "siteId",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "API-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bd1268f4-92cf-4638-9ee0-4044a7e3a795",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "commissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"PaginationResponse\": {},\n  \"Commissions\": [\n    {}\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa03ed06-fda7-4b92-9a21-5b0d9506c81c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "commissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a5bcdb89-e41b-4bce-b034-3f3b6509cb4f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "commissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7c9ebd6a-f1a5-4931-8879-2051c6b9bdd6",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "commissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f6e39044-b9a2-4e38-839b-acc6cea04583",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "commissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "623f2aef-d488-418d-8a7c-93cfd04ea554",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "commissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90af1a0a-cc53-4d25-b1d2-4352600cc6ff",
+          "name": "Mindbody A Staff Authorization Token is Not Required for This Endpoint, but if",
+          "request": {
+            "name": "Mindbody A Staff Authorization Token is Not Required for This Endpoint, but if",
+            "description": {
+              "content": "A staff authorization token is not required for this endpoint, but if one is passed, its permissions are honored. Depending on the access permissions configured for the staff member whose token is passed, the endpoint returns either only the payroll information for that staff member or it returns the payroll information for all staff members. Note that if a staff member is not paid for a class, earnings of zero are returned by this endpoint. Note that this endpoint calculates both bonus and no-reg rates for assistants.These rates are not supported by the Payroll report in the web interface. Note that this endpoint returns both the teacher’s adjusted rate and the assistant’s pay rate when the assistant is paid by the teacher.The Payroll report in the web interface only returns the teacher’s adjusted rate.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "v6",
+                "payroll",
+                "scheduledserviceearnings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "request.endDateTime",
+                  "value": "<dateTime>",
+                  "description": "The end of the date range for the payroll information to be returned. The maximum allowed date range is 14 days.<br /> Default: **Today’s date** * If you do not supply an `EndDateTime`, the data returns for the period from the `StartDateTime` that you supply to today’s date. * If you do not supply an `EndDateTime` or a `StartDateTime`, data returns for the seven days prior to today’s date."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.limit",
+                  "value": "<integer>",
+                  "description": "Number of results to include, defaults to 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "request.locationId",
+                  "value": "<integer>",
+                  "description": "A LocationId that you want to retrieve payroll information for. If you do not supply a `LocationId`, data from all locations is returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.offset",
+                  "value": "<integer>",
+                  "description": "Page offset, defaults to 0."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.scheduledServiceId",
+                  "value": "<integer>",
+                  "description": "Filters the results to a single scheduled service. This parameter must be used with a single ScheduledServiceType."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.scheduledServiceType",
+                  "value": "<string>",
+                  "description": "Filters the results to schedule service earnings for specific types of services. Possible values: * Class * Appointment"
+                },
+                {
+                  "disabled": false,
+                  "key": "request.staffId",
+                  "value": "<integer>",
+                  "description": "A list of staff IDs that you want to retrieve payroll information for. If you do not supply a `StaffId`, all active staff members return, ordered by staff ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.startDateTime",
+                  "value": "<dateTime>",
+                  "description": "The beginning of the date range for the payroll information to be returned. The maximum allowed date range is 14 days. * If you do not supply a `StartDateTime`, data returns for the seven days prior to the `EndDateTime` that you supply. * If you do not supply either a `StartDateTime` or an `EndDateTime`, the data returns for seven days prior to today’s date."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) version of the api."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ID of the site from which to pull data.",
+                "key": "siteId",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "API-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8eb4d0cf-b333-40a4-857d-c10efbf136c9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "scheduledserviceearnings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.scheduledServiceId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.scheduledServiceType",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"PaginationResponse\": {},\n  \"ScheduledServiceEarnings\": [\n    {}\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f18947e0-656a-4d23-947c-06fbddd4dab8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "scheduledserviceearnings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.scheduledServiceId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.scheduledServiceType",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aab91dbf-adf2-461e-ad53-f2b7f69b3c4f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "scheduledserviceearnings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.scheduledServiceId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.scheduledServiceType",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c82e5a24-bd8d-4d1b-a655-6279fdfc7c84",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "scheduledserviceearnings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.scheduledServiceId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.scheduledServiceType",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d707db48-30f5-4aa0-9af8-38bfdaee9d86",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "scheduledserviceearnings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.scheduledServiceId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.scheduledServiceType",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "17fc30c4-d6b2-407e-bc35-6d1cee59bf05",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "scheduledserviceearnings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.scheduledServiceId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.scheduledServiceType",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2934f345-7197-45dc-9208-61453a10212c",
+          "name": "Mindbody This Endpoint Returns Information for All Locations. the **View",
+          "request": {
+            "name": "Mindbody This Endpoint Returns Information for All Locations. the **View",
+            "description": {
+              "content": "This endpoint returns information for all locations. The **View reports for all locations permission **is not supported for staff auth tokens.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "v6",
+                "payroll",
+                "timecards"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "request.endDateTime",
+                  "value": "<dateTime>",
+                  "description": "The end of the date range for the payroll information to be returned. The maximum allowed date range is 14 days.<br /> Default: **Today’s date** * If you do not supply an `EndDateTime`, the data returns for the period from the `StartDateTime` that you supply to today’s date. * If you do not supply an `EndDateTime` or a `StartDateTime`, data returns for the seven days prior to today’s date."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.limit",
+                  "value": "<integer>",
+                  "description": "Number of results to include, defaults to 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "request.locationId",
+                  "value": "<integer>",
+                  "description": "A LocationId that you want to retrieve payroll information for. If you do not supply a `LocationId`, data from all locations is returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.offset",
+                  "value": "<integer>",
+                  "description": "Page offset, defaults to 0."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.staffId",
+                  "value": "<integer>",
+                  "description": "A list of staff IDs that you want to retrieve payroll information for. If you do not supply a `StaffId`, all active staff members return, ordered by staff ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.startDateTime",
+                  "value": "<dateTime>",
+                  "description": "The beginning of the date range for the payroll information to be returned. The maximum allowed date range is 14 days. * If you do not supply a `StartDateTime`, data returns for the seven days prior to the `EndDateTime` that you supply. * If you do not supply either a `StartDateTime` or an `EndDateTime`, the data returns for seven days prior to today’s date."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) version of the api."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ID of the site from which to pull data.",
+                "key": "siteId",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "API-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8849c962-a071-4718-9edd-0d01803c152a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "timecards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"PaginationResponse\": {},\n  \"TimeCards\": [\n    {}\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0572e8cf-614e-493c-b70d-2db0293dd5a4",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "timecards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "39157d90-1f48-4faf-975f-7b32af9075cb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "timecards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e9806692-bd69-44e9-970e-d7d3b959e519",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "timecards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a12a9559-479f-41c6-8dad-75f0ad66ddab",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "timecards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "186fd82f-809a-49b7-b38c-ba3d37f783d0",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "timecards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49d0e9ea-27a8-41b4-9d70-ff41b53f334e",
+          "name": "Mindbody A Staff Authorization Token is Not Required for This Endpoint, but if",
+          "request": {
+            "name": "Mindbody A Staff Authorization Token is Not Required for This Endpoint, but if",
+            "description": {
+              "content": "A staff authorization token is not required for this endpoint, but if one is passed, its permissions are honored. Depending on the access permissions configured for the staff member whose token is passed, the endpoint returns either only the payroll information for that staff member or it returns the payroll information for all staff members. This endpoint returns information for all locations.The** View reports for all locations **permission is not supported for staff auth tokens.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "v6",
+                "payroll",
+                "tips"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "request.endDateTime",
+                  "value": "<dateTime>",
+                  "description": "The end of the date range for the payroll information to be returned. The maximum allowed date range is 14 days.<br /> Default: **Today’s date** * If you do not supply an `EndDateTime`, the data returns for the period from the `StartDateTime` that you supply to today’s date. * If you do not supply an `EndDateTime` or a `StartDateTime`, data returns for the seven days prior to today’s date."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.limit",
+                  "value": "<integer>",
+                  "description": "Number of results to include, defaults to 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "request.locationId",
+                  "value": "<integer>",
+                  "description": "A LocationId that you want to retrieve payroll information for. If you do not supply a `LocationId`, data from all locations is returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.offset",
+                  "value": "<integer>",
+                  "description": "Page offset, defaults to 0."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.staffId",
+                  "value": "<integer>",
+                  "description": "A list of staff IDs that you want to retrieve payroll information for. If you do not supply a `StaffId`, all active staff members return, ordered by staff ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.startDateTime",
+                  "value": "<dateTime>",
+                  "description": "The beginning of the date range for the payroll information to be returned. The maximum allowed date range is 14 days. * If you do not supply a `StartDateTime`, data returns for the seven days prior to the `EndDateTime` that you supply. * If you do not supply either a `StartDateTime` or an `EndDateTime`, the data returns for seven days prior to today’s date."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) version of the api."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ID of the site from which to pull data.",
+                "key": "siteId",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "API-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "120013c3-70db-4a92-bada-7934f38ec8af",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "tips"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"PaginationResponse\": {},\n  \"Tips\": [\n    {}\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd96bd11-c758-4105-8337-9f33de419511",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "tips"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "245ba2f3-3335-43c8-9b39-8b974758d1c1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "tips"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "70fc3ee6-6ab0-41dc-9f63-5b883c7f94c6",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "tips"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7ab366fe-156d-4ab0-aee6-944cca4f2e65",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "tips"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "12aa91b0-6e25-4d1b-9233-f4c454913d0c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "payroll",
+                    "tips"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.endDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffId",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "request.startDateTime",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mindbodyonline.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8e04130c-ad2a-4a80-8e89-124bba39e65a",
+    "name": "Mindbody Public API v6 Appointment Payroll API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for Mindbody business management data including appointments, classes, clients, enrollments, sales, sites, staff, payroll, and cross-site operations. Authentication combines a Mindbody-issued API-Key header with a SiteId header and optional staff/user OAuth bearer tokens for write operations. Generated from the official Mindbody Public API Python SDK (apimatic v3).\n\nContact Support:\n Name: Mindbody API Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mindbody Public API v6 Appointment User Token API",
+    "version": "6.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "API-Key",
+      "value": "{{API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Token",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mindbody When Users Interact with Your Public API Integration as Staff Members,",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/usertoken/issue",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "When users interact with your Public API integration as staff members, they need to get a staff user token for authentication. You can use the issue endpoint to get a staff user token, then pass the token in the headers for all of your requests."
+        },
+        {
+          "info": {
+            "name": "Mindbody Renews a Token. Can Be Used to Extend the Lifetime of a Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/usertoken/renew",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Renews a token. Can be used to extend the lifetime of a token. Current lifetime expansion: 24hrs from current expiration, up to 7 renewals."
+        },
+        {
+          "info": {
+            "name": "Mindbody Revokes the User Token in the Authorization Header",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mindbodyonline.com/public/v6/usertoken/revoke",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Revokes the user token in the Authorization header."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

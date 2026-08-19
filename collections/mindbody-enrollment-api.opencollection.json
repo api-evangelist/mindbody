@@ -1,0 +1,232 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mindbody Public API v6 Appointment Enrollment API",
+    "version": "6.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "API-Key",
+      "value": "{{API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Enrollment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mindbody Returns a List of Enrollments. an Enrollment is a Service, Such as a",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/enrollment/enrollments",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.classScheduleIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of the requested class schedule IDs. If omitted, all class schedule IDs return."
+              },
+              {
+                "name": "request.endDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The end of the date range. The response returns any active enrollments that occur on or before this day.<br /> Default: **StartDate**"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationIds",
+                "value": "1",
+                "type": "query",
+                "description": "List of the IDs for the requested locations. If omitted, all location IDs return."
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.programIds",
+                "value": "1",
+                "type": "query",
+                "description": "List of the IDs for the requested programs. If omitted, all program IDs return."
+              },
+              {
+                "name": "request.sessionTypeIds",
+                "value": "1",
+                "type": "query",
+                "description": "List of the IDs for the requested session types. If omitted, all session types IDs return."
+              },
+              {
+                "name": "request.staffIds",
+                "value": "1",
+                "type": "query",
+                "description": "List of the IDs for the requested staff IDs. If omitted, all staff IDs return."
+              },
+              {
+                "name": "request.startDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The start of the date range. The response returns any active enrollments that occur on or after this day.<br /> Default: **today’s date**"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of enrollments. An enrollment is a service, such as a workshop or an event, that a staff member offers to multiple students, who commit to coming to all or most of the scheduled sessions. Enrollments typically run for a limited time only. When a user token is not passed with the request or the passed user token has insufficient viewing permissions, only the following staff data is returned in the response: * FirstName * LastName * Id * Bio * DisplayName * ImageUrl"
+        },
+        {
+          "info": {
+            "name": "Mindbody Book a Client Into an Enrollment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/enrollment/addclienttoenrollment",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Book a client into an enrollment."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Adds a Enrollment Schedule. You Can Require Clients to",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/enrollment/addenrollmentschedule",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint adds a enrollment schedule. You can require clients to sign up for the entire enrollment schedule or allow them to pick specific sessions using the AllowOpenEnrollment parameter."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Update a Enrollment Schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/enrollment/updateenrollmentschedule",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint update a enrollment schedule."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

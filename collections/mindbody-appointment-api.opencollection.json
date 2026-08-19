@@ -1,0 +1,939 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mindbody Public API v6 Appointment API",
+    "version": "6.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "API-Key",
+      "value": "{{API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Appointment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mindbody This is Not Appointment Availability but Rather the Active Business",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/appointment/activesessiontimes",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.endTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "Filters results to times that end on or before this time on the current date. Any date provided is ignored.. <br />Default: **23:59:59**"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.scheduleType",
+                "value": "[object Object]",
+                "type": "query",
+                "description": "Filters on the provided the schedule type. Either `SessionTypeIds` or `ScheduleType` must be provided."
+              },
+              {
+                "name": "request.sessionTypeIds",
+                "value": "1",
+                "type": "query",
+                "description": "Filters on the provided session type IDs. Either `SessionTypeIds` or `ScheduleType` must be provided."
+              },
+              {
+                "name": "request.startTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "Filters results to times that start on or after this time on the current date. Any date provided is ignored. <br />Default: **00:00:00**"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This is not appointment availability but rather the active business hours for studios and which increments services can be booked at. See BookableItems for appointment availability."
+        },
+        {
+          "info": {
+            "name": "Mindbody Get Active Appointment Add-ons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/appointment/addons",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.staffId",
+                "value": "123456",
+                "type": "query",
+                "description": "Filter to add-ons only performed by this staff member."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get active appointment add-ons."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Has No Query Parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/appointment/appointmentoptions",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint has no query parameters."
+        },
+        {
+          "info": {
+            "name": "Mindbody Returns a List of Dates to Narrow Down Staff Availability When",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/appointment/availabledates",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.sessionTypeId",
+                "value": "123456",
+                "type": "query",
+                "description": "required requested session type ID."
+              },
+              {
+                "name": "request.endDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The end date of the requested date range. <br />Default: **StartDate**"
+              },
+              {
+                "name": "request.locationId",
+                "value": "123456",
+                "type": "query",
+                "description": "optional requested location ID."
+              },
+              {
+                "name": "request.staffId",
+                "value": "123456",
+                "type": "query",
+                "description": "optional requested staff ID."
+              },
+              {
+                "name": "request.startDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The start date of the requested date range. If omitted, the default is used. <br />Default: **today’s date**"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of dates to narrow down staff availability when booking. Dates are those which staff are scheduled to work and do not guarantee booking availabilities. After this call is made, use GET BookableItems to retrieve availabilities for specific dates before booking."
+        },
+        {
+          "info": {
+            "name": "Mindbody Returns a List of Availabilities with the Information Needed to Book",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/appointment/bookableitems",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.sessionTypeIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of the requested session type IDs."
+              },
+              {
+                "name": "request.appointmentId",
+                "value": "123456",
+                "type": "query",
+                "description": "If provided, filters out the appointment with this ID."
+              },
+              {
+                "name": "request.endDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The end date of the requested date range. <br />Default: **StartDate**"
+              },
+              {
+                "name": "request.ignoreDefaultSessionLength",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, availabilities that are non-default return, for example, a 30-minute availability with a 60-minute default session length.<br /> When `false`, only availabilities that have the default session length return."
+              },
+              {
+                "name": "request.includeResourceAvailability",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, resource availabilities for the session type are returned.<br /> When `false`, resource availabilities are not returned default."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of the requested location IDs."
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.staffIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of the requested staff IDs. Omit parameter to return all staff availabilities."
+              },
+              {
+                "name": "request.startDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The start date of the requested date range. <br />Default: **today’s date**"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of availabilities with the information needed to book appointments. Availabilities include information such as the location and its amenities, staff members, programs, and session types. Recommended to use with GET AvailableDates to see what dates the staff is scheduled to work and narrow down the dates searched. Recommended to use with GET ActiveSessionTimes to see which increments each business allows for booking appointments. Notes: - With a wider range of dates, this call may "
+        },
+        {
+          "info": {
+            "name": "Mindbody Returns a List of Schedule Items, Including Appointments,",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/appointment/scheduleitems",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.endDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The end date of the requested date range. <br />Default: **today’s date**"
+              },
+              {
+                "name": "request.ignorePrepFinishTimes",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, appointment preparation and finish unavailabilities are not returned. <br />Default: **false**"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of requested location IDs."
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.staffIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of requested staff IDs."
+              },
+              {
+                "name": "request.startDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The start date of the requested date range. <br />Default: **today’s date**"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of schedule items, including appointments, availabilities, and unavailabilities. Unavailabilities are the times at which appointments cannot be booked, for example, on holidays or after hours when the business is closed."
+        },
+        {
+          "info": {
+            "name": "Mindbody Returns a List of Appointments by Staff Member",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/appointment/staffappointments",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.appointmentIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of the requested appointment IDs."
+              },
+              {
+                "name": "request.clientId",
+                "value": "example-value",
+                "type": "query",
+                "description": "The client ID to be returned."
+              },
+              {
+                "name": "request.endDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The end date of the requested date range. <br />Default: **StartDate**"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of the requested location IDs."
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.staffIds",
+                "value": "1",
+                "type": "query",
+                "description": "List of staff IDs to be returned. Omit parameter to return staff appointments for all staff."
+              },
+              {
+                "name": "request.startDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The start date of the requested date range. If omitted, the default is used. <br />Default: **today's date**"
+              },
+              {
+                "name": "request.useSiteSettingsStaffName",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, the staff DisplayName will be populated based on site-level settings. When `false` or omitted, the staff DisplayName will contain only the FirstName."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of appointments by staff member."
+        },
+        {
+          "info": {
+            "name": "Mindbody Returns a List of Unavailabilities. Unavailabilities Are the Times at",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/appointment/unavailabilities",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.endDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The end date of the requested date range. <br />Default: **today’s date**"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.staffIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of requested staff IDs."
+              },
+              {
+                "name": "request.startDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The start date of the requested date range. <br />Default: **today’s date**"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of unavailabilities. Unavailabilities are the times at which appointments cannot be booked, for example, on holidays or after hours when the business is closed."
+        },
+        {
+          "info": {
+            "name": "Mindbody A User Token is Required for This Endpoint. to Book an Appointment,",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/appointment/addappointment",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "A user token is required for this endpoint. To book an appointment, you must use a location ID, staff ID, client ID, session type ID, and the StartDateTime of the appointment. You can get most of this information using GET BookableItems. Note: Request deduplication is enabled for this endpoint. More information can be found in the [Request Deduplication Page](https://developers.mindbodyonline.com/ui/documentation/public-api #/net-standard-library/mindbody-public-api-v6-0/request-deduplication). "
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Books an Add-on on Top of an Existing, Regular",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/appointment/addappointmentaddon",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint books an add-on on top of an existing, regular appointment. To book an add-on, you must use an existing appointment ID and session type ID. You can get a session type ID using `GET AppointmentAddOns`."
+        },
+        {
+          "info": {
+            "name": "Mindbody A User Token is Required for This Endpoint. to Book Appointments, You",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/appointment/addmultipleappointments",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "A user token is required for this endpoint. To book appointments, you must provide a location ID, staff ID, client ID, session type ID, and the StartDateTime for each appointment. You can retrieve most of this information using the GET BookableItems endpoint. This endpoint will handle errors that occur during the appointment creation process and return a list of errors, as well as the request object that generated each outcome. You can pass the AddAppointmentRequestId for each request, or it wil"
+        },
+        {
+          "info": {
+            "name": "Mindbody Add Availabilities and Unavailabilities for a Staff Member.<br />",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/appointment/availabilities",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Add availabilities and unavailabilities for a staff member.<br /> Note: You must have a staff user token with the required permissions."
+        },
+        {
+          "info": {
+            "name": "Mindbody To Update the Information for a Specific Availability or",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mindbodyonline.com/public/v6/appointment/availabilities",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "To update the information for a specific availability or unavailability of the staff.<br /> Note: You must have a staff user token with the required permissions."
+        },
+        {
+          "info": {
+            "name": "Mindbody To Update the Information for a Specific Appointment, You Must Have a",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/appointment/updateappointment",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "To update the information for a specific appointment, you must have a staff user token with the proper permissions. Note that you can only update the appointment’s `StartDateTime`, `EndDateTime`, `StaffId`, `Notes`, and `SessionTypeId`."
+        },
+        {
+          "info": {
+            "name": "Mindbody Remove an Appointment from Waitlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mindbodyonline.com/public/v6/appointment/appointmentfromwaitlist",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.waitlistEntryIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of `WaitlistEntryIds` to remove from the waiting list."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Remove an appointment from waitlist"
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Deletes the Availability or Unavailability",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mindbodyonline.com/public/v6/appointment/availability",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "deleteAvailabilityRequest.availabilityId",
+                "value": "123456",
+                "type": "query",
+                "description": "The ID of the availability or unavailability."
+              },
+              {
+                "name": "deleteAvailabilityRequest.test",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, indicates that this is a test request and no data is deleted from the subscriber’s database. When `false`, the record will be deleted. Default: **false**"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint deletes the availability or unavailability. Note: You must have a staff user token with the required permissions."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Can Be Used to Early-cancel a Booked Appointment Add-on",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mindbodyonline.com/public/v6/appointment/deleteappointmentaddon",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "id",
+                "value": "1",
+                "type": "query",
+                "description": "The request query parameter."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint can be used to early-cancel a booked appointment add-on."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

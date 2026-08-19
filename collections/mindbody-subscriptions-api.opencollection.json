@@ -1,0 +1,143 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mindbody Public API v6 Appointment Subscriptions API",
+    "version": "6.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "API-Key",
+      "value": "{{API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subscriptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Searches for Subscriptions Associated with Your",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/api/v1/subscriptions",
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint searches for subscriptions associated with your developer portal account: You can retrieve a specific subscription by calling GET(by ID)."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Creates a Pending Subscription That is Linked to Your",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/api/v1/subscriptions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates a pending subscription that is linked to your developer portal account. After you have created a subscription, you can activate it using the PATCH Subscription endpoint."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Finds and Returns the Single Subscription Associated",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/api/v1/subscriptions/:subscriptionId",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "example-value",
+                "type": "path",
+                "description": "Returns the single location identified by this ID (a GUID)."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint finds and returns the single subscription associated with the passed ID."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Can Activate a New Subscription or Reactivate an",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.mindbodyonline.com/api/v1/subscriptions/:subscriptionId",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "example-value",
+                "type": "path",
+                "description": "The subscription’s ID (a GUID)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint can activate a new subscription or reactivate an inactive subscription that is associated with your developer portal account, by updating the status. You can also update your subscription’s eventIds, eventSchemaVersion, referenceId, and webhookUrl."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Deactivates a Subscription Associated with the Passed ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mindbodyonline.com/api/v1/subscriptions/:subscriptionId",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "example-value",
+                "type": "path",
+                "description": "The subscription ID (a GUID) that you are deactivating."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint deactivates a subscription associated with the passed ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,2315 @@
+{
+  "item": [
+    {
+      "id": "46c87fd8-e35d-44a7-a750-de83b4024059",
+      "name": "Enrollment",
+      "description": {
+        "content": "Enrollment operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ad483b96-bee2-4afe-b2cb-f1fab64c1ee8",
+          "name": "Mindbody Returns a List of Enrollments. an Enrollment is a Service, Such as a",
+          "request": {
+            "name": "Mindbody Returns a List of Enrollments. an Enrollment is a Service, Such as a",
+            "description": {
+              "content": "Returns a list of enrollments. An enrollment is a service, such as a workshop or an event, that a staff member offers to multiple students, who commit to coming to all or most of the scheduled sessions. Enrollments typically run for a limited time only. When a user token is not passed with the request or the passed user token has insufficient viewing permissions, only the following staff data is returned in the response: * FirstName * LastName * Id * Bio * DisplayName * ImageUrl",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "v6",
+                "enrollment",
+                "enrollments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "request.classScheduleIds",
+                  "value": "<integer>",
+                  "description": "A list of the requested class schedule IDs. If omitted, all class schedule IDs return."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.classScheduleIds",
+                  "value": "<integer>",
+                  "description": "A list of the requested class schedule IDs. If omitted, all class schedule IDs return."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.endDate",
+                  "value": "<dateTime>",
+                  "description": "The end of the date range. The response returns any active enrollments that occur on or before this day.<br /> Default: **StartDate**"
+                },
+                {
+                  "disabled": false,
+                  "key": "request.limit",
+                  "value": "<integer>",
+                  "description": "Number of results to include, defaults to 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "request.locationIds",
+                  "value": "<integer>",
+                  "description": "List of the IDs for the requested locations. If omitted, all location IDs return."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.locationIds",
+                  "value": "<integer>",
+                  "description": "List of the IDs for the requested locations. If omitted, all location IDs return."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.offset",
+                  "value": "<integer>",
+                  "description": "Page offset, defaults to 0."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.programIds",
+                  "value": "<integer>",
+                  "description": "List of the IDs for the requested programs. If omitted, all program IDs return."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.programIds",
+                  "value": "<integer>",
+                  "description": "List of the IDs for the requested programs. If omitted, all program IDs return."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.sessionTypeIds",
+                  "value": "<integer>",
+                  "description": "List of the IDs for the requested session types. If omitted, all session types IDs return."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.sessionTypeIds",
+                  "value": "<integer>",
+                  "description": "List of the IDs for the requested session types. If omitted, all session types IDs return."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.staffIds",
+                  "value": "<integer>",
+                  "description": "List of the IDs for the requested staff IDs. If omitted, all staff IDs return."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.staffIds",
+                  "value": "<integer>",
+                  "description": "List of the IDs for the requested staff IDs. If omitted, all staff IDs return."
+                },
+                {
+                  "disabled": false,
+                  "key": "request.startDate",
+                  "value": "<dateTime>",
+                  "description": "The start of the date range. The response returns any active enrollments that occur on or after this day.<br /> Default: **today’s date**"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) version of the api."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ID of the site from which to pull data.",
+                "key": "siteId",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "API-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6d36290e-d6a0-45fd-8cc4-6049ad575764",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "enrollments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.classScheduleIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.endDate",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.programIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.sessionTypeIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.startDate",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"PaginationResponse\": {},\n  \"Enrollments\": [\n    {}\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e4307175-cf33-4286-add3-013c038b4392",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "enrollments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.classScheduleIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.endDate",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.programIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.sessionTypeIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.startDate",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "74469d9f-1259-43ba-8e73-8b668ec496cf",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "enrollments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.classScheduleIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.endDate",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.programIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.sessionTypeIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.startDate",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e91a0233-97aa-469a-a012-893c4c076d67",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "enrollments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.classScheduleIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.endDate",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.programIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.sessionTypeIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.startDate",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e0c47653-22aa-451c-8ef3-b3bc16edd9fc",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "enrollments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.classScheduleIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.endDate",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.programIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.sessionTypeIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.startDate",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ae82f168-d81b-4741-99e5-8272bbf33e8f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "enrollments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request.classScheduleIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.endDate",
+                      "value": "2026-05-28T14:30:00Z"
+                    },
+                    {
+                      "key": "request.limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.locationIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.programIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.sessionTypeIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.staffIds",
+                      "value": "1"
+                    },
+                    {
+                      "key": "request.startDate",
+                      "value": "2026-05-28T14:30:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa48b2fc-9978-4da6-822f-996e86f6a6e3",
+          "name": "Mindbody Book a Client Into an Enrollment",
+          "request": {
+            "name": "Mindbody Book a Client Into an Enrollment",
+            "description": {
+              "content": "Book a client into an enrollment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "v6",
+                "enrollment",
+                "addclienttoenrollment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) version of the api."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ID of the site from which to pull data.",
+                "key": "siteId",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "API-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ClientId\": \"<string>\",\n  \"ClassScheduleId\": \"<integer>\",\n  \"EnrollDateForward\": \"<dateTime>\",\n  \"EnrollOpen\": [\n    \"<dateTime>\",\n    \"<dateTime>\"\n  ],\n  \"Test\": \"<boolean>\",\n  \"SendEmail\": \"<boolean>\",\n  \"Waitlist\": \"<boolean>\",\n  \"WaitlistEntryId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6b7c0d0d-9d00-4381-9db0-0197913ada75",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "addclienttoenrollment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ClientId\": \"example-value\",\n  \"ClassScheduleId\": 123456,\n  \"EnrollDateForward\": \"2026-05-28T14:30:00Z\",\n  \"EnrollOpen\": [\n    \"2026-05-28T14:30:00Z\"\n  ],\n  \"Test\": true,\n  \"SendEmail\": true,\n  \"Waitlist\": true,\n  \"WaitlistEntryId\": 123456\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Classes\": [\n    {}\n  ],\n  \"Clients\": [\n    {}\n  ],\n  \"Course\": {},\n  \"SemesterId\": 123456,\n  \"IsAvailable\": true,\n  \"Id\": 123456,\n  \"ClassDescription\": {},\n  \"DaySunday\": true,\n  \"DayMonday\": true,\n  \"DayTuesday\": true,\n  \"DayWednesday\": true,\n  \"DayThursday\": true,\n  \"DayFriday\": true,\n  \"DaySaturday\": true,\n  \"AllowOpenEnrollment\": true,\n  \"AllowDateForwardEnrollment\": true,\n  \"StartTime\": \"2026-05-28T14:30:00Z\",\n  \"EndTime\": \"2026-05-28T14:30:00Z\",\n  \"StartDate\": \"2026-05-28T14:30:00Z\",\n  \"EndDate\": \"2026-05-28T14:30:00Z\",\n  \"Staff\": {},\n  \"Location\": {},\n  \"FrequencyType\": {},\n  \"FrequencyInterval\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f087cef8-0d8d-4287-9909-3293c4347b00",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "addclienttoenrollment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ClientId\": \"example-value\",\n  \"ClassScheduleId\": 123456,\n  \"EnrollDateForward\": \"2026-05-28T14:30:00Z\",\n  \"EnrollOpen\": [\n    \"2026-05-28T14:30:00Z\"\n  ],\n  \"Test\": true,\n  \"SendEmail\": true,\n  \"Waitlist\": true,\n  \"WaitlistEntryId\": 123456\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "310ac0e5-2a13-44b2-8eb2-ef3f9837223e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "addclienttoenrollment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ClientId\": \"example-value\",\n  \"ClassScheduleId\": 123456,\n  \"EnrollDateForward\": \"2026-05-28T14:30:00Z\",\n  \"EnrollOpen\": [\n    \"2026-05-28T14:30:00Z\"\n  ],\n  \"Test\": true,\n  \"SendEmail\": true,\n  \"Waitlist\": true,\n  \"WaitlistEntryId\": 123456\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "38a773a9-6e95-4434-be8d-c771fe9f3b41",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "addclienttoenrollment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ClientId\": \"example-value\",\n  \"ClassScheduleId\": 123456,\n  \"EnrollDateForward\": \"2026-05-28T14:30:00Z\",\n  \"EnrollOpen\": [\n    \"2026-05-28T14:30:00Z\"\n  ],\n  \"Test\": true,\n  \"SendEmail\": true,\n  \"Waitlist\": true,\n  \"WaitlistEntryId\": 123456\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d22d0147-7801-41b2-86b3-98ae886688bd",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "addclienttoenrollment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ClientId\": \"example-value\",\n  \"ClassScheduleId\": 123456,\n  \"EnrollDateForward\": \"2026-05-28T14:30:00Z\",\n  \"EnrollOpen\": [\n    \"2026-05-28T14:30:00Z\"\n  ],\n  \"Test\": true,\n  \"SendEmail\": true,\n  \"Waitlist\": true,\n  \"WaitlistEntryId\": 123456\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b2eb2263-aa42-42ba-8924-cc567aaaf2b4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "addclienttoenrollment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ClientId\": \"example-value\",\n  \"ClassScheduleId\": 123456,\n  \"EnrollDateForward\": \"2026-05-28T14:30:00Z\",\n  \"EnrollOpen\": [\n    \"2026-05-28T14:30:00Z\"\n  ],\n  \"Test\": true,\n  \"SendEmail\": true,\n  \"Waitlist\": true,\n  \"WaitlistEntryId\": 123456\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c8e235e-7f4e-4c2e-8fcd-423cb05dbf10",
+          "name": "Mindbody This Endpoint Adds a Enrollment Schedule. You Can Require Clients to",
+          "request": {
+            "name": "Mindbody This Endpoint Adds a Enrollment Schedule. You Can Require Clients to",
+            "description": {
+              "content": "This endpoint adds a enrollment schedule. You can require clients to sign up for the entire enrollment schedule or allow them to pick specific sessions using the AllowOpenEnrollment parameter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "v6",
+                "enrollment",
+                "addenrollmentschedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) version of the api."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ID of the site from which to pull data.",
+                "key": "siteId",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "API-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ClassDescriptionId\": \"<integer>\",\n  \"LocationId\": \"<integer>\",\n  \"StartDate\": \"<dateTime>\",\n  \"EndDate\": \"<dateTime>\",\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"DaySunday\": \"<boolean>\",\n  \"DayMonday\": \"<boolean>\",\n  \"DayTuesday\": \"<boolean>\",\n  \"DayWednesday\": \"<boolean>\",\n  \"DayThursday\": \"<boolean>\",\n  \"DayFriday\": \"<boolean>\",\n  \"DaySaturday\": \"<boolean>\",\n  \"StaffId\": \"<integer>\",\n  \"StaffPayRate\": \"<integer>\",\n  \"ResourceId\": \"<integer>\",\n  \"MaxCapacity\": \"<integer>\",\n  \"WebCapacity\": \"<integer>\",\n  \"WaitlistCapacity\": \"<integer>\",\n  \"BookingStatus\": \"<string>\",\n  \"AllowOpenEnrollment\": \"<boolean>\",\n  \"AllowDateForwardEnrollment\": \"<boolean>\",\n  \"PricingOptionsProductIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"ShowToPublic\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d9846357-93bc-4202-96b9-fe260f7b29e0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "addenrollmentschedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ClassDescriptionId\": 123456,\n  \"LocationId\": 123456,\n  \"StartDate\": \"2026-05-28T14:30:00Z\",\n  \"EndDate\": \"2026-05-28T14:30:00Z\",\n  \"StartTime\": \"2026-05-28T14:30:00Z\",\n  \"EndTime\": \"2026-05-28T14:30:00Z\",\n  \"DaySunday\": true,\n  \"DayMonday\": true,\n  \"DayTuesday\": true,\n  \"DayWednesday\": true,\n  \"DayThursday\": true,\n  \"DayFriday\": true,\n  \"DaySaturday\": true,\n  \"StaffId\": 123456,\n  \"StaffPayRate\": 1,\n  \"ResourceId\": 123456,\n  \"MaxCapacity\": 1,\n  \"WebCapacity\": 1,\n  \"WaitlistCapacity\": 1,\n  \"BookingStatus\": \"Active\",\n  \"AllowOpenEnrollment\": true,\n  \"AllowDateForwardEnrollment\": true,\n  \"PricingOptionsProductIds\": [\n    1\n  ],\n  \"ShowToPublic\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ClassId\": 123456,\n  \"ClassInstanceIds\": [\n    1\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7d80780-8085-4d3c-8631-d3e232c7fba9",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "addenrollmentschedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ClassDescriptionId\": 123456,\n  \"LocationId\": 123456,\n  \"StartDate\": \"2026-05-28T14:30:00Z\",\n  \"EndDate\": \"2026-05-28T14:30:00Z\",\n  \"StartTime\": \"2026-05-28T14:30:00Z\",\n  \"EndTime\": \"2026-05-28T14:30:00Z\",\n  \"DaySunday\": true,\n  \"DayMonday\": true,\n  \"DayTuesday\": true,\n  \"DayWednesday\": true,\n  \"DayThursday\": true,\n  \"DayFriday\": true,\n  \"DaySaturday\": true,\n  \"StaffId\": 123456,\n  \"StaffPayRate\": 1,\n  \"ResourceId\": 123456,\n  \"MaxCapacity\": 1,\n  \"WebCapacity\": 1,\n  \"WaitlistCapacity\": 1,\n  \"BookingStatus\": \"Active\",\n  \"AllowOpenEnrollment\": true,\n  \"AllowDateForwardEnrollment\": true,\n  \"PricingOptionsProductIds\": [\n    1\n  ],\n  \"ShowToPublic\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e362cf5d-9624-400b-93fa-380f7344ee85",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "addenrollmentschedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ClassDescriptionId\": 123456,\n  \"LocationId\": 123456,\n  \"StartDate\": \"2026-05-28T14:30:00Z\",\n  \"EndDate\": \"2026-05-28T14:30:00Z\",\n  \"StartTime\": \"2026-05-28T14:30:00Z\",\n  \"EndTime\": \"2026-05-28T14:30:00Z\",\n  \"DaySunday\": true,\n  \"DayMonday\": true,\n  \"DayTuesday\": true,\n  \"DayWednesday\": true,\n  \"DayThursday\": true,\n  \"DayFriday\": true,\n  \"DaySaturday\": true,\n  \"StaffId\": 123456,\n  \"StaffPayRate\": 1,\n  \"ResourceId\": 123456,\n  \"MaxCapacity\": 1,\n  \"WebCapacity\": 1,\n  \"WaitlistCapacity\": 1,\n  \"BookingStatus\": \"Active\",\n  \"AllowOpenEnrollment\": true,\n  \"AllowDateForwardEnrollment\": true,\n  \"PricingOptionsProductIds\": [\n    1\n  ],\n  \"ShowToPublic\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "655920e6-f1b1-41d5-844b-78a4a5be0391",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "addenrollmentschedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ClassDescriptionId\": 123456,\n  \"LocationId\": 123456,\n  \"StartDate\": \"2026-05-28T14:30:00Z\",\n  \"EndDate\": \"2026-05-28T14:30:00Z\",\n  \"StartTime\": \"2026-05-28T14:30:00Z\",\n  \"EndTime\": \"2026-05-28T14:30:00Z\",\n  \"DaySunday\": true,\n  \"DayMonday\": true,\n  \"DayTuesday\": true,\n  \"DayWednesday\": true,\n  \"DayThursday\": true,\n  \"DayFriday\": true,\n  \"DaySaturday\": true,\n  \"StaffId\": 123456,\n  \"StaffPayRate\": 1,\n  \"ResourceId\": 123456,\n  \"MaxCapacity\": 1,\n  \"WebCapacity\": 1,\n  \"WaitlistCapacity\": 1,\n  \"BookingStatus\": \"Active\",\n  \"AllowOpenEnrollment\": true,\n  \"AllowDateForwardEnrollment\": true,\n  \"PricingOptionsProductIds\": [\n    1\n  ],\n  \"ShowToPublic\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ff1fbeb6-835a-4842-88cc-f558b83e0228",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "addenrollmentschedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ClassDescriptionId\": 123456,\n  \"LocationId\": 123456,\n  \"StartDate\": \"2026-05-28T14:30:00Z\",\n  \"EndDate\": \"2026-05-28T14:30:00Z\",\n  \"StartTime\": \"2026-05-28T14:30:00Z\",\n  \"EndTime\": \"2026-05-28T14:30:00Z\",\n  \"DaySunday\": true,\n  \"DayMonday\": true,\n  \"DayTuesday\": true,\n  \"DayWednesday\": true,\n  \"DayThursday\": true,\n  \"DayFriday\": true,\n  \"DaySaturday\": true,\n  \"StaffId\": 123456,\n  \"StaffPayRate\": 1,\n  \"ResourceId\": 123456,\n  \"MaxCapacity\": 1,\n  \"WebCapacity\": 1,\n  \"WaitlistCapacity\": 1,\n  \"BookingStatus\": \"Active\",\n  \"AllowOpenEnrollment\": true,\n  \"AllowDateForwardEnrollment\": true,\n  \"PricingOptionsProductIds\": [\n    1\n  ],\n  \"ShowToPublic\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2881baca-c9f2-4973-a4e1-4ee301e59bee",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "addenrollmentschedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ClassDescriptionId\": 123456,\n  \"LocationId\": 123456,\n  \"StartDate\": \"2026-05-28T14:30:00Z\",\n  \"EndDate\": \"2026-05-28T14:30:00Z\",\n  \"StartTime\": \"2026-05-28T14:30:00Z\",\n  \"EndTime\": \"2026-05-28T14:30:00Z\",\n  \"DaySunday\": true,\n  \"DayMonday\": true,\n  \"DayTuesday\": true,\n  \"DayWednesday\": true,\n  \"DayThursday\": true,\n  \"DayFriday\": true,\n  \"DaySaturday\": true,\n  \"StaffId\": 123456,\n  \"StaffPayRate\": 1,\n  \"ResourceId\": 123456,\n  \"MaxCapacity\": 1,\n  \"WebCapacity\": 1,\n  \"WaitlistCapacity\": 1,\n  \"BookingStatus\": \"Active\",\n  \"AllowOpenEnrollment\": true,\n  \"AllowDateForwardEnrollment\": true,\n  \"PricingOptionsProductIds\": [\n    1\n  ],\n  \"ShowToPublic\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d475aec1-ab86-4649-b290-6ec7c9994ff6",
+          "name": "Mindbody This Endpoint Update a Enrollment Schedule",
+          "request": {
+            "name": "Mindbody This Endpoint Update a Enrollment Schedule",
+            "description": {
+              "content": "This endpoint update a enrollment schedule.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "v6",
+                "enrollment",
+                "updateenrollmentschedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) version of the api."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ID of the site from which to pull data.",
+                "key": "siteId",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "API-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ClassId\": \"<integer>\",\n  \"ClassDescriptionId\": \"<integer>\",\n  \"LocationId\": \"<integer>\",\n  \"StartDate\": \"<dateTime>\",\n  \"EndDate\": \"<dateTime>\",\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"DaySunday\": \"<boolean>\",\n  \"DayMonday\": \"<boolean>\",\n  \"DayTuesday\": \"<boolean>\",\n  \"DayWednesday\": \"<boolean>\",\n  \"DayThursday\": \"<boolean>\",\n  \"DayFriday\": \"<boolean>\",\n  \"DaySaturday\": \"<boolean>\",\n  \"StaffId\": \"<integer>\",\n  \"StaffPayRate\": \"<integer>\",\n  \"ResourceId\": \"<integer>\",\n  \"MaxCapacity\": \"<integer>\",\n  \"WebCapacity\": \"<integer>\",\n  \"WaitlistCapacity\": \"<integer>\",\n  \"BookingStatus\": \"<string>\",\n  \"AllowOpenEnrollment\": \"<boolean>\",\n  \"AllowDateForwardEnrollment\": \"<boolean>\",\n  \"RetainScheduleChanges\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f742da8f-29cb-4751-881b-0dd0d7d3dd4a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "updateenrollmentschedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ClassId\": 123456,\n  \"ClassDescriptionId\": 123456,\n  \"LocationId\": 123456,\n  \"StartDate\": \"2026-05-28T14:30:00Z\",\n  \"EndDate\": \"2026-05-28T14:30:00Z\",\n  \"StartTime\": \"2026-05-28T14:30:00Z\",\n  \"EndTime\": \"2026-05-28T14:30:00Z\",\n  \"DaySunday\": true,\n  \"DayMonday\": true,\n  \"DayTuesday\": true,\n  \"DayWednesday\": true,\n  \"DayThursday\": true,\n  \"DayFriday\": true,\n  \"DaySaturday\": true,\n  \"StaffId\": 123456,\n  \"StaffPayRate\": 1,\n  \"ResourceId\": 123456,\n  \"MaxCapacity\": 1,\n  \"WebCapacity\": 1,\n  \"WaitlistCapacity\": 1,\n  \"BookingStatus\": \"Active\",\n  \"AllowOpenEnrollment\": true,\n  \"AllowDateForwardEnrollment\": true,\n  \"RetainScheduleChanges\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ClassId\": 123456,\n  \"ClassInstanceIds\": [\n    1\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "749d91a1-a64a-41fa-9a2e-1820e755eea8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "updateenrollmentschedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ClassId\": 123456,\n  \"ClassDescriptionId\": 123456,\n  \"LocationId\": 123456,\n  \"StartDate\": \"2026-05-28T14:30:00Z\",\n  \"EndDate\": \"2026-05-28T14:30:00Z\",\n  \"StartTime\": \"2026-05-28T14:30:00Z\",\n  \"EndTime\": \"2026-05-28T14:30:00Z\",\n  \"DaySunday\": true,\n  \"DayMonday\": true,\n  \"DayTuesday\": true,\n  \"DayWednesday\": true,\n  \"DayThursday\": true,\n  \"DayFriday\": true,\n  \"DaySaturday\": true,\n  \"StaffId\": 123456,\n  \"StaffPayRate\": 1,\n  \"ResourceId\": 123456,\n  \"MaxCapacity\": 1,\n  \"WebCapacity\": 1,\n  \"WaitlistCapacity\": 1,\n  \"BookingStatus\": \"Active\",\n  \"AllowOpenEnrollment\": true,\n  \"AllowDateForwardEnrollment\": true,\n  \"RetainScheduleChanges\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "57f02c8b-a3b3-47c3-bf48-3458dda3af4d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "updateenrollmentschedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ClassId\": 123456,\n  \"ClassDescriptionId\": 123456,\n  \"LocationId\": 123456,\n  \"StartDate\": \"2026-05-28T14:30:00Z\",\n  \"EndDate\": \"2026-05-28T14:30:00Z\",\n  \"StartTime\": \"2026-05-28T14:30:00Z\",\n  \"EndTime\": \"2026-05-28T14:30:00Z\",\n  \"DaySunday\": true,\n  \"DayMonday\": true,\n  \"DayTuesday\": true,\n  \"DayWednesday\": true,\n  \"DayThursday\": true,\n  \"DayFriday\": true,\n  \"DaySaturday\": true,\n  \"StaffId\": 123456,\n  \"StaffPayRate\": 1,\n  \"ResourceId\": 123456,\n  \"MaxCapacity\": 1,\n  \"WebCapacity\": 1,\n  \"WaitlistCapacity\": 1,\n  \"BookingStatus\": \"Active\",\n  \"AllowOpenEnrollment\": true,\n  \"AllowDateForwardEnrollment\": true,\n  \"RetainScheduleChanges\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6099e664-dfd3-498d-8b57-71500f956b17",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "updateenrollmentschedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ClassId\": 123456,\n  \"ClassDescriptionId\": 123456,\n  \"LocationId\": 123456,\n  \"StartDate\": \"2026-05-28T14:30:00Z\",\n  \"EndDate\": \"2026-05-28T14:30:00Z\",\n  \"StartTime\": \"2026-05-28T14:30:00Z\",\n  \"EndTime\": \"2026-05-28T14:30:00Z\",\n  \"DaySunday\": true,\n  \"DayMonday\": true,\n  \"DayTuesday\": true,\n  \"DayWednesday\": true,\n  \"DayThursday\": true,\n  \"DayFriday\": true,\n  \"DaySaturday\": true,\n  \"StaffId\": 123456,\n  \"StaffPayRate\": 1,\n  \"ResourceId\": 123456,\n  \"MaxCapacity\": 1,\n  \"WebCapacity\": 1,\n  \"WaitlistCapacity\": 1,\n  \"BookingStatus\": \"Active\",\n  \"AllowOpenEnrollment\": true,\n  \"AllowDateForwardEnrollment\": true,\n  \"RetainScheduleChanges\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6a77c341-ceef-4e04-a1d1-0f85b6bdc80b",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "updateenrollmentschedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ClassId\": 123456,\n  \"ClassDescriptionId\": 123456,\n  \"LocationId\": 123456,\n  \"StartDate\": \"2026-05-28T14:30:00Z\",\n  \"EndDate\": \"2026-05-28T14:30:00Z\",\n  \"StartTime\": \"2026-05-28T14:30:00Z\",\n  \"EndTime\": \"2026-05-28T14:30:00Z\",\n  \"DaySunday\": true,\n  \"DayMonday\": true,\n  \"DayTuesday\": true,\n  \"DayWednesday\": true,\n  \"DayThursday\": true,\n  \"DayFriday\": true,\n  \"DaySaturday\": true,\n  \"StaffId\": 123456,\n  \"StaffPayRate\": 1,\n  \"ResourceId\": 123456,\n  \"MaxCapacity\": 1,\n  \"WebCapacity\": 1,\n  \"WaitlistCapacity\": 1,\n  \"BookingStatus\": \"Active\",\n  \"AllowOpenEnrollment\": true,\n  \"AllowDateForwardEnrollment\": true,\n  \"RetainScheduleChanges\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1f84fe13-2517-4867-bcc3-b6acac0e023e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "v6",
+                    "enrollment",
+                    "updateenrollmentschedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) version of the api."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ID of the site from which to pull data.",
+                    "key": "siteId",
+                    "value": "example-value"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "A staff user authorization token.",
+                    "key": "authorization",
+                    "value": "example-value"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ClassId\": 123456,\n  \"ClassDescriptionId\": 123456,\n  \"LocationId\": 123456,\n  \"StartDate\": \"2026-05-28T14:30:00Z\",\n  \"EndDate\": \"2026-05-28T14:30:00Z\",\n  \"StartTime\": \"2026-05-28T14:30:00Z\",\n  \"EndTime\": \"2026-05-28T14:30:00Z\",\n  \"DaySunday\": true,\n  \"DayMonday\": true,\n  \"DayTuesday\": true,\n  \"DayWednesday\": true,\n  \"DayThursday\": true,\n  \"DayFriday\": true,\n  \"DaySaturday\": true,\n  \"StaffId\": 123456,\n  \"StaffPayRate\": 1,\n  \"ResourceId\": 123456,\n  \"MaxCapacity\": 1,\n  \"WebCapacity\": 1,\n  \"WaitlistCapacity\": 1,\n  \"BookingStatus\": \"Active\",\n  \"AllowOpenEnrollment\": true,\n  \"AllowDateForwardEnrollment\": true,\n  \"RetainScheduleChanges\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mindbodyonline.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "91e64ae9-2582-401a-b34e-8497ac58ee73",
+    "name": "Mindbody Public API v6 Appointment Enrollment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for Mindbody business management data including appointments, classes, clients, enrollments, sales, sites, staff, payroll, and cross-site operations. Authentication combines a Mindbody-issued API-Key header with a SiteId header and optional staff/user OAuth bearer tokens for write operations. Generated from the official Mindbody Public API Python SDK (apimatic v3).\n\nContact Support:\n Name: Mindbody API Support",
+      "type": "text/plain"
+    }
+  }
+}

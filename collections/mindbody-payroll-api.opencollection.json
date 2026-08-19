@@ -1,0 +1,322 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mindbody Public API v6 Appointment Payroll API",
+    "version": "6.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "API-Key",
+      "value": "{{API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payroll",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mindbody A Staff Authorization Token is Not Required for This Endpoint, but if",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/payroll/commissions",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.endDateTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The end of the date range for the payroll information to be returned. The maximum allowed date range is 14 days.<br /> Default: **Today’s date** * If you do not supply an `EndDateTime`, the data returns for the period from the `StartDateTime` that you supply to today’s date. * If you do not supply an `EndDateTime` or a `StartDateTime`, data returns for the seven days prior to today’s date."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationId",
+                "value": "123456",
+                "type": "query",
+                "description": "A LocationId that you want to retrieve payroll information for. If you do not supply a `LocationId`, data from all locations is returned."
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.staffId",
+                "value": "123456",
+                "type": "query",
+                "description": "A list of staff IDs that you want to retrieve payroll information for. If you do not supply a `StaffId`, all active staff members return, ordered by staff ID."
+              },
+              {
+                "name": "request.startDateTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The beginning of the date range for the payroll information to be returned. The maximum allowed date range is 14 days. * If you do not supply a `StartDateTime`, data returns for the seven days prior to the `EndDateTime` that you supply. * If you do not supply either a `StartDateTime` or an `EndDateTime`, the data returns for seven days prior to today’s date."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "A staff authorization token is not required for this endpoint, but if one is passed, its permissions are honored. Depending on the access permissions configured for the staff member whose token is passed, the endpoint returns either only the payroll information for that staff member or it returns the payroll information for all staff members."
+        },
+        {
+          "info": {
+            "name": "Mindbody A Staff Authorization Token is Not Required for This Endpoint, but if",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/payroll/scheduledserviceearnings",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.endDateTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The end of the date range for the payroll information to be returned. The maximum allowed date range is 14 days.<br /> Default: **Today’s date** * If you do not supply an `EndDateTime`, the data returns for the period from the `StartDateTime` that you supply to today’s date. * If you do not supply an `EndDateTime` or a `StartDateTime`, data returns for the seven days prior to today’s date."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationId",
+                "value": "123456",
+                "type": "query",
+                "description": "A LocationId that you want to retrieve payroll information for. If you do not supply a `LocationId`, data from all locations is returned."
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.scheduledServiceId",
+                "value": "123456",
+                "type": "query",
+                "description": "Filters the results to a single scheduled service. This parameter must be used with a single ScheduledServiceType."
+              },
+              {
+                "name": "request.scheduledServiceType",
+                "value": "example-value",
+                "type": "query",
+                "description": "Filters the results to schedule service earnings for specific types of services. Possible values: * Class * Appointment"
+              },
+              {
+                "name": "request.staffId",
+                "value": "123456",
+                "type": "query",
+                "description": "A list of staff IDs that you want to retrieve payroll information for. If you do not supply a `StaffId`, all active staff members return, ordered by staff ID."
+              },
+              {
+                "name": "request.startDateTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The beginning of the date range for the payroll information to be returned. The maximum allowed date range is 14 days. * If you do not supply a `StartDateTime`, data returns for the seven days prior to the `EndDateTime` that you supply. * If you do not supply either a `StartDateTime` or an `EndDateTime`, the data returns for seven days prior to today’s date."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "A staff authorization token is not required for this endpoint, but if one is passed, its permissions are honored. Depending on the access permissions configured for the staff member whose token is passed, the endpoint returns either only the payroll information for that staff member or it returns the payroll information for all staff members. Note that if a staff member is not paid for a class, earnings of zero are returned by this endpoint. Note that this endpoint calculates both bonus and no-r"
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Returns Information for All Locations. the **View",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/payroll/timecards",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.endDateTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The end of the date range for the payroll information to be returned. The maximum allowed date range is 14 days.<br /> Default: **Today’s date** * If you do not supply an `EndDateTime`, the data returns for the period from the `StartDateTime` that you supply to today’s date. * If you do not supply an `EndDateTime` or a `StartDateTime`, data returns for the seven days prior to today’s date."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationId",
+                "value": "123456",
+                "type": "query",
+                "description": "A LocationId that you want to retrieve payroll information for. If you do not supply a `LocationId`, data from all locations is returned."
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.staffId",
+                "value": "123456",
+                "type": "query",
+                "description": "A list of staff IDs that you want to retrieve payroll information for. If you do not supply a `StaffId`, all active staff members return, ordered by staff ID."
+              },
+              {
+                "name": "request.startDateTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The beginning of the date range for the payroll information to be returned. The maximum allowed date range is 14 days. * If you do not supply a `StartDateTime`, data returns for the seven days prior to the `EndDateTime` that you supply. * If you do not supply either a `StartDateTime` or an `EndDateTime`, the data returns for seven days prior to today’s date."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns information for all locations. The **View reports for all locations permission **is not supported for staff auth tokens."
+        },
+        {
+          "info": {
+            "name": "Mindbody A Staff Authorization Token is Not Required for This Endpoint, but if",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/payroll/tips",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.endDateTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The end of the date range for the payroll information to be returned. The maximum allowed date range is 14 days.<br /> Default: **Today’s date** * If you do not supply an `EndDateTime`, the data returns for the period from the `StartDateTime` that you supply to today’s date. * If you do not supply an `EndDateTime` or a `StartDateTime`, data returns for the seven days prior to today’s date."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationId",
+                "value": "123456",
+                "type": "query",
+                "description": "A LocationId that you want to retrieve payroll information for. If you do not supply a `LocationId`, data from all locations is returned."
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.staffId",
+                "value": "123456",
+                "type": "query",
+                "description": "A list of staff IDs that you want to retrieve payroll information for. If you do not supply a `StaffId`, all active staff members return, ordered by staff ID."
+              },
+              {
+                "name": "request.startDateTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The beginning of the date range for the payroll information to be returned. The maximum allowed date range is 14 days. * If you do not supply a `StartDateTime`, data returns for the seven days prior to the `EndDateTime` that you supply. * If you do not supply either a `StartDateTime` or an `EndDateTime`, the data returns for seven days prior to today’s date."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "A staff authorization token is not required for this endpoint, but if one is passed, its permissions are honored. Depending on the access permissions configured for the staff member whose token is passed, the endpoint returns either only the payroll information for that staff member or it returns the payroll information for all staff members. This endpoint returns information for all locations.The** View reports for all locations **permission is not supported for staff auth tokens."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

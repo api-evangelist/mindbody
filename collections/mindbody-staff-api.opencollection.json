@@ -1,0 +1,504 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mindbody Public API v6 Appointment Staff API",
+    "version": "6.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "API-Key",
+      "value": "{{API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Staff",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mindbody Retrieves the Available Image URLs for a Specified Staff Member,",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/staff/imageurl",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.staffId",
+                "value": "123456",
+                "type": "query",
+                "description": "The ID of the staff member whose image URL details you want to retrieve."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieves the available image URLs for a specified staff member, including desktop and mobile versions. <br /> The resolution of these images is determined by the Mindbody product at the time the image is uploaded. Staff images are automatically resized within Core (typically around 200×151 pixels), and this endpoint surfaces only the stored versions. The API does not resize or limit the images itself . <br /> For more information about how image sizes are managed in Mindbody product, refer to t"
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Returns the Basic Details of the Staffs That Are Marked",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/staff/salesreps",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.activeOnly",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, will return only active reps data. Default : **false**"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.salesRepNumbers",
+                "value": "1",
+                "type": "query",
+                "description": "This is the list of the sales rep numbers for which the salesrep data will be fetched."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the basic details of the staffs that are marked as sales reps."
+        },
+        {
+          "info": {
+            "name": "Mindbody Gets a List of Active Session Types for a Specific Staff Member. a",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/staff/sessiontypes",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.staffId",
+                "value": "123456",
+                "type": "query",
+                "description": "The ID of the staff member whose session types you want to return."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.onlineOnly",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, indicates that only the session types that can be booked online should be returned. Default: **false**"
+              },
+              {
+                "name": "request.programIds",
+                "value": "1",
+                "type": "query",
+                "description": "Filters results to session types that belong to one of the given program IDs. If omitted, all program IDs return."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Gets a list of active session types for a specific staff member. A staff user token must be included with staff assigned the ManageStaffPayRates permission."
+        },
+        {
+          "info": {
+            "name": "Mindbody When a User Token is Not Passed with the Request or the Passed User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/staff/staff",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.filters",
+                "value": "example-value",
+                "type": "query",
+                "description": "Filters to apply to the search. Possible values are: * StaffViewable * AppointmentInstructor * ClassInstructor * Male * Female"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationId",
+                "value": "123456",
+                "type": "query",
+                "description": "Return only staff members that are available at the specified location. You must supply a valid `SessionTypeID` and `StartDateTime` to use this parameter."
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.sessionTypeId",
+                "value": "123456",
+                "type": "query",
+                "description": "Return only staff members that are available for the specified session type. You must supply a valid `StartDateTime` and `LocationID` to use this parameter."
+              },
+              {
+                "name": "request.staffIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of the requested staff IDs."
+              },
+              {
+                "name": "request.startDateTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "Return only staff members that are available at the specified date and time. You must supply a valid `SessionTypeID` and `LocationID` to use this parameter."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "When a user token is not passed with the request or the passed user token has insufficient viewing permissions, only the following staff data is returned in the response: * FirstName * LastName * Id * Bio * DisplayName * ImageUrl * EmpID"
+        },
+        {
+          "info": {
+            "name": "Mindbody Get Configured Staff Permissions for a Staff Member",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/staff/staffpermissions",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.staffId",
+                "value": "123456",
+                "type": "query",
+                "description": "The ID of the staff member whose permissions you want to return."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get configured staff permissions for a staff member."
+        },
+        {
+          "info": {
+            "name": "Mindbody Creates a New Staff Member Record at the Specified Business. the",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/staff/addstaff",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Creates a new staff member record at the specified business. The `FirstName` and `LastName` parameters are always required for this request."
+        },
+        {
+          "info": {
+            "name": "Mindbody Assigns a Staff Member to an Appointment Session Type with Staff",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/staff/assignsessiontype",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Assigns a staff member to an appointment session type with staff specific properties such as time length and pay rate. A staff user token must be included with staff assigned the ManageStaffPayRates permission."
+        },
+        {
+          "info": {
+            "name": "Mindbody Enables to Add Staff Availability or Unavailability for a Given Staff",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/staff/staffavailability",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Enables to add staff availability or unavailability for a given staff member."
+        },
+        {
+          "info": {
+            "name": "Mindbody Updates an Existing Staff Member Record at the Specified Business. the",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/staff/updatestaff",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Updates an existing staff member record at the specified business. The ID is a required parameters for this request."
+        },
+        {
+          "info": {
+            "name": "Mindbody Assigns a Permission Group to a Staff Member. a Staff User Token Must",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/staff/updatestaffpermissions",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Assigns a permission group to a staff member. A staff user token must be included with staff assigned the ManageStaffPayRates permission."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

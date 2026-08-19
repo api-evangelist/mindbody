@@ -1,0 +1,266 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mindbody Public API v6 Appointment Pick A Spot API",
+    "version": "6.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "API-Key",
+      "value": "{{API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pick A Spot",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Supports Pagination. See Pagination Object for a",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/pickaspot/v1/class",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint supports pagination. See Pagination object for a description."
+        },
+        {
+          "info": {
+            "name": "Mindbody Get a Class Filtered by ClassId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/pickaspot/v1/class/:classId",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "classId",
+                "value": "example-value",
+                "type": "path",
+                "description": "The request template parameter."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get a class filtered by classId."
+        },
+        {
+          "info": {
+            "name": "Mindbody Retrieves Reservation for Pick a Spot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/pickaspot/v1/reservation/:pathInfo",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "pathInfo",
+                "value": "example-value",
+                "type": "path",
+                "description": "The request template parameter."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieves reservation for Pick a Spot."
+        },
+        {
+          "info": {
+            "name": "Mindbody Creates a Spot Reservation for a Given Pick-a-spot Class. the Actual",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/pickaspot/v1/reservation/:pathInfo",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "pathInfo",
+                "value": "example-value",
+                "type": "path",
+                "description": "The request template parameter."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Creates a spot reservation for a given pick-a-spot class. The actual class visit must be created prior to calling this endpoint. A user token is required for this endpoint. Sample request: POST /pickaspot/v1/reservation { \"SiteId\": -1147483363, \"LocationId\": 1, \"ClassId\": \"64b14ac8c20ae8f0afd2d409\", \"ReservationExternalId\": \"44724\", // this is a Visit.Id and should be linked to a specific class visit \"MemberExternalId\": \"100000136\", // this is Client's UniqueId \"SpotNumber\": \"5\", \"ReservationDis"
+        },
+        {
+          "info": {
+            "name": "Mindbody A User Token is Required for This Endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mindbodyonline.com/public/v6/pickaspot/v1/reservation/:pathInfo",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "pathInfo",
+                "value": "example-value",
+                "type": "path",
+                "description": "The request template parameter."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "A user token is required for this endpoint. This endpoint updates a single reservation."
+        },
+        {
+          "info": {
+            "name": "Mindbody A User Token is Required for This Endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mindbodyonline.com/public/v6/pickaspot/v1/reservation/:pathInfo",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "pathInfo",
+                "value": "example-value",
+                "type": "path",
+                "description": "The request template parameter."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "A user token is required for this endpoint. This endpoint deletes a single reservation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,2388 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mindbody Public API v6 Appointment Client API",
+    "version": "6.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "API-Key",
+      "value": "{{API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Client",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mindbody Please Note That Client Memberships with Location Restrictions Can",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/activeclientmemberships",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.clientId",
+                "value": "example-value",
+                "type": "query",
+                "description": "The ID of the client for whom memberships are returned."
+              },
+              {
+                "name": "request.clientAssociatedSitesOffset",
+                "value": "10",
+                "type": "query",
+                "description": "Used to retrieve a client’s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the client is associated with. Note that you must always have `CrossRegionalLookup` s"
+              },
+              {
+                "name": "request.crossRegionalLookup",
+                "value": "true",
+                "type": "query",
+                "description": "Used to retrieve a client’s memberships from multiple sites within an organization. When included and set to `true`, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use `ClientAssociatedSitesOffset` as many times as needed to search the additional sites with which the client is associated. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationId",
+                "value": "123456",
+                "type": "query",
+                "description": "Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when `CrossRegionalLookup` is `true`."
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.uniqueClientId",
+                "value": "123456",
+                "type": "query",
+                "description": "The Unique ID of the client for whom memberships are returned. Note that UniqueClientId takes precedence over ClientId if both are provided."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Please note that client memberships with location restrictions can only be used to pay for scheduled services at the site to which they belong. Memberships with location restrictions can not be used to pay for scheduled services at other sites within an organization."
+        },
+        {
+          "info": {
+            "name": "Mindbody The Endpoint Returns a List of Memberships for Multiple Clients We",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/activeclientsmemberships",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.clientIds",
+                "value": "example-value",
+                "type": "query",
+                "description": "The ID of the client for whom memberships are returned. Maximum allowed : 200."
+              },
+              {
+                "name": "request.clientAssociatedSitesOffset",
+                "value": "10",
+                "type": "query",
+                "description": "Used to retrieve a client’s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the client is associated with. Note that you must always have `CrossRegionalLookup` s"
+              },
+              {
+                "name": "request.crossRegionalLookup",
+                "value": "true",
+                "type": "query",
+                "description": "Used to retrieve a client’s memberships from multiple sites within an organization. When included and set to `true`, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use `ClientAssociatedSitesOffset` as many times as needed to search the additional sites with which the client is associated. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationId",
+                "value": "123456",
+                "type": "query",
+                "description": "Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when `CrossRegionalLookup` is `true`."
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "The endpoint returns a list of memberships for multiple clients we pass in query parameter. Please note that clients memberships with location restrictions can only be used to pay for scheduled services at the site to which they belong. Memberships with location restrictions can not be used to pay for scheduled services at other sites within an organization."
+        },
+        {
+          "info": {
+            "name": "Mindbody Get Account Balance Information for One or More Client(s)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/clientaccountbalances",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.clientIds",
+                "value": "example-value",
+                "type": "query",
+                "description": "The list of clients IDs for which you want account balances."
+              },
+              {
+                "name": "request.balanceDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The date you want a balance relative to. Default: **the current date**"
+              },
+              {
+                "name": "request.classId",
+                "value": "123456",
+                "type": "query",
+                "description": "The class ID of the event for which you want a balance."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get account balance information for one or more client(s)."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Returns Complete Client Information Along with List of",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/clientcompleteinfo",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              },
+              {
+                "name": "consumer-identity-token",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.clientId",
+                "value": "example-value",
+                "type": "query",
+                "description": "Filters results to client with these ID."
+              },
+              {
+                "name": "request.clientAssociatedSitesOffset",
+                "value": "10",
+                "type": "query",
+                "description": "Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the client is associated with. Note that you must always have `CrossRegionalLooku"
+              },
+              {
+                "name": "request.crossRegionalLookup",
+                "value": "true",
+                "type": "query",
+                "description": "Used to retrieve a clients pricing options from multiple sites within an organization.When included and set to `true`, it searches a maximum of ten sites with which this client is associated.When a client is associated with more than ten sites, use `ClientAssociatedSitesOffset` as many times as needed to search the additional sites with which the client is associated. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites th"
+              },
+              {
+                "name": "request.endDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "Filters results to pricing options that are purchased on or before this date. Default: **today’s date**."
+              },
+              {
+                "name": "request.excludeInactiveSites",
+                "value": "true",
+                "type": "query",
+                "description": "When this flag is set to `true`, will exclude inactive sites from the response Default: **false**"
+              },
+              {
+                "name": "request.requiredClientData",
+                "value": "example-value",
+                "type": "query",
+                "description": "Used to retrieve list of purchased services, contract details, membership details and arrival programs for a specific client. Default `ClientServices`, `ClientContracts`, `ClientMemberships` and `ClientArrivals` will be returned when `RequiredClientDatais` not set. When `RequiredClientData` is set to `Contracts` then only `ClientContracts` will be returned in the response. When `RequiredClientData` is set to Services then only `ClientServices` will be returned in the response. When `RequiredClie"
+              },
+              {
+                "name": "request.showActiveOnly",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, includes active services only. Set this field to `true` when trying to determine if a client has a service that can pay for a class or appointment. Default: **false**"
+              },
+              {
+                "name": "request.startDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "Filters results to pricing options that are purchased on or after this date. Default: **today’s date**."
+              },
+              {
+                "name": "request.uniqueClientId",
+                "value": "123456",
+                "type": "query",
+                "description": "The unique ID of the client who is viewing this class list."
+              },
+              {
+                "name": "request.useActivateDate",
+                "value": "true",
+                "type": "query",
+                "description": "When this flag is set to `true`, the date filtering will use activate date to filter the pricing options. When this flag is set to `false`, the date filtering will use purchase date to filter the pricing options. Default: **false**"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns complete client information along with list of purchased services, contract details, membership details and arrival programs for a specific client."
+        },
+        {
+          "info": {
+            "name": "Mindbody Get Contracts That a Client Has Purchased",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/clientcontracts",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.clientId",
+                "value": "example-value",
+                "type": "query",
+                "description": "The ID of the client (RssId)."
+              },
+              {
+                "name": "request.clientAssociatedSitesOffset",
+                "value": "10",
+                "type": "query",
+                "description": "Determines how many sites are skipped over when retrieving a client’s cross regional contracts. Used when a client ID is linked to more than ten sites in an organization. Only a maximum of ten site databases are queried when this call is made and `CrossRegionalLookup` is set to `true`. To change which sites are queried, change this offset value. Default: **0**"
+              },
+              {
+                "name": "request.crossRegionalLookup",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, indicates that the requesting client’s cross regional contracts are returned, if any.<br /> When `false`, indicates that cross regional contracts are not returned."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.uniqueClientId",
+                "value": "123456",
+                "type": "query",
+                "description": "The unique ID of the requested client."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get contracts that a client has purchased."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Returns Direct Debit Info Stored on a Client's Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/clientdirectdebitinfo",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "clientId",
+                "value": "example-value",
+                "type": "query",
+                "description": "The ID of the client."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns direct debit info stored on a client's account. This endpoint requires staff user credentials. A null response from this endpoint indicates that the client has no usable direct debit information on their account.Use the POST AddClientDirectDebitInfo endpoint to add direct debit information to a client’s account."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Deletes Direct Debit Info from a Client’s Account. This",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mindbodyonline.com/public/v6/client/clientdirectdebitinfo",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "clientId",
+                "value": "example-value",
+                "type": "query",
+                "description": "The ID of the client."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint deletes direct debit info from a client’s account. This endpoint requires staff user credentials."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Gets Client Records That Would Be Considered Duplicates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/clientduplicates",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.email",
+                "value": "kinlane@example.com",
+                "type": "query",
+                "description": "The client email to match on when searching for duplicates."
+              },
+              {
+                "name": "request.firstName",
+                "value": "example-value",
+                "type": "query",
+                "description": "The client first name to match on when searching for duplicates."
+              },
+              {
+                "name": "request.lastName",
+                "value": "example-value",
+                "type": "query",
+                "description": "The client last name to match on when searching for duplicates."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint gets client records that would be considered duplicates based on case-insensitive matching of the client's first name, last name, and email. For there to be results, all three parameters must match a client record. This endpoint requires staff user credentials. An empty `ClientDuplicates` object in the response from this endpoint indicates that there were no client records found that match the first name, last name, and email fields passed in. If one client record is returned, it i"
+        },
+        {
+          "info": {
+            "name": "Mindbody ***QueryParams***: Enables to Retrieve Cross Regional Formula Notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/clientformulanotes",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.appointmentId",
+                "value": "123456",
+                "type": "query",
+                "description": "The appointment ID of an appointment in the studio specified in the header of the request."
+              },
+              {
+                "name": "request.clientId",
+                "value": "example-value",
+                "type": "query",
+                "description": "The client ID of the client whose formula notes are being requested."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "***QueryParams***: Enables to retrieve cross regional formula notes for a client, or for a specific appointment. The two parameters are optional, however at least one must be provided. This endpoint supports pagination."
+        },
+        {
+          "info": {
+            "name": "Mindbody Client Indexes Are Used to Analyze Client Demographics. a Business",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/clientindexes",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.requiredOnly",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, filters the results to only indexes that are required on creation.<br /> When `false` or omitted, returns all of the client indexes."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Client indexes are used to analyze client demographics. A business owner can set up different categories with sets of values which they can assign to each client. Client indexes are used in client searches, for tagging clients so that the owner can send mass emails to similar groups, and for many reports. For more information, see Client Indexes and [Client Index Values (video tutorial)](https://support.mindbodyonline.com/s/article/203261653-Clien t-indexes-and-client-index-values-video-tutorial"
+        },
+        {
+          "info": {
+            "name": "Mindbody Gets a List of Purchases Made by a Specific Client",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/clientpurchases",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.clientId",
+                "value": "example-value",
+                "type": "query",
+                "description": "The ID of the client you are querying for purchases."
+              },
+              {
+                "name": "request.endDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "Filters results to purchases made before this timestamp.<br /> Default: **end of today**"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.saleId",
+                "value": "123456",
+                "type": "query",
+                "description": "Filters results to the single record associated with this ID."
+              },
+              {
+                "name": "request.startDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "Filters results to purchases made on or after this timestamp.<br /> Default: **now**"
+              },
+              {
+                "name": "request.uniqueClientId",
+                "value": "123456",
+                "type": "query",
+                "description": "The unique ID of the requested client."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Gets a list of purchases made by a specific client."
+        },
+        {
+          "info": {
+            "name": "Mindbody Gets a List of Referral Types. Referral Types Are Options That New",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/clientreferraltypes",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.includeInactive",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, filters the results to include subtypes and inactive referral types.<br /> When `false`, includes no subtypes and only active types. Default:**false**"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Gets a list of referral types. Referral types are options that new clients can choose to identify how they learned about the business. Referral types are typically used for the sign-up process."
+        },
+        {
+          "info": {
+            "name": "Mindbody Gets the Client Rewards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/clientrewards",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.clientId",
+                "value": "example-value",
+                "type": "query",
+                "description": "The ID of the client."
+              },
+              {
+                "name": "request.endDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The end date of transaction. Default: **StartDate**"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.startDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The start date of transaction. Default: **today**"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Gets the client rewards."
+        },
+        {
+          "info": {
+            "name": "Mindbody Earns or Redeems Rewards Points for a Given Client, Based on Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/client/clientrewards",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Earns or redeems rewards points for a given client, based on site settings. Cross regional rewards are not supported at this time."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Requires Staff User Credentials. This Endpoint Supports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/clients",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.clientIDs",
+                "value": "example-value",
+                "type": "query",
+                "description": "The requested client IDs. Default: **all IDs** that the authenticated user’s access level allows.<br /> Note: You can fetch information for maximum 20 clients at once."
+              },
+              {
+                "name": "request.includeInactive",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, indicates the results to include active and inactive clients.<br /> When `false`, indicates that only those clients who are marked as active should be returned. Default: **false**"
+              },
+              {
+                "name": "request.isProspect",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, filters the results to include only those clients marked as prospects for the business.<br /> When `false`, indicates that only those clients who are not marked prospects should be returned."
+              },
+              {
+                "name": "request.lastModifiedDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "Filters the results to include only the clients that have been modified on or after this date."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.searchText",
+                "value": "example-value",
+                "type": "query",
+                "description": "Text to use in the search. Can include FirstName, LastName, and Email. Note that user credentials must be provided."
+              },
+              {
+                "name": "request.uniqueIds",
+                "value": "1",
+                "type": "query",
+                "description": "Filters results to clients with these `UniqueIDs`. This parameter cannot be used with `ClientIDs` or `SearchText`. Default: **all UniqueIDs** that the authenticated user’s access level allows."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint requires staff user credentials. This endpoint supports pagination. See Pagination for a description of the Pagination information."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Can Be Utilized to Retrieve Scheduled Visits Which is",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/clientschedule",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.clientAssociatedSitesOffset",
+                "value": "10",
+                "type": "query",
+                "description": "The number of sites to skip when returning the site associated with a client."
+              },
+              {
+                "name": "request.clientId",
+                "value": "example-value",
+                "type": "query",
+                "description": "The ID of the requested client."
+              },
+              {
+                "name": "request.crossRegionalLookup",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, indicates that past and scheduled client visits across all sites in the region are returned. When `false`, indicates that only visits at the current site are returned."
+              },
+              {
+                "name": "request.endDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The date past which class visits are not returned. Default is today’s date"
+              },
+              {
+                "name": "request.includeWaitlistEntries",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, waitlist entries are included in the response. When `false`, waitlist entries are removed from the response. Default: **false**"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.startDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The date before which class visits are not returned. Default is the end date"
+              },
+              {
+                "name": "request.uniqueClientId",
+                "value": "123456",
+                "type": "query",
+                "description": "The unique ID of the requested client. Note: you need to provide the 'UniqueClientId' OR the 'ClientId'. If both are provided, the 'UniqueClientId' takes precedence."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint can be utilized to retrieve scheduled visits which is associated with the requested client."
+        },
+        {
+          "info": {
+            "name": "Mindbody Get Pricing Options That a Client Has Purchased",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/clientservices",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.classId",
+                "value": "123456",
+                "type": "query",
+                "description": "Filters results to only those pricing options that can be used to pay for this class."
+              },
+              {
+                "name": "request.classScheduleID",
+                "value": "1",
+                "type": "query",
+                "description": "Filters results to pricing options which are associated with one of the ClassScheduleIDs"
+              },
+              {
+                "name": "request.clientAssociatedSitesOffset",
+                "value": "10",
+                "type": "query",
+                "description": "Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the client is associated with. Note that you must always have `CrossRegionalLooku"
+              },
+              {
+                "name": "request.clientId",
+                "value": "example-value",
+                "type": "query",
+                "description": "The ID of the client to query. The results are a list of pricing options that the client has purchased. Note that “service” and “pricing option” are synonymous in this section of the documentation."
+              },
+              {
+                "name": "request.clientIds",
+                "value": "example-value",
+                "type": "query",
+                "description": "The IDs of the clients to query. The results are a list of pricing options that the clients have purchased. ClientId parameter takes priority over ClientIds due to backward compatibility. So if you want to use ClientIds, then ClientId needs to be empty. Either of ClientId or ClientIds need to be specified"
+              },
+              {
+                "name": "request.crossRegionalLookup",
+                "value": "true",
+                "type": "query",
+                "description": "Used to retrieve a client’s pricing options from multiple sites within an organization. When included and set to `true`, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use `ClientAssociatedSitesOffset` as many times as needed to search the additional sites with which the client is associated. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites"
+              },
+              {
+                "name": "request.endDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "Filters results to pricing options that are purchased on or before this date. Default: **today’s date**"
+              },
+              {
+                "name": "request.excludeInactiveSites",
+                "value": "true",
+                "type": "query",
+                "description": "When this flag is set to `true`, will exclude inactive sites from the response. Default: **false**"
+              },
+              {
+                "name": "request.ignoreCrossRegionalSiteLimit",
+                "value": "true",
+                "type": "query",
+                "description": "Used to specify if the number of cross regional sites used to search for client’s pricing options should be ignored. Default: **false**"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationIds",
+                "value": "1",
+                "type": "query",
+                "description": "Filters results to pricing options that can be used at the listed location IDs."
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.programIds",
+                "value": "1",
+                "type": "query",
+                "description": "Filters results to pricing options that belong to one of the given program IDs."
+              },
+              {
+                "name": "request.sessionTypeId",
+                "value": "123456",
+                "type": "query",
+                "description": "Filters results to pricing options that will pay for the given session type ID. Use this to find pricing options that will pay for a specific appointment type."
+              },
+              {
+                "name": "request.showActiveOnly",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, includes active services only. Default: **false**"
+              },
+              {
+                "name": "request.startDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "Filters results to pricing options that are purchased on or after this date. Default: **today’s date**"
+              },
+              {
+                "name": "request.uniqueClientId",
+                "value": "123456",
+                "type": "query",
+                "description": "The unique ID of the client to query. Note that UniqueClientId takes precedence over ClientId."
+              },
+              {
+                "name": "request.uniqueClientIds",
+                "value": "1",
+                "type": "query",
+                "description": "The Unique IDs of the clients to query. Note that UniqueClientIds collection takes precedence over ClientIds collection."
+              },
+              {
+                "name": "request.useActivateDate",
+                "value": "true",
+                "type": "query",
+                "description": "When this flag is set to `true`, the date filtering will use activate date to filter the pricing options. When this flag is set to `false`, the date filtering will use purchase date to filter the pricing options. Default: **false**"
+              },
+              {
+                "name": "request.visitCount",
+                "value": "10",
+                "type": "query",
+                "description": "A filter on the minimum number of visits a service can pay for."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get pricing options that a client has purchased."
+        },
+        {
+          "info": {
+            "name": "Mindbody Gets the Client Visits for a Specific Client",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/clientvisits",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.clientAssociatedSitesOffset",
+                "value": "10",
+                "type": "query",
+                "description": "The number of sites to skip when returning the site associated with a client."
+              },
+              {
+                "name": "request.clientId",
+                "value": "example-value",
+                "type": "query",
+                "description": "The ID of the requested client."
+              },
+              {
+                "name": "request.crossRegionalLookup",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, indicates that past and scheduled client visits across all sites in the region are returned.<br /> When `false`, indicates that only visits at the current site are returned."
+              },
+              {
+                "name": "request.endDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The date past which class visits are not returned. Default: **today's date**"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.order",
+                "value": "example-value",
+                "type": "query",
+                "description": "The sort order for the results.<br /> When `desc`, results are returned in descending order (newest first).<br /> When `asc`, results are returned in ascending order (oldest first)."
+              },
+              {
+                "name": "request.startDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "The date before which class visits are not returned. Default: **the end date**"
+              },
+              {
+                "name": "request.uniqueClientId",
+                "value": "123456",
+                "type": "query",
+                "description": "The unique ID of the requested client. Note: you need to provide the 'UniqueClientId' OR the 'ClientId'. If both are provided, the 'UniqueClientId' takes precedence."
+              },
+              {
+                "name": "request.unpaidsOnly",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, indicates that only visits that have not been paid for are returned.<br /> When `false`, indicates that all visits are returned, regardless of whether they have been paid for.<br /> Default: **false**"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Gets the Client Visits for a specific client."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Contains a Variety of Filters That Can Return Not Just",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/contactlogs",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.clientId",
+                "value": "example-value",
+                "type": "query",
+                "description": "The ID of the client whose contact logs are being requested."
+              },
+              {
+                "name": "request.endDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "Filters the results to contact logs created before this date.<br /> Default: **the start date**"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.showSystemGenerated",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, system-generated contact logs are returned in the results.<br /> Default: **false**"
+              },
+              {
+                "name": "request.staffIds",
+                "value": "1",
+                "type": "query",
+                "description": "Filters the results to return contact logs assigned to one or more staff IDs."
+              },
+              {
+                "name": "request.startDate",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "Filters the results to contact logs created on or after this date.<br /> Default: **the current date**"
+              },
+              {
+                "name": "request.subtypeIds",
+                "value": "1",
+                "type": "query",
+                "description": "Filters the results to contact logs assigned one or more of these subtype IDs."
+              },
+              {
+                "name": "request.typeIds",
+                "value": "1",
+                "type": "query",
+                "description": "Filters the results to contact logs assigned one or more of these type IDs."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint contains a variety of filters that can return not just all contact logs, but also system-generated contact logs, contact logs assigned to specific staff members, and contact logs of specific types or subtypes."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Contains a Variety of Filters That Can Return Not Just",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/contactlogtypes",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.contactLogTypeId",
+                "value": "123456",
+                "type": "query",
+                "description": "The requested ContactLogType ID. Default: **all** IDs that the authenticated user’s access level allows."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint contains a variety of filters that can return not just all contact logs, but also system-generated contact logs, contact logs assigned to specific staff members, and contact logs of specific types or subtypes."
+        },
+        {
+          "info": {
+            "name": "Mindbody Returns a List of Sites That a Particular Client ID (also Referred to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/crossregionalclientassociations",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.clientId",
+                "value": "example-value",
+                "type": "query",
+                "description": "Looks up the cross regional associations by the client’s ID."
+              },
+              {
+                "name": "request.email",
+                "value": "kinlane@example.com",
+                "type": "query",
+                "description": "Looks up the cross regional associations by the client’s email address."
+              },
+              {
+                "name": "request.excludeInactiveSites",
+                "value": "true",
+                "type": "query",
+                "description": "Used to exclude inactive and deleted sites from the results. When this flag is set to `true`, client profiles associated with inactive and deleted sites are not getting returned. When this flag is set to `false`,client profiles associated with inactive and deleted sites are getting returned. Default: **true**"
+              },
+              {
+                "name": "request.firstName",
+                "value": "example-value",
+                "type": "query",
+                "description": "First name (used for email queries)"
+              },
+              {
+                "name": "request.lastName",
+                "value": "example-value",
+                "type": "query",
+                "description": "Last name (used for email queries)"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.uniqueClientId",
+                "value": "123456",
+                "type": "query",
+                "description": "Looks up the cross regional associations by the unique client’s ID. Note: you need to provide the 'UniqueClientId' OR the 'ClientId' OR the 'Email'. 'UniqueClientId' takes precedence when provided. If not, but both 'ClientId' and 'Email' are provided, 'ClientId' is used by default."
+              },
+              {
+                "name": "request.v2",
+                "value": "true",
+                "type": "query",
+                "description": "Use newer method"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of sites that a particular client ID (also referred to as an RSSID) or a client email address is associated with in a cross-regional organization. Either the `ClientID` or `Email` parameter is required. If both are provided, the `ClientID` is used. Use this endpoint to retrieve information for other Public API endpoints, about the same client at multiple sites within an organization. To use this endpoint, your developer account must have been granted permission to the site's entir"
+        },
+        {
+          "info": {
+            "name": "Mindbody Get a Site's Configured Custom Client Fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/customclientfields",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get a site's configured custom client fields."
+        },
+        {
+          "info": {
+            "name": "Mindbody Gets the List of Fields That a New Client Has to Fill Out in Business",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/client/requiredclientfields",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Gets the list of fields that a new client has to fill out in business mode, specifically for the sign-up process. `AddClient` and `UpdateClient` validate against these fields. This endpoint has no query parameters."
+        },
+        {
+          "info": {
+            "name": "Mindbody Marks a Client as Arrived for a Specified Location. a Staff User Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/client/addarrival",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Marks a client as arrived for a specified location. A staff user token must be included with staff assigned the LaunchSignInScreen permission. When used on a site that is part of a region, the following additional logic will apply: * When a client exists within the region but not at the studio where the arrival is being logged, a local client record will be automatically created. * If the local client does not have an applicable local membership or pricing option, a membership or pricing option "
+        },
+        {
+          "info": {
+            "name": "Mindbody Starting the Week of May 11th, 2020 All Versions of the Public API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/client/addclient",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Starting the week of May 11th, 2020 all versions of the Public API will no longer allow duplicate clients to be created. This applies to both adding a client and updating a client record. A duplicate client is created when two profiles have the same first name, last name and email.<br /> Creates a new client record at the specified business.Passing a User Token as Authorization will create a client and respect Business Mode required fields.Omitting the token will create a client and respect Cons"
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Adds Direct Debit Info to a Client’s Account. This",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/client/addclientdirectdebitinfo",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint adds direct debit info to a client’s account. This endpoint requires staff user credentials."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Adds a Formula Note for a Specified Client or Specified",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/client/addclientformulanote",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint adds a formula note for a specified client or specified client appointment. A staff user token must be included with staff assigned permission to view client profile or have both ViewAppointmentDetails and ModifyAppointment permissions."
+        },
+        {
+          "info": {
+            "name": "Mindbody Add a Contact Log to a Client's Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/client/addcontactlog",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Add a contact log to a client's account."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Helps to Merge Clients",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/client/mergeclients",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint helps to merge clients."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Requires Staff User Credentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/client/sendautoemail",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint requires staff user credentials."
+        },
+        {
+          "info": {
+            "name": "Mindbody Send a Password Reset Email to a Client",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/client/sendpasswordresetemail",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Send a password reset email to a client."
+        },
+        {
+          "info": {
+            "name": "Mindbody Suspend Client Contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/client/suspendcontract",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Suspend client contract"
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Terminates a Client Contract. This Endpoint Requires",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/client/terminatecontract",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint terminates a client contract. This endpoint requires staff user credentials with TerminateClientContract permission."
+        },
+        {
+          "info": {
+            "name": "Mindbody Starting the Week of May 11th, 2020 All Versions of the Public API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/client/updateclient",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Starting the week of May 11th, 2020 all versions of the Public API will no longer allow duplicate clients to be created. This applies to both adding a client and updating a client record. A duplicate client is created when two profiles have the same first name, last name and email.<br /> Updates an existing client for a specific subscriber.Passing a User Token as Authorization respects Business Mode required fields.Omitting the token respects Consumer Mode required fields.To make sure you are co"
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Can Be Used to Update the Amount And/or the Item of a",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/client/updateclientcontractautopays",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint can be used to update the amount and/or the item of a client’s autopay schedule."
+        },
+        {
+          "info": {
+            "name": "Mindbody Updates the Active Date And/or Expiration Date of a Client Pricing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/client/updateclientservice",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Updates the active date and/or expiration date of a client pricing option. This request requires staff user credentials. If the active date is modified, the expiration date is also modified accordingly. If the expiration date is modified, the active date is unchanged."
+        },
+        {
+          "info": {
+            "name": "Mindbody Updates the Status of the Specified Visit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/client/updateclientvisit",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Updates the status of the specified visit."
+        },
+        {
+          "info": {
+            "name": "Mindbody Update a Contact Log on a Client's Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/client/updatecontactlog",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Update a contact log on a client's account."
+        },
+        {
+          "info": {
+            "name": "Mindbody Uploads a Document File for a Specific Client. Returns a String",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/client/uploadclientdocument",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Uploads a document file for a specific client. Returns a string representation of the image byte array. The maximum size file that can be uploaded is **4MB**."
+        },
+        {
+          "info": {
+            "name": "Mindbody Uploads a Client’s Profile Photo. the Maximum File Size is 4 MB and",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/client/uploadclientphoto",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Uploads a client’s profile photo. The maximum file size is 4 MB and acceptable file types are: * bmp * jpeg * gif * tiff * png"
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Deletes an Existing Formula Note. a Staff User Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mindbodyonline.com/public/v6/client/clientformulanote",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.clientId",
+                "value": "example-value",
+                "type": "query",
+                "description": "The client ID of the client whose formula note needs to be deleted."
+              },
+              {
+                "name": "request.formulaNoteId",
+                "value": "123456",
+                "type": "query",
+                "description": "The formula note ID for the note to be deleted."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint deletes an existing formula note. A staff user token must be included with staff assigned permission to view client profile or have both ViewAppointmentDetails and ModifyAppointment permissions."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Deletes Contactlog of Client. This Endpoint Requires",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mindbodyonline.com/public/v6/client/deletecontactlog",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.clientId",
+                "value": "example-value",
+                "type": "query",
+                "description": "The client ID of the client whose Contact Log is being deleted."
+              },
+              {
+                "name": "request.contactLogId",
+                "value": "123456",
+                "type": "query",
+                "description": "The Contact Log ID."
+              },
+              {
+                "name": "request.test",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, indicates that this is a test request and no data is inserted into the subscriber’s database. When `false`, the database is updated."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint deletes contactlog of client. This endpoint requires staff user credentials."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

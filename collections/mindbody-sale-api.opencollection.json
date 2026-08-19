@@ -1,0 +1,1345 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mindbody Public API v6 Appointment Sale API",
+    "version": "6.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "API-Key",
+      "value": "{{API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sale",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mindbody Gets a List of Card Types That the Site Accepts. You Can Also Use `GET",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/acceptedcardtypes",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Gets a list of card types that the site accepts. You can also use `GET Sites` to return the Site object, which contains individual accepted card types for requested sites. This endpoint has no query parameters.The response returns a list of strings. Possible values are: * Visa * MasterCard * Discover * AMEX"
+        },
+        {
+          "info": {
+            "name": "Mindbody Get Alternative and Local Payment Methods That Are Allowed for a Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/alternativepaymentmethods",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.clientId",
+                "value": "example-value",
+                "type": "query",
+                "description": "The client ID"
+              },
+              {
+                "name": "request.locationId",
+                "value": "123456",
+                "type": "query",
+                "description": "The location ID Default: **null** (Online store location)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get alternative and local payment methods that are allowed for a site. These payment methods can later be used in `Initiate Checkout Shopping Cart Using Alternative Payments` and `Initiate Purchase Contract Using Alternative Payments` to make the payment. The currently supported alternative payments are: - iDEAL - Apple Pay **Notes:** - This endpoint is only available for Studios on MBPS (Mindbody Payments) with Stripe payment processor. - This endpoint only supports the online store location (L"
+        },
+        {
+          "info": {
+            "name": "Mindbody Returns the Contracts and Autopay Options That Are Available on a",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/contracts",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.locationId",
+                "value": "123456",
+                "type": "query",
+                "description": "The ID of the location that has the requested contracts and AutoPay options."
+              },
+              {
+                "name": "request.contractIds",
+                "value": "1",
+                "type": "query",
+                "description": "When included, the response only contains details about the specified contract IDs."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.promoCode",
+                "value": "example-value",
+                "type": "query",
+                "description": "PromoCode to apply"
+              },
+              {
+                "name": "request.soldOnline",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, the response only contains details about contracts and AutoPay options that can be sold online. When `false`, all contracts are returned. Default: **false**"
+              },
+              {
+                "name": "request.uniqueClientId",
+                "value": "123456",
+                "type": "query",
+                "description": "The ID of the client."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the contracts and autopay options that are available on a location-by-location basis. Depending on the configurations established by the site, this endpoint returns options that can be used to sign up clients for recurring payments for services offered by the business."
+        },
+        {
+          "info": {
+            "name": "Mindbody Get Payment Methods That Can Be Used to Pay for Sales at a Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/custompaymentmethods",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get payment methods that can be used to pay for sales at a site."
+        },
+        {
+          "info": {
+            "name": "Mindbody Returns a Gift Card’s Remaining Balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/giftcardbalance",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "barcodeId",
+                "value": "example-value",
+                "type": "query",
+                "description": "The barcode ID of the gift card for which you want the balance."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a gift card’s remaining balance."
+        },
+        {
+          "info": {
+            "name": "Mindbody Returns Information About Gift Cards That Can Be Purchased",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/giftcards",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.ids",
+                "value": "1",
+                "type": "query",
+                "description": "Filters the results to the requested gift card IDs.<br /> Default: **all** gift cards."
+              },
+              {
+                "name": "request.includeCustomLayouts",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, includes custom gift card layouts.<br /> When `false`, includes only system layouts. Default: **false**"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationId",
+                "value": "123456",
+                "type": "query",
+                "description": "When included, returns gift cards that are sold at the provided location ID."
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.soldOnline",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, only returns gift cards that are sold online.<br /> Default: **false**"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns information about gift cards that can be purchased."
+        },
+        {
+          "info": {
+            "name": "Mindbody A Package is Typically Used to Combine Multiple Services And/or",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/packages",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationId",
+                "value": "123456",
+                "type": "query",
+                "description": "The location ID to use to determine the tax for the products that this request returns.<br /> Default: **online store**"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.packageIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of the packages IDs to filter by."
+              },
+              {
+                "name": "request.sellOnline",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, only returns products that can be sold online.<br /> When `false`, all products are returned.<br /> Default: **false**"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "A package is typically used to combine multiple services and/or products into a single offering. Staff members can check out multiple appointments while selling the package, and can discount the items included. For example, a spa might bundle a massage, a pedicure, a manicure, a facial, and a few selected beauty products into a package."
+        },
+        {
+          "info": {
+            "name": "Mindbody Get Retail Products Available for Purchase at a Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/products",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.categoryIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationId",
+                "value": "123456",
+                "type": "query",
+                "description": "The location ID to use to determine the tax for the products that this request returns.<br /> Default: **online store**"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.productIds",
+                "value": "example-value",
+                "type": "query",
+                "description": "The barcode number of the product to be filter by."
+              },
+              {
+                "name": "request.searchText",
+                "value": "example-value",
+                "type": "query",
+                "description": "A search filter, used for searching by term."
+              },
+              {
+                "name": "request.secondaryCategoryIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of secondary categories to filter by. Use this ID when calling the GET Categories endpoint."
+              },
+              {
+                "name": "request.sellOnline",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, only products that can be sold online are returned.<br /> When `false`, all products are returned.<br /> Default: **false**"
+              },
+              {
+                "name": "request.subCategoryIds",
+                "value": "1",
+                "type": "query",
+                "description": "A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get retail products available for purchase at a site."
+        },
+        {
+          "info": {
+            "name": "Mindbody Update Retail Products Available for Purchase at a Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/products",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Update retail products available for purchase at a site."
+        },
+        {
+          "info": {
+            "name": "Mindbody Get Retail Products Inventory Data Available at a Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/productsinventory",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.barcodeIds",
+                "value": "example-value",
+                "type": "query",
+                "description": "When included, the response only contains details about the specified Barcode Ids."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationIds",
+                "value": "1",
+                "type": "query",
+                "description": "When included, the response only contains details about the specified location Ids."
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.productIds",
+                "value": "example-value",
+                "type": "query",
+                "description": "When included, the response only contains details about the specified product Ids."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get retail products inventory data available at a site."
+        },
+        {
+          "info": {
+            "name": "Mindbody Fetches the Status of an Initiate Purchase Contract Given AccessToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/purchasecontractstatus",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "accessToken",
+                "value": "example-value",
+                "type": "query",
+                "description": "The request query parameter."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Fetches the status of an initiate purchase contract given accessToken. This endpoint complements the `Initiate Purchase Contract Using Alternative Payments` endpoint. `Initiate Purchase Contract Using Alternative Payments` endpoint will capture the intent to purchase a contract, and return a redirect URL for the end user to make the payment. Once the payment concludes, the end user will be redirected back to the PaymentAuthenticationCallbackUrl, which was provided while invoking the `Initiate Pu"
+        },
+        {
+          "info": {
+            "name": "Mindbody Get Sales Completed at a Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/sales",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.endSaleDateTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "Filters results to sales that happened before this date and time."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.paymentMethodId",
+                "value": "123456",
+                "type": "query",
+                "description": "Filters results to sales paid for by the given payment method ID which indicates payment method(s) (i.e. cash, VISA, AMEX, Check, etc.)."
+              },
+              {
+                "name": "request.saleId",
+                "value": "123456",
+                "type": "query",
+                "description": "The sale ID associated with the particular item. It Filters results to the requested sale ID."
+              },
+              {
+                "name": "request.startSaleDateTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "Filters results to sales that happened after this date and time."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get sales completed at a site."
+        },
+        {
+          "info": {
+            "name": "Mindbody Get Pricing Options Available for Purchase at a Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/services",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.classId",
+                "value": "123456",
+                "type": "query",
+                "description": "Filters to the pricing options for the specified class ID."
+              },
+              {
+                "name": "request.classScheduleId",
+                "value": "123456",
+                "type": "query",
+                "description": "Filters to the pricing options for the specified class schedule ID."
+              },
+              {
+                "name": "request.hideRelatedPrograms",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, indicates that pricing options of related programs are omitted from the response.<br /> Default: **false**"
+              },
+              {
+                "name": "request.includeDiscontinued",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, indicates that the filtered pricing option list includes discontinued pricing options.<br /> Default: **false**"
+              },
+              {
+                "name": "request.includeSaleInContractOnly",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, indicates that the filtered pricing option list includes sale in contract only pricing options.<br /> Default: **false**"
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationId",
+                "value": "123456",
+                "type": "query",
+                "description": "When specified, for each returned pricing option, `TaxRate` and `TaxIncluded` are calculated according to the specified location. Note that this does not filter results to only services provided at the given location, and for locations where Value-Added Tax (VAT) rules apply, the `TaxRate` is set to zero."
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.programIds",
+                "value": "1",
+                "type": "query",
+                "description": "Filters to pricing options with the specified program IDs."
+              },
+              {
+                "name": "request.sellOnline",
+                "value": "true",
+                "type": "query",
+                "description": "When `true`, filters the pricing options to display only those available for online purchase. This parameter is only applicable in Business Mode (when a staff authentication header is included) and ignored in Consumer Mode (when no authentication header is passed). <br />Default: `false` (for staff users) <br />Business Mode: This parameter controls the filtering behavior. Staff users can set this to `true` to show only pricing options that can be sold online, or `false` to show all available pr"
+              },
+              {
+                "name": "request.serviceIds",
+                "value": "example-value",
+                "type": "query",
+                "description": "Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the `PurchasedItems[].Id` returned from GET Sales."
+              },
+              {
+                "name": "request.sessionTypeIds",
+                "value": "1",
+                "type": "query",
+                "description": "Filters to the pricing options with the specified session types IDs."
+              },
+              {
+                "name": "request.staffId",
+                "value": "123456",
+                "type": "query",
+                "description": "Sets `Price` and `OnlinePrice` to the particular pricing of a specific staff member, if allowed by the business."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get pricing options available for purchase at a site"
+        },
+        {
+          "info": {
+            "name": "Mindbody Update Unit Price and Online Price of Provided Services",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/services",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Update unit price and online price of provided services."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Returns a List of Transaction Details of Processed Sales",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/transactions",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              },
+              {
+                "name": "request.clientId",
+                "value": "123456",
+                "type": "query",
+                "description": "Filters results to the requested client ID."
+              },
+              {
+                "name": "request.limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of results to include, defaults to 100"
+              },
+              {
+                "name": "request.locationId",
+                "value": "123456",
+                "type": "query",
+                "description": "Filters the transaction results with the ID number associated with the location of the sale."
+              },
+              {
+                "name": "request.offset",
+                "value": "1",
+                "type": "query",
+                "description": "Page offset, defaults to 0."
+              },
+              {
+                "name": "request.saleId",
+                "value": "123456",
+                "type": "query",
+                "description": "Filters the transaction results with the ID number associated with the sale."
+              },
+              {
+                "name": "request.status",
+                "value": "example-value",
+                "type": "query",
+                "description": "Filters the transaction results by the estimated transaction status."
+              },
+              {
+                "name": "request.transactionEndDateTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "Filters the transaction results that happpened before this date and time. Default: **today’s date**"
+              },
+              {
+                "name": "request.transactionId",
+                "value": "123456",
+                "type": "query",
+                "description": "Filters the transaction results with the ID number generated when the sale is processed."
+              },
+              {
+                "name": "request.transactionStartDateTime",
+                "value": "2026-05-28T14:30:00Z",
+                "type": "query",
+                "description": "Filters the transaction results that happpened after this date and time. Default: **today’s date**"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns a list of transaction details of processed sales."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Provides a Wide Range of Functionality. for Example, You",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/checkoutshoppingcart",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint provides a wide range of functionality. For example, you can use it when a client purchases new pricing options, retail products, packages, and tips. You can also combine purchasing a new pricing option and many other functions, such as booking a client into a class, booking a new appointment for a client, enrolling a client into an enrollment or course, or reconciling an unpaid, already booked appointment or class. Use this call when a client purchases: * a pricing option, after c"
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Complements the InitiateCheckoutShoppintCart Endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/completecheckoutshoppingcart",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint complements the InitiateCheckoutShoppintCart endpoint. Please visit its documentation to understand further. The currently supported alternative payments are: - iDEAL - Apple Pay **How to use :** InitiateCheckoutShoppingCart and CompleteCheckoutShoppingCart endpoints work together. InitiateCheckoutShoppingCart endpoint will capture the intent to perform a checkout, and return a redirect URL for the end user to make the payment. Once the payment concludes, the end user will be redir"
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Provides a Wide Range of Functionality. for Example, You",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/initiatecheckoutshoppingcart",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint provides a wide range of functionality. For example, you can use it when a client purchases new pricing options, retail products, packages, and tips. You can also combine purchasing a new pricing option and many other functions, such as booking a client into a class, booking a new appointment for a client, enrolling a client into an enrollment or course, or reconciling an unpaid, already booked appointment or class. Use this call when a client purchases: * a pricing option, after c"
+        },
+        {
+          "info": {
+            "name": "Mindbody Allows a Client to Sign Up for a Contract or Autopay Using the",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/initiatepurchasecontract",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Allows a client to sign up for a contract or autopay using the information returned from the `GET Contracts` endpoint. The client can pay with allowed alternative and local payment methods returned from `Get Alternative Payment Method`. The client must exist at the site specified before this call is made. The currently supported alternative payments are: - iDEAL - Apple Pay **For a comprehensive guide, follow this tutorial:** [Purchase a Contract](https://developers.mindbodyonline.com/ui/documen"
+        },
+        {
+          "info": {
+            "name": "Mindbody Allows a Client to Purchase Account Credit from a Business",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/purchaseaccountcredit",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Allows a client to purchase account credit from a business."
+        },
+        {
+          "info": {
+            "name": "Mindbody Allows a Client to Sign Up for a Contract or Autopay Using the",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/purchasecontract",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Allows a client to sign up for a contract or autopay using the information returned from the `GET Contracts` endpoint. The client can pay with a new credit card or with a stored credit card. The client must exist at the site specified before this call is made. This endpoint allows a developer to specify whether a client pays now or pays on the `StartDate`. If you are building a client-facing experience, you should talk with the business owner to understand the owner’s policies before you give cl"
+        },
+        {
+          "info": {
+            "name": "Mindbody Allows a Client to Purchase a Gift Card from a Business in a Variety",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/purchasegiftcard",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Allows a client to purchase a gift card from a business in a variety of designs. The card can be emailed to the recipient on a specific day, and a card title and a personal message can be added. **Note** Protect yourself from processor fees and credit card fraud.Remember to always protect your web forms that leverage POST CheckoutShoppingCart, POST PurchaseContract or POST PurchaseGiftCard with a CAPTCHA!"
+        },
+        {
+          "info": {
+            "name": "Mindbody Return a Comped Sale for a Specified Sale ID in Business Mode. the",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/returnsale",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return a comped sale for a specified sale ID in business mode. The sale is returnable only if it is a sale of a service, product or gift card and it has not been used. Currently, only the comp payment method is supported."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Updates the Retail Price and an Online Price for a",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/updateproductprice",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates the retail price and an online price for a product. Passing at least one of them is mandatory."
+        },
+        {
+          "info": {
+            "name": "Mindbody This Endpoint Updates the SaleDate and Returns the Details of the Sale",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mindbodyonline.com/public/v6/sale/updatesaledate",
+            "headers": [
+              {
+                "name": "siteId",
+                "value": "example-value"
+              },
+              {
+                "name": "authorization",
+                "value": "example-value"
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "example-value",
+                "type": "path",
+                "description": "version of the api."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "API-Key",
+              "value": "{{API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates the SaleDate and returns the details of the sale."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
