@@ -29,6 +29,17 @@ tags:
 - Beauty
 - Scheduling
 - Booking
+- Point-of-Sale
+- Studios
+- Salons
+- Spas
+- Webhook
+tags_raw:
+- Fitness
+- Wellness
+- Beauty
+- Scheduling
+- Booking
 - Point of Sale
 - Studios
 - Salons
@@ -153,6 +164,8 @@ apis:
   humanURL: https://developers.mindbodyonline.com/PublicDocumentation/V6
   baseURL: https://api.mindbodyonline.com
   tags:
+  - Clients
+  tags_raw:
   - Client
   properties:
   - type: OpenAPI
@@ -639,6 +652,8 @@ apis:
   humanURL: https://developers.mindbodyonline.com/PublicDocumentation/V6
   baseURL: https://api.mindbodyonline.com
   tags:
+  - Subscription
+  tags_raw:
   - Subscriptions
   properties:
   - type: OpenAPI
