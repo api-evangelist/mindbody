@@ -12,8 +12,11 @@ info:
     opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: mindbodyApi
-  url: ../openapi/mindbody-public-api-v6-openapi-original.yml
+- name: classApi
+  url: ../openapi/mindbody-class-api-openapi.yml
+  type: openapi
+- name: clientApi
+  url: ../openapi/mindbody-client-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: add-client-book-class

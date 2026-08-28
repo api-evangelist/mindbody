@@ -11,8 +11,8 @@ info:
     opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: mindbodyApi
-  url: ../openapi/mindbody-public-api-v6-openapi-original.yml
+- name: enrollmentApi
+  url: ../openapi/mindbody-enrollment-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: enroll-client-in-program
