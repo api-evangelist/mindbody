@@ -9,6 +9,19 @@ description: Mindbody is a business management and consumer marketplace platform
   key + SiteId headers, with optional OAuth 2.0 bearer tokens from the Mindbody Identity
   Service for staff- and client-scoped operations.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
