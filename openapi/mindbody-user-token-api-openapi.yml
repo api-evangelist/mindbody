@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Mindbody Public API v6 Appointment User Token API
+  title: Mindbody Public API v6 User Token API
   version: '6.0'
   description: REST API for Mindbody business management data including appointments, classes, clients, enrollments, sales, sites, staff, payroll, and cross-site operations. Authentication combines a Mindbody-issued API-Key header with a SiteId header and optional staff/user OAuth bearer tokens for write operations. Generated from the official Mindbody Public API Python SDK (apimatic v3).
   contact:
@@ -181,18 +181,6 @@ paths:
       - ApiKeyAuth: []
 components:
   schemas:
-    IssueRequest:
-      type: object
-      description: Implementation of the 'IssueRequest' model. POST UserToken/Issue request
-      properties:
-        Username:
-          type: string
-          description: The staff member’s username.
-          example: example-value
-        Password:
-          type: string
-          description: The staff member’s password.
-          example: example-value
     User:
       type: object
       description: Implementation of the 'User' model.
@@ -213,6 +201,18 @@ components:
         Type:
           type: string
           description: 'The user’s type. Possible values are: * Staff * Owner * Admin'
+          example: example-value
+    IssueRequest:
+      type: object
+      description: Implementation of the 'IssueRequest' model. POST UserToken/Issue request
+      properties:
+        Username:
+          type: string
+          description: The staff member’s username.
+          example: example-value
+        Password:
+          type: string
+          description: The staff member’s password.
           example: example-value
     IssueResponse:
       type: object

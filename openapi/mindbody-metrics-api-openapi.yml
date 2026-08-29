@@ -1,8 +1,8 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Mindbody Public API v6 Appointment Metrics API
-  version: '6.0'
-  description: REST API for Mindbody business management data including appointments, classes, clients, enrollments, sales, sites, staff, payroll, and cross-site operations. Authentication combines a Mindbody-issued API-Key header with a SiteId header and optional staff/user OAuth bearer tokens for write operations. Generated from the official Mindbody Public API Python SDK (apimatic v3).
+  title: Mindbody Webhooks Metrics API
+  version: '1.0'
+  description: Subscription and delivery platform that pushes near real-time event notifications for sites, locations, appointments, classes, clients, sales, and staff. Partners create and manage subscriptions over a REST control plane, and Mindbody pushes JSON events to the registered webhook URL with HMAC-SHA256 signature verification. Authentication uses an API-Key header issued via the Mindbody webhooks developer portal.
   contact:
     name: Mindbody API Support
     url: https://support.mindbodyonline.com/s/contactapisupport
@@ -11,7 +11,7 @@ info:
   x-generated-from: Mindbody-API-SDKs python SDK
   x-last-validated: '2026-05-28'
 servers:
-- url: https://api.mindbodyonline.com
+- url: https://push-api.mindbodyonline.com
   description: Production
 security:
 - ApiKeyAuth: []
@@ -117,16 +117,3 @@ components:
       in: header
       name: API-Key
       description: Mindbody-issued API key (server-to-server). Required on every request.
-    OAuth2:
-      type: oauth2
-      description: OpenID Connect bearer token issued by Mindbody Identity Service (signin.mindbodyonline.com). Required for endpoints that act on behalf of a staff or client user.
-      flows:
-        authorizationCode:
-          authorizationUrl: https://signin.mindbodyonline.com/connect/authorize
-          tokenUrl: https://signin.mindbodyonline.com/connect/token
-          scopes:
-            openid: OpenID Connect base scope.
-            profile: User profile claims.
-            email: User email claim.
-            offline_access: Issue a refresh token.
-            Mindbody.Api.Public.v6: Access the Mindbody Public API v6 on behalf of the user.

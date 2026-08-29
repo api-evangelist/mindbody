@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Mindbody Public API v6 Appointment Payroll API
+  title: Mindbody Public API v6 Payroll API
   version: '6.0'
   description: REST API for Mindbody business management data including appointments, classes, clients, enrollments, sales, sites, staff, payroll, and cross-site operations. Authentication combines a Mindbody-issued API-Key header with a SiteId header and optional staff/user OAuth bearer tokens for write operations. Generated from the official Mindbody Public API Python SDK (apimatic v3).
   contact:
@@ -464,6 +464,52 @@ paths:
       - ApiKeyAuth: []
 components:
   schemas:
+    PaginationResponse:
+      type: object
+      description: Implementation of the 'PaginationResponse' model. Contains information about the pagination to use.
+      properties:
+        RequestedLimit:
+          type: integer
+          format: int32
+          description: Limit from pagination request
+          example: 10
+        RequestedOffset:
+          type: integer
+          format: int32
+          description: Offset from pagination request
+          example: 10
+        PageSize:
+          type: integer
+          format: int32
+          description: Number of results returned in this response
+          example: 1
+        TotalResults:
+          type: integer
+          format: int32
+          description: Total number of results in dataset
+          example: 1
+    GetTimeCardsResponse:
+      type: object
+      description: Implementation of the 'GetTimeCardsResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        TimeCards:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeCardEvent'
+          description: Information about time card entries, ordered by staff ID.
+          example:
+          - {}
+    ScheduledServiceTypeEnum:
+      type: string
+      description: ScheduledServiceTypeEnum enumeration.
+      enum:
+      - Class
+      - Appointment
+      - Enrollment
+      - All
     ScheduledServiceEarningsEvent:
       type: object
       description: Implementation of the 'ScheduledServiceEarningsEvent' model.
@@ -529,6 +575,20 @@ components:
           format: double
           description: The total amount earned by the staff member for this time card entry.
           example: 1.0
+    GetTipsResponse:
+      type: object
+      description: Implementation of the 'GetTipsResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used. See Pagination for a description of the Pagination information.
+        Tips:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tip'
+          description: Contains information about tips given to staff members within the given date range. Results are ordered by StaffId.
+          example:
+          - {}
     Tip:
       type: object
       description: Implementation of the 'Tip' model.
@@ -553,6 +613,33 @@ components:
           format: double
           description: The amount tipped to the staff member.
           example: 1.0
+    CommissionDetail:
+      type: object
+      description: Implementation of the 'CommissionDetail' model.
+      properties:
+        CommissionType:
+          type: string
+          description: 'The type of commission earned. Possible values are: * ItemStandardPercentageCommission * ItemStandardFlatCommission * ItemPromotionalPercentageCommission * ItemPromotionalFlatCommission * StaffStandardPercentageCommission * StaffStandardFlatCommission * StaffPromotionalPercentageCommission * StaffPromotionalFlatCommission'
+          example: example-value
+        CommissionEarnings:
+          type: number
+          format: double
+          description: The portion of `Earnings` earned by this `CommissionType`.
+          example: 1.0
+    GetCommissionsResponse:
+      type: object
+      description: Implementation of the 'GetCommissionsResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        Commissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommissionPayrollPurchaseEvent'
+          description: Contains information about commissions earned by staff for sales within the given date range. Results are ordered by `SaleId`, then by `StaffId`.
+          example:
+          - {}
     GetScheduledServiceEarningsResponse:
       type: object
       description: Implementation of the 'GetScheduledServiceEarningsResponse' model.
@@ -567,52 +654,6 @@ components:
           description: Contains the class payroll events.
           example:
           - {}
-    GetTipsResponse:
-      type: object
-      description: Implementation of the 'GetTipsResponse' model.
-      properties:
-        PaginationResponse:
-          $ref: '#/components/schemas/PaginationResponse'
-          description: Contains information about the pagination used. See Pagination for a description of the Pagination information.
-        Tips:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tip'
-          description: Contains information about tips given to staff members within the given date range. Results are ordered by StaffId.
-          example:
-          - {}
-    PaginationResponse:
-      type: object
-      description: Implementation of the 'PaginationResponse' model. Contains information about the pagination to use.
-      properties:
-        RequestedLimit:
-          type: integer
-          format: int32
-          description: Limit from pagination request
-          example: 10
-        RequestedOffset:
-          type: integer
-          format: int32
-          description: Offset from pagination request
-          example: 10
-        PageSize:
-          type: integer
-          format: int32
-          description: Number of results returned in this response
-          example: 1
-        TotalResults:
-          type: integer
-          format: int32
-          description: Total number of results in dataset
-          example: 1
-    ScheduledServiceTypeEnum:
-      type: string
-      description: ScheduledServiceTypeEnum enumeration.
-      enum:
-      - Class
-      - Appointment
-      - Enrollment
-      - All
     CommissionPayrollPurchaseEvent:
       type: object
       description: Implementation of the 'CommissionPayrollPurchaseEvent' model.
@@ -652,47 +693,6 @@ components:
           type: number
           format: double
           description: The total commissions earned by the staff for this item.
-          example: 1.0
-    GetTimeCardsResponse:
-      type: object
-      description: Implementation of the 'GetTimeCardsResponse' model.
-      properties:
-        PaginationResponse:
-          $ref: '#/components/schemas/PaginationResponse'
-          description: Contains information about the pagination used.
-        TimeCards:
-          type: array
-          items:
-            $ref: '#/components/schemas/TimeCardEvent'
-          description: Information about time card entries, ordered by staff ID.
-          example:
-          - {}
-    GetCommissionsResponse:
-      type: object
-      description: Implementation of the 'GetCommissionsResponse' model.
-      properties:
-        PaginationResponse:
-          $ref: '#/components/schemas/PaginationResponse'
-          description: Contains information about the pagination used.
-        Commissions:
-          type: array
-          items:
-            $ref: '#/components/schemas/CommissionPayrollPurchaseEvent'
-          description: Contains information about commissions earned by staff for sales within the given date range. Results are ordered by `SaleId`, then by `StaffId`.
-          example:
-          - {}
-    CommissionDetail:
-      type: object
-      description: Implementation of the 'CommissionDetail' model.
-      properties:
-        CommissionType:
-          type: string
-          description: 'The type of commission earned. Possible values are: * ItemStandardPercentageCommission * ItemStandardFlatCommission * ItemPromotionalPercentageCommission * ItemPromotionalFlatCommission * StaffStandardPercentageCommission * StaffStandardFlatCommission * StaffPromotionalPercentageCommission * StaffPromotionalFlatCommission'
-          example: example-value
-        CommissionEarnings:
-          type: number
-          format: double
-          description: The portion of `Earnings` earned by this `CommissionType`.
           example: 1.0
   securitySchemes:
     ApiKeyAuth:

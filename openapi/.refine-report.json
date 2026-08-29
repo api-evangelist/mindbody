@@ -1,19 +1,8 @@
 {
   "provider": "mindbody",
   "sources": [
-    "mindbody-appointment-api-openapi.yml",
-    "mindbody-class-api-openapi.yml",
-    "mindbody-client-api-openapi.yml",
-    "mindbody-cross-site-api-openapi.yml",
-    "mindbody-enrollment-api-openapi.yml",
-    "mindbody-metrics-api-openapi.yml",
-    "mindbody-payroll-api-openapi.yml",
-    "mindbody-pick-a-spot-api-openapi.yml",
-    "mindbody-sale-api-openapi.yml",
-    "mindbody-site-api-openapi.yml",
-    "mindbody-staff-api-openapi.yml",
-    "mindbody-subscriptions-api-openapi.yml",
-    "mindbody-user-token-api-openapi.yml"
+    "_original/mindbody-public-api-v6-openapi-original.yml",
+    "_original/mindbody-webhooks-api-openapi-original.yml"
   ],
   "outputs": [
     "mindbody-appointment-api-openapi.yml",
@@ -21,24 +10,41 @@
     "mindbody-client-api-openapi.yml",
     "mindbody-cross-site-api-openapi.yml",
     "mindbody-enrollment-api-openapi.yml",
-    "mindbody-metrics-api-openapi.yml",
     "mindbody-payroll-api-openapi.yml",
     "mindbody-pick-a-spot-api-openapi.yml",
     "mindbody-sale-api-openapi.yml",
     "mindbody-site-api-openapi.yml",
     "mindbody-staff-api-openapi.yml",
-    "mindbody-subscriptions-api-openapi.yml",
-    "mindbody-user-token-api-openapi.yml"
+    "mindbody-user-token-api-openapi.yml",
+    "mindbody-metrics-api-openapi.yml",
+    "mindbody-subscriptions-api-openapi.yml"
   ],
   "archived": [],
   "errors": [
-    "mindbody-appointment-api-openapi.yml: dangling $ref: #/components/schemas/RequestScheduleTypeEnum",
-    "mindbody-sale-api-openapi.yml: dangling $ref: #/components/schemas/Any",
-    "mindbody-sale-api-openapi.yml: dangling $ref: #/components/schemas/UpdateProductRequest",
-    "mindbody-sale-api-openapi.yml: dangling $ref: #/components/schemas/UpdateServiceRequest",
-    "mindbody-site-api-openapi.yml: dangling $ref: #/components/schemas/RequestScheduleTypeEnum"
+    "mindbody-public-api-v6-openapi-original.yml: dangling $ref: #/components/schemas/Any",
+    "mindbody-public-api-v6-openapi-original.yml: dangling $ref: #/components/schemas/RequestScheduleTypeEnum",
+    "mindbody-public-api-v6-openapi-original.yml: dangling $ref: #/components/schemas/UpdateProductRequest",
+    "mindbody-public-api-v6-openapi-original.yml: dangling $ref: #/components/schemas/UpdateServiceRequest"
   ],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "mindbody-public-api-v6-openapi-original.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "mindbody-webhooks-api-openapi-original.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0"
+  ],
+  "skipped": [
+    "mindbody-appointment-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mindbody-class-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mindbody-client-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mindbody-cross-site-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mindbody-enrollment-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mindbody-metrics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mindbody-payroll-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mindbody-pick-a-spot-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mindbody-sale-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mindbody-site-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mindbody-staff-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mindbody-subscriptions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mindbody-user-token-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

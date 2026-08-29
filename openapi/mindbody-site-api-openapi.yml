@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Mindbody Public API v6 Appointment Site API
+  title: Mindbody Public API v6 Site API
   version: '6.0'
   description: REST API for Mindbody business management data including appointments, classes, clients, enrollments, sales, sites, staff, payroll, and cross-site operations. Authentication combines a Mindbody-issued API-Key header with a SiteId header and optional staff/user OAuth bearer tokens for write operations. Generated from the official Mindbody Public API Python SDK (apimatic v3).
   contact:
@@ -1678,39 +1678,52 @@ paths:
       - ApiKeyAuth: []
 components:
   schemas:
-    GetMobileProvidersResponse:
+    UpdateSiteClientIndexRequest:
       type: object
-      description: Implementation of the 'GetMobileProvidersResponse' model. Get Mobile Providers Response Object
+      description: Implementation of the 'UpdateSiteClientIndexRequest' model.
       properties:
-        MobileProviders:
-          type: array
-          items:
-            $ref: '#/components/schemas/MobileProvider'
-          description: A list of mobile providers.
-          example:
-          - {}
-    GetPaymentTypesResponse:
-      type: object
-      description: Implementation of the 'GetPaymentTypesResponse' model. Get Payment Types Response Model
-      properties:
-        PaymentTypes:
-          type: array
-          items:
-            $ref: '#/components/schemas/PaymentType'
-          description: The requested payment types.
-          example:
-          - {}
-    ScheduleTypeEnum:
-      type: string
-      description: ScheduleTypeEnum enumeration.
-      enum:
-      - All
-      - Class
-      - Enrollment
-      - Appointment
-      - Resource
-      - Media
-      - Arrival
+        ClientIndexID:
+          type: integer
+          format: int32
+          description: The ID of the client index.
+          example: 1
+        ClientIndexName:
+          type: string
+          description: The name of the client index.
+          example: example-value
+        Active:
+          type: boolean
+          description: Indicates if Client Index is Active
+          example: true
+        ShowOnNewClient:
+          type: boolean
+          description: Indicates if Client Index is shown on a new client profile
+          example: true
+        ShowOnEnrollmentRoster:
+          type: boolean
+          description: Indicates if Client Index is shown on Enrollement Roster
+          example: true
+        EditOnEnrollmentRoster:
+          type: boolean
+          description: Indicates if Client Index can be edited on Enrollement Roster
+          example: true
+        SortOrder:
+          type: integer
+          format: int32
+          description: Indicates sort order
+          example: 1
+        ShowInConsumerMode:
+          type: boolean
+          description: Indicates if Client Index is shown in consumer mode.
+          example: true
+        RequiredConsumerMode:
+          type: boolean
+          description: Indicates if the index is required when creating profiles in consumer mode.
+          example: true
+        RequiredBizMode:
+          type: boolean
+          description: Indicates if the index is required when creating profiles in business mode.
+          example: true
     AddPromoCodeResponse:
       type: object
       description: Implementation of the 'AddPromoCodeResponse' model.
@@ -1718,6 +1731,68 @@ components:
         PromoCode:
           $ref: '#/components/schemas/PromoCode'
           description: Contains information about PromoCode
+    GetGendersResponse:
+      type: object
+      description: Implementation of the 'GetGendersResponse' model.
+      properties:
+        GenderOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GenderOption'
+          description: A list of the gender options and their properties at the site
+          example:
+          - {}
+    GetRelationshipsResponse:
+      type: object
+      description: Implementation of the 'GetRelationshipsResponse' model. Get Relationships Response Model
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        Relationships:
+          type: array
+          items:
+            $ref: '#/components/schemas/Relationship'
+          description: A list of relationships.
+          example:
+          - {}
+    Discount:
+      type: object
+      description: Implementation of the 'Discount' model. Discount for a promo code
+      properties:
+        Type:
+          type: string
+          description: Type of discount percentage/amount
+          example: example-value
+        Amount:
+          type: number
+          format: double
+          description: Amount of discount
+          example: 49.99
+    DaysValidEnum:
+      type: string
+      description: DaysValidEnum enumeration.
+      enum:
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+    ProgramMembership:
+      type: object
+      description: Implementation of the 'ProgramMembership' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The service category’s ID.
+          example: 123456
+        Name:
+          type: string
+          description: The name of this service category.
+          example: Sunset Yoga Studio
     GetResourceAvailabilitiesResponse:
       type: object
       description: Implementation of the 'GetResourceAvailabilitiesResponse' model.
@@ -1732,280 +1807,175 @@ components:
           description: Contains information about resources as the business.
           example:
           - {}
-    DaysValidEnum:
+    ScheduleTypeEnum:
       type: string
-      description: DaysValidEnum enumeration.
+      description: ScheduleTypeEnum enumeration.
       enum:
-      - Sunday
-      - Monday
-      - Tuesday
-      - Wednesday
-      - Thursday
-      - Friday
-      - Saturday
-    PaginationResponse:
+      - All
+      - Class
+      - Enrollment
+      - Appointment
+      - Resource
+      - Media
+      - Arrival
+    PromoCode:
       type: object
-      description: Implementation of the 'PaginationResponse' model. Contains information about the pagination to use.
+      description: Implementation of the 'PromoCode' model.
       properties:
-        RequestedLimit:
+        PromotionID:
           type: integer
           format: int32
-          description: Limit from pagination request
-          example: 10
-        RequestedOffset:
-          type: integer
-          format: int32
-          description: Offset from pagination request
-          example: 10
-        PageSize:
-          type: integer
-          format: int32
-          description: Number of results returned in this response
+          description: ID of the promo code
           example: 1
-        TotalResults:
-          type: integer
-          format: int32
-          description: Total number of results in dataset
-          example: 1
-    SubCategory:
-      type: object
-      description: Implementation of the 'SubCategory' model.
-      properties:
-        Id:
-          type: integer
-          format: int32
-          description: The Id of the subcategory.
-          example: 123456
-        SubCategoryName:
+        Name:
           type: string
-          description: The name of the subcategory.
+          description: Name of the promo code
+          example: Sunset Yoga Studio
+        Code:
+          type: string
+          description: The code of the promocode.
           example: example-value
         Active:
           type: boolean
-          description: When `true`, indicates that the subcategory is active.
+          description: Indicates that promocode is active.
           example: true
-    GetSessionTypesResponse:
-      type: object
-      description: Implementation of the 'GetSessionTypesResponse' model.
-      properties:
-        PaginationResponse:
-          $ref: '#/components/schemas/PaginationResponse'
-          description: Contains information about the pagination properties used.
-        SessionTypes:
-          type: array
-          items:
-            $ref: '#/components/schemas/SessionType'
-          description: Contains information about sessions.
-          example:
-          - {}
-    GetLiabilityWaiverResponse:
-      type: object
-      description: Implementation of the 'GetLiabilityWaiverResponse' model.
-      properties:
-        LiabilityWaiver:
+        Discount:
+          $ref: '#/components/schemas/Discount'
+          description: Contains information about the discount.
+        ActivationDate:
           type: string
-          description: Contains Liability Waiver text for a site
-          example: example-value
-    GetGendersResponse:
-      type: object
-      description: Implementation of the 'GetGendersResponse' model.
-      properties:
-        GenderOptions:
+          format: date-time
+          description: The promocode activation date.
+          example: '2026-05-28T14:30:00Z'
+        ExpirationDate:
+          type: string
+          format: date-time
+          description: The promocode expiration date.
+          example: '2026-05-28T14:30:00Z'
+        MaxUses:
+          type: integer
+          format: int32
+          description: The maximun number of uses.
+          example: 1
+        NumberOfAutopays:
+          type: integer
+          format: int32
+          description: Number of Autopays
+          example: 1
+        DaysAfterCloseDate:
+          type: integer
+          format: int32
+          description: The number of days a client has to use a promocode after they are no longer a prospect.
+          example: 1
+        AllowOnline:
+          type: boolean
+          description: Indicates if promocode to be redeemed online in consumer mode.
+          example: true
+        LastModifiedDateTime:
+          type: string
+          format: date-time
+          description: Promo code last modified date and time
+          example: '2026-05-28T14:30:00Z'
+        DaysValid:
           type: array
           items:
-            $ref: '#/components/schemas/GenderOption'
-          description: A list of the gender options and their properties at the site
+            $ref: '#/components/schemas/DaysValidEnum'
+          description: What days the promo code can be used
           example:
           - {}
-    DeactivatePromoCodeRequest:
+        ApplicableItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicableItem'
+          description: Contains information about a promocode applicable items.
+          example:
+          - {}
+    LeadChannel:
       type: object
-      description: Implementation of the 'DeactivatePromoCodeRequest' model.
+      description: Implementation of the 'LeadChannel' model.
       properties:
-        PromotionId:
-          type: integer
-          format: int32
-          description: The promocodeID
-          example: 123456
-    SessionType:
-      type: object
-      description: Implementation of the 'SessionType' model. SessionType contains information about the session types in a business.
-      properties:
-        Type:
-          $ref: '#/components/schemas/TypeEnum'
-          description: 'Contains the class description session type. Possible values are: * All * Class * Enrollment * Appointment * Resource * Media * Arrival'
-        DefaultTimeLength:
-          type: integer
-          format: int32
-          description: The default amount of time that a session of this type typically lasts.
-          example: 1
-        StaffTimeLength:
-          type: integer
-          format: int32
-          description: The amount of time that a session of this type will last for a specific Staff (when applicable.)
-          example: 1
         Id:
           type: integer
           format: int32
-          description: This session type’s unique ID.
+          description: The model property of type int.
           example: 123456
         Name:
           type: string
-          description: The name of this session type.
+          description: The model property of type str.
           example: Sunset Yoga Studio
-        OnlineDescription:
-          type: string
-          description: The online description associated with the appointment.
-          example: Example note for Mindbody Public API.
-        NumDeducted:
+        SalespipelineId:
           type: integer
           format: int32
-          description: The number of sessions that this session type deducts from the pricing option used to pay for this type of session.
-          example: 1
-        ProgramId:
-          type: integer
-          format: int32
-          description: This session type’s service category ID.
+          description: The model property of type int.
           example: 123456
-        Category:
+        UniversalCustomerId:
           type: string
-          description: This session type’s category.
+          description: The model property of type uuid|str.
           example: example-value
-        CategoryId:
+        StudioId:
           type: integer
           format: int32
-          description: This session type’s category ID.
+          description: The model property of type int.
           example: 123456
-        Subcategory:
-          type: string
-          description: This session type’s subcategory.
-          example: example-value
-        SubcategoryId:
-          type: integer
-          format: int32
-          description: This session type’s subcategory ID.
-          example: 123456
-        AvailableForAddOn:
-          type: boolean
-          description: This session type’s Add On Flag.
-          example: true
-    AddSiteClientIndexRequest:
+    GetPaymentTypesResponse:
       type: object
-      description: Implementation of the 'AddSiteClientIndexRequest' model.
+      description: Implementation of the 'GetPaymentTypesResponse' model. Get Payment Types Response Model
       properties:
-        ClientIndexName:
-          type: string
-          description: The name of the client index.
-          example: example-value
-        Active:
-          type: boolean
-          description: Indicates if Client Index is Active
-          example: true
-        ShowOnNewClient:
-          type: boolean
-          description: Indicates if Client Index is shown on a new client profile
-          example: true
-        ShowOnEnrollmentRoster:
-          type: boolean
-          description: Indicates if Client Index is shown on Enrollement Roster
-          example: true
-        EditOnEnrollmentRoster:
-          type: boolean
-          description: Indicates if Client Index can be edited on Enrollement Roster
-          example: true
-        SortOrder:
-          type: integer
-          format: int32
-          description: Indicates sort order
-          example: 1
-        ShowInConsumerMode:
-          type: boolean
-          description: Indicates if Client Index is shown in consumer mode.
-          example: true
-        RequiredConsumerMode:
-          type: boolean
-          description: Indicates if the index is required when creating profiles in consumer mode.
-          example: true
-        RequiredBizMode:
-          type: boolean
-          description: Indicates if the index is required when creating profiles in business mode.
-          example: true
-    GetCategoriesResponse:
-      type: object
-      description: Implementation of the 'GetCategoriesResponse' model. Get Categories Response Model
-      properties:
-        PaginationResponse:
-          $ref: '#/components/schemas/PaginationResponse'
-          description: Contains information about the pagination used.
-        Categories:
+        PaymentTypes:
           type: array
           items:
-            $ref: '#/components/schemas/Category'
-          description: Contains the Category objects, each of which describes the categories for a site.
+            $ref: '#/components/schemas/PaymentType'
+          description: The requested payment types.
           example:
           - {}
-    UpdateSiteClientIndexResponse:
+    Program:
       type: object
-      description: Implementation of the 'UpdateSiteClientIndexResponse' model.
-      properties:
-        ClientIndexID:
-          type: integer
-          format: int32
-          description: ID of the client index.
-          example: 1
-        ClientIndexName:
-          type: string
-          description: The name of the client index.
-          example: example-value
-        Active:
-          type: boolean
-          description: Indicates if Client Index is Active
-          example: true
-        ShowOnNewClient:
-          type: boolean
-          description: Indicates if Client Index is shown on a new client profile
-          example: true
-        ShowOnEnrollmentRoster:
-          type: boolean
-          description: Indicates if Client Index is shown on Enrollement Roster
-          example: true
-        EditOnEnrollmentRoster:
-          type: boolean
-          description: Indicates if Client Index can be edited on Enrollement Roster
-          example: true
-        SortOrder:
-          type: integer
-          format: int32
-          description: Indicates sort order
-          example: 1
-        ShowInConsumerMode:
-          type: boolean
-          description: Indicates if Client Index is shown in consumer mode.
-          example: true
-        RequiredConsumerMode:
-          type: boolean
-          description: Indicates if the index is required when creating profiles in consumer mode.
-          example: true
-        RequiredBizMode:
-          type: boolean
-          description: Indicates if the index is required when creating profiles in business mode.
-          example: true
-    Relationship:
-      type: object
-      description: Implementation of the 'Relationship' model. Jim is a RelationshipName1 of John. John is a RelationshipName2 of Jim.
+      description: Implementation of the 'Program' model.
       properties:
         Id:
           type: integer
           format: int32
-          description: The ID of the relationship.
+          description: The service category’s ID.
           example: 123456
-        RelationshipName1:
+        Name:
           type: string
-          description: The name of the first relationship.
-          example: example-value
-        RelationshipName2:
+          description: The name of this service category.
+          example: Sunset Yoga Studio
+        ScheduleType:
+          $ref: '#/components/schemas/ScheduleTypeEnum'
+          description: 'The service category’s schedule type. Possible values are: * All * Class * Enrollment * Appointment * Resource * Arrival'
+        CancelOffset:
+          type: integer
+          format: int32
+          description: The offset to use for the service category.
+          example: 10
+        ContentFormats:
+          type: array
+          items:
+            type: string
+          description: 'The content delivery platform(s) used by the service category. Possible values are: * InPerson * Livestream:Mindbody * Livestream:Other'
+          example:
+          - example-value
+        PricingRelationships:
+          $ref: '#/components/schemas/PricingRelationships'
+          description: Pricing relationships
+    ProspectStage:
+      type: object
+      description: Implementation of the 'ProspectStage' model.
+      properties:
+        Active:
+          type: boolean
+          description: When `true`, indicates that the client is a prospect at the business and has not yet purchased any of the business pricing options. When `false`, indicates that the client has already purchased at least one pricing option from the business.
+          example: true
+        Description:
           type: string
-          description: The name of the second relationship.
-          example: example-value
+          description: A description of the prospect stage.
+          example: Example note for Mindbody Public API.
+        Id:
+          type: integer
+          format: int32
+          description: The ID of the prospect stage assigned to the client.
+          example: 123456
     Location:
       type: object
       description: Implementation of the 'Location' model.
@@ -2128,255 +2098,91 @@ components:
           format: int32
           description: The number of distinct introductory pricing options available for purchase at this location.
           example: 1
-    Amenity:
+    SessionType:
       type: object
-      description: Implementation of the 'Amenity' model. Definition of a location amenity
+      description: Implementation of the 'SessionType' model. SessionType contains information about the session types in a business.
       properties:
+        Type:
+          $ref: '#/components/schemas/TypeEnum'
+          description: 'Contains the class description session type. Possible values are: * All * Class * Enrollment * Appointment * Resource * Media * Arrival'
+        DefaultTimeLength:
+          type: integer
+          format: int32
+          description: The default amount of time that a session of this type typically lasts.
+          example: 1
+        StaffTimeLength:
+          type: integer
+          format: int32
+          description: The amount of time that a session of this type will last for a specific Staff (when applicable.)
+          example: 1
         Id:
           type: integer
           format: int32
-          description: The ID number of the amenity.
+          description: This session type’s unique ID.
           example: 123456
         Name:
           type: string
-          description: The name of the amenity, for example, food or lockers.
+          description: The name of this session type.
           example: Sunset Yoga Studio
-    GetLocationsResponse:
+        OnlineDescription:
+          type: string
+          description: The online description associated with the appointment.
+          example: Example note for Mindbody Public API.
+        NumDeducted:
+          type: integer
+          format: int32
+          description: The number of sessions that this session type deducts from the pricing option used to pay for this type of session.
+          example: 1
+        ProgramId:
+          type: integer
+          format: int32
+          description: This session type’s service category ID.
+          example: 123456
+        Category:
+          type: string
+          description: This session type’s category.
+          example: example-value
+        CategoryId:
+          type: integer
+          format: int32
+          description: This session type’s category ID.
+          example: 123456
+        Subcategory:
+          type: string
+          description: This session type’s subcategory.
+          example: example-value
+        SubcategoryId:
+          type: integer
+          format: int32
+          description: This session type’s subcategory ID.
+          example: 123456
+        AvailableForAddOn:
+          type: boolean
+          description: This session type’s Add On Flag.
+          example: true
+    TypeEnum:
+      type: string
+      description: TypeEnum enumeration.
+      enum:
+      - All
+      - Class
+      - Enrollment
+      - Appointment
+      - Resource
+      - Media
+      - Arrival
+    GetPromoCodesResponse:
       type: object
-      description: Implementation of the 'GetLocationsResponse' model.
+      description: Implementation of the 'GetPromoCodesResponse' model.
       properties:
         PaginationResponse:
           $ref: '#/components/schemas/PaginationResponse'
-          description: Contains information about the pagination used.
-        Locations:
+          description: Pagination Response
+        PromoCodes:
           type: array
           items:
-            $ref: '#/components/schemas/Location'
-          description: Contains information about the locations.
-          example:
-          - {}
-    GetProspectStagesResponse:
-      type: object
-      description: Implementation of the 'GetProspectStagesResponse' model. Get Prospect Stages Response Model
-      properties:
-        ProspectStages:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProspectStage'
-          description: List of Prospect Stages
-          example:
-          - {}
-    ResourceAvailability:
-      type: object
-      description: Implementation of the 'ResourceAvailability' model. An availability of a resource
-      properties:
-        ResourceId:
-          type: integer
-          format: int32
-          description: Id
-          example: 123456
-        StartDateTime:
-          type: string
-          format: date-time
-          description: Starts
-          example: '2026-05-28T14:30:00Z'
-        EndDateTime:
-          type: string
-          format: date-time
-          description: Ends
-          example: '2026-05-28T14:30:00Z'
-    GetActivationCodeResponse:
-      type: object
-      description: Implementation of the 'GetActivationCodeResponse' model.
-      properties:
-        ActivationCode:
-          type: string
-          description: An activation code used to provide access to a site’s business data through MINDBODY.
-          example: example-value
-        ActivationLink:
-          type: string
-          description: A link to the Manage Credentials screen.
-          example: example-value
-    PaymentType:
-      type: object
-      description: Implementation of the 'PaymentType' model.
-      properties:
-        Id:
-          type: integer
-          format: int32
-          description: The Payment Type Id used for api calls.
-          example: 123456
-        PaymentTypeName:
-          type: string
-          description: Payment Type Name
-          example: example-value
-        Active:
-          type: boolean
-          description: Check if Payment type is active.
-          example: true
-        Fee:
-          type: number
-          format: double
-          description: Payment type fee.
-          example: 1.0
-    ApplicableItem:
-      type: object
-      description: Implementation of the 'ApplicableItem' model. Item that will be applied to a promo code
-      properties:
-        Type:
-          type: string
-          description: 'Type of a promo code The promotional item type. Possible values are: * ServiceCategory * RevenueCategory * Supplier * Item'
-          example: example-value
-        Id:
-          type: integer
-          format: int32
-          description: The promotional item ID.
-          example: 123456
-        Name:
-          type: string
-          description: The promotional item name.
-          example: Sunset Yoga Studio
-    Category:
-      type: object
-      description: Implementation of the 'Category' model.
-      properties:
-        Id:
-          type: integer
-          format: int32
-          description: The category Id used for api calls.
-          example: 123456
-        CategoryName:
-          type: string
-          description: Category Name
-          example: example-value
-        Description:
-          type: string
-          description: Category Description
-          example: Example note for Mindbody Public API.
-        Service:
-          type: boolean
-          description: Category service
-          example: true
-        Active:
-          type: boolean
-          description: Check if Category is active.
-          example: true
-        IsPrimary:
-          type: boolean
-          description: Check if Category is of primary type.
-          example: true
-        IsSecondary:
-          type: boolean
-          description: Check if Category is of secondary type.
-          example: true
-        CreatedDateTimeUTC:
-          type: string
-          format: date-time
-          description: Category Created DateTime UTC
-          example: '2026-05-28T14:30:00Z'
-        ModifiedDateTimeUTC:
-          type: string
-          format: date-time
-          description: Category Modified DateTime UTC
-          example: '2026-05-28T14:30:00Z'
-        SubCategories:
-          type: array
-          items:
-            $ref: '#/components/schemas/SubCategory'
-          description: Contains the SubCategory objects, each of which describes the subcategories for a category.
-          example:
-          - {}
-        TotalCount:
-          type: integer
-          format: int32
-          description: Get total number of rows
-          example: 10
-    Program:
-      type: object
-      description: Implementation of the 'Program' model.
-      properties:
-        Id:
-          type: integer
-          format: int32
-          description: The service category’s ID.
-          example: 123456
-        Name:
-          type: string
-          description: The name of this service category.
-          example: Sunset Yoga Studio
-        ScheduleType:
-          $ref: '#/components/schemas/ScheduleTypeEnum'
-          description: 'The service category’s schedule type. Possible values are: * All * Class * Enrollment * Appointment * Resource * Arrival'
-        CancelOffset:
-          type: integer
-          format: int32
-          description: The offset to use for the service category.
-          example: 10
-        ContentFormats:
-          type: array
-          items:
-            type: string
-          description: 'The content delivery platform(s) used by the service category. Possible values are: * InPerson * Livestream:Mindbody * Livestream:Other'
-          example:
-          - example-value
-        PricingRelationships:
-          $ref: '#/components/schemas/PricingRelationships'
-          description: Pricing relationships
-    AddPromoCodeRequest:
-      type: object
-      description: Implementation of the 'AddPromoCodeRequest' model.
-      properties:
-        Code:
-          type: string
-          description: The code of the promocode.
-          example: example-value
-        Name:
-          type: string
-          description: The name of the promocode.
-          example: Sunset Yoga Studio
-        Active:
-          type: boolean
-          description: 'Indicates that promocode is active. Default: **true**'
-          example: true
-        Discount:
-          $ref: '#/components/schemas/Discount'
-          description: Discount info
-        ActivationDate:
-          type: string
-          format: date-time
-          description: 'The date of the promocode activation. Default: **today’s date**'
-          example: '2026-05-28T14:30:00Z'
-        ExpirationDate:
-          type: string
-          format: date-time
-          description: 'The date of the promocode expiration. Default: **a months from today’s date**'
-          example: '2026-05-28T14:30:00Z'
-        MaxUses:
-          type: integer
-          format: int32
-          description: The maximun number of uses. A use is considered a single sale.
-          example: 1
-        DaysAfterCloseDate:
-          type: integer
-          format: int32
-          description: The number of days a client has to use a promocode after they are no longer a prospect.
-          example: 1
-        AllowOnline:
-          type: boolean
-          description: 'Indicates if promocode can be redeemed online in consumer mode. Default: **false**'
-          example: true
-        DaysValid:
-          type: array
-          items:
-            type: string
-          description: 'Indicates what days of the week promocode is valid. Defaults to 7 days of the week. Possible values are: * Monday * Tuesday * Wednesday * Thursday * Friday * Saturday * Sunday'
-          example:
-          - example-value
-        ApplicableItems:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApplicableItem'
-          description: Contains information about a promocode applicable items. See ApplicableItems for a details of the `ApplicableItems` object.
+            $ref: '#/components/schemas/PromoCode'
+          description: Contains information about Promocodes at a site
           example:
           - {}
     MobileProvider:
@@ -2400,6 +2206,254 @@ components:
           type: string
           description: The model property of type str.
           example: 123 Market St
+    UpdateSiteClientIndexResponse:
+      type: object
+      description: Implementation of the 'UpdateSiteClientIndexResponse' model.
+      properties:
+        ClientIndexID:
+          type: integer
+          format: int32
+          description: ID of the client index.
+          example: 1
+        ClientIndexName:
+          type: string
+          description: The name of the client index.
+          example: example-value
+        Active:
+          type: boolean
+          description: Indicates if Client Index is Active
+          example: true
+        ShowOnNewClient:
+          type: boolean
+          description: Indicates if Client Index is shown on a new client profile
+          example: true
+        ShowOnEnrollmentRoster:
+          type: boolean
+          description: Indicates if Client Index is shown on Enrollement Roster
+          example: true
+        EditOnEnrollmentRoster:
+          type: boolean
+          description: Indicates if Client Index can be edited on Enrollement Roster
+          example: true
+        SortOrder:
+          type: integer
+          format: int32
+          description: Indicates sort order
+          example: 1
+        ShowInConsumerMode:
+          type: boolean
+          description: Indicates if Client Index is shown in consumer mode.
+          example: true
+        RequiredConsumerMode:
+          type: boolean
+          description: Indicates if the index is required when creating profiles in consumer mode.
+          example: true
+        RequiredBizMode:
+          type: boolean
+          description: Indicates if the index is required when creating profiles in business mode.
+          example: true
+    GetProspectStagesResponse:
+      type: object
+      description: Implementation of the 'GetProspectStagesResponse' model. Get Prospect Stages Response Model
+      properties:
+        ProspectStages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProspectStage'
+          description: List of Prospect Stages
+          example:
+          - {}
+    AddSiteClientIndexRequest:
+      type: object
+      description: Implementation of the 'AddSiteClientIndexRequest' model.
+      properties:
+        ClientIndexName:
+          type: string
+          description: The name of the client index.
+          example: example-value
+        Active:
+          type: boolean
+          description: Indicates if Client Index is Active
+          example: true
+        ShowOnNewClient:
+          type: boolean
+          description: Indicates if Client Index is shown on a new client profile
+          example: true
+        ShowOnEnrollmentRoster:
+          type: boolean
+          description: Indicates if Client Index is shown on Enrollement Roster
+          example: true
+        EditOnEnrollmentRoster:
+          type: boolean
+          description: Indicates if Client Index can be edited on Enrollement Roster
+          example: true
+        SortOrder:
+          type: integer
+          format: int32
+          description: Indicates sort order
+          example: 1
+        ShowInConsumerMode:
+          type: boolean
+          description: Indicates if Client Index is shown in consumer mode.
+          example: true
+        RequiredConsumerMode:
+          type: boolean
+          description: Indicates if the index is required when creating profiles in consumer mode.
+          example: true
+        RequiredBizMode:
+          type: boolean
+          description: Indicates if the index is required when creating profiles in business mode.
+          example: true
+    PaginationResponse:
+      type: object
+      description: Implementation of the 'PaginationResponse' model. Contains information about the pagination to use.
+      properties:
+        RequestedLimit:
+          type: integer
+          format: int32
+          description: Limit from pagination request
+          example: 10
+        RequestedOffset:
+          type: integer
+          format: int32
+          description: Offset from pagination request
+          example: 10
+        PageSize:
+          type: integer
+          format: int32
+          description: Number of results returned in this response
+          example: 1
+        TotalResults:
+          type: integer
+          format: int32
+          description: Total number of results in dataset
+          example: 1
+    Amenity:
+      type: object
+      description: Implementation of the 'Amenity' model. Definition of a location amenity
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The ID number of the amenity.
+          example: 123456
+        Name:
+          type: string
+          description: The name of the amenity, for example, food or lockers.
+          example: Sunset Yoga Studio
+    DeactivatePromoCodeRequest:
+      type: object
+      description: Implementation of the 'DeactivatePromoCodeRequest' model.
+      properties:
+        PromotionId:
+          type: integer
+          format: int32
+          description: The promocodeID
+          example: 123456
+    GetMembershipsResponse:
+      type: object
+      description: Implementation of the 'GetMembershipsResponse' model.
+      properties:
+        Memberships:
+          type: array
+          items:
+            $ref: '#/components/schemas/Membership'
+          description: Details about the memberships.
+          example:
+          - {}
+    GetCategoriesResponse:
+      type: object
+      description: Implementation of the 'GetCategoriesResponse' model. Get Categories Response Model
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        Categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+          description: Contains the Category objects, each of which describes the categories for a site.
+          example:
+          - {}
+    GetSessionTypesResponse:
+      type: object
+      description: Implementation of the 'GetSessionTypesResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination properties used.
+        SessionTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/SessionType'
+          description: Contains information about sessions.
+          example:
+          - {}
+    GetLocationsResponse:
+      type: object
+      description: Implementation of the 'GetLocationsResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        Locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
+          description: Contains information about the locations.
+          example:
+          - {}
+    SubCategory:
+      type: object
+      description: Implementation of the 'SubCategory' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The Id of the subcategory.
+          example: 123456
+        SubCategoryName:
+          type: string
+          description: The name of the subcategory.
+          example: example-value
+        Active:
+          type: boolean
+          description: When `true`, indicates that the subcategory is active.
+          example: true
+    GetActivationCodeResponse:
+      type: object
+      description: Implementation of the 'GetActivationCodeResponse' model.
+      properties:
+        ActivationCode:
+          type: string
+          description: An activation code used to provide access to a site’s business data through MINDBODY.
+          example: example-value
+        ActivationLink:
+          type: string
+          description: A link to the Manage Credentials screen.
+          example: example-value
+    GetLiabilityWaiverResponse:
+      type: object
+      description: Implementation of the 'GetLiabilityWaiverResponse' model.
+      properties:
+        LiabilityWaiver:
+          type: string
+          description: Contains Liability Waiver text for a site
+          example: example-value
+    GetSitesResponse:
+      type: object
+      description: Implementation of the 'GetSitesResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        Sites:
+          type: array
+          items:
+            $ref: '#/components/schemas/Site'
+          description: Contains information about the sites.
+          example:
+          - {}
     Membership:
       type: object
       description: Implementation of the 'Membership' model.
@@ -2469,49 +2523,97 @@ components:
           format: int32
           description: Number of days before the scheduling window that members with this membership get early access.
           example: 1
-    PromoCode:
+    PaymentType:
       type: object
-      description: Implementation of the 'PromoCode' model.
+      description: Implementation of the 'PaymentType' model.
       properties:
-        PromotionID:
+        Id:
           type: integer
           format: int32
-          description: ID of the promo code
-          example: 1
-        Name:
+          description: The Payment Type Id used for api calls.
+          example: 123456
+        PaymentTypeName:
           type: string
-          description: Name of the promo code
-          example: Sunset Yoga Studio
+          description: Payment Type Name
+          example: example-value
+        Active:
+          type: boolean
+          description: Check if Payment type is active.
+          example: true
+        Fee:
+          type: number
+          format: double
+          description: Payment type fee.
+          example: 1.0
+    Relationship:
+      type: object
+      description: Implementation of the 'Relationship' model. Jim is a RelationshipName1 of John. John is a RelationshipName2 of Jim.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The ID of the relationship.
+          example: 123456
+        RelationshipName1:
+          type: string
+          description: The name of the first relationship.
+          example: example-value
+        RelationshipName2:
+          type: string
+          description: The name of the second relationship.
+          example: example-value
+    ResourceAvailability:
+      type: object
+      description: Implementation of the 'ResourceAvailability' model. An availability of a resource
+      properties:
+        ResourceId:
+          type: integer
+          format: int32
+          description: Id
+          example: 123456
+        StartDateTime:
+          type: string
+          format: date-time
+          description: Starts
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: Ends
+          example: '2026-05-28T14:30:00Z'
+    AddPromoCodeRequest:
+      type: object
+      description: Implementation of the 'AddPromoCodeRequest' model.
+      properties:
         Code:
           type: string
           description: The code of the promocode.
           example: example-value
+        Name:
+          type: string
+          description: The name of the promocode.
+          example: Sunset Yoga Studio
         Active:
           type: boolean
-          description: Indicates that promocode is active.
+          description: 'Indicates that promocode is active. Default: **true**'
           example: true
         Discount:
           $ref: '#/components/schemas/Discount'
-          description: Contains information about the discount.
+          description: Discount info
         ActivationDate:
           type: string
           format: date-time
-          description: The promocode activation date.
+          description: 'The date of the promocode activation. Default: **today’s date**'
           example: '2026-05-28T14:30:00Z'
         ExpirationDate:
           type: string
           format: date-time
-          description: The promocode expiration date.
+          description: 'The date of the promocode expiration. Default: **a months from today’s date**'
           example: '2026-05-28T14:30:00Z'
         MaxUses:
           type: integer
           format: int32
-          description: The maximun number of uses.
-          example: 1
-        NumberOfAutopays:
-          type: integer
-          format: int32
-          description: Number of Autopays
+          description: The maximun number of uses. A use is considered a single sale.
           example: 1
         DaysAfterCloseDate:
           type: integer
@@ -2520,152 +2622,50 @@ components:
           example: 1
         AllowOnline:
           type: boolean
-          description: Indicates if promocode to be redeemed online in consumer mode.
+          description: 'Indicates if promocode can be redeemed online in consumer mode. Default: **false**'
           example: true
-        LastModifiedDateTime:
-          type: string
-          format: date-time
-          description: Promo code last modified date and time
-          example: '2026-05-28T14:30:00Z'
         DaysValid:
           type: array
           items:
-            $ref: '#/components/schemas/DaysValidEnum'
-          description: What days the promo code can be used
+            type: string
+          description: 'Indicates what days of the week promocode is valid. Defaults to 7 days of the week. Possible values are: * Monday * Tuesday * Wednesday * Thursday * Friday * Saturday * Sunday'
           example:
-          - {}
+          - example-value
         ApplicableItems:
           type: array
           items:
             $ref: '#/components/schemas/ApplicableItem'
-          description: Contains information about a promocode applicable items.
+          description: Contains information about a promocode applicable items. See ApplicableItems for a details of the `ApplicableItems` object.
           example:
           - {}
-    PricingRelationships:
+    GetMobileProvidersResponse:
       type: object
-      description: Implementation of the 'PricingRelationships' model.
+      description: Implementation of the 'GetMobileProvidersResponse' model. Get Mobile Providers Response Object
       properties:
-        PaysFor:
+        MobileProviders:
           type: array
           items:
-            type: integer
-            format: int32
-          description: The model property of type List[int].
+            $ref: '#/components/schemas/MobileProvider'
+          description: A list of mobile providers.
           example:
-          - 1
-        PaidBy:
-          type: array
-          items:
-            type: integer
-            format: int32
-          description: The model property of type List[int].
-          example:
-          - 1
-    UpdateSiteClientIndexRequest:
+          - {}
+    ApplicableItem:
       type: object
-      description: Implementation of the 'UpdateSiteClientIndexRequest' model.
+      description: Implementation of the 'ApplicableItem' model. Item that will be applied to a promo code
       properties:
-        ClientIndexID:
-          type: integer
-          format: int32
-          description: The ID of the client index.
-          example: 1
-        ClientIndexName:
+        Type:
           type: string
-          description: The name of the client index.
+          description: 'Type of a promo code The promotional item type. Possible values are: * ServiceCategory * RevenueCategory * Supplier * Item'
           example: example-value
-        Active:
-          type: boolean
-          description: Indicates if Client Index is Active
-          example: true
-        ShowOnNewClient:
-          type: boolean
-          description: Indicates if Client Index is shown on a new client profile
-          example: true
-        ShowOnEnrollmentRoster:
-          type: boolean
-          description: Indicates if Client Index is shown on Enrollement Roster
-          example: true
-        EditOnEnrollmentRoster:
-          type: boolean
-          description: Indicates if Client Index can be edited on Enrollement Roster
-          example: true
-        SortOrder:
-          type: integer
-          format: int32
-          description: Indicates sort order
-          example: 1
-        ShowInConsumerMode:
-          type: boolean
-          description: Indicates if Client Index is shown in consumer mode.
-          example: true
-        RequiredConsumerMode:
-          type: boolean
-          description: Indicates if the index is required when creating profiles in consumer mode.
-          example: true
-        RequiredBizMode:
-          type: boolean
-          description: Indicates if the index is required when creating profiles in business mode.
-          example: true
-    LeadChannel:
-      type: object
-      description: Implementation of the 'LeadChannel' model.
-      properties:
         Id:
           type: integer
           format: int32
-          description: The model property of type int.
+          description: The promotional item ID.
           example: 123456
         Name:
           type: string
-          description: The model property of type str.
+          description: The promotional item name.
           example: Sunset Yoga Studio
-        SalespipelineId:
-          type: integer
-          format: int32
-          description: The model property of type int.
-          example: 123456
-        UniversalCustomerId:
-          type: string
-          description: The model property of type uuid|str.
-          example: example-value
-        StudioId:
-          type: integer
-          format: int32
-          description: The model property of type int.
-          example: 123456
-    TypeEnum:
-      type: string
-      description: TypeEnum enumeration.
-      enum:
-      - All
-      - Class
-      - Enrollment
-      - Appointment
-      - Resource
-      - Media
-      - Arrival
-    GenderOption:
-      type: object
-      description: Implementation of the 'GenderOption' model. A gender option available at a site
-      properties:
-        Id:
-          type: integer
-          format: int32
-          description: The id of the gender option.
-          example: 123456
-        Name:
-          type: string
-          description: The value that describes this gender option.
-          example: Sunset Yoga Studio
-        IsActive:
-          type: boolean
-          description: When `true`, this indicates that the gender option is active and may be assigned to a client.
-          example: true
-        IsDefault:
-          type: boolean
-          description: When true, this indicates that this is the default gender option at the site.
-          example: true
     Site:
       type: object
       description: Implementation of the 'Site' model.
@@ -2766,62 +2766,116 @@ components:
           type: boolean
           description: When `true`, indicates that per-staff pricing is enabled at this site.<br /> When `false`, indicates that per-staff pricing is not enabled at this site.
           example: true
-    GetPromoCodesResponse:
+    PricingRelationships:
       type: object
-      description: Implementation of the 'GetPromoCodesResponse' model.
+      description: Implementation of the 'PricingRelationships' model.
       properties:
-        PaginationResponse:
-          $ref: '#/components/schemas/PaginationResponse'
-          description: Pagination Response
-        PromoCodes:
+        PaysFor:
           type: array
           items:
-            $ref: '#/components/schemas/PromoCode'
-          description: Contains information about Promocodes at a site
+            type: integer
+            format: int32
+          description: The model property of type List[int].
           example:
-          - {}
-    GetMembershipsResponse:
-      type: object
-      description: Implementation of the 'GetMembershipsResponse' model.
-      properties:
-        Memberships:
+          - 1
+        PaidBy:
           type: array
           items:
-            $ref: '#/components/schemas/Membership'
-          description: Details about the memberships.
+            type: integer
+            format: int32
+          description: The model property of type List[int].
           example:
-          - {}
-    ProspectStage:
+          - 1
+    GetProgramsResponse:
       type: object
-      description: Implementation of the 'ProspectStage' model.
-      properties:
-        Active:
-          type: boolean
-          description: When `true`, indicates that the client is a prospect at the business and has not yet purchased any of the business pricing options. When `false`, indicates that the client has already purchased at least one pricing option from the business.
-          example: true
-        Description:
-          type: string
-          description: A description of the prospect stage.
-          example: Example note for Mindbody Public API.
-        Id:
-          type: integer
-          format: int32
-          description: The ID of the prospect stage assigned to the client.
-          example: 123456
-    GetRelationshipsResponse:
-      type: object
-      description: Implementation of the 'GetRelationshipsResponse' model. Get Relationships Response Model
+      description: Implementation of the 'GetProgramsResponse' model.
       properties:
         PaginationResponse:
           $ref: '#/components/schemas/PaginationResponse'
           description: Contains information about the pagination used.
-        Relationships:
+        Programs:
           type: array
           items:
-            $ref: '#/components/schemas/Relationship'
-          description: A list of relationships.
+            $ref: '#/components/schemas/Program'
+          description: Contains information about the programs.
           example:
           - {}
+    Category:
+      type: object
+      description: Implementation of the 'Category' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The category Id used for api calls.
+          example: 123456
+        CategoryName:
+          type: string
+          description: Category Name
+          example: example-value
+        Description:
+          type: string
+          description: Category Description
+          example: Example note for Mindbody Public API.
+        Service:
+          type: boolean
+          description: Category service
+          example: true
+        Active:
+          type: boolean
+          description: Check if Category is active.
+          example: true
+        IsPrimary:
+          type: boolean
+          description: Check if Category is of primary type.
+          example: true
+        IsSecondary:
+          type: boolean
+          description: Check if Category is of secondary type.
+          example: true
+        CreatedDateTimeUTC:
+          type: string
+          format: date-time
+          description: Category Created DateTime UTC
+          example: '2026-05-28T14:30:00Z'
+        ModifiedDateTimeUTC:
+          type: string
+          format: date-time
+          description: Category Modified DateTime UTC
+          example: '2026-05-28T14:30:00Z'
+        SubCategories:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubCategory'
+          description: Contains the SubCategory objects, each of which describes the subcategories for a category.
+          example:
+          - {}
+        TotalCount:
+          type: integer
+          format: int32
+          description: Get total number of rows
+          example: 10
+    GenderOption:
+      type: object
+      description: Implementation of the 'GenderOption' model. A gender option available at a site
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The id of the gender option.
+          example: 123456
+        Name:
+          type: string
+          description: The value that describes this gender option.
+          example: Sunset Yoga Studio
+        IsActive:
+          type: boolean
+          description: When `true`, this indicates that the gender option is active and may be assigned to a client.
+          example: true
+        IsDefault:
+          type: boolean
+          description: When true, this indicates that this is the default gender option at the site.
+          example: true
     AddSiteClientIndexResponse:
       type: object
       description: Implementation of the 'AddSiteClientIndexResponse' model.
@@ -2868,60 +2922,6 @@ components:
           type: boolean
           description: Indicates if the index is required when creating profiles in business mode.
           example: true
-    ProgramMembership:
-      type: object
-      description: Implementation of the 'ProgramMembership' model.
-      properties:
-        Id:
-          type: integer
-          format: int32
-          description: The service category’s ID.
-          example: 123456
-        Name:
-          type: string
-          description: The name of this service category.
-          example: Sunset Yoga Studio
-    GetProgramsResponse:
-      type: object
-      description: Implementation of the 'GetProgramsResponse' model.
-      properties:
-        PaginationResponse:
-          $ref: '#/components/schemas/PaginationResponse'
-          description: Contains information about the pagination used.
-        Programs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Program'
-          description: Contains information about the programs.
-          example:
-          - {}
-    Discount:
-      type: object
-      description: Implementation of the 'Discount' model. Discount for a promo code
-      properties:
-        Type:
-          type: string
-          description: Type of discount percentage/amount
-          example: example-value
-        Amount:
-          type: number
-          format: double
-          description: Amount of discount
-          example: 49.99
-    GetSitesResponse:
-      type: object
-      description: Implementation of the 'GetSitesResponse' model.
-      properties:
-        PaginationResponse:
-          $ref: '#/components/schemas/PaginationResponse'
-          description: Contains information about the pagination used.
-        Sites:
-          type: array
-          items:
-            $ref: '#/components/schemas/Site'
-          description: Contains information about the sites.
-          example:
-          - {}
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
