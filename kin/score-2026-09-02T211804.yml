@@ -1,28 +1,31 @@
-# Kin Score artifact — mindbody — 2026-08-04T083143
+# Kin Score artifact — mindbody — 2026-09-02T211804
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: mindbody
-  schema_version: 0.9
-  scored_at: '2026-08-04'
-  run_ts: 2026-08-04T083143
-  composite: 64.1
+  schema_version: 0.18.0
+  scored_at: '2026-09-02'
+  run_ts: 2026-09-02T211804
+  composite: 65.6
   band: strong
   facets:
-    discoverability: 68.5
-    contract_quality: 75.7
-    governance: 68.8
-    operational_transparency: 68.4
-    developer_ergonomics: 47.8
-    commercial_clarity: 57.9
+    discoverability: 63.0
+    contract_quality: 71.4
+    governance: 28.8
+    operational_transparency: 65.8
+    developer_ergonomics: 76.2
+    commercial_clarity: 71.1
+    contract_governance: 28.8
+    access_clarity: 71.1
   agent_readiness:
-    score: 36.9
+    score: 28.7
     band: agent-ready
     dimensions:
       spec_presence: true
       agentic_access: derived
+      reversibility_documented: documented
       mcp_server: false
-      auth_clarity: true
+      auth_clarity: bearer
       idempotency: false
       error_semantics: false
       openapi_examples: verified
@@ -33,6 +36,10 @@ kin_score:
       consent_identity: false
       agent_card: false
       dry_run_mode: false
+      delegated_identity: documented
+      protected_resource_metadata: false
+      dynamic_client_registration: false
+      agentic_commerce: false
   provenance:
     agentic_access: derived
     contracts:
