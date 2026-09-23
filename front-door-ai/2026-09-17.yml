@@ -1,0 +1,29 @@
+# Front Door AI Index — mindbody — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: mindbody
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.mindbodyonline.com
+  final_host: www.mindbodyonline.com
+  ownership: own
+  owner: mindbody
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 7
+  host_score: 7
+  density: 2.4
+  words: 2917
+  tiers:
+    agentic: 0
+    core: 7
+    model: 0
+  ambiguous: 4
+  top_terms:
+    AI: 7
+    agent: 1
+    automation: 1
+    intelligence: 1
+    smart: 1

@@ -407,17 +407,30 @@ paths:
       - ApiKeyAuth: []
 components:
   schemas:
-    HttpContent:
+    Pagination:
       type: object
-      description: Implementation of the 'HttpContent' model.
+      description: Implementation of the 'Pagination' model. Contains information about the pagination used.
       properties:
-        Headers:
-          type: array
-          items:
-            $ref: '#/components/schemas/M0CultureNeutralPublicKeyTokenB77a5c561934e089'
-          description: The model property of type List[M0CultureNeutralPublicKeyTokenB77a5c561934e089].
-          example:
-          - {}
+        PageNumber:
+          type: integer
+          format: int32
+          description: Page number of results in dataset.
+          example: 1
+        PageSize:
+          type: integer
+          format: int32
+          description: Number of results returned in this response.
+          example: 1
+        TotalResultCount:
+          type: integer
+          format: int32
+          description: Total number of results in dataset.
+          example: 10
+        TotalPageCount:
+          type: integer
+          format: int32
+          description: Total number of page in dataset.
+          example: 10
     GetReservationResponse:
       type: object
       description: Implementation of the 'GetReservationResponse' model. Contains information about the get reservation response
@@ -435,9 +448,25 @@ components:
         ResponseDetails:
           $ref: '#/components/schemas/ResponseDetails'
           description: Contains information about the response details, e.g. status, transactionId.
-    UpdateReservationResponse:
+    ResponseDetails:
       type: object
-      description: Implementation of the 'UpdateReservationResponse' model. Contains information about the update reservation response.
+      description: Implementation of the 'ResponseDetails' model. Contains information about the response message detail.
+      properties:
+        Status:
+          type: string
+          description: Contains information about the response status.
+          example: Active
+        TransactionId:
+          type: string
+          description: The unique transaction ID.
+          example: example-value
+        Message:
+          type: string
+          description: Contains information about the response message detail.
+          example: example-value
+    CreateReservationResponse:
+      type: object
+      description: Implementation of the 'CreateReservationResponse' model. Contains information about the create reservation response.
       properties:
         Reservation:
           $ref: '#/components/schemas/Reservation'
@@ -445,61 +474,6 @@ components:
         ResponseDetails:
           $ref: '#/components/schemas/ResponseDetails'
           description: Contains information about the response details, e.g. status, transactionId.
-    Reservation:
-      type: object
-      description: Implementation of the 'Reservation' model. Contains information about the reservation.
-      properties:
-        ReservationId:
-          type: string
-          description: The unique reservation ID.
-          example: example-value
-        ReservationExternalId:
-          type: string
-          description: The unique reservation external ID.
-          example: example-value
-        ClassId:
-          type: string
-          description: The unique class ID.
-          example: example-value
-        ClassExternalId:
-          type: string
-          description: The unique class external ID.
-          example: example-value
-        MemberExternalId:
-          type: string
-          description: The unique member external ID.
-          example: example-value
-        ReservationType:
-          type: string
-          description: Contains information about the reservation type.
-          example: example-value
-        Spots:
-          $ref: '#/components/schemas/Spot'
-          description: Contains information about the spot details.
-        IsConfirmed:
-          type: boolean
-          description: Boolean value whether it is confirmed.
-          example: true
-        ConfirmationDate:
-          type: string
-          format: date-time
-          description: Contains information about the confirmation date.
-          example: '2026-05-28T14:30:00Z'
-    M0CultureNeutralPublicKeyTokenB77a5c561934e089:
-      type: object
-      description: Implementation of the '0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]' model.
-      properties:
-        key:
-          type: string
-          description: The model property of type str.
-          example: example-value
-        value:
-          type: array
-          items:
-            type: string
-          description: The model property of type List[str].
-          example:
-          - example-value
     Spot:
       type: object
       description: Implementation of the 'Spot' model. Contains information about the spot details.
@@ -528,46 +502,21 @@ components:
           description: Contains information about the collection of Unavailable spot numbers.
           example:
           - 1
-    ResponseDetails:
+    M0CultureNeutralPublicKeyTokenB77a5c561934e089:
       type: object
-      description: Implementation of the 'ResponseDetails' model. Contains information about the response message detail.
+      description: Implementation of the '0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]' model.
       properties:
-        Status:
+        key:
           type: string
-          description: Contains information about the response status.
-          example: Active
-        TransactionId:
-          type: string
-          description: The unique transaction ID.
+          description: The model property of type str.
           example: example-value
-        Message:
-          type: string
-          description: Contains information about the response message detail.
-          example: example-value
-    Pagination:
-      type: object
-      description: Implementation of the 'Pagination' model. Contains information about the pagination used.
-      properties:
-        PageNumber:
-          type: integer
-          format: int32
-          description: Page number of results in dataset.
-          example: 1
-        PageSize:
-          type: integer
-          format: int32
-          description: Number of results returned in this response.
-          example: 1
-        TotalResultCount:
-          type: integer
-          format: int32
-          description: Total number of results in dataset.
-          example: 10
-        TotalPageCount:
-          type: integer
-          format: int32
-          description: Total number of page in dataset.
-          example: 10
+        value:
+          type: array
+          items:
+            type: string
+          description: The model property of type List[str].
+          example:
+          - example-value
     PickASpotClass:
       type: object
       description: Implementation of the 'PickASpotClass' model. Contains information about the PickASpot classes.
@@ -623,6 +572,27 @@ components:
           description: Contains information about the reservation collection.
           example:
           - {}
+    HttpContent:
+      type: object
+      description: Implementation of the 'HttpContent' model.
+      properties:
+        Headers:
+          type: array
+          items:
+            $ref: '#/components/schemas/M0CultureNeutralPublicKeyTokenB77a5c561934e089'
+          description: The model property of type List[M0CultureNeutralPublicKeyTokenB77a5c561934e089].
+          example:
+          - {}
+    UpdateReservationResponse:
+      type: object
+      description: Implementation of the 'UpdateReservationResponse' model. Contains information about the update reservation response.
+      properties:
+        Reservation:
+          $ref: '#/components/schemas/Reservation'
+          description: Contains information about the reservation details.
+        ResponseDetails:
+          $ref: '#/components/schemas/ResponseDetails'
+          description: Contains information about the response details, e.g. status, transactionId.
     GetPickASpotClassResponse:
       type: object
       description: Implementation of the 'GetPickASpotClassResponse' model. Contains information about the get PickASpot class response.
@@ -640,16 +610,46 @@ components:
         responseDetails:
           $ref: '#/components/schemas/ResponseDetails'
           description: Contains information about the response details.
-    CreateReservationResponse:
+    Reservation:
       type: object
-      description: Implementation of the 'CreateReservationResponse' model. Contains information about the create reservation response.
+      description: Implementation of the 'Reservation' model. Contains information about the reservation.
       properties:
-        Reservation:
-          $ref: '#/components/schemas/Reservation'
-          description: Contains information about the reservation details.
-        ResponseDetails:
-          $ref: '#/components/schemas/ResponseDetails'
-          description: Contains information about the response details, e.g. status, transactionId.
+        ReservationId:
+          type: string
+          description: The unique reservation ID.
+          example: example-value
+        ReservationExternalId:
+          type: string
+          description: The unique reservation external ID.
+          example: example-value
+        ClassId:
+          type: string
+          description: The unique class ID.
+          example: example-value
+        ClassExternalId:
+          type: string
+          description: The unique class external ID.
+          example: example-value
+        MemberExternalId:
+          type: string
+          description: The unique member external ID.
+          example: example-value
+        ReservationType:
+          type: string
+          description: Contains information about the reservation type.
+          example: example-value
+        Spots:
+          $ref: '#/components/schemas/Spot'
+          description: Contains information about the spot details.
+        IsConfirmed:
+          type: boolean
+          description: Boolean value whether it is confirmed.
+          example: true
+        ConfirmationDate:
+          type: string
+          format: date-time
+          description: Contains information about the confirmation date.
+          example: '2026-05-28T14:30:00Z'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

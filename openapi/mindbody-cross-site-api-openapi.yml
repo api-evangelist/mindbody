@@ -96,6 +96,16 @@ paths:
       - ApiKeyAuth: []
 components:
   schemas:
+    CopyCreditCardResponse:
+      type: object
+      description: Implementation of the 'CopyCreditCardResponse' model. crosssite/copycreditcard
+      properties:
+        CopiedFrom:
+          $ref: '#/components/schemas/CopyCreditCardResponseClient'
+          description: Copied from
+        CopiedTo:
+          $ref: '#/components/schemas/CopyCreditCardResponseClient'
+          description: Copied To
     CopyCreditCardRequest:
       type: object
       description: Implementation of the 'CopyCreditCardRequest' model. crosssite/copycreditcard
@@ -128,16 +138,6 @@ components:
           format: int32
           description: The unique clidnetId at the target siteId.
           example: 123456
-    CopyCreditCardResponse:
-      type: object
-      description: Implementation of the 'CopyCreditCardResponse' model. crosssite/copycreditcard
-      properties:
-        CopiedFrom:
-          $ref: '#/components/schemas/CopyCreditCardResponseClient'
-          description: Copied from
-        CopiedTo:
-          $ref: '#/components/schemas/CopyCreditCardResponseClient'
-          description: Copied To
     CopyCreditCardResponseClient:
       type: object
       description: Implementation of the 'CopyCreditCardResponseClient' model.
