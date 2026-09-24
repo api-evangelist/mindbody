@@ -97,8 +97,6 @@ apis:
     url: https://signin.mindbodyonline.com/connect/authorize
   - type: JSONLD
     url: json-ld/mindbody-public-api-v6-context.jsonld
-  - type: GraphQL
-    url: graphql/mindbody-graphql.md
   - type: Documentation
     url: https://developers.mindbodyonline.com/WebhooksDocumentation
   - type: APIReference
@@ -151,8 +149,6 @@ apis:
     url: https://signin.mindbodyonline.com/connect/authorize
   - type: JSONLD
     url: json-ld/mindbody-public-api-v6-context.jsonld
-  - type: GraphQL
-    url: graphql/mindbody-graphql.md
   - type: Documentation
     url: https://developers.mindbodyonline.com/WebhooksDocumentation
   - type: APIReference
@@ -207,8 +203,6 @@ apis:
     url: https://signin.mindbodyonline.com/connect/authorize
   - type: JSONLD
     url: json-ld/mindbody-public-api-v6-context.jsonld
-  - type: GraphQL
-    url: graphql/mindbody-graphql.md
   - type: Documentation
     url: https://developers.mindbodyonline.com/WebhooksDocumentation
   - type: APIReference
@@ -261,8 +255,6 @@ apis:
     url: https://signin.mindbodyonline.com/connect/authorize
   - type: JSONLD
     url: json-ld/mindbody-public-api-v6-context.jsonld
-  - type: GraphQL
-    url: graphql/mindbody-graphql.md
   - type: Documentation
     url: https://developers.mindbodyonline.com/WebhooksDocumentation
   - type: APIReference
@@ -315,8 +307,6 @@ apis:
     url: https://signin.mindbodyonline.com/connect/authorize
   - type: JSONLD
     url: json-ld/mindbody-public-api-v6-context.jsonld
-  - type: GraphQL
-    url: graphql/mindbody-graphql.md
   - type: Documentation
     url: https://developers.mindbodyonline.com/WebhooksDocumentation
   - type: APIReference
@@ -369,8 +359,6 @@ apis:
     url: https://signin.mindbodyonline.com/connect/authorize
   - type: JSONLD
     url: json-ld/mindbody-public-api-v6-context.jsonld
-  - type: GraphQL
-    url: graphql/mindbody-graphql.md
   - type: Documentation
     url: https://developers.mindbodyonline.com/WebhooksDocumentation
   - type: APIReference
@@ -423,8 +411,6 @@ apis:
     url: https://signin.mindbodyonline.com/connect/authorize
   - type: JSONLD
     url: json-ld/mindbody-public-api-v6-context.jsonld
-  - type: GraphQL
-    url: graphql/mindbody-graphql.md
   - type: Documentation
     url: https://developers.mindbodyonline.com/WebhooksDocumentation
   - type: APIReference
@@ -477,8 +463,6 @@ apis:
     url: https://signin.mindbodyonline.com/connect/authorize
   - type: JSONLD
     url: json-ld/mindbody-public-api-v6-context.jsonld
-  - type: GraphQL
-    url: graphql/mindbody-graphql.md
   - type: Documentation
     url: https://developers.mindbodyonline.com/WebhooksDocumentation
   - type: APIReference
@@ -531,8 +515,6 @@ apis:
     url: https://signin.mindbodyonline.com/connect/authorize
   - type: JSONLD
     url: json-ld/mindbody-public-api-v6-context.jsonld
-  - type: GraphQL
-    url: graphql/mindbody-graphql.md
   - type: Documentation
     url: https://developers.mindbodyonline.com/WebhooksDocumentation
   - type: APIReference
@@ -585,8 +567,6 @@ apis:
     url: https://signin.mindbodyonline.com/connect/authorize
   - type: JSONLD
     url: json-ld/mindbody-public-api-v6-context.jsonld
-  - type: GraphQL
-    url: graphql/mindbody-graphql.md
   - type: Documentation
     url: https://developers.mindbodyonline.com/WebhooksDocumentation
   - type: APIReference
@@ -639,8 +619,6 @@ apis:
     url: https://signin.mindbodyonline.com/connect/authorize
   - type: JSONLD
     url: json-ld/mindbody-public-api-v6-context.jsonld
-  - type: GraphQL
-    url: graphql/mindbody-graphql.md
   - type: Documentation
     url: https://developers.mindbodyonline.com/WebhooksDocumentation
   - type: APIReference
@@ -695,8 +673,6 @@ apis:
     url: https://signin.mindbodyonline.com/connect/authorize
   - type: JSONLD
     url: json-ld/mindbody-public-api-v6-context.jsonld
-  - type: GraphQL
-    url: graphql/mindbody-graphql.md
   - type: Documentation
     url: https://developers.mindbodyonline.com/WebhooksDocumentation
   - type: APIReference
@@ -749,8 +725,6 @@ apis:
     url: https://signin.mindbodyonline.com/connect/authorize
   - type: JSONLD
     url: json-ld/mindbody-public-api-v6-context.jsonld
-  - type: GraphQL
-    url: graphql/mindbody-graphql.md
   - type: Documentation
     url: https://developers.mindbodyonline.com/WebhooksDocumentation
   - type: APIReference
