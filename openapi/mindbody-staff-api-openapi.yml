@@ -886,6 +886,184 @@ paths:
       - ApiKeyAuth: []
 components:
   schemas:
+    Appointment:
+      type: object
+      description: Implementation of the 'Appointment' model. Contains information about an appointment.
+      properties:
+        GenderPreference:
+          $ref: '#/components/schemas/GenderPreferenceEnum'
+          description: 'The prefered gender of the appointment provider. Possible values are: * None * Female * Male'
+        Duration:
+          type: integer
+          format: int32
+          description: The duration of the appointment.
+          example: 1
+        ProviderId:
+          type: string
+          description: If a user has Complementary and Alternative Medicine features enabled, this property indicates the provider assigned to the appointment.
+          example: example-value
+        Id:
+          type: integer
+          format: int32
+          description: The unique ID of the appointment.
+          example: 123456
+        Status:
+          $ref: '#/components/schemas/StatusEnum'
+          description: 'The status of this appointment. Possible values are: * None * Requested * Booked * Completed * Confirmed * Arrived * NoShow * Cancelled * LateCancelled'
+        StartDateTime:
+          type: string
+          format: date-time
+          description: The date and time the appointment is to start.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: The date and time the appointment is to end.
+          example: '2026-05-28T14:30:00Z'
+        Notes:
+          type: string
+          description: Any notes associated with the appointment.
+          example: Example note for Mindbody Public API.
+        PartnerExternalId:
+          type: string
+          description: Optional external key for api partners.
+          example: example-value
+        StaffRequested:
+          type: boolean
+          description: When `true`, indicates that the staff member was requested specifically by the client.
+          example: true
+        ProgramId:
+          type: integer
+          format: int32
+          description: The ID of the program to which this appointment belongs.
+          example: 123456
+        SessionTypeId:
+          type: integer
+          format: int32
+          description: The ID of the session type of this appointment.
+          example: 123456
+        LocationId:
+          type: integer
+          format: int32
+          description: The ID of the location where this appointment is to take place.
+          example: 123456
+        StaffId:
+          type: integer
+          format: int32
+          description: The ID of the staff member providing the service for this appointment.
+          example: 123456
+        Staff:
+          $ref: '#/components/schemas/AppointmentStaff'
+          description: Staff for the appointment
+        ClientId:
+          type: string
+          description: The RSSID of the client who is booked for this appointment.
+          example: example-value
+        FirstAppointment:
+          type: boolean
+          description: When `true`, indicates that this is the client’s first appointment at this site.
+          example: true
+        IsWaitlist:
+          type: boolean
+          description: 'When `true`, indicates that the client should be added to a specific appointment waiting list. When `false`, the client should not be added to the waiting list. Default: *false*'
+          example: true
+        WaitlistEntryId:
+          type: integer
+          format: int32
+          description: The unique ID of the appointment waitlist.
+          example: 123456
+        ClientServiceId:
+          type: integer
+          format: int32
+          description: The ID of the pass on the client’s account that is to pay for this appointment.
+          example: 123456
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSlim'
+          description: The resources this appointment is to use.
+          example:
+          - {}
+        AddOns:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddOnSmall'
+          description: Any AddOns associated with the appointment
+          example:
+          - {}
+        OnlineDescription:
+          type: string
+          description: Online Description associated with the appointment
+          example: Example note for Mindbody Public API.
+    UpdateStaffPermissionsResponse:
+      type: object
+      description: Implementation of the 'UpdateStaffPermissionsResponse' model.
+      properties:
+        UserGroup:
+          $ref: '#/components/schemas/StaffPermissionGroup'
+          description: Contains information about the staff member’s permission group.
+    SessionType:
+      type: object
+      description: Implementation of the 'SessionType' model. SessionType contains information about the session types in a business.
+      properties:
+        Type:
+          $ref: '#/components/schemas/TypeEnum'
+          description: 'Contains the class description session type. Possible values are: * All * Class * Enrollment * Appointment * Resource * Media * Arrival'
+        DefaultTimeLength:
+          type: integer
+          format: int32
+          description: The default amount of time that a session of this type typically lasts.
+          example: 1
+        StaffTimeLength:
+          type: integer
+          format: int32
+          description: The amount of time that a session of this type will last for a specific Staff (when applicable.)
+          example: 1
+        Id:
+          type: integer
+          format: int32
+          description: This session type’s unique ID.
+          example: 123456
+        Name:
+          type: string
+          description: The name of this session type.
+          example: Sunset Yoga Studio
+        OnlineDescription:
+          type: string
+          description: The online description associated with the appointment.
+          example: Example note for Mindbody Public API.
+        NumDeducted:
+          type: integer
+          format: int32
+          description: The number of sessions that this session type deducts from the pricing option used to pay for this type of session.
+          example: 1
+        ProgramId:
+          type: integer
+          format: int32
+          description: This session type’s service category ID.
+          example: 123456
+        Category:
+          type: string
+          description: This session type’s category.
+          example: example-value
+        CategoryId:
+          type: integer
+          format: int32
+          description: This session type’s category ID.
+          example: 123456
+        Subcategory:
+          type: string
+          description: This session type’s subcategory.
+          example: example-value
+        SubcategoryId:
+          type: integer
+          format: int32
+          description: This session type’s subcategory ID.
+          example: 123456
+        AvailableForAddOn:
+          type: boolean
+          description: This session type’s Add On Flag.
+          example: true
     UpdateStaffPermissionsRequest:
       type: object
       description: Implementation of the 'UpdateStaffPermissionsRequest' model.
@@ -899,238 +1077,120 @@ components:
           type: string
           description: The name of the permission group.
           example: example-value
-    GetStaffPermissionsResponse:
+    AddStaffRequest:
       type: object
-      description: Implementation of the 'GetStaffPermissionsResponse' model.
+      description: Implementation of the 'AddStaffRequest' model.
       properties:
-        UserGroup:
-          $ref: '#/components/schemas/StaffPermissionGroup'
-          description: Contains information about the requested staff member’s permission group.
-    Location:
-      type: object
-      description: Implementation of the 'Location' model.
-      properties:
-        AdditionalImageURLs:
-          type: array
-          items:
-            type: string
-          description: A list of URLs of any images associated with this location.
-          example:
-          - example-value
-        Address:
-          type: string
-          description: The first line of the location’s street address.
-          example: 123 Market St
-        Address2:
-          type: string
-          description: A second address line for the location’s street address, if needed.
-          example: 123 Market St
-        Amenities:
-          type: array
-          items:
-            $ref: '#/components/schemas/Amenity'
-          description: A list of strings representing amenities available at the location.
-          example:
-          - {}
-        BusinessDescription:
-          type: string
-          description: The business description for the location, as configured by the business owner.
-          example: Example note for Mindbody Public API.
-        City:
-          type: string
-          description: The location’s city.
-          example: San Francisco
-        Description:
-          type: string
-          description: A description of the location.
-          example: Example note for Mindbody Public API.
-        HasClasses:
-          type: boolean
-          description: When `true`, indicates that classes are held at this location.<br /> When `false`, Indicates that classes are not held at this location.
-          example: true
-        Id:
-          type: integer
-          format: int32
-          description: The ID assigned to this location.
-          example: 123456
-        Latitude:
-          type: number
-          format: double
-          description: The location’s latitude.
-          example: 1.0
-        Longitude:
-          type: number
-          format: double
-          description: The location’s longitude.
-          example: 1.0
-        Name:
-          type: string
-          description: The name of this location.
-          example: Sunset Yoga Studio
-        Phone:
-          type: string
-          description: The location’s phone number.
-          example: '+15551234567'
-        PhoneExtension:
-          type: string
-          description: The location’s phone extension.
-          example: example-value
-        PostalCode:
-          type: string
-          description: The location’s postal code.
-          example: '94110'
-        SiteID:
-          type: integer
-          format: int32
-          description: The ID number assigned to this location.
-          example: 1
-        StateProvCode:
-          type: string
-          description: The location’s state or province code.
-          example: example-value
-        Tax1:
-          type: number
-          format: double
-          description: A decimal representation of the location’s first tax rate. Tax properties are provided to apply all taxes to the purchase price that the purchase is subject to. Use as many tax properties as needed to represent all the taxes that apply in the location. Enter a decimal number that represents the appropriate tax rate. For example, for an 8% sales tax, enter 0.08.
-          example: 1.0
-        Tax2:
-          type: number
-          format: double
-          description: A decimal representation of the location’s second tax rate. See the example in the description of Tax1.
-          example: 1.0
-        Tax3:
-          type: number
-          format: double
-          description: A decimal representation of the location’s third tax rate. See the example in the description of Tax1.
-          example: 1.0
-        Tax4:
-          type: number
-          format: double
-          description: A decimal representation of the location’s fourth tax rate. See the example in the description of Tax1.
-          example: 1.0
-        Tax5:
-          type: number
-          format: double
-          description: A decimal representation of the location’s fifth tax rate. See the example in the description of Tax1.
-          example: 1.0
-        TotalNumberOfRatings:
-          type: integer
-          format: int32
-          description: The number of reviews that clients have left for this location.
-          example: 1
-        AverageRating:
-          type: number
-          format: double
-          description: The average rating for the location, out of five stars.
-          example: 1.0
-        TotalNumberOfDeals:
-          type: integer
-          format: int32
-          description: The number of distinct introductory pricing options available for purchase at this location.
-          example: 1
-    GetStaffSessionTypesResponse:
-      type: object
-      description: Implementation of the 'GetStaffSessionTypesResponse' model.
-      properties:
-        PaginationResponse:
-          $ref: '#/components/schemas/PaginationResponse'
-          description: Contains information about the pagination properties used.
-        StaffSessionTypes:
-          type: array
-          items:
-            $ref: '#/components/schemas/StaffSessionType'
-          description: Contains information about staff member session types.
-          example:
-          - {}
-    AddStaffResponse:
-      type: object
-      description: Implementation of the 'AddStaffResponse' model.
-      properties:
-        Staff:
-          $ref: '#/components/schemas/Staff'
-          description: Contains information about the staff
-    GenderPreferenceEnum:
-      type: string
-      description: GenderPreferenceEnum enumeration.
-      enum:
-      - None
-      - Female
-      - Male
-    GetStaffImageURLResponse:
-      type: object
-      description: Implementation of the 'GetStaffImageURLResponse' model. A response object returned from the GetStaffImgURL API.
-      properties:
-        ImageURL:
-          type: string
-          description: A staff member's image URL.
-          example: example-value
-        MobileImageURL:
-          type: string
-          description: A staff member's mobile image URL.
-          example: example-value
-    AppointmentStaff:
-      type: object
-      description: Implementation of the 'AppointmentStaff' model.
-      properties:
-        Id:
-          type: integer
-          format: int32
-          description: The model property of type int.
-          example: 123456
         FirstName:
           type: string
-          description: The model property of type str.
+          description: The staff member first name. You must specify a first name when you add a staff member.
           example: Alex
         LastName:
           type: string
-          description: The model property of type str.
+          description: The staff member last name. You must specify a last name when you add a staff member.
           example: Lane
-        DisplayName:
+        Email:
           type: string
-          description: The model property of type str.
+          description: The staff member’s email address.
+          example: kinlane@example.com
+        IsMale:
+          type: boolean
+          description: When `true`, indicates that the staff member is male. When `false`, indicates that the staff member is female.
+          example: true
+        HomePhone:
+          type: string
+          description: The staff member’s home phone number.
+          example: '+15551234567'
+        WorkPhone:
+          type: string
+          description: The staff member’s work phone number.
+          example: '+15551234567'
+        MobilePhone:
+          type: string
+          description: The staff member’s mobile phone number.
+          example: '+15551234567'
+        Bio:
+          type: string
+          description: The staff member’s biography. This string contains HTML.
           example: example-value
-    UpdateStaffPermissionsResponse:
-      type: object
-      description: Implementation of the 'UpdateStaffPermissionsResponse' model.
-      properties:
-        UserGroup:
-          $ref: '#/components/schemas/StaffPermissionGroup'
-          description: Contains information about the staff member’s permission group.
-    PaginationResponse:
-      type: object
-      description: Implementation of the 'PaginationResponse' model. Contains information about the pagination to use.
-      properties:
-        RequestedLimit:
+        Address:
+          type: string
+          description: The first line of the staff member street address.
+          example: 123 Market St
+        Address2:
+          type: string
+          description: The second line of the staff member street address, if needed.
+          example: 123 Market St
+        City:
+          type: string
+          description: The staff member’s city.
+          example: San Francisco
+        State:
+          type: string
+          description: The staff member’s state.
+          example: CA
+        Country:
+          type: string
+          description: The staff member’s country.
+          example: US
+        PostalCode:
+          type: string
+          description: The staff member’s postal code.
+          example: '94110'
+        ClassAssistant:
+          type: boolean
+          description: Is the staff an assistant
+          example: true
+        ClassAssistant2:
+          type: boolean
+          description: Is the staff an assistant2
+          example: true
+        IndependentContractor:
+          type: boolean
+          description: When `true`, indicates that the staff member is an independent contractor. When `false`, indicates that the staff member is not an independent contractor.
+          example: true
+        AppointmentInstructor:
+          type: boolean
+          description: When `true`, indicates that the staff member offers appointments.<br /> When `false`, indicates that the staff member does not offer appointments.
+          example: true
+        AlwaysAllowDoubleBooking:
+          type: boolean
+          description: When `true`, indicates that the staff member can be scheduled for overlapping services.<br /> When `false`, indicates that the staff can only be scheduled for one service at a time in any given time-frame.
+          example: true
+        ClassTeacher:
+          type: boolean
+          description: When `true`, indicates that the staff member can teach classes. When `false`, indicates that the staff member cannot teach classes.
+          example: true
+        EmploymentStart:
+          type: string
+          format: date-time
+          description: The start date of employment
+          example: '2026-05-28T14:30:00Z'
+        EmploymentEnd:
+          type: string
+          format: date-time
+          description: The end date of employment
+          example: '2026-05-28T14:30:00Z'
+        SortOrder:
           type: integer
           format: int32
-          description: Limit from pagination request
-          example: 10
-        RequestedOffset:
-          type: integer
-          format: int32
-          description: Offset from pagination request
-          example: 10
-        PageSize:
-          type: integer
-          format: int32
-          description: Number of results returned in this response
+          description: If configured by the business owner, this field determines a staff member’s weight when sorting. Use this field to sort staff members on your interface.
           example: 1
-        TotalResults:
-          type: integer
-          format: int32
-          description: Total number of results in dataset
-          example: 1
-    TypeEnum:
-      type: string
-      description: TypeEnum enumeration.
-      enum:
-      - All
-      - Class
-      - Enrollment
-      - Appointment
-      - Resource
-      - Media
-      - Arrival
+        ProviderIDs:
+          type: array
+          items:
+            type: string
+          description: A list of providerIDs for the staff. In the US it is one per staff and is numeric, otherwise it can be a list and is alpha-numeric for more information see <a href=" https://support.mindbodyonline.com/s/article/204075743-Provider-IDs ?language=en_US" target="blank">Provider IDs</a>
+          example:
+          - example-value
+        Notes:
+          type: string
+          description: The staff member private notes.
+          example: Example note for Mindbody Public API.
+        EmpID:
+          type: string
+          description: The custom staff ID assigned to the staff member.
+          example: example-value
     AllowedPermissionEnum:
       type: string
       description: AllowedPermissionEnum enumeration.
@@ -1318,107 +1378,311 @@ components:
       - EmailClientsFromReviewReport
       - FlagReviewForRemoval
       - RespondPubliclyToReviews
-    Staff:
+    GetSalesRepsResponse:
       type: object
-      description: Implementation of the 'Staff' model. The Staff
+      description: Implementation of the 'GetSalesRepsResponse' model. This is the response class for the get sales reps API
       properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        SalesReps:
+          type: array
+          items:
+            $ref: '#/components/schemas/SalesRepResponse'
+          description: This the list of sales reps and their details
+          example:
+          - {}
+    Type2Enum:
+      type: string
+      description: Type2Enum enumeration.
+      enum:
+      - All
+      - Class
+      - Enrollment
+      - Appointment
+      - Resource
+      - Media
+      - Arrival
+    Program:
+      type: object
+      description: Implementation of the 'Program' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The service category’s ID.
+          example: 123456
+        Name:
+          type: string
+          description: The name of this service category.
+          example: Sunset Yoga Studio
+        ScheduleType:
+          $ref: '#/components/schemas/ScheduleTypeEnum'
+          description: 'The service category’s schedule type. Possible values are: * All * Class * Enrollment * Appointment * Resource * Arrival'
+        CancelOffset:
+          type: integer
+          format: int32
+          description: The offset to use for the service category.
+          example: 10
+        ContentFormats:
+          type: array
+          items:
+            type: string
+          description: 'The content delivery platform(s) used by the service category. Possible values are: * InPerson * Livestream:Mindbody * Livestream:Other'
+          example:
+          - example-value
+        PricingRelationships:
+          $ref: '#/components/schemas/PricingRelationships'
+          description: Pricing relationships
+    Location:
+      type: object
+      description: Implementation of the 'Location' model.
+      properties:
+        AdditionalImageURLs:
+          type: array
+          items:
+            type: string
+          description: A list of URLs of any images associated with this location.
+          example:
+          - example-value
         Address:
           type: string
-          description: The address of the staff member who is teaching the class.
+          description: The first line of the location’s street address.
           example: 123 Market St
+        Address2:
+          type: string
+          description: A second address line for the location’s street address, if needed.
+          example: 123 Market St
+        Amenities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Amenity'
+          description: A list of strings representing amenities available at the location.
+          example:
+          - {}
+        BusinessDescription:
+          type: string
+          description: The business description for the location, as configured by the business owner.
+          example: Example note for Mindbody Public API.
+        City:
+          type: string
+          description: The location’s city.
+          example: San Francisco
+        Description:
+          type: string
+          description: A description of the location.
+          example: Example note for Mindbody Public API.
+        HasClasses:
+          type: boolean
+          description: When `true`, indicates that classes are held at this location.<br /> When `false`, Indicates that classes are not held at this location.
+          example: true
+        Id:
+          type: integer
+          format: int32
+          description: The ID assigned to this location.
+          example: 123456
+        Latitude:
+          type: number
+          format: double
+          description: The location’s latitude.
+          example: 1.0
+        Longitude:
+          type: number
+          format: double
+          description: The location’s longitude.
+          example: 1.0
+        Name:
+          type: string
+          description: The name of this location.
+          example: Sunset Yoga Studio
+        Phone:
+          type: string
+          description: The location’s phone number.
+          example: '+15551234567'
+        PhoneExtension:
+          type: string
+          description: The location’s phone extension.
+          example: example-value
+        PostalCode:
+          type: string
+          description: The location’s postal code.
+          example: '94110'
+        SiteID:
+          type: integer
+          format: int32
+          description: The ID number assigned to this location.
+          example: 1
+        StateProvCode:
+          type: string
+          description: The location’s state or province code.
+          example: example-value
+        Tax1:
+          type: number
+          format: double
+          description: A decimal representation of the location’s first tax rate. Tax properties are provided to apply all taxes to the purchase price that the purchase is subject to. Use as many tax properties as needed to represent all the taxes that apply in the location. Enter a decimal number that represents the appropriate tax rate. For example, for an 8% sales tax, enter 0.08.
+          example: 1.0
+        Tax2:
+          type: number
+          format: double
+          description: A decimal representation of the location’s second tax rate. See the example in the description of Tax1.
+          example: 1.0
+        Tax3:
+          type: number
+          format: double
+          description: A decimal representation of the location’s third tax rate. See the example in the description of Tax1.
+          example: 1.0
+        Tax4:
+          type: number
+          format: double
+          description: A decimal representation of the location’s fourth tax rate. See the example in the description of Tax1.
+          example: 1.0
+        Tax5:
+          type: number
+          format: double
+          description: A decimal representation of the location’s fifth tax rate. See the example in the description of Tax1.
+          example: 1.0
+        TotalNumberOfRatings:
+          type: integer
+          format: int32
+          description: The number of reviews that clients have left for this location.
+          example: 1
+        AverageRating:
+          type: number
+          format: double
+          description: The average rating for the location, out of five stars.
+          example: 1.0
+        TotalNumberOfDeals:
+          type: integer
+          format: int32
+          description: The number of distinct introductory pricing options available for purchase at this location.
+          example: 1
+    SalesRepResponse:
+      type: object
+      description: Implementation of the 'SalesRepResponse' model. This is the sales rep DTO
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The unique Id of the sales rep
+          example: 123456
+        FirstName:
+          type: string
+          description: The firstname of the sales rep
+          example: Alex
+        LastName:
+          type: string
+          description: The lastname of the sales rep
+          example: Lane
+        SalesRepNumbers:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: The sales rep Ids that are assigned to the rep
+          example:
+          - 1
+    GetStaffResponse:
+      type: object
+      description: Implementation of the 'GetStaffResponse' model.
+      properties:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: The model property of type PaginationResponse.
+        StaffMembers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Staff'
+          description: A list of staff members. See Staff for a description of the 'Staff' information.
+          example:
+          - {}
+    UpdateStaffRequest:
+      type: object
+      description: Implementation of the 'UpdateStaffRequest' model.
+      properties:
+        ID:
+          type: integer
+          format: int32
+          description: The unique ID of the staff member.
+          example: 1
+        FirstName:
+          type: string
+          description: The staff member first name. You must specify a first name when you add a staff member.
+          example: Alex
+        LastName:
+          type: string
+          description: The staff member last name. You must specify a last name when you add a staff member.
+          example: Lane
+        Email:
+          type: string
+          description: The staff member’s email address.
+          example: kinlane@example.com
+        IsMale:
+          type: boolean
+          description: When `true`, indicates that the staff member is male. When `false`, indicates that the staff member is female.
+          example: true
+        HomePhone:
+          type: string
+          description: The staff member’s home phone number.
+          example: '+15551234567'
+        WorkPhone:
+          type: string
+          description: The staff member’s work phone number.
+          example: '+15551234567'
+        MobilePhone:
+          type: string
+          description: The staff member’s mobile phone number.
+          example: '+15551234567'
+        Bio:
+          type: string
+          description: The staff member’s biography. This string contains HTML.
+          example: example-value
+        Address:
+          type: string
+          description: The first line of the staff member street address
+          example: 123 Market St
+        Address2:
+          type: string
+          description: The second line of the staff member street address, if needed.
+          example: 123 Market St
+        City:
+          type: string
+          description: The staff member’s city.
+          example: San Francisco
+        State:
+          type: string
+          description: The staff member’s state.
+          example: CA
+        Country:
+          type: string
+          description: The staff member’s country.
+          example: US
+        PostalCode:
+          type: string
+          description: The staff member’s postal code.
+          example: '94110'
+        ClassAssistant:
+          type: boolean
+          description: When `true`, indicates that the staff member can be a class assistant.
+          example: true
+        ClassAssistant2:
+          type: boolean
+          description: When `true`, indicates that the staff member can be a class assistant.
+          example: true
+        IndependentContractor:
+          type: boolean
+          description: When `true`, indicates that the staff member is an independent contractor. When `false`, indicates that the staff member is not an independent contractor.
+          example: true
         AppointmentInstructor:
           type: boolean
           description: When `true`, indicates that the staff member offers appointments.<br /> When `false`, indicates that the staff member does not offer appointments.
           example: true
         AlwaysAllowDoubleBooking:
           type: boolean
-          description: When `true`, indicates that the staff member can be scheduled for overlapping services.<br /> When `false`, indicates that the staff can only be scheduled for one service at a time in any given time-frame.
+          description: When `true`, indicates that the staff member can be scheduled for overlapping services.<br /> When `false`, indicates that the staff member does not offer appointments.
           example: true
-        Bio:
-          type: string
-          description: The staff member’s biography. This string contains HTML.
-          example: example-value
-        City:
-          type: string
-          description: The staff member’s city.
-          example: San Francisco
-        Country:
-          type: string
-          description: The staff member’s country.
-          example: US
-        Email:
-          type: string
-          description: The staff member’s email address.
-          example: kinlane@example.com
-        FirstName:
-          type: string
-          description: The staff member’s first name.
-          example: Alex
-        DisplayName:
-          type: string
-          description: The staff member’s Nickname.
-          example: example-value
-        HomePhone:
-          type: string
-          description: The staff member’s home phone number.
-          example: '+15551234567'
-        Id:
-          type: integer
-          format: int32
-          description: The ID assigned to the staff member.
-          example: 123456
-        IndependentContractor:
-          type: boolean
-          description: When `true`, indicates that the staff member is an independent contractor. When `false`, indicates that the staff member is not an independent contractor.
-          example: true
-        IsMale:
-          type: boolean
-          description: When `true`, indicates that the staff member is male. When `false`, indicates that the staff member is female.
-          example: true
-        LastName:
-          type: string
-          description: The staff member’s last name.
-          example: Lane
-        MobilePhone:
-          type: string
-          description: The staff member’s mobile phone number.
-          example: '+15551234567'
-        Name:
-          type: string
-          description: The staff member’s name.
-          example: Sunset Yoga Studio
-        PostalCode:
-          type: string
-          description: The staff member’s postal code.
-          example: '94110'
         ClassTeacher:
           type: boolean
           description: When `true`, indicates that the staff member can teach classes. When `false`, indicates that the staff member cannot teach classes.
-          example: true
-        SortOrder:
-          type: integer
-          format: int32
-          description: If configured by the business owner, this field determines a staff member’s weight when sorting. Use this field to sort staff members on your interface.
-          example: 1
-        State:
-          type: string
-          description: The staff member’s state.
-          example: CA
-        WorkPhone:
-          type: string
-          description: The staff member’s work phone number.
-          example: '+15551234567'
-        ImageUrl:
-          type: string
-          description: The URL of the staff member’s image, if one has been uploaded.
-          example: https://example.mindbodyonline.com/resource/abc123
-        ClassAssistant:
-          type: boolean
-          description: Is the staff an assistant
-          example: true
-        ClassAssistant2:
-          type: boolean
-          description: Is the staff an assistant2
           example: true
         EmploymentStart:
           type: string
@@ -1430,65 +1694,189 @@ components:
           format: date-time
           description: The end date of employment
           example: '2026-05-28T14:30:00Z'
+        SortOrder:
+          type: integer
+          format: int32
+          description: If configured by the business owner, this field determines a staff member’s weight when sorting. Use this field to sort staff members on your interface.
+          example: 1
         ProviderIDs:
           type: array
           items:
             type: string
-          description: A list of ProviderIds for the staff.
+          description: A list of providerIDs for the staff. In the US it is one per staff and is numeric, otherwise it can be a list and is alpha-numeric for more information see <a href=" https://support.mindbodyonline.com/s/article/204075743-Provider-IDs ?language=en_US" target="blank">Provider IDs</a>
           example:
           - example-value
-        Rep:
+        Active:
           type: boolean
-          description: return true if staff is sales Rep 1 else false.
+          description: Indicates if the staff member is active. Staff member cannot be deactivated if they have future classes or appointments.
           example: true
-        Rep2:
-          type: boolean
-          description: return true if staff is sales Rep 2 else false.
-          example: true
-        Rep3:
-          type: boolean
-          description: return true if staff is sales Rep 3 else false.
-          example: true
-        Rep4:
-          type: boolean
-          description: return true if staff is sales Rep 4 else false.
-          example: true
-        Rep5:
-          type: boolean
-          description: return true if staff is sales Rep 5 else false.
-          example: true
-        Rep6:
-          type: boolean
-          description: return true if staff is sales Rep 6 else false.
-          example: true
-        StaffSettings:
-          $ref: '#/components/schemas/StaffSetting'
-          description: This object contains the staff settings.
-        Appointments:
-          type: array
-          items:
-            $ref: '#/components/schemas/Appointment'
-          description: A list of appointments for the staff.
-          example:
-          - {}
-        Unavailabilities:
-          type: array
-          items:
-            $ref: '#/components/schemas/Unavailability'
-          description: A list of unavailabilities for the staff.
-          example:
-          - {}
-        Availabilities:
-          type: array
-          items:
-            $ref: '#/components/schemas/Availability'
-          description: A list of availabilities for the staff.
-          example:
-          - {}
+        Notes:
+          type: string
+          description: Staff Member Private Notes
+          example: Example note for Mindbody Public API.
         EmpID:
           type: string
-          description: The EmpID assigned to the staff member.
+          description: The custom staff ID assigned to the staff member.
           example: example-value
+    GetStaffImageURLResponse:
+      type: object
+      description: Implementation of the 'GetStaffImageURLResponse' model. A response object returned from the GetStaffImgURL API.
+      properties:
+        ImageURL:
+          type: string
+          description: A staff member's image URL.
+          example: example-value
+        MobileImageURL:
+          type: string
+          description: A staff member's mobile image URL.
+          example: example-value
+    Amenity:
+      type: object
+      description: Implementation of the 'Amenity' model. Definition of a location amenity
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The ID number of the amenity.
+          example: 123456
+        Name:
+          type: string
+          description: The name of the amenity, for example, food or lockers.
+          example: Sunset Yoga Studio
+    StaffSessionType:
+      type: object
+      description: Implementation of the 'StaffSessionType' model.
+      properties:
+        StaffId:
+          type: integer
+          format: int32
+          description: The staff member Id
+          example: 123456
+        Type:
+          $ref: '#/components/schemas/Type2Enum'
+          description: Contains the class description session type.
+        Id:
+          type: integer
+          format: int32
+          description: This session type’s unique Id.
+          example: 123456
+        Name:
+          type: string
+          description: The name of this session type.
+          example: Sunset Yoga Studio
+        NumDeducted:
+          type: integer
+          format: int32
+          description: The number of sessions that this session type deducts from the pricing option used to pay for this type of session.
+          example: 1
+        ProgramId:
+          type: integer
+          format: int32
+          description: This session type’s service category Id.
+          example: 123456
+        Category:
+          type: string
+          description: This session type’s category.
+          example: example-value
+        CategoryId:
+          type: integer
+          format: int32
+          description: This session type’s category Id.
+          example: 123456
+        Subcategory:
+          type: string
+          description: This session type’s subcategory.
+          example: example-value
+        SubcategoryId:
+          type: integer
+          format: int32
+          description: This session type’s subcategory Id.
+          example: 123456
+        TimeLength:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 1
+        PrepTime:
+          type: integer
+          format: int32
+          description: Prep time in minutes
+          example: 1
+        FinishTime:
+          type: integer
+          format: int32
+          description: Finish time in minutes
+          example: 1
+        PayRateType:
+          type: string
+          description: The pay rate type
+          example: example-value
+        PayRateAmount:
+          type: number
+          format: double
+          description: The pay rate amount
+          example: 49.99
+    PricingRelationships:
+      type: object
+      description: Implementation of the 'PricingRelationships' model.
+      properties:
+        PaysFor:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: The model property of type List[int].
+          example:
+          - 1
+        PaidBy:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: The model property of type List[int].
+          example:
+          - 1
+    AppointmentStaff:
+      type: object
+      description: Implementation of the 'AppointmentStaff' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The model property of type int.
+          example: 123456
+        FirstName:
+          type: string
+          description: The model property of type str.
+          example: Alex
+        LastName:
+          type: string
+          description: The model property of type str.
+          example: Lane
+        DisplayName:
+          type: string
+          description: The model property of type str.
+          example: example-value
+    UpdateStaffResponse:
+      type: object
+      description: Implementation of the 'UpdateStaffResponse' model.
+      properties:
+        Staff:
+          $ref: '#/components/schemas/Staff'
+          description: Contains information about the staff
+    ResourceSlim:
+      type: object
+      description: Implementation of the 'ResourceSlim' model. Contains information about resources, such as rooms.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The ID of the resource being used for this appointment.
+          example: 123456
+        Name:
+          type: string
+          description: The name of the resource being used for this appointment.
+          example: Sunset Yoga Studio
     AssignStaffSessionTypeResponse:
       type: object
       description: Implementation of the 'AssignStaffSessionTypeResponse' model.
@@ -1531,76 +1919,135 @@ components:
           type: boolean
           description: Whether this association is active
           example: true
-    ScheduleTypeEnum:
-      type: string
-      description: ScheduleTypeEnum enumeration.
-      enum:
-      - All
-      - Class
-      - Enrollment
-      - Appointment
-      - Resource
-      - Media
-      - Arrival
-    ResourceSlim:
+    GetStaffPermissionsResponse:
       type: object
-      description: Implementation of the 'ResourceSlim' model. Contains information about resources, such as rooms.
+      description: Implementation of the 'GetStaffPermissionsResponse' model.
+      properties:
+        UserGroup:
+          $ref: '#/components/schemas/StaffPermissionGroup'
+          description: Contains information about the requested staff member’s permission group.
+    Availability:
+      type: object
+      description: Implementation of the 'Availability' model. A staff availability entry
       properties:
         Id:
           type: integer
           format: int32
-          description: The ID of the resource being used for this appointment.
+          description: The ID of the availability.
           example: 123456
-        Name:
+        Staff:
+          $ref: '#/components/schemas/Staff'
+          description: Contains information about staff members.
+        SessionType:
+          $ref: '#/components/schemas/SessionType'
+          description: Contains information about the types of sessions.
+        Programs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Program'
+          description: Contains information about the programs.
+          example:
+          - {}
+        StartDateTime:
           type: string
-          description: The name of the resource being used for this appointment.
-          example: Sunset Yoga Studio
-    PricingRelationships:
-      type: object
-      description: Implementation of the 'PricingRelationships' model.
-      properties:
-        PaysFor:
-          type: array
-          items:
-            type: integer
-            format: int32
-          description: The model property of type List[int].
-          example:
-          - 1
-        PaidBy:
-          type: array
-          items:
-            type: integer
-            format: int32
-          description: The model property of type List[int].
-          example:
-          - 1
-    StatusEnum:
-      type: string
-      description: StatusEnum enumeration.
-      enum:
-      - None
-      - Requested
-      - Booked
-      - Completed
-      - Confirmed
-      - Arrived
-      - NoShow
-      - Cancelled
-      - LateCancelled
-    Amenity:
-      type: object
-      description: Implementation of the 'Amenity' model. Definition of a location amenity
-      properties:
-        Id:
+          format: date-time
+          description: The date and time the availability starts in the site local time zone.
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
+          type: string
+          format: date-time
+          description: The date and time the availability ends in the site local time zone.
+          example: '2026-05-28T14:30:00Z'
+        BookableEndDateTime:
+          type: string
+          format: date-time
+          description: The time of day that the last appointment can start in the site local time zone.
+          example: '2026-05-28T14:30:00Z'
+        Location:
+          $ref: '#/components/schemas/Location'
+          description: Contains information about the location.
+        PrepTime:
           type: integer
           format: int32
-          description: The ID number of the amenity.
+          description: Prep time in minutes
+          example: 1
+        FinishTime:
+          type: integer
+          format: int32
+          description: Finish time in minutes
+          example: 1
+        IsMasked:
+          type: boolean
+          description: When `true`, indicates that the staff member's name for availabilty is masked. When `false`, indicates that the staff member's name for availabilty is not masked.
+          example: true
+        ShowPublic:
+          type: boolean
+          description: When `true`, indicates that the schedule is shown to the clients. When `false`, indicates that the schedule is hidden from the clients.
+          example: true
+        ResourceAvailabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceAvailability'
+          description: Contains information about resources availability for the specified session type.
+          example:
+          - {}
+    AddStaffAvailabilityRequest:
+      type: object
+      description: Implementation of the 'AddStaffAvailabilityRequest' model. Add Staff Availability/Unavailability Schedule
+      properties:
+        StaffId:
+          type: integer
+          format: int32
+          description: The ID of the staff member that availability or unavailability will be added.
           example: 123456
-        Name:
+        IsAvailability:
+          type: boolean
+          description: When `true`, indicates that availability will be added, <br /> When `false`, indicates that unavailability will be added.
+          example: true
+        DaysOfWeek:
+          type: array
+          items:
+            type: string
+          description: The days of the week. Must contain at least one of the following Sunday, Monday, Tuesday etc.
+          example:
+          - example-value
+        StartTime:
           type: string
-          description: The name of the amenity, for example, food or lockers.
-          example: Sunset Yoga Studio
+          description: The start time of the schedule. Must be in HH:MM:SS format.
+          example: example-value
+        EndTime:
+          type: string
+          description: The end time of the schedule. Must be in HH:MM:SS format.
+          example: example-value
+        StartDate:
+          type: string
+          description: The start date of the schedule. Must be in YYYY-MM-DD format.
+          example: example-value
+        EndDate:
+          type: string
+          description: The end date of the schedule. Must be in YYYY-MM-DD format.
+          example: example-value
+        Description:
+          type: string
+          description: The description of the unavailability, ex. Lunch, Vacation. Required if IsAvailability passed as `false`. Omit if IsAvailability passed as `true`.
+          example: Example note for Mindbody Public API.
+        ProgramIds:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: A list of program IDs. Must be a valid active schedulable Program ID. Required if IsAvailability passed as `true`. Omit if IsAvailability passed as `false`.
+          example:
+          - 1
+        LocationId:
+          type: integer
+          format: int32
+          description: The ID of the location where the availability is added. Required if IsAvailability passed as `true`. Omit if IsAvailability passed as `false`.
+          example: 123456
+        Status:
+          type: string
+          description: 'The status of availability or unavailability. Possible values are: * Masked * Hidden * Public Default: Public'
+          example: Active
     DeniedPermissionEnum:
       type: string
       description: DeniedPermissionEnum enumeration.
@@ -1788,62 +2235,37 @@ components:
       - EmailClientsFromReviewReport
       - FlagReviewForRemoval
       - RespondPubliclyToReviews
-    Program:
+    StaffSetting:
       type: object
-      description: Implementation of the 'Program' model.
+      description: Implementation of the 'StaffSetting' model. contains the information about the staff settings.
       properties:
-        Id:
-          type: integer
-          format: int32
-          description: The service category’s ID.
-          example: 123456
-        Name:
-          type: string
-          description: The name of this service category.
-          example: Sunset Yoga Studio
-        ScheduleType:
-          $ref: '#/components/schemas/ScheduleTypeEnum'
-          description: 'The service category’s schedule type. Possible values are: * All * Class * Enrollment * Appointment * Resource * Arrival'
-        CancelOffset:
-          type: integer
-          format: int32
-          description: The offset to use for the service category.
-          example: 10
-        ContentFormats:
-          type: array
-          items:
-            type: string
-          description: 'The content delivery platform(s) used by the service category. Possible values are: * InPerson * Livestream:Mindbody * Livestream:Other'
-          example:
-          - example-value
-        PricingRelationships:
-          $ref: '#/components/schemas/PricingRelationships'
-          description: Pricing relationships
-    SalesRepResponse:
+        UseStaffNicknames:
+          type: boolean
+          description: When `true`, `DisplayName` of the staff will be displayed. When `false`, `DisplayName` will be displayed as null.
+          example: true
+        ShowStaffLastNamesOnSchedules:
+          type: boolean
+          description: When `true`, indicates that the Name contains both the `FirstName` and `LastName` of the staff. When `false`, indicates that the Name contains only the `FirstName` of the staff.
+          example: true
+    ResourceAvailability:
       type: object
-      description: Implementation of the 'SalesRepResponse' model. This is the sales rep DTO
+      description: Implementation of the 'ResourceAvailability' model. An availability of a resource
       properties:
-        Id:
+        ResourceId:
           type: integer
           format: int32
-          description: The unique Id of the sales rep
+          description: Id
           example: 123456
-        FirstName:
+        StartDateTime:
           type: string
-          description: The firstname of the sales rep
-          example: Alex
-        LastName:
+          format: date-time
+          description: Starts
+          example: '2026-05-28T14:30:00Z'
+        EndDateTime:
           type: string
-          description: The lastname of the sales rep
-          example: Lane
-        SalesRepNumbers:
-          type: array
-          items:
-            type: integer
-            format: int32
-          description: The sales rep Ids that are assigned to the rep
-          example:
-          - 1
+          format: date-time
+          description: Ends
+          example: '2026-05-28T14:30:00Z'
     AddOnSmall:
       type: object
       description: Implementation of the 'AddOnSmall' model.
@@ -1867,114 +2289,261 @@ components:
           format: int32
           description: The ID of the session type of this appointment.
           example: 123456
-    StaffSetting:
+    StatusEnum:
+      type: string
+      description: StatusEnum enumeration.
+      enum:
+      - None
+      - Requested
+      - Booked
+      - Completed
+      - Confirmed
+      - Arrived
+      - NoShow
+      - Cancelled
+      - LateCancelled
+    GetStaffSessionTypesResponse:
       type: object
-      description: Implementation of the 'StaffSetting' model. contains the information about the staff settings.
+      description: Implementation of the 'GetStaffSessionTypesResponse' model.
       properties:
-        UseStaffNicknames:
-          type: boolean
-          description: When `true`, `DisplayName` of the staff will be displayed. When `false`, `DisplayName` will be displayed as null.
-          example: true
-        ShowStaffLastNamesOnSchedules:
-          type: boolean
-          description: When `true`, indicates that the Name contains both the `FirstName` and `LastName` of the staff. When `false`, indicates that the Name contains only the `FirstName` of the staff.
-          example: true
-    StaffSessionType:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination properties used.
+        StaffSessionTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/StaffSessionType'
+          description: Contains information about staff member session types.
+          example:
+          - {}
+    PaginationResponse:
       type: object
-      description: Implementation of the 'StaffSessionType' model.
+      description: Implementation of the 'PaginationResponse' model. Contains information about the pagination to use.
       properties:
-        StaffId:
+        RequestedLimit:
           type: integer
           format: int32
-          description: The staff member Id
-          example: 123456
-        Type:
-          $ref: '#/components/schemas/Type2Enum'
-          description: Contains the class description session type.
+          description: Limit from pagination request
+          example: 10
+        RequestedOffset:
+          type: integer
+          format: int32
+          description: Offset from pagination request
+          example: 10
+        PageSize:
+          type: integer
+          format: int32
+          description: Number of results returned in this response
+          example: 1
+        TotalResults:
+          type: integer
+          format: int32
+          description: Total number of results in dataset
+          example: 1
+    Staff:
+      type: object
+      description: Implementation of the 'Staff' model. The Staff
+      properties:
+        Address:
+          type: string
+          description: The address of the staff member who is teaching the class.
+          example: 123 Market St
+        AppointmentInstructor:
+          type: boolean
+          description: When `true`, indicates that the staff member offers appointments.<br /> When `false`, indicates that the staff member does not offer appointments.
+          example: true
+        AlwaysAllowDoubleBooking:
+          type: boolean
+          description: When `true`, indicates that the staff member can be scheduled for overlapping services.<br /> When `false`, indicates that the staff can only be scheduled for one service at a time in any given time-frame.
+          example: true
+        Bio:
+          type: string
+          description: The staff member’s biography. This string contains HTML.
+          example: example-value
+        City:
+          type: string
+          description: The staff member’s city.
+          example: San Francisco
+        Country:
+          type: string
+          description: The staff member’s country.
+          example: US
+        Email:
+          type: string
+          description: The staff member’s email address.
+          example: kinlane@example.com
+        FirstName:
+          type: string
+          description: The staff member’s first name.
+          example: Alex
+        DisplayName:
+          type: string
+          description: The staff member’s Nickname.
+          example: example-value
+        HomePhone:
+          type: string
+          description: The staff member’s home phone number.
+          example: '+15551234567'
         Id:
           type: integer
           format: int32
-          description: This session type’s unique Id.
+          description: The ID assigned to the staff member.
           example: 123456
+        IndependentContractor:
+          type: boolean
+          description: When `true`, indicates that the staff member is an independent contractor. When `false`, indicates that the staff member is not an independent contractor.
+          example: true
+        IsMale:
+          type: boolean
+          description: When `true`, indicates that the staff member is male. When `false`, indicates that the staff member is female.
+          example: true
+        LastName:
+          type: string
+          description: The staff member’s last name.
+          example: Lane
+        MobilePhone:
+          type: string
+          description: The staff member’s mobile phone number.
+          example: '+15551234567'
         Name:
           type: string
-          description: The name of this session type.
+          description: The staff member’s name.
           example: Sunset Yoga Studio
-        NumDeducted:
-          type: integer
-          format: int32
-          description: The number of sessions that this session type deducts from the pricing option used to pay for this type of session.
-          example: 1
-        ProgramId:
-          type: integer
-          format: int32
-          description: This session type’s service category Id.
-          example: 123456
-        Category:
+        PostalCode:
           type: string
-          description: This session type’s category.
-          example: example-value
-        CategoryId:
+          description: The staff member’s postal code.
+          example: '94110'
+        ClassTeacher:
+          type: boolean
+          description: When `true`, indicates that the staff member can teach classes. When `false`, indicates that the staff member cannot teach classes.
+          example: true
+        SortOrder:
           type: integer
           format: int32
-          description: This session type’s category Id.
-          example: 123456
-        Subcategory:
+          description: If configured by the business owner, this field determines a staff member’s weight when sorting. Use this field to sort staff members on your interface.
+          example: 1
+        State:
           type: string
-          description: This session type’s subcategory.
-          example: example-value
-        SubcategoryId:
-          type: integer
-          format: int32
-          description: This session type’s subcategory Id.
-          example: 123456
-        TimeLength:
-          type: integer
-          format: int32
-          description: The model property of type int.
-          example: 1
-        PrepTime:
-          type: integer
-          format: int32
-          description: Prep time in minutes
-          example: 1
-        FinishTime:
-          type: integer
-          format: int32
-          description: Finish time in minutes
-          example: 1
-        PayRateType:
+          description: The staff member’s state.
+          example: CA
+        WorkPhone:
           type: string
-          description: The pay rate type
+          description: The staff member’s work phone number.
+          example: '+15551234567'
+        ImageUrl:
+          type: string
+          description: The URL of the staff member’s image, if one has been uploaded.
+          example: https://example.mindbodyonline.com/resource/abc123
+        ClassAssistant:
+          type: boolean
+          description: Is the staff an assistant
+          example: true
+        ClassAssistant2:
+          type: boolean
+          description: Is the staff an assistant2
+          example: true
+        EmploymentStart:
+          type: string
+          format: date-time
+          description: The start date of employment
+          example: '2026-05-28T14:30:00Z'
+        EmploymentEnd:
+          type: string
+          format: date-time
+          description: The end date of employment
+          example: '2026-05-28T14:30:00Z'
+        ProviderIDs:
+          type: array
+          items:
+            type: string
+          description: A list of ProviderIds for the staff.
+          example:
+          - example-value
+        Rep:
+          type: boolean
+          description: return true if staff is sales Rep 1 else false.
+          example: true
+        Rep2:
+          type: boolean
+          description: return true if staff is sales Rep 2 else false.
+          example: true
+        Rep3:
+          type: boolean
+          description: return true if staff is sales Rep 3 else false.
+          example: true
+        Rep4:
+          type: boolean
+          description: return true if staff is sales Rep 4 else false.
+          example: true
+        Rep5:
+          type: boolean
+          description: return true if staff is sales Rep 5 else false.
+          example: true
+        Rep6:
+          type: boolean
+          description: return true if staff is sales Rep 6 else false.
+          example: true
+        StaffSettings:
+          $ref: '#/components/schemas/StaffSetting'
+          description: This object contains the staff settings.
+        Appointments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Appointment'
+          description: A list of appointments for the staff.
+          example:
+          - {}
+        Unavailabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Unavailability'
+          description: A list of unavailabilities for the staff.
+          example:
+          - {}
+        Availabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Availability'
+          description: A list of availabilities for the staff.
+          example:
+          - {}
+        EmpID:
+          type: string
+          description: The EmpID assigned to the staff member.
           example: example-value
-        PayRateAmount:
-          type: number
-          format: double
-          description: The pay rate amount
-          example: 49.99
-    Unavailability:
+    GenderPreferenceEnum:
+      type: string
+      description: GenderPreferenceEnum enumeration.
+      enum:
+      - None
+      - Female
+      - Male
+    StaffPermissionGroup:
       type: object
-      description: Implementation of the 'Unavailability' model.
+      description: Implementation of the 'StaffPermissionGroup' model.
       properties:
-        Id:
-          type: integer
-          format: int32
-          description: The ID of the unavailability.
-          example: 123456
-        StartDateTime:
+        PermissionGroupName:
           type: string
-          format: date-time
-          description: The date and time the unavailability starts.
-          example: '2026-05-28T14:30:00Z'
-        EndDateTime:
-          type: string
-          format: date-time
-          description: The date and time the unavailability ends.
-          example: '2026-05-28T14:30:00Z'
-        Description:
-          type: string
-          description: A description of the unavailability.
-          example: Example note for Mindbody Public API.
+          description: The name of the permission group.
+          example: example-value
+        IpRestricted:
+          type: boolean
+          description: When `true`, the staff member’s permissions are restricted to specific IP addresses.<br /> When `false`, the staff member’s permissions are not restricted to specific IP addresses.
+          example: true
+        AllowedPermissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AllowedPermissionEnum'
+          description: A list of the permissions allowed to the staff member. See [Permission Values](https://developers.mindbodyonline.com/PublicDocumentation/V 6#epermission-values) for descriptions of the possible permissions.
+          example:
+          - {}
+        DeniedPermissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeniedPermissionEnum'
+          description: A list of the permissions that the staff member is not allowed to exercise. See [Permission Values](https://developers.mindbodyonline.com/PublicDocumentation/V 6#epermission-values) for descriptions of the possible permissions.
+          example:
+          - {}
     AssignStaffSessionTypeRequest:
       type: object
       description: Implementation of the 'AssignStaffSessionTypeRequest' model.
@@ -2017,440 +2586,32 @@ components:
           format: double
           description: The pay rate amount for the specific staff member. It is parsed according to the PayRateType.
           example: 49.99
-    Appointment:
+    Unavailability:
       type: object
-      description: Implementation of the 'Appointment' model. Contains information about an appointment.
+      description: Implementation of the 'Unavailability' model.
       properties:
-        GenderPreference:
-          $ref: '#/components/schemas/GenderPreferenceEnum'
-          description: 'The prefered gender of the appointment provider. Possible values are: * None * Female * Male'
-        Duration:
-          type: integer
-          format: int32
-          description: The duration of the appointment.
-          example: 1
-        ProviderId:
-          type: string
-          description: If a user has Complementary and Alternative Medicine features enabled, this property indicates the provider assigned to the appointment.
-          example: example-value
         Id:
           type: integer
           format: int32
-          description: The unique ID of the appointment.
-          example: 123456
-        Status:
-          $ref: '#/components/schemas/StatusEnum'
-          description: 'The status of this appointment. Possible values are: * None * Requested * Booked * Completed * Confirmed * Arrived * NoShow * Cancelled * LateCancelled'
-        StartDateTime:
-          type: string
-          format: date-time
-          description: The date and time the appointment is to start.
-          example: '2026-05-28T14:30:00Z'
-        EndDateTime:
-          type: string
-          format: date-time
-          description: The date and time the appointment is to end.
-          example: '2026-05-28T14:30:00Z'
-        Notes:
-          type: string
-          description: Any notes associated with the appointment.
-          example: Example note for Mindbody Public API.
-        PartnerExternalId:
-          type: string
-          description: Optional external key for api partners.
-          example: example-value
-        StaffRequested:
-          type: boolean
-          description: When `true`, indicates that the staff member was requested specifically by the client.
-          example: true
-        ProgramId:
-          type: integer
-          format: int32
-          description: The ID of the program to which this appointment belongs.
-          example: 123456
-        SessionTypeId:
-          type: integer
-          format: int32
-          description: The ID of the session type of this appointment.
-          example: 123456
-        LocationId:
-          type: integer
-          format: int32
-          description: The ID of the location where this appointment is to take place.
-          example: 123456
-        StaffId:
-          type: integer
-          format: int32
-          description: The ID of the staff member providing the service for this appointment.
-          example: 123456
-        Staff:
-          $ref: '#/components/schemas/AppointmentStaff'
-          description: Staff for the appointment
-        ClientId:
-          type: string
-          description: The RSSID of the client who is booked for this appointment.
-          example: example-value
-        FirstAppointment:
-          type: boolean
-          description: When `true`, indicates that this is the client’s first appointment at this site.
-          example: true
-        IsWaitlist:
-          type: boolean
-          description: 'When `true`, indicates that the client should be added to a specific appointment waiting list. When `false`, the client should not be added to the waiting list. Default: *false*'
-          example: true
-        WaitlistEntryId:
-          type: integer
-          format: int32
-          description: The unique ID of the appointment waitlist.
-          example: 123456
-        ClientServiceId:
-          type: integer
-          format: int32
-          description: The ID of the pass on the client’s account that is to pay for this appointment.
-          example: 123456
-        Resources:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceSlim'
-          description: The resources this appointment is to use.
-          example:
-          - {}
-        AddOns:
-          type: array
-          items:
-            $ref: '#/components/schemas/AddOnSmall'
-          description: Any AddOns associated with the appointment
-          example:
-          - {}
-        OnlineDescription:
-          type: string
-          description: Online Description associated with the appointment
-          example: Example note for Mindbody Public API.
-    ResourceAvailability:
-      type: object
-      description: Implementation of the 'ResourceAvailability' model. An availability of a resource
-      properties:
-        ResourceId:
-          type: integer
-          format: int32
-          description: Id
+          description: The ID of the unavailability.
           example: 123456
         StartDateTime:
           type: string
           format: date-time
-          description: Starts
+          description: The date and time the unavailability starts.
           example: '2026-05-28T14:30:00Z'
         EndDateTime:
           type: string
           format: date-time
-          description: Ends
+          description: The date and time the unavailability ends.
           example: '2026-05-28T14:30:00Z'
-    SessionType:
-      type: object
-      description: Implementation of the 'SessionType' model. SessionType contains information about the session types in a business.
-      properties:
-        Type:
-          $ref: '#/components/schemas/TypeEnum'
-          description: 'Contains the class description session type. Possible values are: * All * Class * Enrollment * Appointment * Resource * Media * Arrival'
-        DefaultTimeLength:
-          type: integer
-          format: int32
-          description: The default amount of time that a session of this type typically lasts.
-          example: 1
-        StaffTimeLength:
-          type: integer
-          format: int32
-          description: The amount of time that a session of this type will last for a specific Staff (when applicable.)
-          example: 1
-        Id:
-          type: integer
-          format: int32
-          description: This session type’s unique ID.
-          example: 123456
-        Name:
-          type: string
-          description: The name of this session type.
-          example: Sunset Yoga Studio
-        OnlineDescription:
-          type: string
-          description: The online description associated with the appointment.
-          example: Example note for Mindbody Public API.
-        NumDeducted:
-          type: integer
-          format: int32
-          description: The number of sessions that this session type deducts from the pricing option used to pay for this type of session.
-          example: 1
-        ProgramId:
-          type: integer
-          format: int32
-          description: This session type’s service category ID.
-          example: 123456
-        Category:
-          type: string
-          description: This session type’s category.
-          example: example-value
-        CategoryId:
-          type: integer
-          format: int32
-          description: This session type’s category ID.
-          example: 123456
-        Subcategory:
-          type: string
-          description: This session type’s subcategory.
-          example: example-value
-        SubcategoryId:
-          type: integer
-          format: int32
-          description: This session type’s subcategory ID.
-          example: 123456
-        AvailableForAddOn:
-          type: boolean
-          description: This session type’s Add On Flag.
-          example: true
-    StaffPermissionGroup:
-      type: object
-      description: Implementation of the 'StaffPermissionGroup' model.
-      properties:
-        PermissionGroupName:
-          type: string
-          description: The name of the permission group.
-          example: example-value
-        IpRestricted:
-          type: boolean
-          description: When `true`, the staff member’s permissions are restricted to specific IP addresses.<br /> When `false`, the staff member’s permissions are not restricted to specific IP addresses.
-          example: true
-        AllowedPermissions:
-          type: array
-          items:
-            $ref: '#/components/schemas/AllowedPermissionEnum'
-          description: A list of the permissions allowed to the staff member. See [Permission Values](https://developers.mindbodyonline.com/PublicDocumentation/V 6#epermission-values) for descriptions of the possible permissions.
-          example:
-          - {}
-        DeniedPermissions:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeniedPermissionEnum'
-          description: A list of the permissions that the staff member is not allowed to exercise. See [Permission Values](https://developers.mindbodyonline.com/PublicDocumentation/V 6#epermission-values) for descriptions of the possible permissions.
-          example:
-          - {}
-    GetSalesRepsResponse:
-      type: object
-      description: Implementation of the 'GetSalesRepsResponse' model. This is the response class for the get sales reps API
-      properties:
-        PaginationResponse:
-          $ref: '#/components/schemas/PaginationResponse'
-          description: Contains information about the pagination used.
-        SalesReps:
-          type: array
-          items:
-            $ref: '#/components/schemas/SalesRepResponse'
-          description: This the list of sales reps and their details
-          example:
-          - {}
-    UpdateStaffResponse:
-      type: object
-      description: Implementation of the 'UpdateStaffResponse' model.
-      properties:
-        Staff:
-          $ref: '#/components/schemas/Staff'
-          description: Contains information about the staff
-    UpdateStaffRequest:
-      type: object
-      description: Implementation of the 'UpdateStaffRequest' model.
-      properties:
-        ID:
-          type: integer
-          format: int32
-          description: The unique ID of the staff member.
-          example: 1
-        FirstName:
-          type: string
-          description: The staff member first name. You must specify a first name when you add a staff member.
-          example: Alex
-        LastName:
-          type: string
-          description: The staff member last name. You must specify a last name when you add a staff member.
-          example: Lane
-        Email:
-          type: string
-          description: The staff member’s email address.
-          example: kinlane@example.com
-        IsMale:
-          type: boolean
-          description: When `true`, indicates that the staff member is male. When `false`, indicates that the staff member is female.
-          example: true
-        HomePhone:
-          type: string
-          description: The staff member’s home phone number.
-          example: '+15551234567'
-        WorkPhone:
-          type: string
-          description: The staff member’s work phone number.
-          example: '+15551234567'
-        MobilePhone:
-          type: string
-          description: The staff member’s mobile phone number.
-          example: '+15551234567'
-        Bio:
-          type: string
-          description: The staff member’s biography. This string contains HTML.
-          example: example-value
-        Address:
-          type: string
-          description: The first line of the staff member street address
-          example: 123 Market St
-        Address2:
-          type: string
-          description: The second line of the staff member street address, if needed.
-          example: 123 Market St
-        City:
-          type: string
-          description: The staff member’s city.
-          example: San Francisco
-        State:
-          type: string
-          description: The staff member’s state.
-          example: CA
-        Country:
-          type: string
-          description: The staff member’s country.
-          example: US
-        PostalCode:
-          type: string
-          description: The staff member’s postal code.
-          example: '94110'
-        ClassAssistant:
-          type: boolean
-          description: When `true`, indicates that the staff member can be a class assistant.
-          example: true
-        ClassAssistant2:
-          type: boolean
-          description: When `true`, indicates that the staff member can be a class assistant.
-          example: true
-        IndependentContractor:
-          type: boolean
-          description: When `true`, indicates that the staff member is an independent contractor. When `false`, indicates that the staff member is not an independent contractor.
-          example: true
-        AppointmentInstructor:
-          type: boolean
-          description: When `true`, indicates that the staff member offers appointments.<br /> When `false`, indicates that the staff member does not offer appointments.
-          example: true
-        AlwaysAllowDoubleBooking:
-          type: boolean
-          description: When `true`, indicates that the staff member can be scheduled for overlapping services.<br /> When `false`, indicates that the staff member does not offer appointments.
-          example: true
-        ClassTeacher:
-          type: boolean
-          description: When `true`, indicates that the staff member can teach classes. When `false`, indicates that the staff member cannot teach classes.
-          example: true
-        EmploymentStart:
-          type: string
-          format: date-time
-          description: The start date of employment
-          example: '2026-05-28T14:30:00Z'
-        EmploymentEnd:
-          type: string
-          format: date-time
-          description: The end date of employment
-          example: '2026-05-28T14:30:00Z'
-        SortOrder:
-          type: integer
-          format: int32
-          description: If configured by the business owner, this field determines a staff member’s weight when sorting. Use this field to sort staff members on your interface.
-          example: 1
-        ProviderIDs:
-          type: array
-          items:
-            type: string
-          description: A list of providerIDs for the staff. In the US it is one per staff and is numeric, otherwise it can be a list and is alpha-numeric for more information see <a href=" https://support.mindbodyonline.com/s/article/204075743-Provider-IDs ?language=en_US" target="blank">Provider IDs</a>
-          example:
-          - example-value
-        Active:
-          type: boolean
-          description: Indicates if the staff member is active. Staff member cannot be deactivated if they have future classes or appointments.
-          example: true
-        Notes:
-          type: string
-          description: Staff Member Private Notes
-          example: Example note for Mindbody Public API.
-        EmpID:
-          type: string
-          description: The custom staff ID assigned to the staff member.
-          example: example-value
-    AddStaffAvailabilityRequest:
-      type: object
-      description: Implementation of the 'AddStaffAvailabilityRequest' model. Add Staff Availability/Unavailability Schedule
-      properties:
-        StaffId:
-          type: integer
-          format: int32
-          description: The ID of the staff member that availability or unavailability will be added.
-          example: 123456
-        IsAvailability:
-          type: boolean
-          description: When `true`, indicates that availability will be added, <br /> When `false`, indicates that unavailability will be added.
-          example: true
-        DaysOfWeek:
-          type: array
-          items:
-            type: string
-          description: The days of the week. Must contain at least one of the following Sunday, Monday, Tuesday etc.
-          example:
-          - example-value
-        StartTime:
-          type: string
-          description: The start time of the schedule. Must be in HH:MM:SS format.
-          example: example-value
-        EndTime:
-          type: string
-          description: The end time of the schedule. Must be in HH:MM:SS format.
-          example: example-value
-        StartDate:
-          type: string
-          description: The start date of the schedule. Must be in YYYY-MM-DD format.
-          example: example-value
-        EndDate:
-          type: string
-          description: The end date of the schedule. Must be in YYYY-MM-DD format.
-          example: example-value
         Description:
           type: string
-          description: The description of the unavailability, ex. Lunch, Vacation. Required if IsAvailability passed as `false`. Omit if IsAvailability passed as `true`.
+          description: A description of the unavailability.
           example: Example note for Mindbody Public API.
-        ProgramIds:
-          type: array
-          items:
-            type: integer
-            format: int32
-          description: A list of program IDs. Must be a valid active schedulable Program ID. Required if IsAvailability passed as `true`. Omit if IsAvailability passed as `false`.
-          example:
-          - 1
-        LocationId:
-          type: integer
-          format: int32
-          description: The ID of the location where the availability is added. Required if IsAvailability passed as `true`. Omit if IsAvailability passed as `false`.
-          example: 123456
-        Status:
-          type: string
-          description: 'The status of availability or unavailability. Possible values are: * Masked * Hidden * Public Default: Public'
-          example: Active
-    GetStaffResponse:
-      type: object
-      description: Implementation of the 'GetStaffResponse' model.
-      properties:
-        PaginationResponse:
-          $ref: '#/components/schemas/PaginationResponse'
-          description: The model property of type PaginationResponse.
-        StaffMembers:
-          type: array
-          items:
-            $ref: '#/components/schemas/Staff'
-          description: A list of staff members. See Staff for a description of the 'Staff' information.
-          example:
-          - {}
-    Type2Enum:
+    ScheduleTypeEnum:
       type: string
-      description: Type2Enum enumeration.
+      description: ScheduleTypeEnum enumeration.
       enum:
       - All
       - Class
@@ -2459,185 +2620,24 @@ components:
       - Resource
       - Media
       - Arrival
-    AddStaffRequest:
+    AddStaffResponse:
       type: object
-      description: Implementation of the 'AddStaffRequest' model.
+      description: Implementation of the 'AddStaffResponse' model.
       properties:
-        FirstName:
-          type: string
-          description: The staff member first name. You must specify a first name when you add a staff member.
-          example: Alex
-        LastName:
-          type: string
-          description: The staff member last name. You must specify a last name when you add a staff member.
-          example: Lane
-        Email:
-          type: string
-          description: The staff member’s email address.
-          example: kinlane@example.com
-        IsMale:
-          type: boolean
-          description: When `true`, indicates that the staff member is male. When `false`, indicates that the staff member is female.
-          example: true
-        HomePhone:
-          type: string
-          description: The staff member’s home phone number.
-          example: '+15551234567'
-        WorkPhone:
-          type: string
-          description: The staff member’s work phone number.
-          example: '+15551234567'
-        MobilePhone:
-          type: string
-          description: The staff member’s mobile phone number.
-          example: '+15551234567'
-        Bio:
-          type: string
-          description: The staff member’s biography. This string contains HTML.
-          example: example-value
-        Address:
-          type: string
-          description: The first line of the staff member street address.
-          example: 123 Market St
-        Address2:
-          type: string
-          description: The second line of the staff member street address, if needed.
-          example: 123 Market St
-        City:
-          type: string
-          description: The staff member’s city.
-          example: San Francisco
-        State:
-          type: string
-          description: The staff member’s state.
-          example: CA
-        Country:
-          type: string
-          description: The staff member’s country.
-          example: US
-        PostalCode:
-          type: string
-          description: The staff member’s postal code.
-          example: '94110'
-        ClassAssistant:
-          type: boolean
-          description: Is the staff an assistant
-          example: true
-        ClassAssistant2:
-          type: boolean
-          description: Is the staff an assistant2
-          example: true
-        IndependentContractor:
-          type: boolean
-          description: When `true`, indicates that the staff member is an independent contractor. When `false`, indicates that the staff member is not an independent contractor.
-          example: true
-        AppointmentInstructor:
-          type: boolean
-          description: When `true`, indicates that the staff member offers appointments.<br /> When `false`, indicates that the staff member does not offer appointments.
-          example: true
-        AlwaysAllowDoubleBooking:
-          type: boolean
-          description: When `true`, indicates that the staff member can be scheduled for overlapping services.<br /> When `false`, indicates that the staff can only be scheduled for one service at a time in any given time-frame.
-          example: true
-        ClassTeacher:
-          type: boolean
-          description: When `true`, indicates that the staff member can teach classes. When `false`, indicates that the staff member cannot teach classes.
-          example: true
-        EmploymentStart:
-          type: string
-          format: date-time
-          description: The start date of employment
-          example: '2026-05-28T14:30:00Z'
-        EmploymentEnd:
-          type: string
-          format: date-time
-          description: The end date of employment
-          example: '2026-05-28T14:30:00Z'
-        SortOrder:
-          type: integer
-          format: int32
-          description: If configured by the business owner, this field determines a staff member’s weight when sorting. Use this field to sort staff members on your interface.
-          example: 1
-        ProviderIDs:
-          type: array
-          items:
-            type: string
-          description: A list of providerIDs for the staff. In the US it is one per staff and is numeric, otherwise it can be a list and is alpha-numeric for more information see <a href=" https://support.mindbodyonline.com/s/article/204075743-Provider-IDs ?language=en_US" target="blank">Provider IDs</a>
-          example:
-          - example-value
-        Notes:
-          type: string
-          description: The staff member private notes.
-          example: Example note for Mindbody Public API.
-        EmpID:
-          type: string
-          description: The custom staff ID assigned to the staff member.
-          example: example-value
-    Availability:
-      type: object
-      description: Implementation of the 'Availability' model. A staff availability entry
-      properties:
-        Id:
-          type: integer
-          format: int32
-          description: The ID of the availability.
-          example: 123456
         Staff:
           $ref: '#/components/schemas/Staff'
-          description: Contains information about staff members.
-        SessionType:
-          $ref: '#/components/schemas/SessionType'
-          description: Contains information about the types of sessions.
-        Programs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Program'
-          description: Contains information about the programs.
-          example:
-          - {}
-        StartDateTime:
-          type: string
-          format: date-time
-          description: The date and time the availability starts in the site local time zone.
-          example: '2026-05-28T14:30:00Z'
-        EndDateTime:
-          type: string
-          format: date-time
-          description: The date and time the availability ends in the site local time zone.
-          example: '2026-05-28T14:30:00Z'
-        BookableEndDateTime:
-          type: string
-          format: date-time
-          description: The time of day that the last appointment can start in the site local time zone.
-          example: '2026-05-28T14:30:00Z'
-        Location:
-          $ref: '#/components/schemas/Location'
-          description: Contains information about the location.
-        PrepTime:
-          type: integer
-          format: int32
-          description: Prep time in minutes
-          example: 1
-        FinishTime:
-          type: integer
-          format: int32
-          description: Finish time in minutes
-          example: 1
-        IsMasked:
-          type: boolean
-          description: When `true`, indicates that the staff member's name for availabilty is masked. When `false`, indicates that the staff member's name for availabilty is not masked.
-          example: true
-        ShowPublic:
-          type: boolean
-          description: When `true`, indicates that the schedule is shown to the clients. When `false`, indicates that the schedule is hidden from the clients.
-          example: true
-        ResourceAvailabilities:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceAvailability'
-          description: Contains information about resources availability for the specified session type.
-          example:
-          - {}
+          description: Contains information about the staff
+    TypeEnum:
+      type: string
+      description: TypeEnum enumeration.
+      enum:
+      - All
+      - Class
+      - Enrollment
+      - Appointment
+      - Resource
+      - Media
+      - Arrival
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
