@@ -464,70 +464,6 @@ paths:
       - ApiKeyAuth: []
 components:
   schemas:
-    CommissionPayrollPurchaseEvent:
-      type: object
-      description: Implementation of the 'CommissionPayrollPurchaseEvent' model.
-      properties:
-        StaffId:
-          type: integer
-          format: int32
-          description: The ID of the staff member who earned commissions.
-          example: 123456
-        SaleDateTime:
-          type: string
-          format: date-time
-          description: The date and time when the sale occurred.
-          example: '2026-05-28T14:30:00Z'
-        SaleId:
-          type: integer
-          format: int32
-          description: The sale’s ID.
-          example: 123456
-        SaleType:
-          type: string
-          description: The Sales type. When this is "Purchase" indicates that this sale paid commission to a staff. When this is "Return"
-          example: example-value
-        ProductId:
-          type: integer
-          format: int32
-          description: The product ID of the item for which the staff earned commissions.
-          example: 123456
-        EarningsDetails:
-          type: array
-          items:
-            $ref: '#/components/schemas/CommissionDetail'
-          description: Contains information about which commissions the staff earned for this item.
-          example:
-          - {}
-        Earnings:
-          type: number
-          format: double
-          description: The total commissions earned by the staff for this item.
-          example: 1.0
-    PaginationResponse:
-      type: object
-      description: Implementation of the 'PaginationResponse' model. Contains information about the pagination to use.
-      properties:
-        RequestedLimit:
-          type: integer
-          format: int32
-          description: Limit from pagination request
-          example: 10
-        RequestedOffset:
-          type: integer
-          format: int32
-          description: Offset from pagination request
-          example: 10
-        PageSize:
-          type: integer
-          format: int32
-          description: Number of results returned in this response
-          example: 1
-        TotalResults:
-          type: integer
-          format: int32
-          description: Total number of results in dataset
-          example: 1
     CommissionDetail:
       type: object
       description: Implementation of the 'CommissionDetail' model.
@@ -541,26 +477,18 @@ components:
           format: double
           description: The portion of `Earnings` earned by this `CommissionType`.
           example: 1.0
-    ScheduledServiceTypeEnum:
-      type: string
-      description: ScheduledServiceTypeEnum enumeration.
-      enum:
-      - Class
-      - Appointment
-      - Enrollment
-      - All
-    GetCommissionsResponse:
+    GetScheduledServiceEarningsResponse:
       type: object
-      description: Implementation of the 'GetCommissionsResponse' model.
+      description: Implementation of the 'GetScheduledServiceEarningsResponse' model.
       properties:
         PaginationResponse:
           $ref: '#/components/schemas/PaginationResponse'
           description: Contains information about the pagination used.
-        Commissions:
+        ScheduledServiceEarnings:
           type: array
           items:
-            $ref: '#/components/schemas/CommissionPayrollPurchaseEvent'
-          description: Contains information about commissions earned by staff for sales within the given date range. Results are ordered by `SaleId`, then by `StaffId`.
+            $ref: '#/components/schemas/ScheduledServiceEarningsEvent'
+          description: Contains the class payroll events.
           example:
           - {}
     TimeCardEvent:
@@ -601,33 +529,52 @@ components:
           format: double
           description: The total amount earned by the staff member for this time card entry.
           example: 1.0
-    ScheduledServiceEarningsEvent:
+    GetTimeCardsResponse:
       type: object
-      description: Implementation of the 'ScheduledServiceEarningsEvent' model.
+      description: Implementation of the 'GetTimeCardsResponse' model.
       properties:
-        StaffId:
+        PaginationResponse:
+          $ref: '#/components/schemas/PaginationResponse'
+          description: Contains information about the pagination used.
+        TimeCards:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeCardEvent'
+          description: Information about time card entries, ordered by staff ID.
+          example:
+          - {}
+    ScheduledServiceTypeEnum:
+      type: string
+      description: ScheduledServiceTypeEnum enumeration.
+      enum:
+      - Class
+      - Appointment
+      - Enrollment
+      - All
+    PaginationResponse:
+      type: object
+      description: Implementation of the 'PaginationResponse' model. Contains information about the pagination to use.
+      properties:
+        RequestedLimit:
           type: integer
           format: int32
-          description: The ID of the staff member who taught the class.
-          example: 123456
-        ScheduledServiceId:
+          description: Limit from pagination request
+          example: 10
+        RequestedOffset:
           type: integer
           format: int32
-          description: The class' ID.
-          example: 123456
-        ScheduledServiceType:
-          $ref: '#/components/schemas/ScheduledServiceTypeEnum'
-          description: The type of the scheduled service; i.e, a class, appointment, or enrollment.
-        Earnings:
-          type: number
-          format: double
-          description: The total monetary amount the staff is to be paid for this class.
-          example: 1.0
-        DateTime:
-          type: string
-          format: date-time
-          description: The model property of type datetime.
-          example: '2026-05-28T14:30:00Z'
+          description: Offset from pagination request
+          example: 10
+        PageSize:
+          type: integer
+          format: int32
+          description: Number of results returned in this response
+          example: 1
+        TotalResults:
+          type: integer
+          format: int32
+          description: Total number of results in dataset
+          example: 1
     GetTipsResponse:
       type: object
       description: Implementation of the 'GetTipsResponse' model.
@@ -666,34 +613,87 @@ components:
           format: double
           description: The amount tipped to the staff member.
           example: 1.0
-    GetScheduledServiceEarningsResponse:
+    GetCommissionsResponse:
       type: object
-      description: Implementation of the 'GetScheduledServiceEarningsResponse' model.
+      description: Implementation of the 'GetCommissionsResponse' model.
       properties:
         PaginationResponse:
           $ref: '#/components/schemas/PaginationResponse'
           description: Contains information about the pagination used.
-        ScheduledServiceEarnings:
+        Commissions:
           type: array
           items:
-            $ref: '#/components/schemas/ScheduledServiceEarningsEvent'
-          description: Contains the class payroll events.
+            $ref: '#/components/schemas/CommissionPayrollPurchaseEvent'
+          description: Contains information about commissions earned by staff for sales within the given date range. Results are ordered by `SaleId`, then by `StaffId`.
           example:
           - {}
-    GetTimeCardsResponse:
+    CommissionPayrollPurchaseEvent:
       type: object
-      description: Implementation of the 'GetTimeCardsResponse' model.
+      description: Implementation of the 'CommissionPayrollPurchaseEvent' model.
       properties:
-        PaginationResponse:
-          $ref: '#/components/schemas/PaginationResponse'
-          description: Contains information about the pagination used.
-        TimeCards:
+        StaffId:
+          type: integer
+          format: int32
+          description: The ID of the staff member who earned commissions.
+          example: 123456
+        SaleDateTime:
+          type: string
+          format: date-time
+          description: The date and time when the sale occurred.
+          example: '2026-05-28T14:30:00Z'
+        SaleId:
+          type: integer
+          format: int32
+          description: The sale’s ID.
+          example: 123456
+        SaleType:
+          type: string
+          description: The Sales type. When this is "Purchase" indicates that this sale paid commission to a staff. When this is "Return"
+          example: example-value
+        ProductId:
+          type: integer
+          format: int32
+          description: The product ID of the item for which the staff earned commissions.
+          example: 123456
+        EarningsDetails:
           type: array
           items:
-            $ref: '#/components/schemas/TimeCardEvent'
-          description: Information about time card entries, ordered by staff ID.
+            $ref: '#/components/schemas/CommissionDetail'
+          description: Contains information about which commissions the staff earned for this item.
           example:
           - {}
+        Earnings:
+          type: number
+          format: double
+          description: The total commissions earned by the staff for this item.
+          example: 1.0
+    ScheduledServiceEarningsEvent:
+      type: object
+      description: Implementation of the 'ScheduledServiceEarningsEvent' model.
+      properties:
+        StaffId:
+          type: integer
+          format: int32
+          description: The ID of the staff member who taught the class.
+          example: 123456
+        ScheduledServiceId:
+          type: integer
+          format: int32
+          description: The class' ID.
+          example: 123456
+        ScheduledServiceType:
+          $ref: '#/components/schemas/ScheduledServiceTypeEnum'
+          description: The type of the scheduled service; i.e, a class, appointment, or enrollment.
+        Earnings:
+          type: number
+          format: double
+          description: The total monetary amount the staff is to be paid for this class.
+          example: 1.0
+        DateTime:
+          type: string
+          format: date-time
+          description: The model property of type datetime.
+          example: '2026-05-28T14:30:00Z'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

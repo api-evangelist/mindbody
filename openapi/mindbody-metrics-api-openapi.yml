@@ -58,6 +58,17 @@ paths:
       - ApiKeyAuth: []
 components:
   schemas:
+    GetMetricsResponse:
+      type: object
+      description: Implementation of the 'GetMetricsResponse' model. A wrapper for returning subscription metrics to API users
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metric'
+          description: Contains the metrics for the passed subscription
+          example:
+          - {}
     Metric:
       type: object
       description: Implementation of the 'Metric' model. Metrics for subscription
@@ -100,17 +111,6 @@ components:
           type: string
           description: The subscription's ID (a GUID).
           example: example-value
-    GetMetricsResponse:
-      type: object
-      description: Implementation of the 'GetMetricsResponse' model. A wrapper for returning subscription metrics to API users
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Metric'
-          description: Contains the metrics for the passed subscription
-          example:
-          - {}
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

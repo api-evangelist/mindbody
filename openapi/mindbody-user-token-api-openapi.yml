@@ -181,6 +181,18 @@ paths:
       - ApiKeyAuth: []
 components:
   schemas:
+    IssueRequest:
+      type: object
+      description: Implementation of the 'IssueRequest' model. POST UserToken/Issue request
+      properties:
+        Username:
+          type: string
+          description: The staff member’s username.
+          example: example-value
+        Password:
+          type: string
+          description: The staff member’s password.
+          example: example-value
     IssueResponse:
       type: object
       description: Implementation of the 'IssueResponse' model. POST UserToken/Issue successful response
@@ -201,18 +213,6 @@ components:
         User:
           $ref: '#/components/schemas/User'
           description: Contains information about the user represented by the access token.
-    IssueRequest:
-      type: object
-      description: Implementation of the 'IssueRequest' model. POST UserToken/Issue request
-      properties:
-        Username:
-          type: string
-          description: The staff member’s username.
-          example: example-value
-        Password:
-          type: string
-          description: The staff member’s password.
-          example: example-value
     User:
       type: object
       description: Implementation of the 'User' model.
