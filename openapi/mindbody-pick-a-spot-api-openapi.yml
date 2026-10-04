@@ -407,6 +407,23 @@ paths:
       - ApiKeyAuth: []
 components:
   schemas:
+    GetReservationResponse:
+      type: object
+      description: Implementation of the 'GetReservationResponse' model. Contains information about the get reservation response
+      properties:
+        Reservations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reservation'
+          description: Contains information about the reservation details.
+          example:
+          - {}
+        Pagination:
+          $ref: '#/components/schemas/Pagination'
+          description: Contains information about the pagination used.
+        ResponseDetails:
+          $ref: '#/components/schemas/ResponseDetails'
+          description: Contains information about the response details, e.g. status, transactionId.
     ResponseDetails:
       type: object
       description: Implementation of the 'ResponseDetails' model. Contains information about the response message detail.
@@ -451,23 +468,6 @@ components:
           description: Contains information about the collection of Unavailable spot numbers.
           example:
           - 1
-    GetPickASpotClassResponse:
-      type: object
-      description: Implementation of the 'GetPickASpotClassResponse' model. Contains information about the get PickASpot class response.
-      properties:
-        classes:
-          type: array
-          items:
-            $ref: '#/components/schemas/PickASpotClass'
-          description: Contains information about the PickASpot classes.
-          example:
-          - {}
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-          description: Contains information about the pagination used.
-        responseDetails:
-          $ref: '#/components/schemas/ResponseDetails'
-          description: Contains information about the response details.
     Pagination:
       type: object
       description: Implementation of the 'Pagination' model. Contains information about the pagination used.
@@ -492,21 +492,6 @@ components:
           format: int32
           description: Total number of page in dataset.
           example: 10
-    M0CultureNeutralPublicKeyTokenB77a5c561934e089:
-      type: object
-      description: Implementation of the '0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]' model.
-      properties:
-        key:
-          type: string
-          description: The model property of type str.
-          example: example-value
-        value:
-          type: array
-          items:
-            type: string
-          description: The model property of type List[str].
-          example:
-          - example-value
     PickASpotClass:
       type: object
       description: Implementation of the 'PickASpotClass' model. Contains information about the PickASpot classes.
@@ -562,6 +547,31 @@ components:
           description: Contains information about the reservation collection.
           example:
           - {}
+    CreateReservationResponse:
+      type: object
+      description: Implementation of the 'CreateReservationResponse' model. Contains information about the create reservation response.
+      properties:
+        Reservation:
+          $ref: '#/components/schemas/Reservation'
+          description: Contains information about the reservation details.
+        ResponseDetails:
+          $ref: '#/components/schemas/ResponseDetails'
+          description: Contains information about the response details, e.g. status, transactionId.
+    M0CultureNeutralPublicKeyTokenB77a5c561934e089:
+      type: object
+      description: Implementation of the '0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]' model.
+      properties:
+        key:
+          type: string
+          description: The model property of type str.
+          example: example-value
+        value:
+          type: array
+          items:
+            type: string
+          description: The model property of type List[str].
+          example:
+          - example-value
     HttpContent:
       type: object
       description: Implementation of the 'HttpContent' model.
@@ -573,16 +583,6 @@ components:
           description: The model property of type List[M0CultureNeutralPublicKeyTokenB77a5c561934e089].
           example:
           - {}
-    UpdateReservationResponse:
-      type: object
-      description: Implementation of the 'UpdateReservationResponse' model. Contains information about the update reservation response.
-      properties:
-        Reservation:
-          $ref: '#/components/schemas/Reservation'
-          description: Contains information about the reservation details.
-        ResponseDetails:
-          $ref: '#/components/schemas/ResponseDetails'
-          description: Contains information about the response details, e.g. status, transactionId.
     Reservation:
       type: object
       description: Implementation of the 'Reservation' model. Contains information about the reservation.
@@ -623,26 +623,26 @@ components:
           format: date-time
           description: Contains information about the confirmation date.
           example: '2026-05-28T14:30:00Z'
-    GetReservationResponse:
+    GetPickASpotClassResponse:
       type: object
-      description: Implementation of the 'GetReservationResponse' model. Contains information about the get reservation response
+      description: Implementation of the 'GetPickASpotClassResponse' model. Contains information about the get PickASpot class response.
       properties:
-        Reservations:
+        classes:
           type: array
           items:
-            $ref: '#/components/schemas/Reservation'
-          description: Contains information about the reservation details.
+            $ref: '#/components/schemas/PickASpotClass'
+          description: Contains information about the PickASpot classes.
           example:
           - {}
-        Pagination:
+        pagination:
           $ref: '#/components/schemas/Pagination'
           description: Contains information about the pagination used.
-        ResponseDetails:
+        responseDetails:
           $ref: '#/components/schemas/ResponseDetails'
-          description: Contains information about the response details, e.g. status, transactionId.
-    CreateReservationResponse:
+          description: Contains information about the response details.
+    UpdateReservationResponse:
       type: object
-      description: Implementation of the 'CreateReservationResponse' model. Contains information about the create reservation response.
+      description: Implementation of the 'UpdateReservationResponse' model. Contains information about the update reservation response.
       properties:
         Reservation:
           $ref: '#/components/schemas/Reservation'

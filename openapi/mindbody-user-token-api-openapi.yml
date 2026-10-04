@@ -181,6 +181,27 @@ paths:
       - ApiKeyAuth: []
 components:
   schemas:
+    User:
+      type: object
+      description: Implementation of the 'User' model.
+      properties:
+        Id:
+          type: integer
+          format: int32
+          description: The user’s ID at the business. This is always 0 for Admin and Owner type users.
+          example: 123456
+        FirstName:
+          type: string
+          description: The user’s first name.
+          example: Alex
+        LastName:
+          type: string
+          description: The user’s last name.
+          example: Lane
+        Type:
+          type: string
+          description: 'The user’s type. Possible values are: * Staff * Owner * Admin'
+          example: example-value
     IssueRequest:
       type: object
       description: Implementation of the 'IssueRequest' model. POST UserToken/Issue request
@@ -213,27 +234,6 @@ components:
         User:
           $ref: '#/components/schemas/User'
           description: Contains information about the user represented by the access token.
-    User:
-      type: object
-      description: Implementation of the 'User' model.
-      properties:
-        Id:
-          type: integer
-          format: int32
-          description: The user’s ID at the business. This is always 0 for Admin and Owner type users.
-          example: 123456
-        FirstName:
-          type: string
-          description: The user’s first name.
-          example: Alex
-        LastName:
-          type: string
-          description: The user’s last name.
-          example: Lane
-        Type:
-          type: string
-          description: 'The user’s type. Possible values are: * Staff * Owner * Admin'
-          example: example-value
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
