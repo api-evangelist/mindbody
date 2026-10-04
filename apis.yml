@@ -747,6 +747,9 @@ apis:
   - type: JSONLD
     url: json-ld/mindbody-webhooks-api-context.jsonld
 common:
+- type: CapabilityMap
+  url: capabilities/mindbody-capability-edges.yml
+  name: Mindbody Business Capability Map
 - type: IssueTracker
   url: https://github.com/mindbody/Mindbody-API-SDKs/issues
 - type: AgenticAccess
