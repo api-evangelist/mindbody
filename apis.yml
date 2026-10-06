@@ -63,7 +63,7 @@ tags_raw:
 - Webhooks
 url: https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/apis.yml
 created: '2026-05-11'
-modified: '2026-05-28'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: mindbody:mindbody-appointment-api
@@ -747,6 +747,8 @@ apis:
   - type: JSONLD
     url: json-ld/mindbody-webhooks-api-context.jsonld
 common:
+- url: https://www.mindbodyonline.com/business/education/blog
+  type: Blog
 - type: CapabilityMap
   url: capabilities/mindbody-capability-edges.yml
   name: Mindbody Business Capability Map
