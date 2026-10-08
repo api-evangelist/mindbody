@@ -167,3 +167,53 @@ plans:
       - name: Public API v6 access
       - name: Webhooks API access
       - name: API key, client key, and client secret for development
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  - subscription
+  units:
+  - message
+  - period
+  - request
+  plans:
+  - name: Starter
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - period
+    - request
+    periods:
+    - day
+    - month
+  - name: Accelerate
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - period
+    - request
+    periods:
+    - day
+    - month
+  - name: Ultimate
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - message
+    - period
+    - request
+    periods:
+    - day
+    - month
+  - name: Developer Sandbox
+    access: freemium
+    model: metered
+    model_how: derived
+    units:
+    - request
+    periods:
+    - day
