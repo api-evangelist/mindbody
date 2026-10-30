@@ -1,4 +1,4 @@
-# Mindbody (mindbody)
+# Mindbody
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,202 +66,294 @@
 
 Mindbody is a business management and consumer marketplace platform for the fitness, beauty, and wellness industries, providing scheduling, point of sale, client management, marketing, and reporting tools for studios, gyms, salons, and spas. The Mindbody Public API (v6) provides REST endpoints for appointments, classes, clients, enrollments, sales, sites, staff, payroll, and cross-site identity, and is paired with a Webhooks API that pushes real-time event notifications using API key + SiteId headers, with optional OAuth 2.0 bearer tokens from the Mindbody Identity Service for staff- and client-scoped operations.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/mindbody/refs/heads/main/apis.yml)
+**Areas:** Fitness · Wellness · Beauty · Scheduling · Booking · Point-of-Sale · Studio · Salon · Spas · Webhook
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Mindbody on APIs.io
 
-## Tags:
+Everything profiled for Mindbody is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/mindbody/](https://apis.io/providers/mindbody/)** — or go straight to one of the APIs or properties below.
 
- - Fitness, Wellness, Beauty, Scheduling, Booking, Point of Sale, Studios, Salons, Spas, Webhooks
+### APIs (13)
 
-## Timestamps
+- [Mindbody Appointment API](https://apis.io/apis/mindbody/mindbody-appointment-api/) — Appointment operations.
+- [Mindbody Class API](https://apis.io/apis/mindbody/mindbody-class-api/) — Class operations.
+- [Mindbody Client API](https://apis.io/apis/mindbody/mindbody-client-api/) — Client operations.
+- [Mindbody Cross Site API](https://apis.io/apis/mindbody/mindbody-cross-site-api/) — Cross Site operations.
+- [Mindbody Enrollment API](https://apis.io/apis/mindbody/mindbody-enrollment-api/) — Enrollment operations.
+- [Mindbody Metrics API](https://apis.io/apis/mindbody/mindbody-metrics-api/) — Metrics operations.
+- [Mindbody Payroll API](https://apis.io/apis/mindbody/mindbody-payroll-api/) — Payroll operations.
+- [Mindbody Pick A Spot API](https://apis.io/apis/mindbody/mindbody-pick-a-spot-api/) — Pick A Spot operations.
+- [Mindbody Sale API](https://apis.io/apis/mindbody/mindbody-sale-api/) — Sale operations.
+- [Mindbody Site API](https://apis.io/apis/mindbody/mindbody-site-api/) — Site operations.
+- [Mindbody Staff API](https://apis.io/apis/mindbody/mindbody-staff-api/) — Staff operations.
+- [Mindbody Subscriptions API](https://apis.io/apis/mindbody/mindbody-subscriptions-api/) — Subscriptions operations.
+- [Mindbody User Token API](https://apis.io/apis/mindbody/mindbody-user-token-api/) — User Token operations.
 
-- **Created:** 2026-05-11
-- **Modified:** 2026-05-28
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Mindbody Public API v6
+#### Arazzo workflows (16)
 
-REST API for Mindbody business data including appointments, classes, clients, enrollments, sales, sites, staff, payroll, pick-a-spot reservations, and cross-site identity. Authentication combines a Mindbody-issued API-Key header and SiteId header with optional OAuth 2.0 bearer tokens issued by Mindbody Identity Service for staff- and client-scoped operations. Base URL: `https://api.mindbodyonline.com`.
+Multi-step workflows that chain operations into a business task.
 
-**Human URL:** [https://developers.mindbodyonline.com/PublicDocumentation/V6](https://developers.mindbodyonline.com/PublicDocumentation/V6)
+- [Mindbody Add Client and Book Class](https://apis.io/arazzos/mindbody/mindbody-add-client-book-class-workflow/)
+- [Mindbody Book Appointment](https://apis.io/arazzos/mindbody/mindbody-book-appointment-workflow/)
+- [Mindbody Browse Services and Checkout](https://apis.io/arazzos/mindbody/mindbody-browse-services-checkout-workflow/)
+- [Mindbody Checkout Cart and Confirm Sale](https://apis.io/arazzos/mindbody/mindbody-checkout-cart-confirm-sale-workflow/)
+- [Mindbody Client Arrival Check-In](https://apis.io/arazzos/mindbody/mindbody-client-arrival-checkin-workflow/)
+- [Mindbody Client Membership Review](https://apis.io/arazzos/mindbody/mindbody-client-membership-review-workflow/)
+- [Mindbody Client Visit History](https://apis.io/arazzos/mindbody/mindbody-client-visit-history-workflow/)
+- [Mindbody Enroll Client in Program](https://apis.io/arazzos/mindbody/mindbody-enroll-client-in-program-workflow/)
+- [Mindbody Find Client Purchases](https://apis.io/arazzos/mindbody/mindbody-find-client-purchases-workflow/)
+- [Mindbody Issue User Token and List Clients](https://apis.io/arazzos/mindbody/mindbody-issue-token-list-clients-workflow/)
+- [Mindbody Log Client Contact](https://apis.io/arazzos/mindbody/mindbody-log-client-contact-workflow/)
+- [Mindbody Resolve Site and List Classes](https://apis.io/arazzos/mindbody/mindbody-resolve-site-list-classes-workflow/)
+- [Mindbody Schedule Items by Location](https://apis.io/arazzos/mindbody/mindbody-schedule-items-by-location-workflow/)
+- [Mindbody Session Type Book Appointment](https://apis.io/arazzos/mindbody/mindbody-session-type-book-appointment-workflow/)
+- [Mindbody Staff Class Schedule](https://apis.io/arazzos/mindbody/mindbody-staff-class-schedule-workflow/)
+- [Mindbody Staff Schedule Lookup](https://apis.io/arazzos/mindbody/mindbody-staff-schedule-lookup-workflow/)
 
-**Base URL:** `https://api.mindbodyonline.com`
+#### GraphQL (1)
 
-#### Tags:
+GraphQL schemas.
 
- - REST, OAuth 2.0, API Key, Appointments, Classes, Clients, Sales, Staff, Payroll, Sites
+- [Moved to /providers/mindbody/](https://apis.io/graphqls/mindbody/mindbody-graphql/)
 
-#### Properties
+#### Agentic access (1)
 
-- [Documentation](https://developers.mindbodyonline.com/PublicDocumentation/V6)
-- [APIReference](https://developers.mindbodyonline.com/ui/documentation/public-api)
-- [GettingStarted](https://developers.mindbodyonline.com/PublicDocumentation/GettingStarted)
-- [OpenAPI](openapi/mindbody-public-api-v6-openapi-original.yml)
-- [C# .NET Standard SDK](https://github.com/mindbody/Mindbody-API-SDKs/raw/main/PublicAPI/mindbody-public-api-cs_net_standard_lib.zip)
-- [PHP SDK](https://github.com/mindbody/Mindbody-API-SDKs/raw/main/PublicAPI/mindbody-public-api-php_generic_lib_v2.zip)
-- [Python SDK](https://github.com/mindbody/Mindbody-API-SDKs/raw/main/PublicAPI/mindbody-public-api-python_generic_lib.zip)
-- [Ruby SDK](https://github.com/mindbody/Mindbody-API-SDKs/raw/main/PublicAPI/mindbody-public-api-ruby_generic_lib.zip)
-- [Partner OAuth Sample App (C#)](https://github.com/mindbody/PartnerOAuthWebApp)
-- [OAuth 2.0 (Mindbody Identity Service)](https://signin.mindbodyonline.com/connect/authorize)
-- [JSON-LD Context](json-ld/mindbody-public-api-v6-context.jsonld)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-### Mindbody Webhooks API
+- [Mindbody Agentic Access](https://apis.io/agentic-access/mindbody/mindbody-agentic-access/)
 
-Subscription and delivery platform that pushes near real-time event notifications for sites, locations, appointments, classes, clients, sales, and staff. Partners manage subscriptions over a REST control plane (POST/GET/PATCH/DELETE /api/v1/subscriptions, GET /api/v1/metrics), and Mindbody pushes JSON events with HMAC-SHA256 signature verification via the X-Mindbody-Signature header. Base URL: `https://push-api.mindbodyonline.com`.
+#### JSON Schema (351)
 
-**Human URL:** [https://developers.mindbodyonline.com/WebhooksDocumentation](https://developers.mindbodyonline.com/WebhooksDocumentation)
+The data models the API reads and writes.
 
-**Base URL:** `https://push-api.mindbodyonline.com`
+- [ActionEnum](https://apis.io/schemas/mindbody/public-api-v6-action-enum/)
+- [Action1Enum](https://apis.io/schemas/mindbody/public-api-v6-action1-enum/)
+- [Action11Enum](https://apis.io/schemas/mindbody/public-api-v6-action11-enum/)
+- [Action8Enum](https://apis.io/schemas/mindbody/public-api-v6-action8-enum/)
+- [ActivationTypeEnum](https://apis.io/schemas/mindbody/public-api-v6-activation-type-enum/)
+- [AddAppointmentAddOnRequest](https://apis.io/schemas/mindbody/public-api-v6-add-appointment-add-on-request/)
+- [AddAppointmentAddOnResponse](https://apis.io/schemas/mindbody/public-api-v6-add-appointment-add-on-response/)
+- [AddAppointmentOutcome](https://apis.io/schemas/mindbody/public-api-v6-add-appointment-outcome/)
+- [AddAppointmentRequest](https://apis.io/schemas/mindbody/public-api-v6-add-appointment-request/)
+- [AddAppointmentResponse](https://apis.io/schemas/mindbody/public-api-v6-add-appointment-response/)
+- [AddArrivalRequest](https://apis.io/schemas/mindbody/public-api-v6-add-arrival-request/)
+- [AddArrivalResponse](https://apis.io/schemas/mindbody/public-api-v6-add-arrival-response/)
+- [AddAvailabilitiesRequest](https://apis.io/schemas/mindbody/public-api-v6-add-availabilities-request/)
+- [AddAvailabilitiesResponse](https://apis.io/schemas/mindbody/public-api-v6-add-availabilities-response/)
+- [AddClassEnrollmentScheduleRequest](https://apis.io/schemas/mindbody/public-api-v6-add-class-enrollment-schedule-request/)
+- [AddClientDirectDebitInfoRequest](https://apis.io/schemas/mindbody/public-api-v6-add-client-direct-debit-info-request/)
+- [AddClientDirectDebitInfoResponse](https://apis.io/schemas/mindbody/public-api-v6-add-client-direct-debit-info-response/)
+- [AddClientRequest](https://apis.io/schemas/mindbody/public-api-v6-add-client-request/)
+- [AddClientResponse](https://apis.io/schemas/mindbody/public-api-v6-add-client-response/)
+- [AddClientToClassRequest](https://apis.io/schemas/mindbody/public-api-v6-add-client-to-class-request/)
+- [AddClientToClassResponse](https://apis.io/schemas/mindbody/public-api-v6-add-client-to-class-response/)
+- [AddClientToClassVisit](https://apis.io/schemas/mindbody/public-api-v6-add-client-to-class-visit/)
+- [AddClientToEnrollmentRequest](https://apis.io/schemas/mindbody/public-api-v6-add-client-to-enrollment-request/)
+- [AddContactLogRequest](https://apis.io/schemas/mindbody/public-api-v6-add-contact-log-request/)
+- [AddContactLogType](https://apis.io/schemas/mindbody/public-api-v6-add-contact-log-type/)
+- …and 326 more published on APIs.io
 
-#### Tags:
+#### JSON Structure (351)
 
- - Webhooks, Events, Subscriptions, Real-Time, HMAC
+Data models expressed in JSON Structure.
 
-#### Properties
+- [Public Api V6 Action Enum Structure](https://apis.io/json-structure/mindbody/public-api-v6-action-enum-structure/)
+- [Public Api V6 Action1 Enum Structure](https://apis.io/json-structure/mindbody/public-api-v6-action1-enum-structure/)
+- [Public Api V6 Action11 Enum Structure](https://apis.io/json-structure/mindbody/public-api-v6-action11-enum-structure/)
+- [Public Api V6 Action8 Enum Structure](https://apis.io/json-structure/mindbody/public-api-v6-action8-enum-structure/)
+- [Public Api V6 Activation Type Enum Structure](https://apis.io/json-structure/mindbody/public-api-v6-activation-type-enum-structure/)
+- [Public Api V6 Add Appointment Add On Request Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-appointment-add-on-request-structure/)
+- [Public Api V6 Add Appointment Add On Response Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-appointment-add-on-response-structure/)
+- [Public Api V6 Add Appointment Outcome Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-appointment-outcome-structure/)
+- [Public Api V6 Add Appointment Request Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-appointment-request-structure/)
+- [Public Api V6 Add Appointment Response Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-appointment-response-structure/)
+- [Public Api V6 Add Arrival Request Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-arrival-request-structure/)
+- [Public Api V6 Add Arrival Response Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-arrival-response-structure/)
+- [Public Api V6 Add Availabilities Request Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-availabilities-request-structure/)
+- [Public Api V6 Add Availabilities Response Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-availabilities-response-structure/)
+- [Public Api V6 Add Class Enrollment Schedule Request Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-class-enrollment-schedule-request-structure/)
+- [Public Api V6 Add Client Direct Debit Info Request Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-client-direct-debit-info-request-structure/)
+- [Public Api V6 Add Client Direct Debit Info Response Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-client-direct-debit-info-response-structure/)
+- [Public Api V6 Add Client Request Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-client-request-structure/)
+- [Public Api V6 Add Client Response Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-client-response-structure/)
+- [Public Api V6 Add Client To Class Request Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-client-to-class-request-structure/)
+- [Public Api V6 Add Client To Class Response Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-client-to-class-response-structure/)
+- [Public Api V6 Add Client To Class Visit Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-client-to-class-visit-structure/)
+- [Public Api V6 Add Client To Enrollment Request Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-client-to-enrollment-request-structure/)
+- [Public Api V6 Add Contact Log Request Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-contact-log-request-structure/)
+- [Public Api V6 Add Contact Log Type Structure](https://apis.io/json-structure/mindbody/public-api-v6-add-contact-log-type-structure/)
+- …and 326 more published on APIs.io
 
-- [Documentation](https://developers.mindbodyonline.com/WebhooksDocumentation)
-- [APIReference](https://developers.mindbodyonline.com/ui/documentation/webhooks-api)
-- [OpenAPI](openapi/mindbody-webhooks-api-openapi-original.yml)
-- [C# .NET Standard SDK](https://github.com/mindbody/Mindbody-API-SDKs/raw/main/WebhooksAPI/mindbody.pushapi.api-cs_net_standard_lib.zip)
-- [PHP SDK](https://github.com/mindbody/Mindbody-API-SDKs/raw/main/WebhooksAPI/mindbody.pushapi.api-php_generic_lib_v2.zip)
-- [Python SDK](https://github.com/mindbody/Mindbody-API-SDKs/raw/main/WebhooksAPI/mindbody.pushapi.api-python_generic_lib.zip)
-- [Ruby SDK](https://github.com/mindbody/Mindbody-API-SDKs/raw/main/WebhooksAPI/mindbody.pushapi.api-ruby_generic_lib.zip)
-- [JSON-LD Context](json-ld/mindbody-webhooks-api-context.jsonld)
+#### JSON-LD (2)
 
-## Common Properties
+Linked-data contexts for the provider's vocabulary.
+
+- [Mindbody Public Api V6 Context](https://apis.io/jsonld/mindbody/mindbody-public-api-v6-context/)
+- [Mindbody Webhooks Api Context](https://apis.io/jsonld/mindbody/mindbody-webhooks-api-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Mindbody Vocabulary](https://apis.io/vocabularies/mindbody/mindbody-vocabulary/)
+
+#### Examples (322)
+
+Example requests and responses.
+
+- [Public Api V6 Add Appointment Add On Request Example](https://apis.io/examples/mindbody/public-api-v6-add-appointment-add-on-request-example/)
+- [Public Api V6 Add Appointment Add On Response Example](https://apis.io/examples/mindbody/public-api-v6-add-appointment-add-on-response-example/)
+- [Public Api V6 Add Appointment Outcome Example](https://apis.io/examples/mindbody/public-api-v6-add-appointment-outcome-example/)
+- [Public Api V6 Add Appointment Request Example](https://apis.io/examples/mindbody/public-api-v6-add-appointment-request-example/)
+- [Public Api V6 Add Appointment Response Example](https://apis.io/examples/mindbody/public-api-v6-add-appointment-response-example/)
+- [Public Api V6 Add Arrival Request Example](https://apis.io/examples/mindbody/public-api-v6-add-arrival-request-example/)
+- [Public Api V6 Add Arrival Response Example](https://apis.io/examples/mindbody/public-api-v6-add-arrival-response-example/)
+- [Public Api V6 Add Availabilities Request Example](https://apis.io/examples/mindbody/public-api-v6-add-availabilities-request-example/)
+- [Public Api V6 Add Availabilities Response Example](https://apis.io/examples/mindbody/public-api-v6-add-availabilities-response-example/)
+- [Public Api V6 Add Class Enrollment Schedule Request Example](https://apis.io/examples/mindbody/public-api-v6-add-class-enrollment-schedule-request-example/)
+- [Public Api V6 Add Client Direct Debit Info Request Example](https://apis.io/examples/mindbody/public-api-v6-add-client-direct-debit-info-request-example/)
+- [Public Api V6 Add Client Direct Debit Info Response Example](https://apis.io/examples/mindbody/public-api-v6-add-client-direct-debit-info-response-example/)
+- [Public Api V6 Add Client Request Example](https://apis.io/examples/mindbody/public-api-v6-add-client-request-example/)
+- [Public Api V6 Add Client Response Example](https://apis.io/examples/mindbody/public-api-v6-add-client-response-example/)
+- [Public Api V6 Add Client To Class Request Example](https://apis.io/examples/mindbody/public-api-v6-add-client-to-class-request-example/)
+- [Public Api V6 Add Client To Class Response Example](https://apis.io/examples/mindbody/public-api-v6-add-client-to-class-response-example/)
+- [Public Api V6 Add Client To Class Visit Example](https://apis.io/examples/mindbody/public-api-v6-add-client-to-class-visit-example/)
+- [Public Api V6 Add Client To Enrollment Request Example](https://apis.io/examples/mindbody/public-api-v6-add-client-to-enrollment-request-example/)
+- [Public Api V6 Add Contact Log Request Example](https://apis.io/examples/mindbody/public-api-v6-add-contact-log-request-example/)
+- [Public Api V6 Add Contact Log Type Example](https://apis.io/examples/mindbody/public-api-v6-add-contact-log-type-example/)
+- [Public Api V6 Add Formula Note Request Example](https://apis.io/examples/mindbody/public-api-v6-add-formula-note-request-example/)
+- [Public Api V6 Add Multiple Appointments Request Example](https://apis.io/examples/mindbody/public-api-v6-add-multiple-appointments-request-example/)
+- [Public Api V6 Add Multiple Appointments Response Example](https://apis.io/examples/mindbody/public-api-v6-add-multiple-appointments-response-example/)
+- [Public Api V6 Add On Small Example](https://apis.io/examples/mindbody/public-api-v6-add-on-small-example/)
+- [Public Api V6 Add On Small1 Example](https://apis.io/examples/mindbody/public-api-v6-add-on-small1-example/)
+- …and 297 more published on APIs.io
+
+#### Collections (15)
+
+Postman and Open Collection request collections.
+
+- [Mindbody Public API v6 Appointment API](https://apis.io/collections/mindbody/open-mindbody-appointment-api/)
+- [Mindbody Public API v6 Appointment Class API](https://apis.io/collections/mindbody/open-mindbody-class-api/)
+- [Mindbody Public API v6 Appointment Client API](https://apis.io/collections/mindbody/open-mindbody-client-api/)
+- [Mindbody Public API v6 Appointment Cross Site API](https://apis.io/collections/mindbody/open-mindbody-cross-site-api/)
+- [Mindbody Public API v6 Appointment Enrollment API](https://apis.io/collections/mindbody/open-mindbody-enrollment-api/)
+- [Mindbody Public API v6 Appointment Metrics API](https://apis.io/collections/mindbody/open-mindbody-metrics-api/)
+- [Mindbody Public API v6 Appointment Payroll API](https://apis.io/collections/mindbody/open-mindbody-payroll-api/)
+- [Mindbody Public API v6 Appointment Pick A Spot API](https://apis.io/collections/mindbody/open-mindbody-pick-a-spot-api/)
+- [Mindbody Public API v6 Appointment Sale API](https://apis.io/collections/mindbody/open-mindbody-sale-api/)
+- [Mindbody Public API v6 Appointment Site API](https://apis.io/collections/mindbody/open-mindbody-site-api/)
+- [Mindbody Public API v6 Appointment Staff API](https://apis.io/collections/mindbody/open-mindbody-staff-api/)
+- [Mindbody Public API v6 Appointment Subscriptions API](https://apis.io/collections/mindbody/open-mindbody-subscriptions-api/)
+- [Mindbody Public API v6 Appointment User Token API](https://apis.io/collections/mindbody/open-mindbody-user-token-api/)
+- [Mindbody Public API v6](https://apis.io/collections/mindbody/postman-mindbody-public-api-v6-openapi-original/)
+- [Mindbody Webhooks API](https://apis.io/collections/mindbody/postman-mindbody-webhooks-api-openapi-original/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Mindbody — jsonschema rules](https://apis.io/rules/mindbody/mindbody-jsonschema-spectral-rules/)
+- [Mindbody API Rules](https://apis.io/rules/mindbody/mindbody-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Mindbody Authentication](https://apis.io/security/mindbody/mindbody-authentication/)
+- [Mindbody Domain Security](https://apis.io/security/mindbody/mindbody-domain-security/)
+- [Mindbody Trust Center](https://apis.io/security/mindbody/mindbody-trust-center/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Mindbody Scopes](https://apis.io/scopes/mindbody/mindbody-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Mindbody Plans Pricing](https://apis.io/plans/mindbody/mindbody-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Mindbody Rate Limits](https://apis.io/rate-limits/mindbody/mindbody-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Mindbody Finops](https://apis.io/finops/mindbody/mindbody-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.mindbodyonline.com/)
 - [Documentation](https://developers.mindbodyonline.com/)
-- [Developer Portal](https://developers.mindbodyonline.com/)
-- [GettingStarted](https://developers.mindbodyonline.com/PublicDocumentation/GettingStarted)
-- [SignUp](https://developers.mindbodyonline.com/Signup)
+- [Getting started](https://developers.mindbodyonline.com/PublicDocumentation/GettingStarted)
 - [Pricing](https://www.mindbodyonline.com/business/pricing)
 - [Support](https://support.mindbodyonline.com/s/contactapisupport)
-- [FAQ](https://developers.mindbodyonline.com/resources/faqs)
-- [StatusPage](https://status.mindbodyonline.com/)
-- [GitHubOrganization](https://github.com/mindbody)
-- [Mindbody-API-SDKs](https://github.com/mindbody/Mindbody-API-SDKs)
-- [LinkedIn](https://www.linkedin.com/company/mindbody)
-- [ReleaseNotes](https://developers.mindbodyonline.com/Resources/ApiReleaseNotes)
-- [Plans](plans/mindbody-plans-pricing.yml)
-- [RateLimits](rate-limits/mindbody-rate-limits.yml)
-- [FinOps](finops/mindbody-finops.yml)
-- [SpectralRules](rules/mindbody-spectral-rules.yml)
-- [Vocabulary](vocabulary/mindbody-vocabulary.yml)
+- [Blog](https://www.mindbodyonline.com/business/education/blog)
+- [GitHub](https://github.com/mindbody)
+- [Status](https://status.mindbodyonline.com/)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Booking and Scheduling | Online booking widgets, class schedules, appointments, enrollments, and Pick-a-Spot reservations. |
-| Point of Sale | In-studio POS for products, services, contracts, gift cards, custom payment methods, refunds, and returns. |
-| Client Management | Client profiles, contracts, services, contact logs, formula notes, custom fields, and red/yellow alerts. |
-| Staff and Payroll | Staff schedules, permissions, availability, class pay, commissions, and time-clock reporting. |
-| Webhooks | HMAC-signed, near real-time delivery of site, location, appointment, class, client, sale, and staff events. |
-| Identity and OAuth | OpenID Connect via signin.mindbodyonline.com with the Mindbody.Api.Public.v6 scope for delegated calls. |
-| Cross-Site Lookup | Discover which Mindbody businesses a client is associated with across the network. |
-| Marketplace Listing | Mindbody consumer app marketplace exposes participating studios to nearby members. |
+**Kin Score 56.1** — strong · rubric 0.25.0 · scored 2026-10-23
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 64.5 |
+| Contract governance | 27.3 |
+| Operational transparency | 42.1 |
+| Developer ergonomics | 75.0 |
+| Access clarity | 39.5 |
 
-| Name | Description |
-|------|-------------|
-| Studio Booking Apps | Build branded mobile or web booking experiences for yoga, pilates, barre, and fitness studios. |
-| CRM and Marketing Automation | Sync clients and sales events into CRMs (HubSpot, Salesforce) and trigger marketing journeys. |
-| Wellness Aggregator Integrations | Power class/appointment discovery and booking in third-party wellness apps and ClassPass-style platforms. |
-| Studio Operations Analytics | Pipe payroll, sales, and class fill data into BI tooling for chain operators. |
-| Customer Loyalty Programs | Drive loyalty points and rewards from visit/sale events delivered via the Webhooks API. |
-| Network Identity | Use Cross-Site to recognize repeat clients across affiliated Mindbody businesses. |
+**Agent readiness 26.4** — agent-aware
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | mostly |
 
-| Name | Description |
-|------|-------------|
-| Mindbody Identity Service | OpenID Connect provider at signin.mindbodyonline.com powering OAuth 2.0 flows for the Public API. |
-| Mindbody Marketplace | Consumer app surface exposing participating studios for nearby discovery and booking. |
-| Partner Store | Mindbody-vetted directory of integrations at partnerstore.mindbodyonline.com. |
-| ClassPass | Aggregator marketplace integrating with Mindbody for class supply. |
-| Payment Processors | Integrated card processing and custom payment methods routed through the Sale endpoints. |
+**Regulatory alignment 31.4** — Horizontal (data, software, accessibility, platform)
 
-## Solutions
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/mindbody/](https://apis.io/providers/mindbody/).
 
-| Name | Description |
-|------|-------------|
-| Boutique Fitness | Yoga, pilates, barre, indoor cycling, HIIT, and martial-arts studios. |
-| Beauty and Salon | Hair, nail, and beauty salons using appointment scheduling and POS. |
-| Spa and Wellness | Day spas, medspas, and integrative wellness centers. |
-| Health Clubs and Gyms | Multi-location gyms and health clubs with classes, personal training, and recurring memberships. |
+## How this profile is made
 
-## Artifacts
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-Machine-readable API specifications organized by format.
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Mindbody: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### OpenAPI
+## Open an issue
 
-- [Mindbody Public API v6](openapi/mindbody-public-api-v6-openapi-original.yml) — 148 operations across 11 tags (Appointment, Class, Client, Cross Site, Enrollment, Payroll, Pick A Spot, Sale, Site, Staff, User Token)
-- [Mindbody Webhooks API](openapi/mindbody-webhooks-api-openapi-original.yml) — 6 operations across 2 tags (Subscriptions, Metrics)
-
-### JSON Schema
-
-351 standalone JSON Schema files under [`json-schema/`](json-schema/) — one per OpenAPI component schema, draft 2020-12.
-
-### JSON Structure
-
-351 standalone JSON Structure files under [`json-structure/`](json-structure/) — converted from the JSON Schemas with strict-typed numeric and date types.
-
-### JSON-LD
-
-- [Mindbody Public API v6 Context](json-ld/mindbody-public-api-v6-context.jsonld)
-- [Mindbody Webhooks API Context](json-ld/mindbody-webhooks-api-context.jsonld)
-
-### Examples
-
-351 example payloads under [`examples/`](examples/) — one per schema, populated with realistic Mindbody-shaped values.
-
-## Capabilities
-
-Naftiko capabilities organized as self-contained per-tag files, each declaring both a REST adapter and an MCP adapter.
-
-| Capability | API | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Appointment](capabilities/public-api-v6-appointment.yaml) | Public API v6 | 17 | Studio Front Desk, Booking Bot |
-| [Class](capabilities/public-api-v6-class.yaml) | Public API v6 | 16 | Studio Front Desk, Class Manager, Member |
-| [Client](capabilities/public-api-v6-client.yaml) | Public API v6 | 42 | CRM Operator, Front Desk, Marketing Automation |
-| [Cross Site](capabilities/public-api-v6-cross-site.yaml) | Public API v6 | 1 | Network Admin |
-| [Enrollment](capabilities/public-api-v6-enrollment.yaml) | Public API v6 | 4 | Course Coordinator |
-| [Payroll](capabilities/public-api-v6-payroll.yaml) | Public API v6 | 4 | Studio Owner, Finance |
-| [Pick A Spot](capabilities/public-api-v6-pick-a-spot.yaml) | Public API v6 | 6 | Studio Front Desk, Member |
-| [Sale](capabilities/public-api-v6-sale.yaml) | Public API v6 | 25 | POS Cashier, Membership Sales, Finance |
-| [Site](capabilities/public-api-v6-site.yaml) | Public API v6 | 20 | Site Admin, Integration Engineer |
-| [Staff](capabilities/public-api-v6-staff.yaml) | Public API v6 | 10 | Studio Owner, HR |
-| [User Token](capabilities/public-api-v6-user-token.yaml) | Public API v6 | 3 | Integration Engineer |
-| [Subscriptions](capabilities/webhooks-api-subscriptions.yaml) | Webhooks API | 5 | Integration Engineer, Platform Operator |
-| [Metrics](capabilities/webhooks-api-metrics.yaml) | Webhooks API | 1 | Platform Operator |
-
-## Plans
-
-- [Mindbody Plans and Pricing](plans/mindbody-plans-pricing.yml) — Starter ($99/month per location), Accelerate, Ultimate, and Developer Sandbox tiers; Public API access bundled with a 1,000-call-per-key-per-day free quota and ~$0.003 per-call overage in live mode.
-
-## Rate Limits
-
-- [Mindbody Rate Limits](rate-limits/mindbody-rate-limits.yml) — 1,000 calls per API key per day across both live and sandbox modes; live overage billed rather than throttled; sandbox hard-capped; webhook subscriber response SLA of 10s with 15-minute retries up to 3 hours.
-
-## FinOps
-
-- [Mindbody FinOps](finops/mindbody-finops.yml) — FOCUS 1.3 aligned, Tiered Subscription + Pay-As-You-Go billing model, monthly invoicing in USD; meters for software_subscription, api_calls_live, api_calls_sandbox, payment_transactions, payment_volume, sms_messages, webhook_deliveries, marketplace_discovery_fees, and add_on_subscriptions.
-
-## Vocabulary
-
-- [Mindbody Vocabulary](vocabulary/mindbody-vocabulary.yml) — Unified taxonomy mapping 13 operational resources, 8 actions, 13 workflows, and 7 personas across the operational (OpenAPI) and capability (Naftiko) dimensions.
-
-## Rules
-
-- [Mindbody Spectral Ruleset](rules/mindbody-spectral-rules.yml) — 44 rules across 13 categories enforcing Mindbody API conventions (info/metadata, OpenAPI version, servers, paths, operations, tags, parameters, request bodies, responses, schemas, security, HTTP method conventions, Microcks).
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/mindbody/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
